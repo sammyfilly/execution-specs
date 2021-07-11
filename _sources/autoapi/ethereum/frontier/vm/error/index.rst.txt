@@ -62,3 +62,17 @@ frame.
    Bases: :py:obj:`Exception`
 
 
+
+InvalidOpcode
+~~~~~~~~~~~~~
+
+
+Raised when an invalid opcode is encountered.
+
+
+.. exception:: InvalidOpcode
+
+
+   Bases: :py:obj:`Exception`
+
+

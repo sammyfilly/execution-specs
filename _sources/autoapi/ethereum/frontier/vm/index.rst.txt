@@ -17,6 +17,15 @@ The abstract computer which runs the code stored in an
 `eth1spec.eth_types.Account`.
 
 
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   instructions/index.rst
+
+
 Submodules
 ----------
 .. toctree::
@@ -25,9 +34,7 @@ Submodules
 
    error/index.rst
    gas/index.rst
-   instructions/index.rst
    interpreter/index.rst
-   ops/index.rst
    stack/index.rst
 
 

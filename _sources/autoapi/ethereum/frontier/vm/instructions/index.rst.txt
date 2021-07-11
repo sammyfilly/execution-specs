@@ -3,8 +3,8 @@
 
 .. py:module:: ethereum.frontier.vm.instructions
 
-Ethereum Virtual Machine (EVM) Instructions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EVM Instruction Encoding (Opcodes)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
     :backlinks: none
@@ -13,33 +13,32 @@ Ethereum Virtual Machine (EVM) Instructions
 Introduction
 ------------
 
-Implementations of the instructions understood by the EVM.
+Machine readable representations of EVM instructions, and a mapping to their
+implementations.
 
 
-Module Contents
----------------
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   arithmetic/index.rst
+   control_flow/index.rst
+   stack/index.rst
+   storage/index.rst
 
 
-Functions
-~~~~~~~~~
+Package Contents
+----------------
+
+Classes
+~~~~~~~
 
 .. autoapisummary::
-   :nosignatures:
 
-   ethereum.frontier.vm.instructions.stop
-   ethereum.frontier.vm.instructions.add
-   ethereum.frontier.vm.instructions.sub
-   ethereum.frontier.vm.instructions.mul
-   ethereum.frontier.vm.instructions.div
-   ethereum.frontier.vm.instructions.sdiv
-   ethereum.frontier.vm.instructions.mod
-   ethereum.frontier.vm.instructions.smod
-   ethereum.frontier.vm.instructions.addmod
-   ethereum.frontier.vm.instructions.mulmod
-   ethereum.frontier.vm.instructions.exp
-   ethereum.frontier.vm.instructions.signextend
-   ethereum.frontier.vm.instructions.sstore
-   ethereum.frontier.vm.instructions.push_n
+   ethereum.frontier.vm.instructions.Ops
+
 
 
 
@@ -48,632 +47,415 @@ Attributes
 
 .. autoapisummary::
 
-   ethereum.frontier.vm.instructions.push1
-   ethereum.frontier.vm.instructions.push2
-   ethereum.frontier.vm.instructions.push3
-   ethereum.frontier.vm.instructions.push4
-   ethereum.frontier.vm.instructions.push5
-   ethereum.frontier.vm.instructions.push6
-   ethereum.frontier.vm.instructions.push7
-   ethereum.frontier.vm.instructions.push8
-   ethereum.frontier.vm.instructions.push9
-   ethereum.frontier.vm.instructions.push10
-   ethereum.frontier.vm.instructions.push11
-   ethereum.frontier.vm.instructions.push12
-   ethereum.frontier.vm.instructions.push13
-   ethereum.frontier.vm.instructions.push14
-   ethereum.frontier.vm.instructions.push15
-   ethereum.frontier.vm.instructions.push16
-   ethereum.frontier.vm.instructions.push17
-   ethereum.frontier.vm.instructions.push18
-   ethereum.frontier.vm.instructions.push19
-   ethereum.frontier.vm.instructions.push20
-   ethereum.frontier.vm.instructions.push21
-   ethereum.frontier.vm.instructions.push22
-   ethereum.frontier.vm.instructions.push23
-   ethereum.frontier.vm.instructions.push24
-   ethereum.frontier.vm.instructions.push25
-   ethereum.frontier.vm.instructions.push26
-   ethereum.frontier.vm.instructions.push27
-   ethereum.frontier.vm.instructions.push28
-   ethereum.frontier.vm.instructions.push29
-   ethereum.frontier.vm.instructions.push30
-   ethereum.frontier.vm.instructions.push31
-   ethereum.frontier.vm.instructions.push32
+   ethereum.frontier.vm.instructions.op_implementation
 
 
-Module Details
----------------
+Package Details
+----------------
 
-stop
-~~~~
-
-
-.. function:: stop(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
-
-   Stop further execution of EVM code.
-
-   :param evm: The current EVM frame.
-
-
-
-
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 35-44
-
-add
+Ops
 ~~~
 
 
-.. function:: add(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+Enum for EVM Opcodes
 
-   Adds the top two elements of the stack together, and pushes the result back
-   on the stack.
 
-   :param evm: The current EVM frame.
+.. class:: Ops
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_VERY_LOW`.
+   Bases: :py:obj:`enum.Enum`
 
+   .. attribute:: ADD
+      :annotation: = 1
 
+      
 
+   .. attribute:: MUL
+      :annotation: = 2
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 52-75
+      
 
-sub
-~~~
+   .. attribute:: SUB
+      :annotation: = 3
 
+      
 
-.. function:: sub(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: DIV
+      :annotation: = 4
 
-   Subtracts the top two elements of the stack, and pushes the result back
-   on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: SDIV
+      :annotation: = 5
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_VERY_LOW`.
+      
 
+   .. attribute:: MOD
+      :annotation: = 6
 
+      
 
+   .. attribute:: SMOD
+      :annotation: = 7
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 78-101
+      
 
-mul
-~~~
+   .. attribute:: ADDMOD
+      :annotation: = 8
 
+      
 
-.. function:: mul(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: MULMOD
+      :annotation: = 9
 
-   Multiply the top two elements of the stack, and pushes the result back
-   on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: EXP
+      :annotation: = 10
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: SIGNEXTEND
+      :annotation: = 11
 
+      
 
+   .. attribute:: STOP
+      :annotation: = 0
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 104-127
+      
 
-div
-~~~
+   .. attribute:: SSTORE
+      :annotation: = 85
 
+      
 
-.. function:: div(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH1
+      :annotation: = 96
 
-   Integer division of the top two elements of the stack. Pushes the result
-   back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH2
+      :annotation: = 97
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: PUSH3
+      :annotation: = 98
 
+      
 
+   .. attribute:: PUSH4
+      :annotation: = 99
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 130-156
+      
 
-sdiv
-~~~~
+   .. attribute:: PUSH5
+      :annotation: = 100
 
+      
 
-.. function:: sdiv(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH6
+      :annotation: = 101
 
-   Signed integer division of the top two elements of the stack. Pushes the
-   result back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH7
+      :annotation: = 102
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: PUSH8
+      :annotation: = 103
 
+      
 
+   .. attribute:: PUSH9
+      :annotation: = 104
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 159-189
+      
 
-mod
-~~~
+   .. attribute:: PUSH10
+      :annotation: = 105
 
+      
 
-.. function:: mod(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH11
+      :annotation: = 106
 
-   Modulo remainder of the top two elements of the stack. Pushes the result
-   back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH12
+      :annotation: = 107
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: PUSH13
+      :annotation: = 108
 
+      
 
+   .. attribute:: PUSH14
+      :annotation: = 109
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 192-218
+      
 
-smod
-~~~~
+   .. attribute:: PUSH15
+      :annotation: = 110
 
+      
 
-.. function:: smod(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH16
+      :annotation: = 111
 
-   Signed modulo remainder of the top two elements of the stack. Pushes the
-   result back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH17
+      :annotation: = 112
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: PUSH18
+      :annotation: = 113
 
+      
 
+   .. attribute:: PUSH19
+      :annotation: = 114
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 221-248
+      
 
-addmod
-~~~~~~
+   .. attribute:: PUSH20
+      :annotation: = 115
 
+      
 
-.. function:: addmod(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH21
+      :annotation: = 116
 
-   Modulo addition of the top 2 elements with the 3rd element. Pushes the
-   result back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH22
+      :annotation: = 117
 
-   :raises StackUnderflowError: If `len(stack)` is less than `3`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_MID`.
+      
 
+   .. attribute:: PUSH23
+      :annotation: = 118
 
+      
 
+   .. attribute:: PUSH24
+      :annotation: = 119
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 251-279
+      
 
-mulmod
-~~~~~~
+   .. attribute:: PUSH25
+      :annotation: = 120
 
+      
 
-.. function:: mulmod(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH26
+      :annotation: = 121
 
-   Modulo multiplication of the top 2 elements with the 3rd element. Pushes
-   the result back on the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH27
+      :annotation: = 122
 
-   :raises StackUnderflowError: If `len(stack)` is less than `3`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_MID`.
+      
 
+   .. attribute:: PUSH28
+      :annotation: = 123
 
+      
 
+   .. attribute:: PUSH29
+      :annotation: = 124
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 282-310
+      
 
-exp
-~~~
+   .. attribute:: PUSH30
+      :annotation: = 125
 
+      
 
-.. function:: exp(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: PUSH31
+      :annotation: = 126
 
-   Exponential operation of the top 2 elements. Pushes the result back on
-   the stack.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: PUSH32
+      :annotation: = 127
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_MID`.
+      
 
+   .. attribute:: DUP1
+      :annotation: = 128
 
+      
 
+   .. attribute:: DUP2
+      :annotation: = 129
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 313-344
+      
 
-signextend
-~~~~~~~~~~
+   .. attribute:: DUP3
+      :annotation: = 130
 
+      
 
-.. function:: signextend(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: DUP4
+      :annotation: = 131
 
-   Sign extend operation. In other words, extend a signed number which
-   fits in N bytes to 32 bytes.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: DUP5
+      :annotation: = 132
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_LOW`.
+      
 
+   .. attribute:: DUP6
+      :annotation: = 133
 
+      
 
+   .. attribute:: DUP7
+      :annotation: = 134
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 347-389
+      
 
-sstore
-~~~~~~
+   .. attribute:: DUP8
+      :annotation: = 135
 
+      
 
-.. function:: sstore(evm: ethereum.frontier.vm.Evm) -> None
-   :noindexentry:
+   .. attribute:: DUP9
+      :annotation: = 136
 
-   Stores a value at a certain key in the current context's storage.
+      
 
-   :param evm: The current EVM frame.
+   .. attribute:: DUP10
+      :annotation: = 137
 
-   :raises StackUnderflowError: If `len(stack)` is less than `2`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `20000`.
+      
 
+   .. attribute:: DUP11
+      :annotation: = 138
 
+      
 
+   .. attribute:: DUP12
+      :annotation: = 139
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 392-431
+      
 
-push_n
-~~~~~~
+   .. attribute:: DUP13
+      :annotation: = 140
 
+      
 
-.. function:: push_n(evm: ethereum.frontier.vm.Evm, num_bytes: int) -> None
-   :noindexentry:
+   .. attribute:: DUP14
+      :annotation: = 141
 
-   Pushes a N-byte immediate onto the stack.
+      
 
-   :param evm: The current EVM frame.
-   :param num_bytes: The number of immediate bytes to be read from the code and pushed to
-                     the stack.
-   :type num_bytes: `int`
+   .. attribute:: DUP15
+      :annotation: = 142
 
-   :raises StackOverflowError: If `len(stack)` is equals `1024`.
-   :raises OutOfGasError: If `evm.gas_left` is less than `GAS_VERY_LOW`.
+      
 
+   .. attribute:: DUP16
+      :annotation: = 143
 
+      
 
+   .. attribute:: SWAP1
+      :annotation: = 144
 
-.. undocinclude:: /../src/ethereum/frontier/vm/instructions.py
-   :language: python
-   :lines: 434-462
+      
 
-push1
-~~~~~
+   .. attribute:: SWAP2
+      :annotation: = 145
 
-.. data:: push1
-   
+      
 
-   
+   .. attribute:: SWAP3
+      :annotation: = 146
 
+      
 
-push2
-~~~~~
+   .. attribute:: SWAP4
+      :annotation: = 147
 
-.. data:: push2
-   
+      
 
-   
+   .. attribute:: SWAP5
+      :annotation: = 148
 
+      
 
-push3
-~~~~~
+   .. attribute:: SWAP6
+      :annotation: = 149
 
-.. data:: push3
-   
+      
 
-   
+   .. attribute:: SWAP7
+      :annotation: = 150
 
+      
 
-push4
-~~~~~
+   .. attribute:: SWAP8
+      :annotation: = 151
 
-.. data:: push4
-   
+      
 
-   
+   .. attribute:: SWAP9
+      :annotation: = 152
 
+      
 
-push5
-~~~~~
+   .. attribute:: SWAP10
+      :annotation: = 153
 
-.. data:: push5
-   
+      
 
-   
+   .. attribute:: SWAP11
+      :annotation: = 154
 
+      
 
-push6
-~~~~~
+   .. attribute:: SWAP12
+      :annotation: = 155
 
-.. data:: push6
-   
+      
 
-   
+   .. attribute:: SWAP13
+      :annotation: = 156
 
+      
 
-push7
-~~~~~
+   .. attribute:: SWAP14
+      :annotation: = 157
 
-.. data:: push7
-   
+      
 
-   
+   .. attribute:: SWAP15
+      :annotation: = 158
 
+      
 
-push8
-~~~~~
+   .. attribute:: SWAP16
+      :annotation: = 159
 
-.. data:: push8
-   
+      
 
-   
 
 
-push9
-~~~~~
+op_implementation
+~~~~~~~~~~~~~~~~~
 
-.. data:: push9
-   
-
-   
-
-
-push10
-~~~~~~
-
-.. data:: push10
-   
-
-   
-
-
-push11
-~~~~~~
-
-.. data:: push11
-   
-
-   
-
-
-push12
-~~~~~~
-
-.. data:: push12
-   
-
-   
-
-
-push13
-~~~~~~
-
-.. data:: push13
-   
-
-   
-
-
-push14
-~~~~~~
-
-.. data:: push14
-   
-
-   
-
-
-push15
-~~~~~~
-
-.. data:: push15
-   
-
-   
-
-
-push16
-~~~~~~
-
-.. data:: push16
-   
-
-   
-
-
-push17
-~~~~~~
-
-.. data:: push17
-   
-
-   
-
-
-push18
-~~~~~~
-
-.. data:: push18
-   
-
-   
-
-
-push19
-~~~~~~
-
-.. data:: push19
-   
-
-   
-
-
-push20
-~~~~~~
-
-.. data:: push20
-   
-
-   
-
-
-push21
-~~~~~~
-
-.. data:: push21
-   
-
-   
-
-
-push22
-~~~~~~
-
-.. data:: push22
-   
-
-   
-
-
-push23
-~~~~~~
-
-.. data:: push23
-   
-
-   
-
-
-push24
-~~~~~~
-
-.. data:: push24
-   
-
-   
-
-
-push25
-~~~~~~
-
-.. data:: push25
-   
-
-   
-
-
-push26
-~~~~~~
-
-.. data:: push26
-   
-
-   
-
-
-push27
-~~~~~~
-
-.. data:: push27
-   
-
-   
-
-
-push28
-~~~~~~
-
-.. data:: push28
-   
-
-   
-
-
-push29
-~~~~~~
-
-.. data:: push29
-   
-
-   
-
-
-push30
-~~~~~~
-
-.. data:: push30
-   
-
-   
-
-
-push31
-~~~~~~
-
-.. data:: push31
-   
-
-   
-
-
-push32
-~~~~~~
-
-.. data:: push32
-   
+.. data:: op_implementation
+   :annotation: :Dict[Ops, Callable]
 
    
 

@@ -17,8 +17,8 @@
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="ethereum.frontier.vm.ops" href="../ops/index.html" />
-    <link rel="prev" title="ethereum.frontier.vm.instructions" href="../instructions/index.html" />
+    <link rel="next" title="ethereum.frontier.vm.stack" href="../stack/index.html" />
+    <link rel="prev" title="ethereum.frontier.vm.gas" href="../gas/index.html" />
    
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
   
@@ -139,7 +139,11 @@ generated during execution.</p>
         <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">evm</span><span class="o">.</span><span class="n">value</span>
 
     <span class="k">while</span> <span class="n">evm</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
-        <span class="n">op</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">op</span> <span class="o">=</span> <span class="n">Ops</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidOpcode</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
+
         <span class="n">op_implementation</span><span class="p">[</span><span class="n">op</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -197,8 +201,8 @@ generated during execution.</p>
   <li><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum</span></code></a><ul>
   <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier</span></code></a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm</span></code></a><ul>
-      <li>Previous: <a href="../instructions/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions</span></code></a></li>
-      <li>Next: <a href="../ops/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.ops</span></code></a></li>
+      <li>Previous: <a href="../gas/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.gas</span></code></a></li>
+      <li>Next: <a href="../stack/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.stack</span></code></a></li>
   </ul></li>
   </ul></li>
   </ul></li>
