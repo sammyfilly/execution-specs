@@ -24,6 +24,8 @@ Submodules
    :maxdepth: 1
 
    arithmetic/index.rst
+   bitwise/index.rst
+   comparison/index.rst
    control_flow/index.rst
    stack/index.rst
    storage/index.rst
@@ -116,6 +118,61 @@ Enum for EVM Opcodes
 
    .. attribute:: SIGNEXTEND
       :annotation: = 11
+
+      
+
+   .. attribute:: LT
+      :annotation: = 16
+
+      
+
+   .. attribute:: GT
+      :annotation: = 17
+
+      
+
+   .. attribute:: SLT
+      :annotation: = 18
+
+      
+
+   .. attribute:: SGT
+      :annotation: = 19
+
+      
+
+   .. attribute:: EQ
+      :annotation: = 20
+
+      
+
+   .. attribute:: ISZERO
+      :annotation: = 21
+
+      
+
+   .. attribute:: AND
+      :annotation: = 22
+
+      
+
+   .. attribute:: OR
+      :annotation: = 23
+
+      
+
+   .. attribute:: XOR
+      :annotation: = 24
+
+      
+
+   .. attribute:: NOT
+      :annotation: = 25
+
+      
+
+   .. attribute:: BYTE
+      :annotation: = 26
 
       
 

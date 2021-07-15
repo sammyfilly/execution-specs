@@ -3,7 +3,7 @@
 
 .. py:module:: ethereum.frontier.vm.instructions.stack
 
-Ethereum Virtual Machine (EVM) stack Instructions
+Ethereum Virtual Machine (EVM) Stack Instructions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. contents:: Table of Contents
@@ -158,10 +158,11 @@ swap_n
 .. function:: swap_n(evm: ethereum.frontier.vm.Evm, item_number: int) -> None
    :noindexentry:
 
-   Swap the 1st and Nth items in the stack. All items are 0-indexed from the
-   top of the stack.
-   If N is 0, then this is a Noop. Regardless, `swap_n` with N as 0 isn't
-   a valid EVM opcode and hence shouldn't be used.
+   Swap the top and the `item_number` element of the stack, where
+   the top of the stack is position zero.
+
+   If `item_number` is zero, this function does nothing (which should not be
+   possible, since there is no `SWAP0` instruction).
 
    :param evm: The current EVM frame.
    :param item_number: The stack item number (0-indexed from top of stack) to be swapped
@@ -174,7 +175,7 @@ swap_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 80-108
+   :lines: 80-109
 
 push1
 ~~~~~

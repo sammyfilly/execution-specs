@@ -381,6 +381,39 @@ inclusive.
    .. method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> U256
 
 
+   .. method:: __and__(self, right: int) -> U256
+
+      Return self&value.
+
+
+   .. method:: __or__(self, right: int) -> U256
+
+      Return self|value.
+
+
+   .. method:: __xor__(self, right: int) -> U256
+
+      Return self^value.
+
+
+   .. method:: __rxor__(self, left: int) -> U256
+
+      Return value^self.
+
+
+   .. method:: __ixor__(self, right: int) -> U256
+
+
+   .. method:: __invert__(self) -> U256
+
+      ~self
+
+
+   .. method:: __rshift__(self, shift_by: int) -> U256
+
+      Return self>>value.
+
+
    .. method:: to_be_bytes32(self) -> Bytes32
 
       Converts this 256-bit unsigned integer into its big endian

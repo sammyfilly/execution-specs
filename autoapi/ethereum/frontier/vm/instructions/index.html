@@ -68,6 +68,8 @@ implementations.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="arithmetic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.arithmetic</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="bitwise/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.bitwise</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.comparison</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="control_flow/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.control_flow</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="stack/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.stack</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="storage/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.storage</span></code></a></li>
@@ -167,6 +169,61 @@ implementations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.SIGNEXTEND">
 <span class="sig-name descname"><span class="pre">SIGNEXTEND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">11</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.SIGNEXTEND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.LT">
+<span class="sig-name descname"><span class="pre">LT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.LT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.GT">
+<span class="sig-name descname"><span class="pre">GT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">17</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.GT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.SLT">
+<span class="sig-name descname"><span class="pre">SLT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">18</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.SLT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.SGT">
+<span class="sig-name descname"><span class="pre">SGT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">19</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.SGT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.EQ">
+<span class="sig-name descname"><span class="pre">EQ</span></span><em class="property"> <span class="pre">=</span> <span class="pre">20</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.EQ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.ISZERO">
+<span class="sig-name descname"><span class="pre">ISZERO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">21</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.ISZERO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.AND">
+<span class="sig-name descname"><span class="pre">AND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">22</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.AND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.OR">
+<span class="sig-name descname"><span class="pre">OR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">23</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.OR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.XOR">
+<span class="sig-name descname"><span class="pre">XOR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">24</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.XOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.NOT">
+<span class="sig-name descname"><span class="pre">NOT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">25</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.NOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.BYTE">
+<span class="sig-name descname"><span class="pre">BYTE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">26</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.BYTE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
