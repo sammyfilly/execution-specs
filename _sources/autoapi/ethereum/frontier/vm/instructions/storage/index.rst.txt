@@ -26,12 +26,35 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
+   ethereum.frontier.vm.instructions.storage.sload
    ethereum.frontier.vm.instructions.storage.sstore
 
 
 
 Module Details
 ---------------
+
+sload
+~~~~~
+
+
+.. function:: sload(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Loads to the stack, the value corresponding to a certain key from the
+   storage of the current account.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `1`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `50`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/storage.py
+   :language: python
+   :lines: 28-50
 
 sstore
 ~~~~~~
@@ -52,4 +75,4 @@ sstore
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/storage.py
    :language: python
-   :lines: 27-66
+   :lines: 53-92

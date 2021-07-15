@@ -36,6 +36,7 @@ Attributes
 .. autoapisummary::
 
    ethereum.frontier.vm.gas.GAS_VERY_LOW
+   ethereum.frontier.vm.gas.GAS_SLOAD
    ethereum.frontier.vm.gas.GAS_STORAGE_SET
    ethereum.frontier.vm.gas.GAS_STORAGE_UPDATE
    ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND
@@ -51,6 +52,15 @@ GAS_VERY_LOW
 ~~~~~~~~~~~~
 
 .. data:: GAS_VERY_LOW
+   
+
+   
+
+
+GAS_SLOAD
+~~~~~~~~~
+
+.. data:: GAS_SLOAD
    
 
    
@@ -129,4 +139,4 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 28-47
+   :lines: 29-48

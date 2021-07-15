@@ -181,6 +181,11 @@ Enum for EVM Opcodes
 
       
 
+   .. attribute:: SLOAD
+      :annotation: = 84
+
+      
+
    .. attribute:: SSTORE
       :annotation: = 85
 

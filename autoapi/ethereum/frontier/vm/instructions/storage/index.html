@@ -50,7 +50,8 @@
 </li>
 <li><p><a class="reference internal" href="#module-details" id="id4">Module Details</a></p>
 <ul>
-<li><p><a class="reference internal" href="#sstore" id="id5">sstore</a></p></li>
+<li><p><a class="reference internal" href="#sload" id="id5">sload</a></p></li>
+<li><p><a class="reference internal" href="#sstore" id="id6">sstore</a></p></li>
 </ul>
 </li>
 </ul>
@@ -69,7 +70,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.instructions.storage.sstore" title="ethereum.frontier.vm.instructions.storage.sstore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sstore</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.instructions.storage.sload" title="ethereum.frontier.vm.instructions.storage.sload"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sload</span></code></a></p></td>
+<td><p>Loads to the stack, the value corresponding to a certain key from the</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.instructions.storage.sstore" title="ethereum.frontier.vm.instructions.storage.sstore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sstore</span></code></a></p></td>
 <td><p>Stores a value at a certain key in the current context’s storage.</p></td>
 </tr>
 </tbody>
@@ -78,6 +82,36 @@
 </section>
 <section id="module-details">
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="sload">
+<h4>sload<a class="headerlink" href="#sload" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.storage.sload">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.storage.</span></span><span class="sig-name descname"><span class="pre">sload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.storage.sload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads to the stack, the value corresponding to a certain key from the
+storage of the current account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>50</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sload</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_SLOAD</span><span class="p">)</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="sstore">
 <h4>sstore<a class="headerlink" href="#sstore" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
