@@ -35,6 +35,7 @@ Submodules
    error/index.rst
    gas/index.rst
    interpreter/index.rst
+   memory/index.rst
    stack/index.rst
 
 

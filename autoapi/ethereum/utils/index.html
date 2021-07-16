@@ -65,6 +65,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.utils.get_sign" title="ethereum.utils.get_sign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sign</span></code></a></p></td>
 <td><p>Determines the sign of a number.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.utils.ceil32" title="ethereum.utils.ceil32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceil32</span></code></a></p></td>
+<td><p>Converts a unsigned integer to the next closest multiple of 32.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -98,6 +101,37 @@ The return value is based on math signum function.</p>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="ceil32">
+<h4>ceil32<a class="headerlink" href="#ceil32" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.utils.ceil32">
+<span class="sig-prename descclassname"><span class="pre">ethereum.utils.</span></span><span class="sig-name descname"><span class="pre">ceil32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><a class="headerlink" href="#ethereum.utils.ceil32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a unsigned integer to the next closest multiple of 32.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value whose ceil32 is to be calculated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ceil32</strong> – The same value if it’s a perfect multiple of 32
+else it returns the smallest multiple of 32
+that is greater than <cite>value</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.base_types.U256</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ceil32</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
+    <span class="n">ceiling</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">value</span> <span class="o">%</span> <span class="n">ceiling</span>
+    <span class="k">if</span> <span class="n">remainder</span> <span class="o">==</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="n">ceiling</span> <span class="o">-</span> <span class="n">remainder</span>
 </pre></div>
 </div>
 </section>

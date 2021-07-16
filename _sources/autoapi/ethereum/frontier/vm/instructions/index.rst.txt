@@ -27,6 +27,7 @@ Submodules
    bitwise/index.rst
    comparison/index.rst
    control_flow/index.rst
+   memory/index.rst
    stack/index.rst
    storage/index.rst
 
@@ -508,6 +509,26 @@ Enum for EVM Opcodes
 
    .. attribute:: SWAP16
       :annotation: = 159
+
+      
+
+   .. attribute:: MLOAD
+      :annotation: = 81
+
+      
+
+   .. attribute:: MSTORE
+      :annotation: = 82
+
+      
+
+   .. attribute:: MSTORE8
+      :annotation: = 83
+
+      
+
+   .. attribute:: MSIZE
+      :annotation: = 89
 
       
 

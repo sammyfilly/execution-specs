@@ -39,6 +39,7 @@ Attributes
    ethereum.base_types.U255_CEIL_VALUE
    ethereum.base_types.U256_MAX_VALUE
    ethereum.base_types.U256_CEIL_VALUE
+   ethereum.base_types.U8_MAX_VALUE
    ethereum.base_types.MAX_VALUE
    ethereum.base_types.Bytes
    ethereum.base_types.Bytes64
@@ -86,6 +87,15 @@ U256_CEIL_VALUE
    
 
 
+U8_MAX_VALUE
+~~~~~~~~~~~~
+
+.. data:: U8_MAX_VALUE
+   
+
+   
+
+
 Uint
 ~~~~
 
@@ -108,7 +118,6 @@ Unsigned positive integer.
 
       Converts a sequence of bytes into an arbitrarily sized unsigned integer
       from its big endian representation.
-
       :param buffer: Bytes to decode.
 
       :returns: **self** -- Unsigned integer decoded from `buffer`.
@@ -207,7 +216,6 @@ Unsigned positive integer.
 
       Converts this arbitrarily sized unsigned integer into its big endian
       representation with exactly 32 bytes.
-
       :returns: **big_endian** -- Big endian (most significant bits first) representation.
       :rtype: `Bytes32`
 
@@ -216,7 +224,6 @@ Unsigned positive integer.
 
       Converts this arbitrarily sized unsigned integer into its big endian
       representation.
-
       :returns: **big_endian** -- Big endian (most significant bits first) representation.
       :rtype: `Bytes`
 
@@ -251,7 +258,6 @@ inclusive.
 
       Converts a sequence of bytes into an arbitrarily sized unsigned integer
       from its big endian representation.
-
       :param buffer: Bytes to decode.
 
       :returns: **self** -- Unsigned integer decoded from `buffer`.
@@ -262,7 +268,6 @@ inclusive.
       :classmethod:
 
       Converts a signed number into a 256-bit unsigned integer.
-
       :param value: Signed number
 
       :returns: **self** -- Unsigned integer obtained from `value`.
@@ -418,7 +423,6 @@ inclusive.
 
       Converts this 256-bit unsigned integer into its big endian
       representation with exactly 32 bytes.
-
       :returns: **big_endian** -- Big endian (most significant bits first) representation.
       :rtype: `Bytes32`
 
@@ -427,7 +431,6 @@ inclusive.
 
       Converts this 256-bit unsigned integer into its big endian
       representation, omitting leading zero bytes.
-
       :returns: **big_endian** -- Big endian (most significant bits first) representation.
       :rtype: `Bytes`
 
@@ -435,7 +438,6 @@ inclusive.
    .. method:: to_signed(self) -> int
 
       Converts this 256-bit unsigned integer into a signed integer.
-
       :returns: **signed_int** -- Signed integer obtained from 256-bit unsigned integer.
       :rtype: `int`
 

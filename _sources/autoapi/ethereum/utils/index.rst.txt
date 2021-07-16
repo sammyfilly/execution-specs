@@ -27,6 +27,7 @@ Functions
    :nosignatures:
 
    ethereum.utils.get_sign
+   ethereum.utils.ceil32
 
 
 
@@ -54,4 +55,27 @@ get_sign
 
 .. undocinclude:: /../src/ethereum/utils.py
    :language: python
-   :lines: 16-36
+   :lines: 17-37
+
+ceil32
+~~~~~~
+
+
+.. function:: ceil32(value: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Converts a unsigned integer to the next closest multiple of 32.
+
+   :param value: The value whose ceil32 is to be calculated.
+
+   :returns: **ceil32** -- The same value if it's a perfect multiple of 32
+             else it returns the smallest multiple of 32
+             that is greater than `value`.
+   :rtype: `ethereum.base_types.U256`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils.py
+   :language: python
+   :lines: 40-61
