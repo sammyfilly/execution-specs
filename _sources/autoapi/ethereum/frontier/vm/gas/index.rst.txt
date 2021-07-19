@@ -47,6 +47,8 @@ Attributes
    ethereum.frontier.vm.gas.GAS_EXPONENTIATION
    ethereum.frontier.vm.gas.GAS_BASE
    ethereum.frontier.vm.gas.GAS_MEMORY
+   ethereum.frontier.vm.gas.GAS_KECCAK256
+   ethereum.frontier.vm.gas.GAS_KECCAK256_WORD
 
 
 Module Details
@@ -142,6 +144,24 @@ GAS_MEMORY
    
 
 
+GAS_KECCAK256
+~~~~~~~~~~~~~
+
+.. data:: GAS_KECCAK256
+   
+
+   
+
+
+GAS_KECCAK256_WORD
+~~~~~~~~~~~~~~~~~~
+
+.. data:: GAS_KECCAK256_WORD
+   
+
+   
+
+
 subtract_gas
 ~~~~~~~~~~~~
 
@@ -161,7 +181,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 31-50
+   :lines: 33-52
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,7 +204,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 53-73
+   :lines: 55-75
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,4 +229,4 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 76-108
+   :lines: 78-110

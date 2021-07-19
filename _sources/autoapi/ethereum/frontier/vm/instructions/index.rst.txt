@@ -27,6 +27,7 @@ Submodules
    bitwise/index.rst
    comparison/index.rst
    control_flow/index.rst
+   keccak/index.rst
    memory/index.rst
    stack/index.rst
    storage/index.rst
@@ -179,6 +180,11 @@ Enum for EVM Opcodes
 
    .. attribute:: STOP
       :annotation: = 0
+
+      
+
+   .. attribute:: KECCAK
+      :annotation: = 32
 
       
 
