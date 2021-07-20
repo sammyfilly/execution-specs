@@ -71,6 +71,7 @@ implementations.</p>
 <li class="toctree-l1"><a class="reference internal" href="bitwise/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.bitwise</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="comparison/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.comparison</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="control_flow/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.control_flow</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.environment</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="keccak/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.keccak</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.memory</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="stack/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.stack</span></code></a></li>
@@ -226,6 +227,71 @@ implementations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.BYTE">
 <span class="sig-name descname"><span class="pre">BYTE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">26</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.BYTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.ADDRESS">
+<span class="sig-name descname"><span class="pre">ADDRESS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">48</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.ADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.BALANCE">
+<span class="sig-name descname"><span class="pre">BALANCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">49</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.BALANCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.ORIGIN">
+<span class="sig-name descname"><span class="pre">ORIGIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">50</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.ORIGIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CALLER">
+<span class="sig-name descname"><span class="pre">CALLER</span></span><em class="property"> <span class="pre">=</span> <span class="pre">51</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CALLER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CALLVALUE">
+<span class="sig-name descname"><span class="pre">CALLVALUE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">52</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CALLVALUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CALLDATALOAD">
+<span class="sig-name descname"><span class="pre">CALLDATALOAD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">53</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CALLDATALOAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CALLDATASIZE">
+<span class="sig-name descname"><span class="pre">CALLDATASIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">54</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CALLDATASIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CALLDATACOPY">
+<span class="sig-name descname"><span class="pre">CALLDATACOPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">55</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CALLDATACOPY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CODESIZE">
+<span class="sig-name descname"><span class="pre">CODESIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">56</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CODESIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.CODECOPY">
+<span class="sig-name descname"><span class="pre">CODECOPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">57</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.CODECOPY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.GASPRICE">
+<span class="sig-name descname"><span class="pre">GASPRICE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">58</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.GASPRICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.EXTCODESIZE">
+<span class="sig-name descname"><span class="pre">EXTCODESIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">59</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.EXTCODESIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.EXTCODECOPY">
+<span class="sig-name descname"><span class="pre">EXTCODECOPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">60</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.EXTCODECOPY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

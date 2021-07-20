@@ -1,0 +1,334 @@
+:mod:`ethereum.frontier.vm.instructions.environment`
+====================================================
+
+.. py:module:: ethereum.frontier.vm.instructions.environment
+
+Ethereum Virtual Machine (EVM) Environmental Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM environment related instructions.
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.vm.instructions.environment.address
+   ethereum.frontier.vm.instructions.environment.balance
+   ethereum.frontier.vm.instructions.environment.origin
+   ethereum.frontier.vm.instructions.environment.caller
+   ethereum.frontier.vm.instructions.environment.callvalue
+   ethereum.frontier.vm.instructions.environment.calldataload
+   ethereum.frontier.vm.instructions.environment.calldatasize
+   ethereum.frontier.vm.instructions.environment.calldatacopy
+   ethereum.frontier.vm.instructions.environment.codesize
+   ethereum.frontier.vm.instructions.environment.codecopy
+   ethereum.frontier.vm.instructions.environment.gasprice
+   ethereum.frontier.vm.instructions.environment.extcodesize
+   ethereum.frontier.vm.instructions.environment.extcodecopy
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.frontier.vm.instructions.environment.MAX_ADDRESS_BYTES
+
+
+Module Details
+---------------
+
+MAX_ADDRESS_BYTES
+~~~~~~~~~~~~~~~~~
+
+.. data:: MAX_ADDRESS_BYTES
+   :annotation: = 20
+
+   
+
+
+address
+~~~~~~~
+
+
+.. function:: address(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the current executing account to the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 34-49
+
+balance
+~~~~~~~
+
+
+.. function:: balance(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the balance of the given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `1`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `20`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 52-81
+
+origin
+~~~~~~
+
+
+.. function:: origin(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the original transaction sender to the stack.
+   The origin address can only be an EOA.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 84-100
+
+caller
+~~~~~~
+
+
+.. function:: caller(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Pushes the address of the caller onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 103-118
+
+callvalue
+~~~~~~~~~
+
+
+.. function:: callvalue(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push the value (in wei) sent with the call onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 121-136
+
+calldataload
+~~~~~~~~~~~~
+
+
+.. function:: calldataload(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push a word (32 bytes) of the input data belonging to the current
+   environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `1`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `3`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 139-165
+
+calldatasize
+~~~~~~~~~~~~
+
+
+.. function:: calldatasize(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of input data in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 168-183
+
+calldatacopy
+~~~~~~~~~~~~
+
+
+.. function:: calldatacopy(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the input data in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `3`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 186-227
+
+codesize
+~~~~~~~~
+
+
+.. function:: codesize(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push the size of code running in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 230-245
+
+codecopy
+~~~~~~~~
+
+
+.. function:: codecopy(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of the code in current environment to memory.
+
+   This will also expand the memory, in case that the memory is insufficient
+   to store the data.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `3`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 248-290
+
+gasprice
+~~~~~~~~
+
+
+.. function:: gasprice(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push the gas price used in current environment onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 293-308
+
+extcodesize
+~~~~~~~~~~~
+
+
+.. function:: extcodesize(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Push the code size of a given account onto the stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `1`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `20`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 311-340
+
+extcodecopy
+~~~~~~~~~~~
+
+
+.. function:: extcodecopy(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Copy a portion of an account's code to memory.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `4`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
+   :language: python
+   :lines: 343-393

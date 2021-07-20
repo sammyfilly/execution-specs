@@ -27,6 +27,7 @@ Submodules
    bitwise/index.rst
    comparison/index.rst
    control_flow/index.rst
+   environment/index.rst
    keccak/index.rst
    memory/index.rst
    stack/index.rst
@@ -175,6 +176,71 @@ Enum for EVM Opcodes
 
    .. attribute:: BYTE
       :annotation: = 26
+
+      
+
+   .. attribute:: ADDRESS
+      :annotation: = 48
+
+      
+
+   .. attribute:: BALANCE
+      :annotation: = 49
+
+      
+
+   .. attribute:: ORIGIN
+      :annotation: = 50
+
+      
+
+   .. attribute:: CALLER
+      :annotation: = 51
+
+      
+
+   .. attribute:: CALLVALUE
+      :annotation: = 52
+
+      
+
+   .. attribute:: CALLDATALOAD
+      :annotation: = 53
+
+      
+
+   .. attribute:: CALLDATASIZE
+      :annotation: = 54
+
+      
+
+   .. attribute:: CALLDATACOPY
+      :annotation: = 55
+
+      
+
+   .. attribute:: CODESIZE
+      :annotation: = 56
+
+      
+
+   .. attribute:: CODECOPY
+      :annotation: = 57
+
+      
+
+   .. attribute:: GASPRICE
+      :annotation: = 58
+
+      
+
+   .. attribute:: EXTCODESIZE
+      :annotation: = 59
+
+      
+
+   .. attribute:: EXTCODECOPY
+      :annotation: = 60
 
       
 

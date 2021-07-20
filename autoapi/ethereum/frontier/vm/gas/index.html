@@ -51,21 +51,23 @@
 </li>
 <li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gas-very-low" id="id6">GAS_VERY_LOW</a></p></li>
-<li><p><a class="reference internal" href="#gas-sload" id="id7">GAS_SLOAD</a></p></li>
-<li><p><a class="reference internal" href="#gas-storage-set" id="id8">GAS_STORAGE_SET</a></p></li>
-<li><p><a class="reference internal" href="#gas-storage-update" id="id9">GAS_STORAGE_UPDATE</a></p></li>
-<li><p><a class="reference internal" href="#gas-storage-clear-refund" id="id10">GAS_STORAGE_CLEAR_REFUND</a></p></li>
-<li><p><a class="reference internal" href="#gas-low" id="id11">GAS_LOW</a></p></li>
-<li><p><a class="reference internal" href="#gas-mid" id="id12">GAS_MID</a></p></li>
-<li><p><a class="reference internal" href="#gas-exponentiation" id="id13">GAS_EXPONENTIATION</a></p></li>
-<li><p><a class="reference internal" href="#gas-base" id="id14">GAS_BASE</a></p></li>
-<li><p><a class="reference internal" href="#gas-memory" id="id15">GAS_MEMORY</a></p></li>
-<li><p><a class="reference internal" href="#gas-keccak256" id="id16">GAS_KECCAK256</a></p></li>
-<li><p><a class="reference internal" href="#gas-keccak256-word" id="id17">GAS_KECCAK256_WORD</a></p></li>
-<li><p><a class="reference internal" href="#subtract-gas" id="id18">subtract_gas</a></p></li>
-<li><p><a class="reference internal" href="#calculate-memory-gas-cost" id="id19">calculate_memory_gas_cost</a></p></li>
-<li><p><a class="reference internal" href="#calculate-gas-extend-memory" id="id20">calculate_gas_extend_memory</a></p></li>
+<li><p><a class="reference internal" href="#gas-ext" id="id6">GAS_EXT</a></p></li>
+<li><p><a class="reference internal" href="#gas-very-low" id="id7">GAS_VERY_LOW</a></p></li>
+<li><p><a class="reference internal" href="#gas-sload" id="id8">GAS_SLOAD</a></p></li>
+<li><p><a class="reference internal" href="#gas-storage-set" id="id9">GAS_STORAGE_SET</a></p></li>
+<li><p><a class="reference internal" href="#gas-storage-update" id="id10">GAS_STORAGE_UPDATE</a></p></li>
+<li><p><a class="reference internal" href="#gas-storage-clear-refund" id="id11">GAS_STORAGE_CLEAR_REFUND</a></p></li>
+<li><p><a class="reference internal" href="#gas-low" id="id12">GAS_LOW</a></p></li>
+<li><p><a class="reference internal" href="#gas-mid" id="id13">GAS_MID</a></p></li>
+<li><p><a class="reference internal" href="#gas-exponentiation" id="id14">GAS_EXPONENTIATION</a></p></li>
+<li><p><a class="reference internal" href="#gas-base" id="id15">GAS_BASE</a></p></li>
+<li><p><a class="reference internal" href="#gas-memory" id="id16">GAS_MEMORY</a></p></li>
+<li><p><a class="reference internal" href="#gas-keccak256" id="id17">GAS_KECCAK256</a></p></li>
+<li><p><a class="reference internal" href="#gas-keccak256-word" id="id18">GAS_KECCAK256_WORD</a></p></li>
+<li><p><a class="reference internal" href="#gas-copy" id="id19">GAS_COPY</a></p></li>
+<li><p><a class="reference internal" href="#subtract-gas" id="id20">subtract_gas</a></p></li>
+<li><p><a class="reference internal" href="#calculate-memory-gas-cost" id="id21">calculate_memory_gas_cost</a></p></li>
+<li><p><a class="reference internal" href="#calculate-gas-extend-memory" id="id22">calculate_gas_extend_memory</a></p></li>
 </ul>
 </li>
 </ul>
@@ -104,40 +106,46 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_VERY_LOW" title="ethereum.frontier.vm.gas.GAS_VERY_LOW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_VERY_LOW</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_EXT" title="ethereum.frontier.vm.gas.GAS_EXT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_EXT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_SLOAD" title="ethereum.frontier.vm.gas.GAS_SLOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_SLOAD</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_VERY_LOW" title="ethereum.frontier.vm.gas.GAS_VERY_LOW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_VERY_LOW</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_SET" title="ethereum.frontier.vm.gas.GAS_STORAGE_SET"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_SET</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_SLOAD" title="ethereum.frontier.vm.gas.GAS_SLOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_SLOAD</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_UPDATE" title="ethereum.frontier.vm.gas.GAS_STORAGE_UPDATE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_UPDATE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_SET" title="ethereum.frontier.vm.gas.GAS_STORAGE_SET"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_SET</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND" title="ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_CLEAR_REFUND</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_UPDATE" title="ethereum.frontier.vm.gas.GAS_STORAGE_UPDATE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_UPDATE</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_LOW" title="ethereum.frontier.vm.gas.GAS_LOW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_LOW</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND" title="ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_STORAGE_CLEAR_REFUND</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_MID" title="ethereum.frontier.vm.gas.GAS_MID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_MID</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_LOW" title="ethereum.frontier.vm.gas.GAS_LOW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_LOW</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_EXPONENTIATION" title="ethereum.frontier.vm.gas.GAS_EXPONENTIATION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_EXPONENTIATION</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_MID" title="ethereum.frontier.vm.gas.GAS_MID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_MID</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_BASE" title="ethereum.frontier.vm.gas.GAS_BASE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_BASE</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_EXPONENTIATION" title="ethereum.frontier.vm.gas.GAS_EXPONENTIATION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_EXPONENTIATION</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_MEMORY" title="ethereum.frontier.vm.gas.GAS_MEMORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_MEMORY</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_BASE" title="ethereum.frontier.vm.gas.GAS_BASE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_BASE</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_KECCAK256" title="ethereum.frontier.vm.gas.GAS_KECCAK256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_KECCAK256</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_MEMORY" title="ethereum.frontier.vm.gas.GAS_MEMORY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_MEMORY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_KECCAK256_WORD" title="ethereum.frontier.vm.gas.GAS_KECCAK256_WORD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_KECCAK256_WORD</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_KECCAK256" title="ethereum.frontier.vm.gas.GAS_KECCAK256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_KECCAK256</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_KECCAK256_WORD" title="ethereum.frontier.vm.gas.GAS_KECCAK256_WORD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_KECCAK256_WORD</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_COPY" title="ethereum.frontier.vm.gas.GAS_COPY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_COPY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -146,6 +154,14 @@
 </section>
 <section id="module-details">
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="gas-ext">
+<h4>GAS_EXT<a class="headerlink" href="#gas-ext" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_EXT">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_EXT</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_EXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="gas-very-low">
 <h4>GAS_VERY_LOW<a class="headerlink" href="#gas-very-low" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
@@ -239,6 +255,14 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_KECCAK256_WORD">
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_KECCAK256_WORD</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_KECCAK256_WORD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-copy">
+<h4>GAS_COPY<a class="headerlink" href="#gas-copy" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_COPY">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_COPY</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_COPY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
