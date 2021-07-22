@@ -249,6 +249,31 @@ Enum for EVM Opcodes
 
       
 
+   .. attribute:: JUMP
+      :annotation: = 86
+
+      
+
+   .. attribute:: JUMPI
+      :annotation: = 87
+
+      
+
+   .. attribute:: PC
+      :annotation: = 88
+
+      
+
+   .. attribute:: GAS
+      :annotation: = 90
+
+      
+
+   .. attribute:: JUMPDEST
+      :annotation: = 91
+
+      
+
    .. attribute:: KECCAK
       :annotation: = 32
 
@@ -261,6 +286,11 @@ Enum for EVM Opcodes
 
    .. attribute:: SSTORE
       :annotation: = 85
+
+      
+
+   .. attribute:: POP
+      :annotation: = 80
 
       
 

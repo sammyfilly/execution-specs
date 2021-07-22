@@ -38,6 +38,8 @@ Attributes
 .. autoapisummary::
 
    ethereum.frontier.vm.gas.GAS_EXT
+   ethereum.frontier.vm.gas.GAS_JUMPDEST
+   ethereum.frontier.vm.gas.GAS_BASE
    ethereum.frontier.vm.gas.GAS_VERY_LOW
    ethereum.frontier.vm.gas.GAS_SLOAD
    ethereum.frontier.vm.gas.GAS_STORAGE_SET
@@ -45,8 +47,8 @@ Attributes
    ethereum.frontier.vm.gas.GAS_STORAGE_CLEAR_REFUND
    ethereum.frontier.vm.gas.GAS_LOW
    ethereum.frontier.vm.gas.GAS_MID
+   ethereum.frontier.vm.gas.GAS_HIGH
    ethereum.frontier.vm.gas.GAS_EXPONENTIATION
-   ethereum.frontier.vm.gas.GAS_BASE
    ethereum.frontier.vm.gas.GAS_MEMORY
    ethereum.frontier.vm.gas.GAS_KECCAK256
    ethereum.frontier.vm.gas.GAS_KECCAK256_WORD
@@ -60,6 +62,24 @@ GAS_EXT
 ~~~~~~~
 
 .. data:: GAS_EXT
+   
+
+   
+
+
+GAS_JUMPDEST
+~~~~~~~~~~~~
+
+.. data:: GAS_JUMPDEST
+   
+
+   
+
+
+GAS_BASE
+~~~~~~~~
+
+.. data:: GAS_BASE
    
 
    
@@ -128,19 +148,19 @@ GAS_MID
    
 
 
+GAS_HIGH
+~~~~~~~~
+
+.. data:: GAS_HIGH
+   
+
+   
+
+
 GAS_EXPONENTIATION
 ~~~~~~~~~~~~~~~~~~
 
 .. data:: GAS_EXPONENTIATION
-   
-
-   
-
-
-GAS_BASE
-~~~~~~~~
-
-.. data:: GAS_BASE
    
 
    
@@ -201,7 +221,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 35-54
+   :lines: 37-56
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -224,7 +244,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 57-77
+   :lines: 59-79
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -249,4 +269,4 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 80-112
+   :lines: 82-114

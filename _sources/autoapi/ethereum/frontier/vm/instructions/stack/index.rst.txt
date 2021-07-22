@@ -26,6 +26,7 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
+   ethereum.frontier.vm.instructions.stack.pop
    ethereum.frontier.vm.instructions.stack.push_n
    ethereum.frontier.vm.instructions.stack.dup_n
    ethereum.frontier.vm.instructions.stack.swap_n
@@ -106,6 +107,27 @@ Attributes
 Module Details
 ---------------
 
+pop
+~~~
+
+
+.. function:: pop(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Remove item from stack.
+
+   :param evm: The current EVM frame.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `1`.
+   :raises OutOfGasError: If `evm.gas_left` is less than `2`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
+   :language: python
+   :lines: 23-40
+
 push_n
 ~~~~~~
 
@@ -127,7 +149,7 @@ push_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 24-52
+   :lines: 43-71
 
 dup_n
 ~~~~~
@@ -149,7 +171,7 @@ dup_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 55-77
+   :lines: 74-96
 
 swap_n
 ~~~~~~
@@ -175,7 +197,7 @@ swap_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 80-109
+   :lines: 99-128
 
 push1
 ~~~~~

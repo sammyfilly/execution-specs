@@ -49,6 +49,7 @@
 <li><p><a class="reference internal" href="#stackoverflowerror" id="id4">StackOverflowError</a></p></li>
 <li><p><a class="reference internal" href="#outofgaserror" id="id5">OutOfGasError</a></p></li>
 <li><p><a class="reference internal" href="#invalidopcode" id="id6">InvalidOpcode</a></p></li>
+<li><p><a class="reference internal" href="#invalidjumpdesterror" id="id7">InvalidJumpDestError</a></p></li>
 </ul>
 </li>
 </ul>
@@ -96,6 +97,21 @@ frame.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.error.InvalidOpcode">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.error.</span></span><span class="sig-name descname"><span class="pre">InvalidOpcode</span></span><a class="headerlink" href="#ethereum.frontier.vm.error.InvalidOpcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</section>
+<section id="invalidjumpdesterror">
+<h4>InvalidJumpDestError<a class="headerlink" href="#invalidjumpdesterror" title="Permalink to this headline">¶</a></h4>
+<p>Occurs when the destination of a jump operation doesn’t meet any of the
+following criteria:
+* The jump destination is less than the length of the code.
+* The jump destination should have the <cite>JUMPDEST</cite> opcode (0x5B).
+* The jump destination shouldn’t be part of the data corresponding to
+<cite>PUSH-N</cite> opcodes.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.error.InvalidJumpDestError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.error.</span></span><span class="sig-name descname"><span class="pre">InvalidJumpDestError</span></span><a class="headerlink" href="#ethereum.frontier.vm.error.InvalidJumpDestError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 

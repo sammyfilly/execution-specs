@@ -30,8 +30,25 @@ Functions
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.frontier.vm.interpreter.PC_CHANGING_OPS
+
+
 Module Details
 ---------------
+
+PC_CHANGING_OPS
+~~~~~~~~~~~~~~~
+
+.. data:: PC_CHANGING_OPS
+   
+
+   
+
 
 process_call
 ~~~~~~~~~~~~
@@ -60,4 +77,4 @@ process_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 25-104
+   :lines: 28-113
