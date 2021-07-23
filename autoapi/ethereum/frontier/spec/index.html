@@ -57,21 +57,22 @@
 <li><p><a class="reference internal" href="#gas-limit-minimum" id="id9">GAS_LIMIT_MINIMUM</a></p></li>
 <li><p><a class="reference internal" href="#genesis-difficulty" id="id10">GENESIS_DIFFICULTY</a></p></li>
 <li><p><a class="reference internal" href="#blockchain" id="id11">BlockChain</a></p></li>
-<li><p><a class="reference internal" href="#state-transition" id="id12">state_transition</a></p></li>
-<li><p><a class="reference internal" href="#validate-header" id="id13">validate_header</a></p></li>
-<li><p><a class="reference internal" href="#apply-body" id="id14">apply_body</a></p></li>
-<li><p><a class="reference internal" href="#compute-ommers-hash" id="id15">compute_ommers_hash</a></p></li>
-<li><p><a class="reference internal" href="#process-transaction" id="id16">process_transaction</a></p></li>
-<li><p><a class="reference internal" href="#validate-transaction" id="id17">validate_transaction</a></p></li>
-<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id18">calculate_intrinsic_cost</a></p></li>
-<li><p><a class="reference internal" href="#recover-sender" id="id19">recover_sender</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash" id="id20">signing_hash</a></p></li>
-<li><p><a class="reference internal" href="#compute-header-hash" id="id21">compute_header_hash</a></p></li>
-<li><p><a class="reference internal" href="#get-block-header-by-hash" id="id22">get_block_header_by_hash</a></p></li>
-<li><p><a class="reference internal" href="#check-proof-of-work" id="id23">check_proof_of_work</a></p></li>
-<li><p><a class="reference internal" href="#check-gas-limit" id="id24">check_gas_limit</a></p></li>
-<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id25">calculate_block_difficulty</a></p></li>
-<li><p><a class="reference internal" href="#print-state" id="id26">print_state</a></p></li>
+<li><p><a class="reference internal" href="#get-recent-block-hashes" id="id12">get_recent_block_hashes</a></p></li>
+<li><p><a class="reference internal" href="#state-transition" id="id13">state_transition</a></p></li>
+<li><p><a class="reference internal" href="#validate-header" id="id14">validate_header</a></p></li>
+<li><p><a class="reference internal" href="#apply-body" id="id15">apply_body</a></p></li>
+<li><p><a class="reference internal" href="#compute-ommers-hash" id="id16">compute_ommers_hash</a></p></li>
+<li><p><a class="reference internal" href="#process-transaction" id="id17">process_transaction</a></p></li>
+<li><p><a class="reference internal" href="#validate-transaction" id="id18">validate_transaction</a></p></li>
+<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id19">calculate_intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#recover-sender" id="id20">recover_sender</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash" id="id21">signing_hash</a></p></li>
+<li><p><a class="reference internal" href="#compute-header-hash" id="id22">compute_header_hash</a></p></li>
+<li><p><a class="reference internal" href="#get-block-header-by-hash" id="id23">get_block_header_by_hash</a></p></li>
+<li><p><a class="reference internal" href="#check-proof-of-work" id="id24">check_proof_of_work</a></p></li>
+<li><p><a class="reference internal" href="#check-gas-limit" id="id25">check_gas_limit</a></p></li>
+<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id26">calculate_block_difficulty</a></p></li>
+<li><p><a class="reference internal" href="#print-state" id="id27">print_state</a></p></li>
 </ul>
 </li>
 </ul>
@@ -104,49 +105,52 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.state_transition" title="ethereum.frontier.spec.state_transition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_transition</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_recent_block_hashes" title="ethereum.frontier.spec.get_recent_block_hashes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_block_hashes</span></code></a></p></td>
+<td><p>Obtain the list of hashes of the previous <cite>num_blocks</cite> blocks in the</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.state_transition" title="ethereum.frontier.spec.state_transition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_transition</span></code></a></p></td>
 <td><p>Attempts to apply a block to an existing block chain.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_header" title="ethereum.frontier.spec.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_header" title="ethereum.frontier.spec.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
 <td><p>Verifies a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.apply_body" title="ethereum.frontier.spec.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.apply_body" title="ethereum.frontier.spec.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
 <td><p>Executes a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.compute_ommers_hash" title="ethereum.frontier.spec.compute_ommers_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ommers_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.compute_ommers_hash" title="ethereum.frontier.spec.compute_ommers_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ommers_hash</span></code></a></p></td>
 <td><p>Compute hash of ommers list for a block</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.process_transaction" title="ethereum.frontier.spec.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.process_transaction" title="ethereum.frontier.spec.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
 <td><p>Execute a transaction against the provided environment.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_transaction" title="ethereum.frontier.spec.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_transaction" title="ethereum.frontier.spec.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
 <td><p>Verifies a transaction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_intrinsic_cost" title="ethereum.frontier.spec.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_intrinsic_cost" title="ethereum.frontier.spec.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
 <td><p>Calculates the intrinsic cost of the transaction that is charged before</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.recover_sender" title="ethereum.frontier.spec.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.recover_sender" title="ethereum.frontier.spec.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
 <td><p>Extracts the sender address from a transaction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.signing_hash" title="ethereum.frontier.spec.signing_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.signing_hash" title="ethereum.frontier.spec.signing_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in the signature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.compute_header_hash" title="ethereum.frontier.spec.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.compute_header_hash" title="ethereum.frontier.spec.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
 <td><p>Computes the hash of a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_block_header_by_hash" title="ethereum.frontier.spec.get_block_header_by_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_block_header_by_hash</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_block_header_by_hash" title="ethereum.frontier.spec.get_block_header_by_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_block_header_by_hash</span></code></a></p></td>
 <td><p>Fetches the block header with the corresponding hash.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_proof_of_work" title="ethereum.frontier.spec.check_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_proof_of_work</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_proof_of_work" title="ethereum.frontier.spec.check_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_proof_of_work</span></code></a></p></td>
 <td><p>Validates the Proof of Work constraints.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_gas_limit" title="ethereum.frontier.spec.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_gas_limit" title="ethereum.frontier.spec.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
 <td><p>Validates the gas limit for a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_block_difficulty" title="ethereum.frontier.spec.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_block_difficulty" title="ethereum.frontier.spec.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
 <td><p>Computes difficulty of a block using its header and parent header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.print_state" title="ethereum.frontier.spec.print_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_state</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.print_state" title="ethereum.frontier.spec.print_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_state</span></code></a></p></td>
 <td><p>Pretty prints the state.</p></td>
 </tr>
 </tbody>
@@ -229,6 +233,57 @@
 </dd></dl>
 
 </section>
+<section id="get-recent-block-hashes">
+<h4>get_recent_block_hashes<a class="headerlink" href="#get-recent-block-hashes" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.spec.get_recent_block_hashes">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">get_recent_block_hashes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_blocks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ethereum.frontier.eth_types.Hash32</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.get_recent_block_hashes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the list of hashes of the previous <cite>num_blocks</cite> blocks in the
+order of increasing block number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> – History and current state.</p></li>
+<li><p><strong>num_blocks</strong> – Number of recent block hashes one wishes to obtain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>recent_block_hashes</strong> – Hashes of the recent <cite>num_blocks</cite> blocks in order of increasing
+block number.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>List[Hash32]</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_recent_block_hashes</span><span class="p">(</span>
+    <span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">,</span> <span class="n">num_blocks</span><span class="p">:</span> <span class="n">Uint</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Hash32</span><span class="p">]:</span>
+    <span class="c1"># TODO: This function has not been tested rigorously</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num_blocks</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="c1"># We are computing the hash only for the most recent block and not for</span>
+    <span class="c1"># the rest of the blocks as they have successors which have the hash of</span>
+    <span class="c1"># the current block as parent hash.</span>
+    <span class="n">most_recent_block_hash</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">recent_block_hashes</span> <span class="o">=</span> <span class="p">[</span><span class="n">most_recent_block_hash</span><span class="p">]</span>
+
+    <span class="c1"># We consider only the last `num_blocks - 1` blocks as we already have</span>
+    <span class="c1"># the most recent block hash computed and need only `num_blocks - 1` more</span>
+    <span class="c1"># hashes.</span>
+    <span class="n">recent_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
+
+    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">recent_blocks</span><span class="p">):</span>
+        <span class="n">prev_block_hash</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent_hash</span>
+        <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_block_hash</span><span class="p">)</span>
+
+    <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">recent_block_hashes</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="state-transition">
 <h4>state_transition<a class="headerlink" href="#state-transition" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
@@ -256,6 +311,7 @@
         <span class="n">state</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">=</span> <span class="n">apply_body</span><span class="p">(</span>
         <span class="n">chain</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
+        <span class="n">get_recent_block_hashes</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">256</span><span class="p">)),</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
@@ -315,12 +371,14 @@
 <h4>apply_body<a class="headerlink" href="#apply-body" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.apply_body">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">apply_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.State" title="ethereum.frontier.eth_types.State"><span class="pre">ethereum.frontier.eth_types.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">coinbase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Transaction" title="ethereum.frontier.eth_types.Transaction"><span class="pre">ethereum.frontier.eth_types.Transaction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Bloom" title="ethereum.frontier.eth_types.Bloom"><span class="pre">ethereum.frontier.eth_types.Bloom</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.State" title="ethereum.frontier.eth_types.State"><span class="pre">ethereum.frontier.eth_types.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.apply_body" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">apply_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.State" title="ethereum.frontier.eth_types.State"><span class="pre">ethereum.frontier.eth_types.State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_hashes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ethereum.frontier.eth_types.Hash32</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coinbase</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transactions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Transaction" title="ethereum.frontier.eth_types.Transaction"><span class="pre">ethereum.frontier.eth_types.Transaction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ommers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Bloom" title="ethereum.frontier.eth_types.Bloom"><span class="pre">ethereum.frontier.eth_types.Bloom</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.State" title="ethereum.frontier.eth_types.State"><span class="pre">ethereum.frontier.eth_types.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.apply_body" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>state</strong> – Current account state.</p></li>
+<li><p><strong>block_hashes</strong> – List of hashes of the previous 256 blocks in the order of
+increasing block number.</p></li>
 <li><p><strong>coinbase</strong> – Address of account which receives block reward and transaction fees.</p></li>
 <li><p><strong>block_number</strong> – Position of the block within the chain.</p></li>
 <li><p><strong>block_gas_limit</strong> – Initial amount of gas available for execution in this block.</p></li>
@@ -347,6 +405,7 @@ block.</p></li>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_body</span><span class="p">(</span>
     <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span>
+    <span class="n">block_hashes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Hash32</span><span class="p">],</span>
     <span class="n">coinbase</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span>
     <span class="n">block_number</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
     <span class="n">block_gas_limit</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
@@ -369,7 +428,7 @@ block.</p></li>
         <span class="n">env</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span>
             <span class="n">caller</span><span class="o">=</span><span class="n">sender_address</span><span class="p">,</span>
             <span class="n">origin</span><span class="o">=</span><span class="n">sender_address</span><span class="p">,</span>
-            <span class="n">block_hashes</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">block_hashes</span><span class="o">=</span><span class="n">block_hashes</span><span class="p">,</span>
             <span class="n">coinbase</span><span class="o">=</span><span class="n">coinbase</span><span class="p">,</span>
             <span class="n">number</span><span class="o">=</span><span class="n">block_number</span><span class="p">,</span>
             <span class="n">gas_limit</span><span class="o">=</span><span class="n">block_gas_limit</span><span class="p">,</span>

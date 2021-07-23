@@ -37,7 +37,6 @@ Attributes
 
 .. autoapisummary::
 
-   ethereum.frontier.vm.gas.GAS_EXT
    ethereum.frontier.vm.gas.GAS_JUMPDEST
    ethereum.frontier.vm.gas.GAS_BASE
    ethereum.frontier.vm.gas.GAS_VERY_LOW
@@ -53,6 +52,7 @@ Attributes
    ethereum.frontier.vm.gas.GAS_KECCAK256
    ethereum.frontier.vm.gas.GAS_KECCAK256_WORD
    ethereum.frontier.vm.gas.GAS_COPY
+   ethereum.frontier.vm.gas.GAS_EXTERNAL
    ethereum.frontier.vm.gas.GAS_LOG
    ethereum.frontier.vm.gas.GAS_LOG_DATA
    ethereum.frontier.vm.gas.GAS_LOG_TOPIC
@@ -60,15 +60,6 @@ Attributes
 
 Module Details
 ---------------
-
-GAS_EXT
-~~~~~~~
-
-.. data:: GAS_EXT
-   
-
-   
-
 
 GAS_JUMPDEST
 ~~~~~~~~~~~~
@@ -200,6 +191,15 @@ GAS_COPY
 ~~~~~~~~
 
 .. data:: GAS_COPY
+   
+
+   
+
+
+GAS_EXTERNAL
+~~~~~~~~~~~~
+
+.. data:: GAS_EXTERNAL
    
 
    

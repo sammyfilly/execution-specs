@@ -25,6 +25,7 @@ Submodules
 
    arithmetic/index.rst
    bitwise/index.rst
+   block/index.rst
    comparison/index.rst
    control_flow/index.rst
    environment/index.rst
@@ -180,6 +181,11 @@ Enum for EVM Opcodes
 
       
 
+   .. attribute:: KECCAK
+      :annotation: = 32
+
+      
+
    .. attribute:: ADDRESS
       :annotation: = 48
 
@@ -245,6 +251,36 @@ Enum for EVM Opcodes
 
       
 
+   .. attribute:: BLOCKHASH
+      :annotation: = 64
+
+      
+
+   .. attribute:: COINBASE
+      :annotation: = 65
+
+      
+
+   .. attribute:: TIMESTAMP
+      :annotation: = 66
+
+      
+
+   .. attribute:: NUMBER
+      :annotation: = 67
+
+      
+
+   .. attribute:: DIFFICULTY
+      :annotation: = 68
+
+      
+
+   .. attribute:: GASLIMIT
+      :annotation: = 69
+
+      
+
    .. attribute:: STOP
       :annotation: = 0
 
@@ -272,11 +308,6 @@ Enum for EVM Opcodes
 
    .. attribute:: JUMPDEST
       :annotation: = 91
-
-      
-
-   .. attribute:: KECCAK
-      :annotation: = 32
 
       
 

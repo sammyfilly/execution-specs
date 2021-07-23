@@ -69,6 +69,7 @@ implementations.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="arithmetic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.arithmetic</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="bitwise/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.bitwise</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="block/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.block</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="comparison/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.comparison</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="control_flow/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.control_flow</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="environment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.environment</span></code></a></li>
@@ -231,6 +232,11 @@ implementations.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.KECCAK">
+<span class="sig-name descname"><span class="pre">KECCAK</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.KECCAK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.ADDRESS">
 <span class="sig-name descname"><span class="pre">ADDRESS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">48</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.ADDRESS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -296,6 +302,36 @@ implementations.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.BLOCKHASH">
+<span class="sig-name descname"><span class="pre">BLOCKHASH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">64</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.BLOCKHASH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.COINBASE">
+<span class="sig-name descname"><span class="pre">COINBASE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">65</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.COINBASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.TIMESTAMP">
+<span class="sig-name descname"><span class="pre">TIMESTAMP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">66</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.NUMBER">
+<span class="sig-name descname"><span class="pre">NUMBER</span></span><em class="property"> <span class="pre">=</span> <span class="pre">67</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.NUMBER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.DIFFICULTY">
+<span class="sig-name descname"><span class="pre">DIFFICULTY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">68</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.DIFFICULTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.GASLIMIT">
+<span class="sig-name descname"><span class="pre">GASLIMIT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">69</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.GASLIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.STOP">
 <span class="sig-name descname"><span class="pre">STOP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.STOP" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -323,11 +359,6 @@ implementations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.JUMPDEST">
 <span class="sig-name descname"><span class="pre">JUMPDEST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">91</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.JUMPDEST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.Ops.KECCAK">
-<span class="sig-name descname"><span class="pre">KECCAK</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.Ops.KECCAK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
