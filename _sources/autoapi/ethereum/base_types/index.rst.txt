@@ -42,10 +42,11 @@ Attributes
    ethereum.base_types.U8_MAX_VALUE
    ethereum.base_types.MAX_VALUE
    ethereum.base_types.Bytes
-   ethereum.base_types.Bytes64
-   ethereum.base_types.Bytes32
-   ethereum.base_types.Bytes20
    ethereum.base_types.Bytes8
+   ethereum.base_types.Bytes20
+   ethereum.base_types.Bytes32
+   ethereum.base_types.Bytes64
+   ethereum.base_types.BytesMutable256
 
 
 Module Details
@@ -462,19 +463,10 @@ Bytes
    
 
 
-Bytes64
-~~~~~~~
+Bytes8
+~~~~~~
 
-.. data:: Bytes64
-   
-
-   
-
-
-Bytes32
-~~~~~~~
-
-.. data:: Bytes32
+.. data:: Bytes8
    
 
    
@@ -489,10 +481,28 @@ Bytes20
    
 
 
-Bytes8
-~~~~~~
+Bytes32
+~~~~~~~
 
-.. data:: Bytes8
+.. data:: Bytes32
+   
+
+   
+
+
+Bytes64
+~~~~~~~
+
+.. data:: Bytes64
+   
+
+   
+
+
+BytesMutable256
+~~~~~~~~~~~~~~~
+
+.. data:: BytesMutable256
    
 
    

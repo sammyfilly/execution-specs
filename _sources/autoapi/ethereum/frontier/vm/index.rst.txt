@@ -187,6 +187,11 @@ The internal state of the virtual machine.
 
       
 
+   .. attribute:: logs
+      :annotation: :List[ethereum.frontier.eth_types.Log]
+
+      
+
    .. attribute:: refund_counter
       :annotation: :ethereum.base_types.Uint
 

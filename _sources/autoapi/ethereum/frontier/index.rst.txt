@@ -24,6 +24,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   bloom/index.rst
    eth_types/index.rst
    rlp/index.rst
    spec/index.rst

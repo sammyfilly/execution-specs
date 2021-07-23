@@ -1,0 +1,115 @@
+:mod:`ethereum.frontier.vm.instructions.log`
+============================================
+
+.. py:module:: ethereum.frontier.vm.instructions.log
+
+Ethereum Virtual Machine (EVM) Logging Instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Implementations of the EVM logging instructions.
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.vm.instructions.log.log_n
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ethereum.frontier.vm.instructions.log.log0
+   ethereum.frontier.vm.instructions.log.log1
+   ethereum.frontier.vm.instructions.log.log2
+   ethereum.frontier.vm.instructions.log.log3
+   ethereum.frontier.vm.instructions.log.log4
+
+
+Module Details
+---------------
+
+log_n
+~~~~~
+
+
+.. function:: log_n(evm: ethereum.frontier.vm.Evm, num_topics: int) -> None
+   :noindexentry:
+
+   Appends a log entry, having `num_topics` topics, to the evm logs.
+
+   This will also expand the memory if the data (required by the log entry)
+   corresponding to the memory is not accessible.
+
+   :param evm: The current EVM frame.
+   :param num_topics: The number of topics to be included in the log entry.
+
+   :raises StackUnderflowError: If `len(stack)` is less than `2 + num_topics`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/log.py
+   :language: python
+   :lines: 31-75
+
+log0
+~~~~
+
+.. data:: log0
+   
+
+   
+
+
+log1
+~~~~
+
+.. data:: log1
+   
+
+   
+
+
+log2
+~~~~
+
+.. data:: log2
+   
+
+   
+
+
+log3
+~~~~
+
+.. data:: log3
+   
+
+   
+
+
+log4
+~~~~
+
+.. data:: log4
+   
+
+   
+

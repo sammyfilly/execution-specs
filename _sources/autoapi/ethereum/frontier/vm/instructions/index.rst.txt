@@ -29,6 +29,7 @@ Submodules
    control_flow/index.rst
    environment/index.rst
    keccak/index.rst
+   log/index.rst
    memory/index.rst
    stack/index.rst
    storage/index.rst
@@ -631,6 +632,31 @@ Enum for EVM Opcodes
 
    .. attribute:: MSIZE
       :annotation: = 89
+
+      
+
+   .. attribute:: LOG0
+      :annotation: = 160
+
+      
+
+   .. attribute:: LOG1
+      :annotation: = 161
+
+      
+
+   .. attribute:: LOG2
+      :annotation: = 162
+
+      
+
+   .. attribute:: LOG3
+      :annotation: = 163
+
+      
+
+   .. attribute:: LOG4
+      :annotation: = 164
 
       
 
