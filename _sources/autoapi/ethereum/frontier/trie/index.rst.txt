@@ -52,7 +52,7 @@ Module Details
 debug
 ~~~~~
 
-.. data:: debug
+.. py:data:: debug
    :annotation: = False
 
    
@@ -61,7 +61,7 @@ debug
 verbose
 ~~~~~~~
 
-.. data:: verbose
+.. py:data:: verbose
    :annotation: = False
 
    
@@ -70,7 +70,7 @@ verbose
 Node
 ~~~~
 
-.. data:: Node
+.. py:data:: Node
    
 
    

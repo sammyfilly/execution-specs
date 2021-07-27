@@ -70,7 +70,7 @@ Module Details
 BLOCK_REWARD
 ~~~~~~~~~~~~
 
-.. data:: BLOCK_REWARD
+.. py:data:: BLOCK_REWARD
    
 
    
@@ -79,7 +79,7 @@ BLOCK_REWARD
 GAS_LIMIT_ADJUSTMENT_FACTOR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_LIMIT_ADJUSTMENT_FACTOR
+.. py:data:: GAS_LIMIT_ADJUSTMENT_FACTOR
    :annotation: = 1024
 
    
@@ -88,7 +88,7 @@ GAS_LIMIT_ADJUSTMENT_FACTOR
 GAS_LIMIT_MINIMUM
 ~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_LIMIT_MINIMUM
+.. py:data:: GAS_LIMIT_MINIMUM
    :annotation: = 125000
 
    
@@ -97,7 +97,7 @@ GAS_LIMIT_MINIMUM
 GENESIS_DIFFICULTY
 ~~~~~~~~~~~~~~~~~~
 
-.. data:: GENESIS_DIFFICULTY
+.. py:data:: GENESIS_DIFFICULTY
    
 
    
@@ -112,12 +112,12 @@ History and current state of the block chain.
 
 .. class:: BlockChain
 
-   .. attribute:: blocks
+   .. py:attribute:: blocks
       :annotation: :List[ethereum.frontier.eth_types.Block]
 
       
 
-   .. attribute:: state
+   .. py:attribute:: state
       :annotation: :ethereum.frontier.eth_types.State
 
       

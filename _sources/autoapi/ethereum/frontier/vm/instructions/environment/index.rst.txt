@@ -56,7 +56,7 @@ Module Details
 MAX_ADDRESS_BYTES
 ~~~~~~~~~~~~~~~~~
 
-.. data:: MAX_ADDRESS_BYTES
+.. py:data:: MAX_ADDRESS_BYTES
    :annotation: = 20
 
    

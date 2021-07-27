@@ -44,7 +44,7 @@ Module Details
 PC_CHANGING_OPS
 ~~~~~~~~~~~~~~~
 
-.. data:: PC_CHANGING_OPS
+.. py:data:: PC_CHANGING_OPS
    
 
    

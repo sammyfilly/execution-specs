@@ -64,7 +64,7 @@ Module Details
 GAS_JUMPDEST
 ~~~~~~~~~~~~
 
-.. data:: GAS_JUMPDEST
+.. py:data:: GAS_JUMPDEST
    
 
    
@@ -73,7 +73,7 @@ GAS_JUMPDEST
 GAS_BASE
 ~~~~~~~~
 
-.. data:: GAS_BASE
+.. py:data:: GAS_BASE
    
 
    
@@ -82,7 +82,7 @@ GAS_BASE
 GAS_VERY_LOW
 ~~~~~~~~~~~~
 
-.. data:: GAS_VERY_LOW
+.. py:data:: GAS_VERY_LOW
    
 
    
@@ -91,7 +91,7 @@ GAS_VERY_LOW
 GAS_SLOAD
 ~~~~~~~~~
 
-.. data:: GAS_SLOAD
+.. py:data:: GAS_SLOAD
    
 
    
@@ -100,7 +100,7 @@ GAS_SLOAD
 GAS_STORAGE_SET
 ~~~~~~~~~~~~~~~
 
-.. data:: GAS_STORAGE_SET
+.. py:data:: GAS_STORAGE_SET
    
 
    
@@ -109,7 +109,7 @@ GAS_STORAGE_SET
 GAS_STORAGE_UPDATE
 ~~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_STORAGE_UPDATE
+.. py:data:: GAS_STORAGE_UPDATE
    
 
    
@@ -118,7 +118,7 @@ GAS_STORAGE_UPDATE
 GAS_STORAGE_CLEAR_REFUND
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_STORAGE_CLEAR_REFUND
+.. py:data:: GAS_STORAGE_CLEAR_REFUND
    
 
    
@@ -127,7 +127,7 @@ GAS_STORAGE_CLEAR_REFUND
 GAS_LOW
 ~~~~~~~
 
-.. data:: GAS_LOW
+.. py:data:: GAS_LOW
    
 
    
@@ -136,7 +136,7 @@ GAS_LOW
 GAS_MID
 ~~~~~~~
 
-.. data:: GAS_MID
+.. py:data:: GAS_MID
    
 
    
@@ -145,7 +145,7 @@ GAS_MID
 GAS_HIGH
 ~~~~~~~~
 
-.. data:: GAS_HIGH
+.. py:data:: GAS_HIGH
    
 
    
@@ -154,7 +154,7 @@ GAS_HIGH
 GAS_EXPONENTIATION
 ~~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_EXPONENTIATION
+.. py:data:: GAS_EXPONENTIATION
    
 
    
@@ -163,7 +163,7 @@ GAS_EXPONENTIATION
 GAS_MEMORY
 ~~~~~~~~~~
 
-.. data:: GAS_MEMORY
+.. py:data:: GAS_MEMORY
    
 
    
@@ -172,7 +172,7 @@ GAS_MEMORY
 GAS_KECCAK256
 ~~~~~~~~~~~~~
 
-.. data:: GAS_KECCAK256
+.. py:data:: GAS_KECCAK256
    
 
    
@@ -181,7 +181,7 @@ GAS_KECCAK256
 GAS_KECCAK256_WORD
 ~~~~~~~~~~~~~~~~~~
 
-.. data:: GAS_KECCAK256_WORD
+.. py:data:: GAS_KECCAK256_WORD
    
 
    
@@ -190,7 +190,7 @@ GAS_KECCAK256_WORD
 GAS_COPY
 ~~~~~~~~
 
-.. data:: GAS_COPY
+.. py:data:: GAS_COPY
    
 
    
@@ -199,7 +199,7 @@ GAS_COPY
 GAS_EXTERNAL
 ~~~~~~~~~~~~
 
-.. data:: GAS_EXTERNAL
+.. py:data:: GAS_EXTERNAL
    
 
    
@@ -208,7 +208,7 @@ GAS_EXTERNAL
 GAS_LOG
 ~~~~~~~
 
-.. data:: GAS_LOG
+.. py:data:: GAS_LOG
    
 
    
@@ -217,7 +217,7 @@ GAS_LOG
 GAS_LOG_DATA
 ~~~~~~~~~~~~
 
-.. data:: GAS_LOG_DATA
+.. py:data:: GAS_LOG_DATA
    
 
    
@@ -226,7 +226,7 @@ GAS_LOG_DATA
 GAS_LOG_TOPIC
 ~~~~~~~~~~~~~
 
-.. data:: GAS_LOG_TOPIC
+.. py:data:: GAS_LOG_TOPIC
    
 
    

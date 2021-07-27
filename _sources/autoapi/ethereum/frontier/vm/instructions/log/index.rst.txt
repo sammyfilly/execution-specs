@@ -72,7 +72,7 @@ log_n
 log0
 ~~~~
 
-.. data:: log0
+.. py:data:: log0
    
 
    
@@ -81,7 +81,7 @@ log0
 log1
 ~~~~
 
-.. data:: log1
+.. py:data:: log1
    
 
    
@@ -90,7 +90,7 @@ log1
 log2
 ~~~~
 
-.. data:: log2
+.. py:data:: log2
    
 
    
@@ -99,7 +99,7 @@ log2
 log3
 ~~~~
 
-.. data:: log3
+.. py:data:: log3
    
 
    
@@ -108,7 +108,7 @@ log3
 log4
 ~~~~
 
-.. data:: log4
+.. py:data:: log4
    
 
    

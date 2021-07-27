@@ -47,7 +47,7 @@ Module Details
 Hash32
 ~~~~~~
 
-.. data:: Hash32
+.. py:data:: Hash32
    
 
    
@@ -56,7 +56,7 @@ Hash32
 Hash64
 ~~~~~~
 
-.. data:: Hash64
+.. py:data:: Hash64
    
 
    

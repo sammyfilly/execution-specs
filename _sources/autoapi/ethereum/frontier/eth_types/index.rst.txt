@@ -56,7 +56,7 @@ Module Details
 Address
 ~~~~~~~
 
-.. data:: Address
+.. py:data:: Address
    
 
    
@@ -65,7 +65,7 @@ Address
 Root
 ~~~~
 
-.. data:: Root
+.. py:data:: Root
    
 
    
@@ -74,7 +74,7 @@ Root
 Storage
 ~~~~~~~
 
-.. data:: Storage
+.. py:data:: Storage
    
 
    
@@ -83,7 +83,7 @@ Storage
 Bloom
 ~~~~~
 
-.. data:: Bloom
+.. py:data:: Bloom
    
 
    
@@ -92,7 +92,7 @@ Bloom
 TX_BASE_COST
 ~~~~~~~~~~~~
 
-.. data:: TX_BASE_COST
+.. py:data:: TX_BASE_COST
    :annotation: = 21000
 
    
@@ -101,7 +101,7 @@ TX_BASE_COST
 TX_DATA_COST_PER_NON_ZERO
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. data:: TX_DATA_COST_PER_NON_ZERO
+.. py:data:: TX_DATA_COST_PER_NON_ZERO
    :annotation: = 68
 
    
@@ -110,7 +110,7 @@ TX_DATA_COST_PER_NON_ZERO
 TX_DATA_COST_PER_ZERO
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. data:: TX_DATA_COST_PER_ZERO
+.. py:data:: TX_DATA_COST_PER_ZERO
    :annotation: = 4
 
    
@@ -125,47 +125,47 @@ Atomic operation performed on the block chain.
 
 .. class:: Transaction
 
-   .. attribute:: nonce
+   .. py:attribute:: nonce
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: gas_price
+   .. py:attribute:: gas_price
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: gas
+   .. py:attribute:: gas
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: to
+   .. py:attribute:: to
       :annotation: :Optional[Address]
 
       
 
-   .. attribute:: value
+   .. py:attribute:: value
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: data
+   .. py:attribute:: data
       :annotation: :ethereum.base_types.Bytes
 
       
 
-   .. attribute:: v
+   .. py:attribute:: v
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: r
+   .. py:attribute:: r
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: s
+   .. py:attribute:: s
       :annotation: :ethereum.base_types.U256
 
       
@@ -181,22 +181,22 @@ State associated with an address.
 
 .. class:: Account
 
-   .. attribute:: nonce
+   .. py:attribute:: nonce
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: balance
+   .. py:attribute:: balance
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: code
+   .. py:attribute:: code
       :annotation: :bytes
 
       
 
-   .. attribute:: storage
+   .. py:attribute:: storage
       :annotation: :Storage
 
       
@@ -206,7 +206,7 @@ State associated with an address.
 EMPTY_ACCOUNT
 ~~~~~~~~~~~~~
 
-.. data:: EMPTY_ACCOUNT
+.. py:data:: EMPTY_ACCOUNT
    
 
    
@@ -221,77 +221,77 @@ Header portion of a block on the chain.
 
 .. class:: Header
 
-   .. attribute:: parent_hash
+   .. py:attribute:: parent_hash
       :annotation: :ethereum.crypto.Hash32
 
       
 
-   .. attribute:: ommers_hash
+   .. py:attribute:: ommers_hash
       :annotation: :ethereum.crypto.Hash32
 
       
 
-   .. attribute:: coinbase
+   .. py:attribute:: coinbase
       :annotation: :Address
 
       
 
-   .. attribute:: state_root
+   .. py:attribute:: state_root
       :annotation: :Root
 
       
 
-   .. attribute:: transactions_root
+   .. py:attribute:: transactions_root
       :annotation: :Root
 
       
 
-   .. attribute:: receipt_root
+   .. py:attribute:: receipt_root
       :annotation: :Root
 
       
 
-   .. attribute:: bloom
+   .. py:attribute:: bloom
       :annotation: :Bloom
 
       
 
-   .. attribute:: difficulty
+   .. py:attribute:: difficulty
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: number
+   .. py:attribute:: number
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: gas_limit
+   .. py:attribute:: gas_limit
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: gas_used
+   .. py:attribute:: gas_used
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: timestamp
+   .. py:attribute:: timestamp
       :annotation: :ethereum.base_types.U256
 
       
 
-   .. attribute:: extra_data
+   .. py:attribute:: extra_data
       :annotation: :ethereum.base_types.Bytes
 
       
 
-   .. attribute:: mix_digest
+   .. py:attribute:: mix_digest
       :annotation: :ethereum.base_types.Bytes32
 
       
 
-   .. attribute:: nonce
+   .. py:attribute:: nonce
       :annotation: :ethereum.base_types.Bytes8
 
       
@@ -307,17 +307,17 @@ A complete block.
 
 .. class:: Block
 
-   .. attribute:: header
+   .. py:attribute:: header
       :annotation: :Header
 
       
 
-   .. attribute:: transactions
+   .. py:attribute:: transactions
       :annotation: :List[Transaction]
 
       
 
-   .. attribute:: ommers
+   .. py:attribute:: ommers
       :annotation: :List[Header]
 
       
@@ -333,17 +333,17 @@ Data record produced during the execution of a transaction.
 
 .. class:: Log
 
-   .. attribute:: address
+   .. py:attribute:: address
       :annotation: :Address
 
       
 
-   .. attribute:: topics
+   .. py:attribute:: topics
       :annotation: :List[ethereum.crypto.Hash32]
 
       
 
-   .. attribute:: data
+   .. py:attribute:: data
       :annotation: :bytes
 
       
@@ -359,22 +359,22 @@ Result of a transaction.
 
 .. class:: Receipt
 
-   .. attribute:: post_state
+   .. py:attribute:: post_state
       :annotation: :Root
 
       
 
-   .. attribute:: cumulative_gas_used
+   .. py:attribute:: cumulative_gas_used
       :annotation: :ethereum.base_types.Uint
 
       
 
-   .. attribute:: bloom
+   .. py:attribute:: bloom
       :annotation: :Bloom
 
       
 
-   .. attribute:: logs
+   .. py:attribute:: logs
       :annotation: :List[Log]
 
       
@@ -384,7 +384,7 @@ Result of a transaction.
 State
 ~~~~~
 
-.. data:: State
+.. py:data:: State
    
 
    

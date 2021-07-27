@@ -202,7 +202,7 @@ swap_n
 push1
 ~~~~~
 
-.. data:: push1
+.. py:data:: push1
    
 
    
@@ -211,7 +211,7 @@ push1
 push2
 ~~~~~
 
-.. data:: push2
+.. py:data:: push2
    
 
    
@@ -220,7 +220,7 @@ push2
 push3
 ~~~~~
 
-.. data:: push3
+.. py:data:: push3
    
 
    
@@ -229,7 +229,7 @@ push3
 push4
 ~~~~~
 
-.. data:: push4
+.. py:data:: push4
    
 
    
@@ -238,7 +238,7 @@ push4
 push5
 ~~~~~
 
-.. data:: push5
+.. py:data:: push5
    
 
    
@@ -247,7 +247,7 @@ push5
 push6
 ~~~~~
 
-.. data:: push6
+.. py:data:: push6
    
 
    
@@ -256,7 +256,7 @@ push6
 push7
 ~~~~~
 
-.. data:: push7
+.. py:data:: push7
    
 
    
@@ -265,7 +265,7 @@ push7
 push8
 ~~~~~
 
-.. data:: push8
+.. py:data:: push8
    
 
    
@@ -274,7 +274,7 @@ push8
 push9
 ~~~~~
 
-.. data:: push9
+.. py:data:: push9
    
 
    
@@ -283,7 +283,7 @@ push9
 push10
 ~~~~~~
 
-.. data:: push10
+.. py:data:: push10
    
 
    
@@ -292,7 +292,7 @@ push10
 push11
 ~~~~~~
 
-.. data:: push11
+.. py:data:: push11
    
 
    
@@ -301,7 +301,7 @@ push11
 push12
 ~~~~~~
 
-.. data:: push12
+.. py:data:: push12
    
 
    
@@ -310,7 +310,7 @@ push12
 push13
 ~~~~~~
 
-.. data:: push13
+.. py:data:: push13
    
 
    
@@ -319,7 +319,7 @@ push13
 push14
 ~~~~~~
 
-.. data:: push14
+.. py:data:: push14
    
 
    
@@ -328,7 +328,7 @@ push14
 push15
 ~~~~~~
 
-.. data:: push15
+.. py:data:: push15
    
 
    
@@ -337,7 +337,7 @@ push15
 push16
 ~~~~~~
 
-.. data:: push16
+.. py:data:: push16
    
 
    
@@ -346,7 +346,7 @@ push16
 push17
 ~~~~~~
 
-.. data:: push17
+.. py:data:: push17
    
 
    
@@ -355,7 +355,7 @@ push17
 push18
 ~~~~~~
 
-.. data:: push18
+.. py:data:: push18
    
 
    
@@ -364,7 +364,7 @@ push18
 push19
 ~~~~~~
 
-.. data:: push19
+.. py:data:: push19
    
 
    
@@ -373,7 +373,7 @@ push19
 push20
 ~~~~~~
 
-.. data:: push20
+.. py:data:: push20
    
 
    
@@ -382,7 +382,7 @@ push20
 push21
 ~~~~~~
 
-.. data:: push21
+.. py:data:: push21
    
 
    
@@ -391,7 +391,7 @@ push21
 push22
 ~~~~~~
 
-.. data:: push22
+.. py:data:: push22
    
 
    
@@ -400,7 +400,7 @@ push22
 push23
 ~~~~~~
 
-.. data:: push23
+.. py:data:: push23
    
 
    
@@ -409,7 +409,7 @@ push23
 push24
 ~~~~~~
 
-.. data:: push24
+.. py:data:: push24
    
 
    
@@ -418,7 +418,7 @@ push24
 push25
 ~~~~~~
 
-.. data:: push25
+.. py:data:: push25
    
 
    
@@ -427,7 +427,7 @@ push25
 push26
 ~~~~~~
 
-.. data:: push26
+.. py:data:: push26
    
 
    
@@ -436,7 +436,7 @@ push26
 push27
 ~~~~~~
 
-.. data:: push27
+.. py:data:: push27
    
 
    
@@ -445,7 +445,7 @@ push27
 push28
 ~~~~~~
 
-.. data:: push28
+.. py:data:: push28
    
 
    
@@ -454,7 +454,7 @@ push28
 push29
 ~~~~~~
 
-.. data:: push29
+.. py:data:: push29
    
 
    
@@ -463,7 +463,7 @@ push29
 push30
 ~~~~~~
 
-.. data:: push30
+.. py:data:: push30
    
 
    
@@ -472,7 +472,7 @@ push30
 push31
 ~~~~~~
 
-.. data:: push31
+.. py:data:: push31
    
 
    
@@ -481,7 +481,7 @@ push31
 push32
 ~~~~~~
 
-.. data:: push32
+.. py:data:: push32
    
 
    
@@ -490,7 +490,7 @@ push32
 dup1
 ~~~~
 
-.. data:: dup1
+.. py:data:: dup1
    
 
    
@@ -499,7 +499,7 @@ dup1
 dup2
 ~~~~
 
-.. data:: dup2
+.. py:data:: dup2
    
 
    
@@ -508,7 +508,7 @@ dup2
 dup3
 ~~~~
 
-.. data:: dup3
+.. py:data:: dup3
    
 
    
@@ -517,7 +517,7 @@ dup3
 dup4
 ~~~~
 
-.. data:: dup4
+.. py:data:: dup4
    
 
    
@@ -526,7 +526,7 @@ dup4
 dup5
 ~~~~
 
-.. data:: dup5
+.. py:data:: dup5
    
 
    
@@ -535,7 +535,7 @@ dup5
 dup6
 ~~~~
 
-.. data:: dup6
+.. py:data:: dup6
    
 
    
@@ -544,7 +544,7 @@ dup6
 dup7
 ~~~~
 
-.. data:: dup7
+.. py:data:: dup7
    
 
    
@@ -553,7 +553,7 @@ dup7
 dup8
 ~~~~
 
-.. data:: dup8
+.. py:data:: dup8
    
 
    
@@ -562,7 +562,7 @@ dup8
 dup9
 ~~~~
 
-.. data:: dup9
+.. py:data:: dup9
    
 
    
@@ -571,7 +571,7 @@ dup9
 dup10
 ~~~~~
 
-.. data:: dup10
+.. py:data:: dup10
    
 
    
@@ -580,7 +580,7 @@ dup10
 dup11
 ~~~~~
 
-.. data:: dup11
+.. py:data:: dup11
    
 
    
@@ -589,7 +589,7 @@ dup11
 dup12
 ~~~~~
 
-.. data:: dup12
+.. py:data:: dup12
    
 
    
@@ -598,7 +598,7 @@ dup12
 dup13
 ~~~~~
 
-.. data:: dup13
+.. py:data:: dup13
    
 
    
@@ -607,7 +607,7 @@ dup13
 dup14
 ~~~~~
 
-.. data:: dup14
+.. py:data:: dup14
    
 
    
@@ -616,7 +616,7 @@ dup14
 dup15
 ~~~~~
 
-.. data:: dup15
+.. py:data:: dup15
    
 
    
@@ -625,7 +625,7 @@ dup15
 dup16
 ~~~~~
 
-.. data:: dup16
+.. py:data:: dup16
    
 
    
@@ -634,7 +634,7 @@ dup16
 swap1
 ~~~~~
 
-.. data:: swap1
+.. py:data:: swap1
    
 
    
@@ -643,7 +643,7 @@ swap1
 swap2
 ~~~~~
 
-.. data:: swap2
+.. py:data:: swap2
    
 
    
@@ -652,7 +652,7 @@ swap2
 swap3
 ~~~~~
 
-.. data:: swap3
+.. py:data:: swap3
    
 
    
@@ -661,7 +661,7 @@ swap3
 swap4
 ~~~~~
 
-.. data:: swap4
+.. py:data:: swap4
    
 
    
@@ -670,7 +670,7 @@ swap4
 swap5
 ~~~~~
 
-.. data:: swap5
+.. py:data:: swap5
    
 
    
@@ -679,7 +679,7 @@ swap5
 swap6
 ~~~~~
 
-.. data:: swap6
+.. py:data:: swap6
    
 
    
@@ -688,7 +688,7 @@ swap6
 swap7
 ~~~~~
 
-.. data:: swap7
+.. py:data:: swap7
    
 
    
@@ -697,7 +697,7 @@ swap7
 swap8
 ~~~~~
 
-.. data:: swap8
+.. py:data:: swap8
    
 
    
@@ -706,7 +706,7 @@ swap8
 swap9
 ~~~~~
 
-.. data:: swap9
+.. py:data:: swap9
    
 
    
@@ -715,7 +715,7 @@ swap9
 swap10
 ~~~~~~
 
-.. data:: swap10
+.. py:data:: swap10
    
 
    
@@ -724,7 +724,7 @@ swap10
 swap11
 ~~~~~~
 
-.. data:: swap11
+.. py:data:: swap11
    
 
    
@@ -733,7 +733,7 @@ swap11
 swap12
 ~~~~~~
 
-.. data:: swap12
+.. py:data:: swap12
    
 
    
@@ -742,7 +742,7 @@ swap12
 swap13
 ~~~~~~
 
-.. data:: swap13
+.. py:data:: swap13
    
 
    
@@ -751,7 +751,7 @@ swap13
 swap14
 ~~~~~~
 
-.. data:: swap14
+.. py:data:: swap14
    
 
    
@@ -760,7 +760,7 @@ swap14
 swap15
 ~~~~~~
 
-.. data:: swap15
+.. py:data:: swap15
    
 
    
@@ -769,7 +769,7 @@ swap15
 swap16
 ~~~~~~
 
-.. data:: swap16
+.. py:data:: swap16
    
 
    

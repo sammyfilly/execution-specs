@@ -71,622 +71,622 @@ Enum for EVM Opcodes
 
    Bases: :py:obj:`enum.Enum`
 
-   .. attribute:: ADD
+   .. py:attribute:: ADD
       :annotation: = 1
 
       
 
-   .. attribute:: MUL
+   .. py:attribute:: MUL
       :annotation: = 2
 
       
 
-   .. attribute:: SUB
+   .. py:attribute:: SUB
       :annotation: = 3
 
       
 
-   .. attribute:: DIV
+   .. py:attribute:: DIV
       :annotation: = 4
 
       
 
-   .. attribute:: SDIV
+   .. py:attribute:: SDIV
       :annotation: = 5
 
       
 
-   .. attribute:: MOD
+   .. py:attribute:: MOD
       :annotation: = 6
 
       
 
-   .. attribute:: SMOD
+   .. py:attribute:: SMOD
       :annotation: = 7
 
       
 
-   .. attribute:: ADDMOD
+   .. py:attribute:: ADDMOD
       :annotation: = 8
 
       
 
-   .. attribute:: MULMOD
+   .. py:attribute:: MULMOD
       :annotation: = 9
 
       
 
-   .. attribute:: EXP
+   .. py:attribute:: EXP
       :annotation: = 10
 
       
 
-   .. attribute:: SIGNEXTEND
+   .. py:attribute:: SIGNEXTEND
       :annotation: = 11
 
       
 
-   .. attribute:: LT
+   .. py:attribute:: LT
       :annotation: = 16
 
       
 
-   .. attribute:: GT
+   .. py:attribute:: GT
       :annotation: = 17
 
       
 
-   .. attribute:: SLT
+   .. py:attribute:: SLT
       :annotation: = 18
 
       
 
-   .. attribute:: SGT
+   .. py:attribute:: SGT
       :annotation: = 19
 
       
 
-   .. attribute:: EQ
+   .. py:attribute:: EQ
       :annotation: = 20
 
       
 
-   .. attribute:: ISZERO
+   .. py:attribute:: ISZERO
       :annotation: = 21
 
       
 
-   .. attribute:: AND
+   .. py:attribute:: AND
       :annotation: = 22
 
       
 
-   .. attribute:: OR
+   .. py:attribute:: OR
       :annotation: = 23
 
       
 
-   .. attribute:: XOR
+   .. py:attribute:: XOR
       :annotation: = 24
 
       
 
-   .. attribute:: NOT
+   .. py:attribute:: NOT
       :annotation: = 25
 
       
 
-   .. attribute:: BYTE
+   .. py:attribute:: BYTE
       :annotation: = 26
 
       
 
-   .. attribute:: KECCAK
+   .. py:attribute:: KECCAK
       :annotation: = 32
 
       
 
-   .. attribute:: ADDRESS
+   .. py:attribute:: ADDRESS
       :annotation: = 48
 
       
 
-   .. attribute:: BALANCE
+   .. py:attribute:: BALANCE
       :annotation: = 49
 
       
 
-   .. attribute:: ORIGIN
+   .. py:attribute:: ORIGIN
       :annotation: = 50
 
       
 
-   .. attribute:: CALLER
+   .. py:attribute:: CALLER
       :annotation: = 51
 
       
 
-   .. attribute:: CALLVALUE
+   .. py:attribute:: CALLVALUE
       :annotation: = 52
 
       
 
-   .. attribute:: CALLDATALOAD
+   .. py:attribute:: CALLDATALOAD
       :annotation: = 53
 
       
 
-   .. attribute:: CALLDATASIZE
+   .. py:attribute:: CALLDATASIZE
       :annotation: = 54
 
       
 
-   .. attribute:: CALLDATACOPY
+   .. py:attribute:: CALLDATACOPY
       :annotation: = 55
 
       
 
-   .. attribute:: CODESIZE
+   .. py:attribute:: CODESIZE
       :annotation: = 56
 
       
 
-   .. attribute:: CODECOPY
+   .. py:attribute:: CODECOPY
       :annotation: = 57
 
       
 
-   .. attribute:: GASPRICE
+   .. py:attribute:: GASPRICE
       :annotation: = 58
 
       
 
-   .. attribute:: EXTCODESIZE
+   .. py:attribute:: EXTCODESIZE
       :annotation: = 59
 
       
 
-   .. attribute:: EXTCODECOPY
+   .. py:attribute:: EXTCODECOPY
       :annotation: = 60
 
       
 
-   .. attribute:: BLOCKHASH
+   .. py:attribute:: BLOCKHASH
       :annotation: = 64
 
       
 
-   .. attribute:: COINBASE
+   .. py:attribute:: COINBASE
       :annotation: = 65
 
       
 
-   .. attribute:: TIMESTAMP
+   .. py:attribute:: TIMESTAMP
       :annotation: = 66
 
       
 
-   .. attribute:: NUMBER
+   .. py:attribute:: NUMBER
       :annotation: = 67
 
       
 
-   .. attribute:: DIFFICULTY
+   .. py:attribute:: DIFFICULTY
       :annotation: = 68
 
       
 
-   .. attribute:: GASLIMIT
+   .. py:attribute:: GASLIMIT
       :annotation: = 69
 
       
 
-   .. attribute:: STOP
+   .. py:attribute:: STOP
       :annotation: = 0
 
       
 
-   .. attribute:: JUMP
+   .. py:attribute:: JUMP
       :annotation: = 86
 
       
 
-   .. attribute:: JUMPI
+   .. py:attribute:: JUMPI
       :annotation: = 87
 
       
 
-   .. attribute:: PC
+   .. py:attribute:: PC
       :annotation: = 88
 
       
 
-   .. attribute:: GAS
+   .. py:attribute:: GAS
       :annotation: = 90
 
       
 
-   .. attribute:: JUMPDEST
+   .. py:attribute:: JUMPDEST
       :annotation: = 91
 
       
 
-   .. attribute:: SLOAD
+   .. py:attribute:: SLOAD
       :annotation: = 84
 
       
 
-   .. attribute:: SSTORE
+   .. py:attribute:: SSTORE
       :annotation: = 85
 
       
 
-   .. attribute:: POP
+   .. py:attribute:: POP
       :annotation: = 80
 
       
 
-   .. attribute:: PUSH1
+   .. py:attribute:: PUSH1
       :annotation: = 96
 
       
 
-   .. attribute:: PUSH2
+   .. py:attribute:: PUSH2
       :annotation: = 97
 
       
 
-   .. attribute:: PUSH3
+   .. py:attribute:: PUSH3
       :annotation: = 98
 
       
 
-   .. attribute:: PUSH4
+   .. py:attribute:: PUSH4
       :annotation: = 99
 
       
 
-   .. attribute:: PUSH5
+   .. py:attribute:: PUSH5
       :annotation: = 100
 
       
 
-   .. attribute:: PUSH6
+   .. py:attribute:: PUSH6
       :annotation: = 101
 
       
 
-   .. attribute:: PUSH7
+   .. py:attribute:: PUSH7
       :annotation: = 102
 
       
 
-   .. attribute:: PUSH8
+   .. py:attribute:: PUSH8
       :annotation: = 103
 
       
 
-   .. attribute:: PUSH9
+   .. py:attribute:: PUSH9
       :annotation: = 104
 
       
 
-   .. attribute:: PUSH10
+   .. py:attribute:: PUSH10
       :annotation: = 105
 
       
 
-   .. attribute:: PUSH11
+   .. py:attribute:: PUSH11
       :annotation: = 106
 
       
 
-   .. attribute:: PUSH12
+   .. py:attribute:: PUSH12
       :annotation: = 107
 
       
 
-   .. attribute:: PUSH13
+   .. py:attribute:: PUSH13
       :annotation: = 108
 
       
 
-   .. attribute:: PUSH14
+   .. py:attribute:: PUSH14
       :annotation: = 109
 
       
 
-   .. attribute:: PUSH15
+   .. py:attribute:: PUSH15
       :annotation: = 110
 
       
 
-   .. attribute:: PUSH16
+   .. py:attribute:: PUSH16
       :annotation: = 111
 
       
 
-   .. attribute:: PUSH17
+   .. py:attribute:: PUSH17
       :annotation: = 112
 
       
 
-   .. attribute:: PUSH18
+   .. py:attribute:: PUSH18
       :annotation: = 113
 
       
 
-   .. attribute:: PUSH19
+   .. py:attribute:: PUSH19
       :annotation: = 114
 
       
 
-   .. attribute:: PUSH20
+   .. py:attribute:: PUSH20
       :annotation: = 115
 
       
 
-   .. attribute:: PUSH21
+   .. py:attribute:: PUSH21
       :annotation: = 116
 
       
 
-   .. attribute:: PUSH22
+   .. py:attribute:: PUSH22
       :annotation: = 117
 
       
 
-   .. attribute:: PUSH23
+   .. py:attribute:: PUSH23
       :annotation: = 118
 
       
 
-   .. attribute:: PUSH24
+   .. py:attribute:: PUSH24
       :annotation: = 119
 
       
 
-   .. attribute:: PUSH25
+   .. py:attribute:: PUSH25
       :annotation: = 120
 
       
 
-   .. attribute:: PUSH26
+   .. py:attribute:: PUSH26
       :annotation: = 121
 
       
 
-   .. attribute:: PUSH27
+   .. py:attribute:: PUSH27
       :annotation: = 122
 
       
 
-   .. attribute:: PUSH28
+   .. py:attribute:: PUSH28
       :annotation: = 123
 
       
 
-   .. attribute:: PUSH29
+   .. py:attribute:: PUSH29
       :annotation: = 124
 
       
 
-   .. attribute:: PUSH30
+   .. py:attribute:: PUSH30
       :annotation: = 125
 
       
 
-   .. attribute:: PUSH31
+   .. py:attribute:: PUSH31
       :annotation: = 126
 
       
 
-   .. attribute:: PUSH32
+   .. py:attribute:: PUSH32
       :annotation: = 127
 
       
 
-   .. attribute:: DUP1
+   .. py:attribute:: DUP1
       :annotation: = 128
 
       
 
-   .. attribute:: DUP2
+   .. py:attribute:: DUP2
       :annotation: = 129
 
       
 
-   .. attribute:: DUP3
+   .. py:attribute:: DUP3
       :annotation: = 130
 
       
 
-   .. attribute:: DUP4
+   .. py:attribute:: DUP4
       :annotation: = 131
 
       
 
-   .. attribute:: DUP5
+   .. py:attribute:: DUP5
       :annotation: = 132
 
       
 
-   .. attribute:: DUP6
+   .. py:attribute:: DUP6
       :annotation: = 133
 
       
 
-   .. attribute:: DUP7
+   .. py:attribute:: DUP7
       :annotation: = 134
 
       
 
-   .. attribute:: DUP8
+   .. py:attribute:: DUP8
       :annotation: = 135
 
       
 
-   .. attribute:: DUP9
+   .. py:attribute:: DUP9
       :annotation: = 136
 
       
 
-   .. attribute:: DUP10
+   .. py:attribute:: DUP10
       :annotation: = 137
 
       
 
-   .. attribute:: DUP11
+   .. py:attribute:: DUP11
       :annotation: = 138
 
       
 
-   .. attribute:: DUP12
+   .. py:attribute:: DUP12
       :annotation: = 139
 
       
 
-   .. attribute:: DUP13
+   .. py:attribute:: DUP13
       :annotation: = 140
 
       
 
-   .. attribute:: DUP14
+   .. py:attribute:: DUP14
       :annotation: = 141
 
       
 
-   .. attribute:: DUP15
+   .. py:attribute:: DUP15
       :annotation: = 142
 
       
 
-   .. attribute:: DUP16
+   .. py:attribute:: DUP16
       :annotation: = 143
 
       
 
-   .. attribute:: SWAP1
+   .. py:attribute:: SWAP1
       :annotation: = 144
 
       
 
-   .. attribute:: SWAP2
+   .. py:attribute:: SWAP2
       :annotation: = 145
 
       
 
-   .. attribute:: SWAP3
+   .. py:attribute:: SWAP3
       :annotation: = 146
 
       
 
-   .. attribute:: SWAP4
+   .. py:attribute:: SWAP4
       :annotation: = 147
 
       
 
-   .. attribute:: SWAP5
+   .. py:attribute:: SWAP5
       :annotation: = 148
 
       
 
-   .. attribute:: SWAP6
+   .. py:attribute:: SWAP6
       :annotation: = 149
 
       
 
-   .. attribute:: SWAP7
+   .. py:attribute:: SWAP7
       :annotation: = 150
 
       
 
-   .. attribute:: SWAP8
+   .. py:attribute:: SWAP8
       :annotation: = 151
 
       
 
-   .. attribute:: SWAP9
+   .. py:attribute:: SWAP9
       :annotation: = 152
 
       
 
-   .. attribute:: SWAP10
+   .. py:attribute:: SWAP10
       :annotation: = 153
 
       
 
-   .. attribute:: SWAP11
+   .. py:attribute:: SWAP11
       :annotation: = 154
 
       
 
-   .. attribute:: SWAP12
+   .. py:attribute:: SWAP12
       :annotation: = 155
 
       
 
-   .. attribute:: SWAP13
+   .. py:attribute:: SWAP13
       :annotation: = 156
 
       
 
-   .. attribute:: SWAP14
+   .. py:attribute:: SWAP14
       :annotation: = 157
 
       
 
-   .. attribute:: SWAP15
+   .. py:attribute:: SWAP15
       :annotation: = 158
 
       
 
-   .. attribute:: SWAP16
+   .. py:attribute:: SWAP16
       :annotation: = 159
 
       
 
-   .. attribute:: MLOAD
+   .. py:attribute:: MLOAD
       :annotation: = 81
 
       
 
-   .. attribute:: MSTORE
+   .. py:attribute:: MSTORE
       :annotation: = 82
 
       
 
-   .. attribute:: MSTORE8
+   .. py:attribute:: MSTORE8
       :annotation: = 83
 
       
 
-   .. attribute:: MSIZE
+   .. py:attribute:: MSIZE
       :annotation: = 89
 
       
 
-   .. attribute:: LOG0
+   .. py:attribute:: LOG0
       :annotation: = 160
 
       
 
-   .. attribute:: LOG1
+   .. py:attribute:: LOG1
       :annotation: = 161
 
       
 
-   .. attribute:: LOG2
+   .. py:attribute:: LOG2
       :annotation: = 162
 
       
 
-   .. attribute:: LOG3
+   .. py:attribute:: LOG3
       :annotation: = 163
 
       
 
-   .. attribute:: LOG4
+   .. py:attribute:: LOG4
       :annotation: = 164
 
       
@@ -696,7 +696,7 @@ Enum for EVM Opcodes
 op_implementation
 ~~~~~~~~~~~~~~~~~
 
-.. data:: op_implementation
+.. py:data:: op_implementation
    :annotation: :Dict[Ops, Callable]
 
    

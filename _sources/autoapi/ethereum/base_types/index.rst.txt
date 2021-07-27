@@ -55,7 +55,7 @@ Module Details
 U255_MAX_VALUE
 ~~~~~~~~~~~~~~
 
-.. data:: U255_MAX_VALUE
+.. py:data:: U255_MAX_VALUE
    
 
    
@@ -64,7 +64,7 @@ U255_MAX_VALUE
 U255_CEIL_VALUE
 ~~~~~~~~~~~~~~~
 
-.. data:: U255_CEIL_VALUE
+.. py:data:: U255_CEIL_VALUE
    
 
    
@@ -73,7 +73,7 @@ U255_CEIL_VALUE
 U256_MAX_VALUE
 ~~~~~~~~~~~~~~
 
-.. data:: U256_MAX_VALUE
+.. py:data:: U256_MAX_VALUE
    
 
    
@@ -82,7 +82,7 @@ U256_MAX_VALUE
 U256_CEIL_VALUE
 ~~~~~~~~~~~~~~~
 
-.. data:: U256_CEIL_VALUE
+.. py:data:: U256_CEIL_VALUE
    
 
    
@@ -91,7 +91,7 @@ U256_CEIL_VALUE
 U8_MAX_VALUE
 ~~~~~~~~~~~~
 
-.. data:: U8_MAX_VALUE
+.. py:data:: U8_MAX_VALUE
    
 
    
@@ -109,12 +109,12 @@ Unsigned positive integer.
 
    Bases: :py:obj:`int`
 
-   .. attribute:: __slots__
+   .. py:attribute:: __slots__
       :annotation: = []
 
       
 
-   .. method:: from_be_bytes(cls: Type, buffer: Bytes) -> Uint
+   .. py:method:: from_be_bytes(cls: Type, buffer: Bytes) -> Uint
       :classmethod:
 
       Converts a sequence of bytes into an arbitrarily sized unsigned integer
@@ -125,95 +125,95 @@ Unsigned positive integer.
       :rtype: `Uint`
 
 
-   .. method:: __radd__(self, left: int) -> Uint
+   .. py:method:: __radd__(self, left: int) -> Uint
 
       Return value+self.
 
 
-   .. method:: __add__(self, right: int) -> Uint
+   .. py:method:: __add__(self, right: int) -> Uint
 
       Return self+value.
 
 
-   .. method:: __iadd__(self, right: int) -> Uint
+   .. py:method:: __iadd__(self, right: int) -> Uint
 
 
-   .. method:: __sub__(self, right: int) -> Uint
+   .. py:method:: __sub__(self, right: int) -> Uint
 
       Return self-value.
 
 
-   .. method:: __rsub__(self, left: int) -> Uint
+   .. py:method:: __rsub__(self, left: int) -> Uint
 
       Return value-self.
 
 
-   .. method:: __isub__(self, right: int) -> Uint
+   .. py:method:: __isub__(self, right: int) -> Uint
 
 
-   .. method:: __mul__(self, right: int) -> Uint
+   .. py:method:: __mul__(self, right: int) -> Uint
 
       Return self*value.
 
 
-   .. method:: __rmul__(self, left: int) -> Uint
+   .. py:method:: __rmul__(self, left: int) -> Uint
 
       Return value*self.
 
 
-   .. method:: __imul__(self, right: int) -> Uint
+   .. py:method:: __imul__(self, right: int) -> Uint
 
 
-   .. method:: __floordiv__(self, right: int) -> Uint
+   .. py:method:: __floordiv__(self, right: int) -> Uint
 
       Return self//value.
 
 
-   .. method:: __rfloordiv__(self, left: int) -> Uint
+   .. py:method:: __rfloordiv__(self, left: int) -> Uint
 
       Return value//self.
 
 
-   .. method:: __ifloordiv__(self, right: int) -> Uint
+   .. py:method:: __ifloordiv__(self, right: int) -> Uint
 
 
-   .. method:: __mod__(self, right: int) -> Uint
+   .. py:method:: __mod__(self, right: int) -> Uint
 
       Return self%value.
 
 
-   .. method:: __rmod__(self, left: int) -> Uint
+   .. py:method:: __rmod__(self, left: int) -> Uint
 
       Return value%self.
 
 
-   .. method:: __imod__(self, right: int) -> Uint
+   .. py:method:: __imod__(self, right: int) -> Uint
 
 
-   .. method:: __divmod__(self, right: int) -> Tuple[Uint, Uint]
+   .. py:method:: __divmod__(self, right: int) -> Tuple[Uint, Uint]
 
       Return divmod(self, value).
 
 
-   .. method:: __rdivmod__(self, left: int) -> Tuple[Uint, Uint]
+   .. py:method:: __rdivmod__(self, left: int) -> Tuple[Uint, Uint]
 
       Return divmod(value, self).
 
 
-   .. method:: __pow__(self, right: int, modulo: Optional[int] = None) -> Uint
+   .. py:method:: __pow__(self, right: int, modulo: Optional[int] = None) -> Uint
 
       Return pow(self, value, mod).
 
 
-   .. method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> Uint
+   .. py:method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> Uint
 
       Return pow(value, self, mod).
 
 
-   .. method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint
+   .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint
 
 
-   .. method:: to_be_bytes32(self) -> Bytes32
+   .. py:method:: to_be_bytes32(self) -> Bytes32
 
       Converts this arbitrarily sized unsigned integer into its big endian
       representation with exactly 32 bytes.
@@ -221,7 +221,7 @@ Unsigned positive integer.
       :rtype: `Bytes32`
 
 
-   .. method:: to_be_bytes(self) -> Bytes
+   .. py:method:: to_be_bytes(self) -> Bytes
 
       Converts this arbitrarily sized unsigned integer into its big endian
       representation.
@@ -244,17 +244,17 @@ inclusive.
 
    Bases: :py:obj:`int`
 
-   .. attribute:: MAX_VALUE
+   .. py:attribute:: MAX_VALUE
       :annotation: :U256
 
       
 
-   .. attribute:: __slots__
+   .. py:attribute:: __slots__
       :annotation: = []
 
       
 
-   .. method:: from_be_bytes(cls: Type, buffer: Bytes) -> U256
+   .. py:method:: from_be_bytes(cls: Type, buffer: Bytes) -> U256
       :classmethod:
 
       Converts a sequence of bytes into an arbitrarily sized unsigned integer
@@ -265,7 +265,7 @@ inclusive.
       :rtype: `U256`
 
 
-   .. method:: from_signed(cls: Type, value: int) -> U256
+   .. py:method:: from_signed(cls: Type, value: int) -> U256
       :classmethod:
 
       Converts a signed number into a 256-bit unsigned integer.
@@ -275,152 +275,152 @@ inclusive.
       :rtype: `U256`
 
 
-   .. method:: __radd__(self, left: int) -> U256
+   .. py:method:: __radd__(self, left: int) -> U256
 
       Return value+self.
 
 
-   .. method:: __add__(self, right: int) -> U256
+   .. py:method:: __add__(self, right: int) -> U256
 
       Return self+value.
 
 
-   .. method:: unchecked_add(self, right: int) -> int
+   .. py:method:: unchecked_add(self, right: int) -> int
 
 
-   .. method:: wrapping_add(self, right: int) -> U256
+   .. py:method:: wrapping_add(self, right: int) -> U256
 
 
-   .. method:: __iadd__(self, right: int) -> U256
+   .. py:method:: __iadd__(self, right: int) -> U256
 
 
-   .. method:: __sub__(self, right: int) -> U256
+   .. py:method:: __sub__(self, right: int) -> U256
 
       Return self-value.
 
 
-   .. method:: unchecked_sub(self, right: int) -> int
+   .. py:method:: unchecked_sub(self, right: int) -> int
 
 
-   .. method:: wrapping_sub(self, right: int) -> U256
+   .. py:method:: wrapping_sub(self, right: int) -> U256
 
 
-   .. method:: __rsub__(self, left: int) -> U256
+   .. py:method:: __rsub__(self, left: int) -> U256
 
       Return value-self.
 
 
-   .. method:: __isub__(self, right: int) -> U256
+   .. py:method:: __isub__(self, right: int) -> U256
 
 
-   .. method:: unchecked_mul(self, right: int) -> int
+   .. py:method:: unchecked_mul(self, right: int) -> int
 
 
-   .. method:: wrapping_mul(self, right: int) -> U256
+   .. py:method:: wrapping_mul(self, right: int) -> U256
 
 
-   .. method:: __mul__(self, right: int) -> U256
+   .. py:method:: __mul__(self, right: int) -> U256
 
       Return self*value.
 
 
-   .. method:: __rmul__(self, left: int) -> U256
+   .. py:method:: __rmul__(self, left: int) -> U256
 
       Return value*self.
 
 
-   .. method:: __imul__(self, right: int) -> U256
+   .. py:method:: __imul__(self, right: int) -> U256
 
 
-   .. method:: __floordiv__(self, right: int) -> U256
+   .. py:method:: __floordiv__(self, right: int) -> U256
 
       Return self//value.
 
 
-   .. method:: __rfloordiv__(self, left: int) -> U256
+   .. py:method:: __rfloordiv__(self, left: int) -> U256
 
       Return value//self.
 
 
-   .. method:: __ifloordiv__(self, right: int) -> U256
+   .. py:method:: __ifloordiv__(self, right: int) -> U256
 
 
-   .. method:: __mod__(self, right: int) -> U256
+   .. py:method:: __mod__(self, right: int) -> U256
 
       Return self%value.
 
 
-   .. method:: __rmod__(self, left: int) -> U256
+   .. py:method:: __rmod__(self, left: int) -> U256
 
       Return value%self.
 
 
-   .. method:: __imod__(self, right: int) -> U256
+   .. py:method:: __imod__(self, right: int) -> U256
 
 
-   .. method:: __divmod__(self, right: int) -> Tuple[U256, U256]
+   .. py:method:: __divmod__(self, right: int) -> Tuple[U256, U256]
 
       Return divmod(self, value).
 
 
-   .. method:: __rdivmod__(self, left: int) -> Tuple[U256, U256]
+   .. py:method:: __rdivmod__(self, left: int) -> Tuple[U256, U256]
 
       Return divmod(value, self).
 
 
-   .. method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
+   .. py:method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
 
 
-   .. method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> U256
+   .. py:method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> U256
 
 
-   .. method:: __pow__(self, right: int, modulo: Optional[int] = None) -> U256
+   .. py:method:: __pow__(self, right: int, modulo: Optional[int] = None) -> U256
 
       Return pow(self, value, mod).
 
 
-   .. method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> U256
+   .. py:method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> U256
 
       Return pow(value, self, mod).
 
 
-   .. method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> U256
+   .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> U256
 
 
-   .. method:: __and__(self, right: int) -> U256
+   .. py:method:: __and__(self, right: int) -> U256
 
       Return self&value.
 
 
-   .. method:: __or__(self, right: int) -> U256
+   .. py:method:: __or__(self, right: int) -> U256
 
       Return self|value.
 
 
-   .. method:: __xor__(self, right: int) -> U256
+   .. py:method:: __xor__(self, right: int) -> U256
 
       Return self^value.
 
 
-   .. method:: __rxor__(self, left: int) -> U256
+   .. py:method:: __rxor__(self, left: int) -> U256
 
       Return value^self.
 
 
-   .. method:: __ixor__(self, right: int) -> U256
+   .. py:method:: __ixor__(self, right: int) -> U256
 
 
-   .. method:: __invert__(self) -> U256
+   .. py:method:: __invert__(self) -> U256
 
       ~self
 
 
-   .. method:: __rshift__(self, shift_by: int) -> U256
+   .. py:method:: __rshift__(self, shift_by: int) -> U256
 
       Return self>>value.
 
 
-   .. method:: to_be_bytes32(self) -> Bytes32
+   .. py:method:: to_be_bytes32(self) -> Bytes32
 
       Converts this 256-bit unsigned integer into its big endian
       representation with exactly 32 bytes.
@@ -428,7 +428,7 @@ inclusive.
       :rtype: `Bytes32`
 
 
-   .. method:: to_be_bytes(self) -> Bytes
+   .. py:method:: to_be_bytes(self) -> Bytes
 
       Converts this 256-bit unsigned integer into its big endian
       representation, omitting leading zero bytes.
@@ -436,7 +436,7 @@ inclusive.
       :rtype: `Bytes`
 
 
-   .. method:: to_signed(self) -> int
+   .. py:method:: to_signed(self) -> int
 
       Converts this 256-bit unsigned integer into a signed integer.
       :returns: **signed_int** -- Signed integer obtained from 256-bit unsigned integer.
@@ -448,7 +448,7 @@ inclusive.
 MAX_VALUE
 ~~~~~~~~~
 
-.. data:: MAX_VALUE
+.. py:data:: MAX_VALUE
    
 
    
@@ -457,7 +457,7 @@ MAX_VALUE
 Bytes
 ~~~~~
 
-.. data:: Bytes
+.. py:data:: Bytes
    
 
    
@@ -466,7 +466,7 @@ Bytes
 Bytes8
 ~~~~~~
 
-.. data:: Bytes8
+.. py:data:: Bytes8
    
 
    
@@ -475,7 +475,7 @@ Bytes8
 Bytes20
 ~~~~~~~
 
-.. data:: Bytes20
+.. py:data:: Bytes20
    
 
    
@@ -484,7 +484,7 @@ Bytes20
 Bytes32
 ~~~~~~~
 
-.. data:: Bytes32
+.. py:data:: Bytes32
    
 
    
@@ -493,7 +493,7 @@ Bytes32
 Bytes64
 ~~~~~~~
 
-.. data:: Bytes64
+.. py:data:: Bytes64
    
 
    
@@ -502,7 +502,7 @@ Bytes64
 BytesMutable256
 ~~~~~~~~~~~~~~~
 
-.. data:: BytesMutable256
+.. py:data:: BytesMutable256
    
 
    
