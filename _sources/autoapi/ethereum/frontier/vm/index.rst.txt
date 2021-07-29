@@ -188,7 +188,7 @@ The internal state of the virtual machine.
       
 
    .. py:attribute:: logs
-      :annotation: :List[ethereum.frontier.eth_types.Log]
+      :annotation: :Tuple[ethereum.frontier.eth_types.Log, Ellipsis]
 
       
 

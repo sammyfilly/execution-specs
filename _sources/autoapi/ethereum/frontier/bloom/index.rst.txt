@@ -38,7 +38,7 @@ add_to_bloom
 ~~~~~~~~~~~~
 
 
-.. function:: add_to_bloom(bloom: ethereum.frontier.eth_types.Bloom, bloom_entry: bytes) -> None
+.. function:: add_to_bloom(bloom: bytearray, bloom_entry: bytes) -> None
    :noindexentry:
 
    Add a bloom entry to the bloom filter (`bloom`).
@@ -57,7 +57,7 @@ logs_bloom
 ~~~~~~~~~~
 
 
-.. function:: logs_bloom(logs: List[ethereum.frontier.eth_types.Log]) -> ethereum.frontier.eth_types.Bloom
+.. function:: logs_bloom(logs: Tuple[ethereum.frontier.eth_types.Log, Ellipsis]) -> ethereum.frontier.eth_types.Bloom
    :noindexentry:
 
    Obtain the logs bloom from a list of log entries.

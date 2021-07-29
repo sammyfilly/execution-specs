@@ -54,7 +54,7 @@ process_call
 ~~~~~~~~~~~~
 
 
-.. function:: process_call(caller: ethereum.frontier.eth_types.Address, target: ethereum.frontier.eth_types.Address, data: bytes, value: ethereum.base_types.U256, gas: ethereum.base_types.U256, depth: ethereum.base_types.Uint, env: ethereum.frontier.vm.Environment) -> Tuple[ethereum.base_types.U256, List[ethereum.frontier.eth_types.Log]]
+.. function:: process_call(caller: ethereum.frontier.eth_types.Address, target: ethereum.frontier.eth_types.Address, data: bytes, value: ethereum.base_types.U256, gas: ethereum.base_types.U256, depth: ethereum.base_types.Uint, env: ethereum.frontier.vm.Environment) -> Tuple[ethereum.base_types.U256, Tuple[ethereum.frontier.eth_types.Log, Ellipsis]]
    :noindexentry:
 
    Executes a call from the `caller` to the `target` in a new EVM instance.
@@ -77,4 +77,4 @@ process_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 28-112
+   :lines: 28-111

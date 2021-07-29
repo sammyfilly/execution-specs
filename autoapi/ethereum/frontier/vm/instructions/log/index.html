@@ -147,17 +147,18 @@ corresponding to the memory is not accessible.</p>
 
     <span class="n">extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">memory_start_index</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 
+    <span class="n">topics</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_topics</span><span class="p">):</span>
+        <span class="n">topic</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
+        <span class="n">topics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+
     <span class="n">log_entry</span> <span class="o">=</span> <span class="n">Log</span><span class="p">(</span>
         <span class="n">address</span><span class="o">=</span><span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">,</span>
-        <span class="n">topics</span><span class="o">=</span><span class="p">[],</span>
+        <span class="n">topics</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">topics</span><span class="p">),</span>
         <span class="n">data</span><span class="o">=</span><span class="n">memory_read_bytes</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">memory_start_index</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span>
     <span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_topics</span><span class="p">):</span>
-        <span class="n">topic</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
-        <span class="n">log_entry</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
-
-    <span class="n">evm</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">+</span> <span class="p">(</span><span class="n">log_entry</span><span class="p">,)</span>
 </pre></div>
 </div>
 </section>

@@ -67,7 +67,7 @@ log_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/log.py
    :language: python
-   :lines: 31-75
+   :lines: 31-76
 
 log0
 ~~~~

@@ -29,6 +29,19 @@ Classes
 
 
 
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.base_types._setattr_function
+   ethereum.base_types._delattr_function
+   ethereum.base_types._make_init_function
+   ethereum.base_types.slotted_freezable
+   ethereum.base_types.modify
+
+
 
 Attributes
 ~~~~~~~~~~
@@ -46,7 +59,8 @@ Attributes
    ethereum.base_types.Bytes20
    ethereum.base_types.Bytes32
    ethereum.base_types.Bytes64
-   ethereum.base_types.BytesMutable256
+   ethereum.base_types.Bytes256
+   ethereum.base_types.T
 
 
 Module Details
@@ -499,11 +513,107 @@ Bytes64
    
 
 
-BytesMutable256
-~~~~~~~~~~~~~~~
+Bytes256
+~~~~~~~~
 
-.. py:data:: BytesMutable256
+.. py:data:: Bytes256
    
 
    
 
+
+_setattr_function
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: _setattr_function(self: Any, attr: str, value: Any) -> None
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 643-647
+
+_delattr_function
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: _delattr_function(self: Any, attr: str) -> None
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 650-654
+
+_make_init_function
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: _make_init_function(f: Callable) -> Callable
+   :noindexentry:
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 657-664
+
+slotted_freezable
+~~~~~~~~~~~~~~~~~
+
+
+.. function:: slotted_freezable(cls: Any) -> Any
+   :noindexentry:
+
+   Monkey patches a dataclass so it can be frozen by setting `_frozen` to
+   `True` and uses `__slots__` for efficiency.
+
+   Instances will be created frozen by default unless you pass `_frozen=False`
+   to `__init__`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 667-679
+
+T
+~
+
+.. py:data:: T
+   
+
+   
+
+
+modify
+~~~~~~
+
+
+.. function:: modify(obj: T, f: Callable[[T], None]) -> T
+   :noindexentry:
+
+   Create a mutable copy of `obj` (which must be `@slotted_freezable`) and
+   apply `f` to the copy before freezing it.
+
+   :param obj: Object to copy.
+   :type obj: `T`
+   :param f: Function to apply to `obj`.
+   :type f: `Callable[[T], None]`
+
+   :returns: **new_obj** -- Compact byte array.
+   :rtype: `T`
+
+
+
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 685-705

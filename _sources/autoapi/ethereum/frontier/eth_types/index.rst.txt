@@ -33,6 +33,16 @@ Classes
 
 
 
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.eth_types.modify_state
+   ethereum.frontier.eth_types.move_ether
+
+
 
 Attributes
 ~~~~~~~~~~
@@ -187,7 +197,7 @@ State associated with an address.
       
 
    .. py:attribute:: balance
-      :annotation: :ethereum.base_types.Uint
+      :annotation: :ethereum.base_types.U256
 
       
 
@@ -313,12 +323,12 @@ A complete block.
       
 
    .. py:attribute:: transactions
-      :annotation: :List[Transaction]
+      :annotation: :Tuple[Transaction, Ellipsis]
 
       
 
    .. py:attribute:: ommers
-      :annotation: :List[Header]
+      :annotation: :Tuple[Header, Ellipsis]
 
       
 
@@ -339,7 +349,7 @@ Data record produced during the execution of a transaction.
       
 
    .. py:attribute:: topics
-      :annotation: :List[ethereum.crypto.Hash32]
+      :annotation: :Tuple[ethereum.crypto.Hash32, Ellipsis]
 
       
 
@@ -375,7 +385,7 @@ Result of a transaction.
       
 
    .. py:attribute:: logs
-      :annotation: :List[Log]
+      :annotation: :Tuple[Log, Ellipsis]
 
       
 
@@ -389,3 +399,35 @@ State
 
    
 
+
+modify_state
+~~~~~~~~~~~~
+
+
+.. function:: modify_state(state: State, address: Address, f: Callable[[Account], None]) -> None
+   :noindexentry:
+
+   Modify an `Account` in the `State`.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/eth_types.py
+   :language: python
+   :lines: 145-151
+
+move_ether
+~~~~~~~~~~
+
+
+.. function:: move_ether(state: State, sender_address: Address, recipient_address: Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Move funds between accounts.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/eth_types.py
+   :language: python
+   :lines: 154-172
