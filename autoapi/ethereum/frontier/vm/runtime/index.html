@@ -118,6 +118,7 @@
             <span class="c1"># Skip invalid opcodes, as they don&#39;t affect the jumpdest</span>
             <span class="c1"># analysis. Nevertheless, such invalid opcodes would be caught</span>
             <span class="c1"># and raised when the interpreter runs.</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">continue</span>
 
         <span class="k">if</span> <span class="n">current_opcode</span> <span class="o">==</span> <span class="n">Ops</span><span class="o">.</span><span class="n">JUMPDEST</span><span class="p">:</span>
