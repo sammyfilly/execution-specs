@@ -46,25 +46,23 @@
 <li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
 <ul>
 <li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
-<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<li><p><a class="reference internal" href="#module-details" id="id4">Module Details</a></p>
 <ul>
-<li><p><a class="reference internal" href="#max-address-bytes" id="id6">MAX_ADDRESS_BYTES</a></p></li>
-<li><p><a class="reference internal" href="#address" id="id7">address</a></p></li>
-<li><p><a class="reference internal" href="#balance" id="id8">balance</a></p></li>
-<li><p><a class="reference internal" href="#origin" id="id9">origin</a></p></li>
-<li><p><a class="reference internal" href="#caller" id="id10">caller</a></p></li>
-<li><p><a class="reference internal" href="#callvalue" id="id11">callvalue</a></p></li>
-<li><p><a class="reference internal" href="#calldataload" id="id12">calldataload</a></p></li>
-<li><p><a class="reference internal" href="#calldatasize" id="id13">calldatasize</a></p></li>
-<li><p><a class="reference internal" href="#calldatacopy" id="id14">calldatacopy</a></p></li>
-<li><p><a class="reference internal" href="#codesize" id="id15">codesize</a></p></li>
-<li><p><a class="reference internal" href="#codecopy" id="id16">codecopy</a></p></li>
-<li><p><a class="reference internal" href="#gasprice" id="id17">gasprice</a></p></li>
-<li><p><a class="reference internal" href="#extcodesize" id="id18">extcodesize</a></p></li>
-<li><p><a class="reference internal" href="#extcodecopy" id="id19">extcodecopy</a></p></li>
+<li><p><a class="reference internal" href="#address" id="id5">address</a></p></li>
+<li><p><a class="reference internal" href="#balance" id="id6">balance</a></p></li>
+<li><p><a class="reference internal" href="#origin" id="id7">origin</a></p></li>
+<li><p><a class="reference internal" href="#caller" id="id8">caller</a></p></li>
+<li><p><a class="reference internal" href="#callvalue" id="id9">callvalue</a></p></li>
+<li><p><a class="reference internal" href="#calldataload" id="id10">calldataload</a></p></li>
+<li><p><a class="reference internal" href="#calldatasize" id="id11">calldatasize</a></p></li>
+<li><p><a class="reference internal" href="#calldatacopy" id="id12">calldatacopy</a></p></li>
+<li><p><a class="reference internal" href="#codesize" id="id13">codesize</a></p></li>
+<li><p><a class="reference internal" href="#codecopy" id="id14">codecopy</a></p></li>
+<li><p><a class="reference internal" href="#gasprice" id="id15">gasprice</a></p></li>
+<li><p><a class="reference internal" href="#extcodesize" id="id16">extcodesize</a></p></li>
+<li><p><a class="reference internal" href="#extcodecopy" id="id17">extcodecopy</a></p></li>
 </ul>
 </li>
 </ul>
@@ -125,31 +123,9 @@
 </tbody>
 </table>
 </section>
-<section id="attributes">
-<h4>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h4>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.instructions.environment.MAX_ADDRESS_BYTES" title="ethereum.frontier.vm.instructions.environment.MAX_ADDRESS_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_ADDRESS_BYTES</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</section>
 </section>
 <section id="module-details">
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
-<section id="max-address-bytes">
-<h4>MAX_ADDRESS_BYTES<a class="headerlink" href="#max-address-bytes" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.MAX_ADDRESS_BYTES">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">MAX_ADDRESS_BYTES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">20</span></em><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.MAX_ADDRESS_BYTES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
 <section id="address">
 <h4>address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
@@ -196,8 +172,7 @@
     <span class="c1"># custom test cases.</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_EXTERNAL</span><span class="p">)</span>
 
-    <span class="n">address</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
-    <span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="o">-</span><span class="n">MAX_ADDRESS_BYTES</span><span class="p">:]</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">to_address</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
     <span class="n">account_state</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">account_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -495,8 +470,7 @@ to store the data.</p>
     <span class="c1"># custom test cases.</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_EXTERNAL</span><span class="p">)</span>
 
-    <span class="n">address</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
-    <span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="o">-</span><span class="n">MAX_ADDRESS_BYTES</span><span class="p">:]</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">to_address</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
     <span class="n">account_state</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">account_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -528,8 +502,7 @@ to store the data.</p>
     <span class="c1"># TODO: There are no test cases against this function. Need to write</span>
     <span class="c1"># custom test cases.</span>
 
-    <span class="n">address</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
-    <span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="o">-</span><span class="n">MAX_ADDRESS_BYTES</span><span class="p">:]</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">to_address</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
     <span class="n">memory_start_index</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
     <span class="n">code_start_index</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>

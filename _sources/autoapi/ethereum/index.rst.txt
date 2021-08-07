@@ -26,6 +26,7 @@ Submodules
 
    base_types/index.rst
    crypto/index.rst
+   genesis/index.rst
    utils/index.rst
 
 
