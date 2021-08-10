@@ -416,7 +416,7 @@ block.</p></li>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">Root</span><span class="p">,</span> <span class="n">Bloom</span><span class="p">,</span> <span class="n">State</span><span class="p">]:</span>
     <span class="n">gas_available</span> <span class="o">=</span> <span class="n">block_gas_limit</span>
     <span class="n">receipts</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">block_logs</span> <span class="o">=</span> <span class="p">()</span>
+    <span class="n">block_logs</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
 
     <span class="k">if</span> <span class="n">coinbase</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">state</span><span class="p">:</span>
         <span class="n">state</span><span class="p">[</span><span class="n">coinbase</span><span class="p">]</span> <span class="o">=</span> <span class="n">EMPTY_ACCOUNT</span>
@@ -449,6 +449,7 @@ block.</p></li>
                 <span class="n">logs</span><span class="o">=</span><span class="n">logs</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="p">)</span>
+        <span class="n">block_logs</span> <span class="o">+=</span> <span class="n">logs</span>
 
     <span class="k">def</span> <span class="nf">pay_block_reward</span><span class="p">(</span><span class="n">coinbase</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">coinbase</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">BLOCK_REWARD</span>
