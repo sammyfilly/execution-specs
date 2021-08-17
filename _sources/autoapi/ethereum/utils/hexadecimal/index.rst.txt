@@ -32,9 +32,6 @@ Functions
    ethereum.utils.hexadecimal.hex_to_bytes8
    ethereum.utils.hexadecimal.hex_to_bytes32
    ethereum.utils.hexadecimal.hex_to_hash
-   ethereum.utils.hexadecimal.hex_to_root
-   ethereum.utils.hexadecimal.hex_to_bloom
-   ethereum.utils.hexadecimal.hex_to_address
    ethereum.utils.hexadecimal.hex_to_uint
    ethereum.utils.hexadecimal.hex_to_u256
 
@@ -62,7 +59,7 @@ has_hex_prefix
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 19-33
+   :lines: 18-32
 
 remove_hex_prefix
 ~~~~~~~~~~~~~~~~~
@@ -84,7 +81,7 @@ remove_hex_prefix
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 36-54
+   :lines: 35-53
 
 hex_to_bytes
 ~~~~~~~~~~~~
@@ -105,7 +102,7 @@ hex_to_bytes
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 57-71
+   :lines: 56-70
 
 hex_to_bytes8
 ~~~~~~~~~~~~~
@@ -126,7 +123,7 @@ hex_to_bytes8
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 74-88
+   :lines: 73-87
 
 hex_to_bytes32
 ~~~~~~~~~~~~~~
@@ -147,7 +144,7 @@ hex_to_bytes32
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 91-105
+   :lines: 90-104
 
 hex_to_hash
 ~~~~~~~~~~~
@@ -168,70 +165,7 @@ hex_to_hash
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 108-122
-
-hex_to_root
-~~~~~~~~~~~
-
-
-.. function:: hex_to_root(hex_string: str) -> ethereum.frontier.eth_types.Root
-   :noindexentry:
-
-   Convert hex string to trie root.
-
-   :param hex_string: The hexadecimal string to be converted to trie root.
-
-   :returns: **root** -- Trie root obtained from the given hexadecimal string.
-   :rtype: `Root`
-
-
-
-
-.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
-   :language: python
-   :lines: 125-139
-
-hex_to_bloom
-~~~~~~~~~~~~
-
-
-.. function:: hex_to_bloom(hex_string: str) -> ethereum.frontier.eth_types.Bloom
-   :noindexentry:
-
-   Convert hex string to bloom.
-
-   :param hex_string: The hexadecimal string to be converted to bloom.
-
-   :returns: **bloom** -- Bloom obtained from the given hexadecimal string.
-   :rtype: `Bloom`
-
-
-
-
-.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
-   :language: python
-   :lines: 142-156
-
-hex_to_address
-~~~~~~~~~~~~~~
-
-
-.. function:: hex_to_address(hex_string: str) -> ethereum.frontier.eth_types.Address
-   :noindexentry:
-
-   Convert hex string to Address (20 bytes).
-
-   :param hex_string: The hexadecimal string to be converted to Address.
-
-   :returns: **address** -- The address obtained from the given hexadecimal string.
-   :rtype: `Address`
-
-
-
-
-.. undocinclude:: /../src/ethereum/utils/hexadecimal.py
-   :language: python
-   :lines: 159-173
+   :lines: 107-121
 
 hex_to_uint
 ~~~~~~~~~~~
@@ -252,7 +186,7 @@ hex_to_uint
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 176-190
+   :lines: 124-138
 
 hex_to_u256
 ~~~~~~~~~~~
@@ -273,4 +207,4 @@ hex_to_u256
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 193-207
+   :lines: 141-155

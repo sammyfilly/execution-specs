@@ -81,19 +81,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_hash" title="ethereum.utils.hexadecimal.hex_to_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_hash</span></code></a></p></td>
 <td><p>Convert hex string to hash32 (32 bytes).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_root" title="ethereum.utils.hexadecimal.hex_to_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_root</span></code></a></p></td>
-<td><p>Convert hex string to trie root.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_bloom" title="ethereum.utils.hexadecimal.hex_to_bloom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_bloom</span></code></a></p></td>
-<td><p>Convert hex string to bloom.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_address" title="ethereum.utils.hexadecimal.hex_to_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_address</span></code></a></p></td>
-<td><p>Convert hex string to Address (20 bytes).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_uint" title="ethereum.utils.hexadecimal.hex_to_uint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_uint</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_uint" title="ethereum.utils.hexadecimal.hex_to_uint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_uint</span></code></a></p></td>
 <td><p>Convert hex string to Uint.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_u256" title="ethereum.utils.hexadecimal.hex_to_u256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_u256</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.utils.hexadecimal.hex_to_u256" title="ethereum.utils.hexadecimal.hex_to_u256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_to_u256</span></code></a></p></td>
 <td><p>Convert hex string to U256.</p></td>
 </tr>
 </tbody>
@@ -247,78 +238,6 @@ passed hex string if it isn’t prefixed with 0x.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hex_to_hash</span><span class="p">(</span><span class="n">hex_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">Hash32</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">remove_hex_prefix</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)))</span>
-</pre></div>
-</div>
-</section>
-<section id="hex-to-root">
-<h4>hex_to_root<a class="headerlink" href="#hex-to-root" title="Permalink to this headline">¶</a></h4>
-<dl class="py function">
-<dt class="sig sig-object py" id="ethereum.utils.hexadecimal.hex_to_root">
-<span class="sig-prename descclassname"><span class="pre">ethereum.utils.hexadecimal.</span></span><span class="sig-name descname"><span class="pre">hex_to_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hex_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../frontier/eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><a class="headerlink" href="#ethereum.utils.hexadecimal.hex_to_root" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert hex string to trie root.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>hex_string</strong> – The hexadecimal string to be converted to trie root.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>root</strong> – Trie root obtained from the given hexadecimal string.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Root</cite></p>
-</dd>
-</dl>
-</dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hex_to_root</span><span class="p">(</span><span class="n">hex_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">Root</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">remove_hex_prefix</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)))</span>
-</pre></div>
-</div>
-</section>
-<section id="hex-to-bloom">
-<h4>hex_to_bloom<a class="headerlink" href="#hex-to-bloom" title="Permalink to this headline">¶</a></h4>
-<dl class="py function">
-<dt class="sig sig-object py" id="ethereum.utils.hexadecimal.hex_to_bloom">
-<span class="sig-prename descclassname"><span class="pre">ethereum.utils.hexadecimal.</span></span><span class="sig-name descname"><span class="pre">hex_to_bloom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hex_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../frontier/eth_types/index.html#ethereum.frontier.eth_types.Bloom" title="ethereum.frontier.eth_types.Bloom"><span class="pre">ethereum.frontier.eth_types.Bloom</span></a><a class="headerlink" href="#ethereum.utils.hexadecimal.hex_to_bloom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert hex string to bloom.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>hex_string</strong> – The hexadecimal string to be converted to bloom.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>bloom</strong> – Bloom obtained from the given hexadecimal string.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Bloom</cite></p>
-</dd>
-</dl>
-</dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hex_to_bloom</span><span class="p">(</span><span class="n">hex_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bloom</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">Bloom</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">remove_hex_prefix</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)))</span>
-</pre></div>
-</div>
-</section>
-<section id="hex-to-address">
-<h4>hex_to_address<a class="headerlink" href="#hex-to-address" title="Permalink to this headline">¶</a></h4>
-<dl class="py function">
-<dt class="sig sig-object py" id="ethereum.utils.hexadecimal.hex_to_address">
-<span class="sig-prename descclassname"><span class="pre">ethereum.utils.hexadecimal.</span></span><span class="sig-name descname"><span class="pre">hex_to_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hex_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../frontier/eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a><a class="headerlink" href="#ethereum.utils.hexadecimal.hex_to_address" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert hex string to Address (20 bytes).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>hex_string</strong> – The hexadecimal string to be converted to Address.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>address</strong> – The address obtained from the given hexadecimal string.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Address</cite></p>
-</dd>
-</dl>
-</dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hex_to_address</span><span class="p">(</span><span class="n">hex_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Address</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">Address</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">remove_hex_prefix</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </section>

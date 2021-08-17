@@ -1,7 +1,7 @@
-:mod:`ethereum.genesis`
-=======================
+:mod:`ethereum.frontier.genesis`
+================================
 
-.. py:module:: ethereum.genesis
+.. py:module:: ethereum.frontier.genesis
 
 Genesis Configuration
 ^^^^^^^^^^^^^^^^^^^^^
@@ -25,7 +25,7 @@ Classes
 
 .. autoapisummary::
 
-   ethereum.genesis.GenesisConfiguration
+   ethereum.frontier.genesis.GenesisConfiguration
 
 
 
@@ -35,7 +35,7 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
-   ethereum.genesis.genesis_configuration
+   ethereum.frontier.genesis.genesis_configuration
 
 
 
@@ -106,6 +106,6 @@ genesis_configuration
 
 
 
-.. undocinclude:: /../src/ethereum/genesis.py
+.. undocinclude:: /../src/ethereum/frontier/genesis.py
    :language: python
    :lines: 51-84

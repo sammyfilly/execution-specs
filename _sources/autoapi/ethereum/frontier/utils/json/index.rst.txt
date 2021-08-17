@@ -54,7 +54,7 @@ json_to_transactions
 
 .. undocinclude:: /../src/ethereum/frontier/utils/json.py
    :language: python
-   :lines: 30-63
+   :lines: 32-65
 
 json_to_header
 ~~~~~~~~~~~~~~
@@ -75,7 +75,7 @@ json_to_header
 
 .. undocinclude:: /../src/ethereum/frontier/utils/json.py
    :language: python
-   :lines: 66-95
+   :lines: 68-97
 
 json_to_block
 ~~~~~~~~~~~~~
@@ -98,4 +98,4 @@ json_to_block
 
 .. undocinclude:: /../src/ethereum/frontier/utils/json.py
    :language: python
-   :lines: 99-124
+   :lines: 101-126

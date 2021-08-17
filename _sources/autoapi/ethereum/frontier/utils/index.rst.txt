@@ -23,6 +23,7 @@ Submodules
    :maxdepth: 1
 
    address/index.rst
+   hexadecimal/index.rst
    json/index.rst
 
 
