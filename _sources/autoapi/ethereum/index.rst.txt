@@ -16,6 +16,7 @@ Subpackages
    :maxdepth: 3
 
    frontier/index.rst
+   utils/index.rst
 
 
 Submodules
@@ -27,6 +28,5 @@ Submodules
    base_types/index.rst
    crypto/index.rst
    genesis/index.rst
-   utils/index.rst
 
 

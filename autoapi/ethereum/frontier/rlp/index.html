@@ -67,6 +67,7 @@
 <li><p><a class="reference internal" href="#encode-transaction" id="id19">encode_transaction</a></p></li>
 <li><p><a class="reference internal" href="#encode-receipt" id="id20">encode_receipt</a></p></li>
 <li><p><a class="reference internal" href="#encode-log" id="id21">encode_log</a></p></li>
+<li><p><a class="reference internal" href="#rlp-hash" id="id22">rlp_hash</a></p></li>
 </ul>
 </li>
 </ul>
@@ -119,7 +120,7 @@
 <td><p>Encode <cite>Header</cite> dataclass</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.encode_account" title="ethereum.frontier.rlp.encode_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_account</span></code></a></p></td>
-<td><p>Encode <cite>Account</cite> dataclass</p></td>
+<td><p>Encode <cite>Account</cite> dataclass.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.encode_transaction" title="ethereum.frontier.rlp.encode_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_transaction</span></code></a></p></td>
 <td><p>Encode <cite>Transaction</cite> dataclass</p></td>
@@ -129,6 +130,9 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.encode_log" title="ethereum.frontier.rlp.encode_log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_log</span></code></a></p></td>
 <td><p>Encode <cite>Log</cite> dataclass</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.rlp_hash" title="ethereum.frontier.rlp.rlp_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rlp_hash</span></code></a></p></td>
+<td><p>Obtain the keccak-256 hash of the rlp encoding of the passed in data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -191,8 +195,6 @@ objects.</p>
         <span class="k">return</span> <span class="n">encode_block</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Header</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">encode_header</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">encode_account</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Transaction</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">encode_transaction</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">Receipt</span><span class="p">):</span>
@@ -230,12 +232,12 @@ objects.</p>
     <span class="k">if</span> <span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">raw_bytes</span>
     <span class="k">elif</span> <span class="n">len_raw_data</span> <span class="o">&lt;</span> <span class="mh">0x38</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0x80</span> <span class="o">+</span> <span class="n">len_raw_data</span><span class="p">])</span> <span class="o">+</span> <span class="n">raw_bytes</span>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0x80</span> <span class="o">+</span> <span class="n">len_raw_data</span><span class="p">])</span> <span class="o">+</span> <span class="n">raw_bytes</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># length of raw data represented as big endian bytes</span>
         <span class="n">len_raw_data_as_be</span> <span class="o">=</span> <span class="n">len_raw_data</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xB7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_raw_data_as_be</span><span class="p">)])</span>
+            <span class="nb">bytes</span><span class="p">([</span><span class="mh">0xB7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_raw_data_as_be</span><span class="p">)])</span>
             <span class="o">+</span> <span class="n">len_raw_data_as_be</span>
             <span class="o">+</span> <span class="n">raw_bytes</span>
 </pre></div>
@@ -601,22 +603,18 @@ data.</p>
 <h4>encode_account<a class="headerlink" href="#encode-account" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.rlp.encode_account">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_account_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.rlp.encode_account" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode <cite>Account</cite> dataclass</p>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">encode_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_account_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.rlp.encode_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode <cite>Account</cite> dataclass.</p>
+<p>Storage is not stored in the <cite>Account</cite> dataclass, so <cite>Accounts</cite> cannot be
+enocoded with providing a storage root.</p>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_account</span><span class="p">(</span><span class="n">raw_account_data</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="c1"># TODO: This function should be split into 2 functions. One to</span>
-    <span class="c1"># patricialize the storage root and hashing code. Another for rlp</span>
-    <span class="c1"># encoding the previously obtained data.</span>
-    <span class="c1"># Imported here to prevent circular dependency</span>
-    <span class="kn">from</span> <span class="nn">.trie</span> <span class="kn">import</span> <span class="n">map_keys</span><span class="p">,</span> <span class="n">root</span>
-
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_account</span><span class="p">(</span><span class="n">raw_account_data</span><span class="p">:</span> <span class="n">Account</span><span class="p">,</span> <span class="n">storage_root</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">encode</span><span class="p">(</span>
         <span class="p">(</span>
             <span class="n">raw_account_data</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
             <span class="n">raw_account_data</span><span class="o">.</span><span class="n">balance</span><span class="p">,</span>
-            <span class="n">root</span><span class="p">(</span><span class="n">map_keys</span><span class="p">(</span><span class="n">raw_account_data</span><span class="o">.</span><span class="n">storage</span><span class="p">)),</span>
+            <span class="n">storage_root</span><span class="p">,</span>
             <span class="n">keccak256</span><span class="p">(</span><span class="n">raw_account_data</span><span class="o">.</span><span class="n">code</span><span class="p">),</span>
 </pre></div>
 </div>
@@ -676,6 +674,30 @@ data.</p>
             <span class="n">raw_log_data</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
             <span class="n">raw_log_data</span><span class="o">.</span><span class="n">topics</span><span class="p">,</span>
             <span class="n">raw_log_data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="rlp-hash">
+<h4>rlp_hash<a class="headerlink" href="#rlp-hash" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.rlp.rlp_hash">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">rlp_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.rlp.RLP" title="ethereum.frontier.rlp.RLP"><span class="pre">RLP</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../crypto/index.html#ethereum.crypto.Hash32" title="ethereum.crypto.Hash32"><span class="pre">ethereum.crypto.Hash32</span></a><a class="headerlink" href="#ethereum.frontier.rlp.rlp_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the keccak-256 hash of the rlp encoding of the passed in data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – The data for which we need the rlp hash.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – The rlp hash of the passed in data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rlp_hash</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">RLP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">encode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>

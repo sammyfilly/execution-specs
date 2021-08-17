@@ -33,16 +33,6 @@ Classes
 
 
 
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-   :nosignatures:
-
-   ethereum.frontier.eth_types.modify_state
-   ethereum.frontier.eth_types.move_ether
-
-
 
 Attributes
 ~~~~~~~~~~
@@ -57,7 +47,6 @@ Attributes
    ethereum.frontier.eth_types.TX_DATA_COST_PER_NON_ZERO
    ethereum.frontier.eth_types.TX_DATA_COST_PER_ZERO
    ethereum.frontier.eth_types.EMPTY_ACCOUNT
-   ethereum.frontier.eth_types.State
 
 
 Module Details
@@ -203,11 +192,6 @@ State associated with an address.
 
    .. py:attribute:: code
       :annotation: :bytes
-
-      
-
-   .. py:attribute:: storage
-      :annotation: :Storage
 
       
 
@@ -390,44 +374,3 @@ Result of a transaction.
       
 
 
-
-State
-~~~~~
-
-.. py:data:: State
-   
-
-   
-
-
-modify_state
-~~~~~~~~~~~~
-
-
-.. function:: modify_state(state: State, address: Address, f: Callable[[Account], None]) -> None
-   :noindexentry:
-
-   Modify an `Account` in the `State`.
-
-
-
-
-.. undocinclude:: /../src/ethereum/frontier/eth_types.py
-   :language: python
-   :lines: 145-151
-
-move_ether
-~~~~~~~~~~
-
-
-.. function:: move_ether(state: State, sender_address: Address, recipient_address: Address, amount: ethereum.base_types.U256) -> None
-   :noindexentry:
-
-   Move funds between accounts.
-
-
-
-
-.. undocinclude:: /../src/ethereum/frontier/eth_types.py
-   :language: python
-   :lines: 154-172

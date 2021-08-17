@@ -75,4 +75,4 @@ sstore
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/storage.py
    :language: python
-   :lines: 53-92
+   :lines: 53-88

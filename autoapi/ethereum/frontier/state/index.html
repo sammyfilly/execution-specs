@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ethereum.frontier.state &#8212; Ethereum Specification  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="ethereum.frontier.trie" href="../trie/index.html" />
+    <link rel="prev" title="ethereum.frontier.spec" href="../spec/index.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-ethereum.frontier.state">
+<span id="ethereum-frontier-state"></span><h1><a class="reference internal" href="#module-ethereum.frontier.state" title="ethereum.frontier.state"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.state</span></code></a><a class="headerlink" href="#module-ethereum.frontier.state" title="Permalink to this headline">¶</a></h1>
+<section id="state">
+<h2>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id2">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id3">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#classes" id="id4">Classes</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id5">Functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id6">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id7">State</a></p></li>
+<li><p><a class="reference internal" href="#get-account" id="id8">get_account</a></p></li>
+<li><p><a class="reference internal" href="#set-account" id="id9">set_account</a></p></li>
+<li><p><a class="reference internal" href="#destroy-account" id="id10">destroy_account</a></p></li>
+<li><p><a class="reference internal" href="#get-storage" id="id11">get_storage</a></p></li>
+<li><p><a class="reference internal" href="#set-storage" id="id12">set_storage</a></p></li>
+<li><p><a class="reference internal" href="#storage-root" id="id13">storage_root</a></p></li>
+<li><p><a class="reference internal" href="#state-root" id="id14">state_root</a></p></li>
+<li><p><a class="reference internal" href="#modify-state" id="id15">modify_state</a></p></li>
+<li><p><a class="reference internal" href="#move-ether" id="id16">move_ether</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The state contains all information that is preserved between transactions.</p>
+<p>It consists of a main account trie and storage tries for each contract.</p>
+</section>
+<section id="module-contents">
+<h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
+<section id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a></p></td>
+<td><p>Contains all information that is preserved between transactions.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account" title="ethereum.frontier.state.get_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account</span></code></a></p></td>
+<td><p>Get the <cite>Account</cite> object at an address. Returns <cite>EMPTY_ACCOUNT</cite> if there</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account" title="ethereum.frontier.state.set_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account</span></code></a></p></td>
+<td><p>Set the <cite>Account</cite> object at an address. Setting to <cite>EMPTY_ACCOUNT</cite> deletes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.destroy_account" title="ethereum.frontier.state.destroy_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy_account</span></code></a></p></td>
+<td><p>Completely remove the account at <cite>address</cite> and all of its storage.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_storage" title="ethereum.frontier.state.get_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_storage</span></code></a></p></td>
+<td><p>Get a value at a storage key on an account. Returns <cite>U256(0)</cite> if the</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_storage" title="ethereum.frontier.state.set_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_storage</span></code></a></p></td>
+<td><p>Set a value at a storage key on an account. Setting to <cite>U256(0)</cite> deletes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.storage_root" title="ethereum.frontier.state.storage_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">storage_root</span></code></a></p></td>
+<td><p>Calculate the storage root of an account.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
+<td><p>Calculate the state root.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
+<td><p>Modify an <cite>Account</cite> in the <cite>State</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
+<td><p>Move funds between accounts.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module-details">
+<h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h4>State<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Contains all information that is preserved between transactions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.frontier.state.State">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#ethereum.frontier.state.State" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.state.State._main_trie">
+<span class="sig-name descname"><span class="pre">_main_trie</span></span><em class="property"> <span class="pre">:ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Account]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._main_trie" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.frontier.state.State._storage_tries">
+<span class="sig-name descname"><span class="pre">_storage_tries</span></span><em class="property"> <span class="pre">:Dict[ethereum.frontier.eth_types.Address,</span> <span class="pre">ethereum.frontier.trie.Trie[ethereum.base_types.U256]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._storage_tries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="get-account">
+<h4>get_account<a class="headerlink" href="#get-account" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.get_account">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">get_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a><a class="headerlink" href="#ethereum.frontier.state.get_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <cite>Account</cite> object at an address. Returns <cite>EMPTY_ACCOUNT</cite> if there
+is no account at the address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address to lookup.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>account</strong> – Account at address.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Account</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Account</span><span class="p">:</span>
+    <span class="n">account</span> <span class="o">=</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">Account</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">account</span>
+</pre></div>
+</div>
+</section>
+<section id="set-account">
+<h4>set_account<a class="headerlink" href="#set-account" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.set_account">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">set_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">account</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.set_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>Account</cite> object at an address. Setting to <cite>EMPTY_ACCOUNT</cite> deletes
+the account (but not its storage, see <cite>destroy_account()</cite>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address to set.</p></li>
+<li><p><strong>account</strong> (<cite>Account</cite>) – Account to set at address.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">trie_set</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">account</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="destroy-account">
+<h4>destroy_account<a class="headerlink" href="#destroy-account" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.destroy_account">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">destroy_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.destroy_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completely remove the account at <cite>address</cite> and all of its storage.</p>
+<p>This function is made available exclusively for the <cite>SELFDESTRUCT</cite>
+opcode. It is expected that <cite>SELFDESTRUCT</cite> will be disabled in a future
+hardfork and this function will be removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address of account to destroy.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">destroy_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
+    <span class="n">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">EMPTY_ACCOUNT</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-storage">
+<h4>get_storage<a class="headerlink" href="#get-storage" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.get_storage">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">get_storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><a class="headerlink" href="#ethereum.frontier.state.get_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a value at a storage key on an account. Returns <cite>U256(0)</cite> if the
+storage key has not been set previously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address of the account.</p></li>
+<li><p><strong>key</strong> (<cite>Bytes</cite>) – Key to lookup.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>value</strong> – Value at the key.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>U256</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_storage</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">U256</span><span class="p">:</span>
+    <span class="n">trie</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trie</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">value</span> <span class="o">=</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">U256</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+</div>
+</section>
+<section id="set-storage">
+<h4>set_storage<a class="headerlink" href="#set-storage" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.set_storage">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">set_storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.set_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a value at a storage key on an account. Setting to <cite>U256(0)</cite> deletes
+the key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address of the account.</p></li>
+<li><p><strong>key</strong> (<cite>Bytes</cite>) – Key to set.</p></li>
+<li><p><strong>value</strong> (<cite>U256</cite>) – Value to set at the key.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_storage</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">U256</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">trie</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trie</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">secured</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">trie</span>
+    <span class="n">trie_set</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trie</span><span class="o">.</span><span class="n">_data</span> <span class="o">==</span> <span class="p">{}:</span>
+        <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="storage-root">
+<h4>storage_root<a class="headerlink" href="#storage-root" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.storage_root">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">storage_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.state.storage_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the storage root of an account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address of the account.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>root</strong> – Storage root of the account.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storage_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">root</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">EMPTY_TRIE_ROOT</span>
+</pre></div>
+</div>
+</section>
+<section id="state-root">
+<h4>state_root<a class="headerlink" href="#state-root" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.state_root">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">state_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.state.state_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the state root.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<cite>State</cite>) – The state</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>root</strong> – The state root.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Bytes</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">get_storage_root</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">storage_root</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">root</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">get_storage_root</span><span class="o">=</span><span class="n">get_storage_root</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="modify-state">
+<h4>modify_state<a class="headerlink" href="#modify-state" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.modify_state">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">modify_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.modify_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify an <cite>Account</cite> in the <cite>State</cite>.</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modify_state</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Account</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">modify</span><span class="p">(</span><span class="n">get_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">),</span> <span class="n">f</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="move-ether">
+<h4>move_ether<a class="headerlink" href="#move-ether" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.move_ether">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">move_ether</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">recipient_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.move_ether" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move funds between accounts.</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_ether</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span>
+    <span class="n">sender_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span>
+    <span class="n">recipient_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span>
+    <span class="n">amount</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">reduce_sender_balance</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">sender</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">amount</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>
+
+    <span class="k">def</span> <span class="nf">increase_recipient_balance</span><span class="p">(</span><span class="n">recipient</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">recipient</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">reduce_sender_balance</span><span class="p">)</span>
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">recipient_address</span><span class="p">,</span> <span class="n">increase_recipient_balance</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">Ethereum Specification</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#ethereum-specification">Ethereum Specification</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">API Reference</a><ul>
+  <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum</span></code></a><ul>
+  <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier</span></code></a><ul>
+      <li>Previous: <a href="../spec/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.spec</span></code></a></li>
+      <li>Next: <a href="../trie/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.trie</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Ethereum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/autoapi/ethereum/frontier/state/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,55 @@
+:mod:`ethereum.frontier.utils.address`
+======================================
+
+.. py:module:: ethereum.frontier.utils.address
+
+Frontier Utility Functions For Addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Address specific functions used in this frontier version of specification.
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.frontier.utils.address.to_address
+
+
+
+Module Details
+---------------
+
+to_address
+~~~~~~~~~~
+
+
+.. function:: to_address(data: Union[ethereum.base_types.Uint, ethereum.base_types.U256]) -> ethereum.frontier.eth_types.Address
+   :noindexentry:
+
+   Convert a Uint or U256 value to a valid address (20 bytes).
+
+   :param data: The string to be converted to bytes.
+
+   :returns: **address** -- The obtained address.
+   :rtype: `Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/utils/address.py
+   :language: python
+   :lines: 20-34

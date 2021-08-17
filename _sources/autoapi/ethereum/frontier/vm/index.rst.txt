@@ -112,7 +112,7 @@ Items external to the virtual machine itself, provided by the environment.
       
 
    .. py:attribute:: state
-      :annotation: :ethereum.frontier.eth_types.State
+      :annotation: :ethereum.frontier.state.State
 
       
 

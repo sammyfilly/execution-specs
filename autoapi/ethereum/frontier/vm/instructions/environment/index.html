@@ -174,11 +174,8 @@
 
     <span class="n">address</span> <span class="o">=</span> <span class="n">to_address</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
-    <span class="n">account_state</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">account_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">balance</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">balance</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="n">account_state</span><span class="o">.</span><span class="n">balance</span><span class="p">)</span>
+    <span class="c1"># Non-existent accounts default to EMPTY_ACCOUNT, which has balance 0.</span>
+    <span class="n">balance</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">balance</span>
 
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
 </pre></div>
@@ -472,11 +469,8 @@ to store the data.</p>
 
     <span class="n">address</span> <span class="o">=</span> <span class="n">to_address</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
-    <span class="n">account_state</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">account_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">codesize</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">codesize</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">code</span><span class="p">))</span>
+    <span class="c1"># Non-existent accounts default to EMPTY_ACCOUNT, which has empty code.</span>
+    <span class="n">codesize</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">get_account</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">code</span><span class="p">))</span>
 
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">codesize</span><span class="p">)</span>
 </pre></div>
@@ -519,13 +513,8 @@ to store the data.</p>
     <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span>
 
-    <span class="c1"># Get code belonging to another account. In case the other account</span>
-    <span class="c1"># doesn&#39;t exist in the state yet, default to an empty byte code.</span>
-    <span class="n">account_state</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">account_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">code</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">code</span> <span class="o">=</span> <span class="n">account_state</span><span class="o">.</span><span class="n">code</span>
+    <span class="c1"># Non-existent accounts default to EMPTY_ACCOUNT, which has empty code.</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">code</span>
 
     <span class="n">extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">memory_start_index</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 

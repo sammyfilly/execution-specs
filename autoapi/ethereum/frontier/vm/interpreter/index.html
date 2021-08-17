@@ -140,7 +140,7 @@ generated during execution.</p>
     <span class="n">depth</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
     <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
-    <span class="n">code</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">code</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">code</span>
     <span class="n">valid_jump_destinations</span> <span class="o">=</span> <span class="n">get_valid_jump_destinations</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
     <span class="n">evm</span> <span class="o">=</span> <span class="n">Evm</span><span class="p">(</span>

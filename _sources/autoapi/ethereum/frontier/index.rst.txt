@@ -15,6 +15,7 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   utils/index.rst
    vm/index.rst
 
 
@@ -28,6 +29,7 @@ Submodules
    eth_types/index.rst
    rlp/index.rst
    spec/index.rst
+   state/index.rst
    trie/index.rst
 
 
