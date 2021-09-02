@@ -17,7 +17,7 @@
     <script src="../../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="ethereum.frontier.vm.error" href="../../error/index.html" />
+    <link rel="next" title="ethereum.frontier.vm.instructions.system" href="../system/index.html" />
     <link rel="prev" title="ethereum.frontier.vm.instructions.stack" href="../stack/index.html" />
    
   <link rel="stylesheet" href="../../../../../../_static/custom.css" type="text/css" />
@@ -106,7 +106,7 @@ storage of the current account.</p>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_SLOAD</span><span class="p">)</span>
 
     <span class="n">key</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">get_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">get_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -134,7 +134,7 @@ storage of the current account.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sstore</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
     <span class="n">new_value</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
-    <span class="n">current_value</span> <span class="o">=</span> <span class="n">get_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="n">current_value</span> <span class="o">=</span> <span class="n">get_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
     <span class="c1"># TODO: SSTORE gas usage hasn&#39;t been tested yet. Testing this needs</span>
     <span class="c1"># other opcodes to be implemented.</span>
@@ -151,7 +151,7 @@ storage of the current account.</p>
     <span class="k">if</span> <span class="n">new_value</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">current_value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="n">GAS_STORAGE_CLEAR_REFUND</span>
 
-    <span class="n">set_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+    <span class="n">set_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -201,7 +201,7 @@ storage of the current account.</p>
   <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm</span></code></a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions</span></code></a><ul>
       <li>Previous: <a href="../stack/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.stack</span></code></a></li>
-      <li>Next: <a href="../../error/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.error</span></code></a></li>
+      <li>Next: <a href="../system/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.vm.instructions.system</span></code></a></li>
   </ul></li>
   </ul></li>
   </ul></li>

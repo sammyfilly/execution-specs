@@ -61,6 +61,8 @@
 <li><p><a class="reference internal" href="#state-root" id="id14">state_root</a></p></li>
 <li><p><a class="reference internal" href="#modify-state" id="id15">modify_state</a></p></li>
 <li><p><a class="reference internal" href="#move-ether" id="id16">move_ether</a></p></li>
+<li><p><a class="reference internal" href="#increment-nonce" id="id17">increment_nonce</a></p></li>
+<li><p><a class="reference internal" href="#write-code" id="id18">write_code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -120,6 +122,12 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
 <td><p>Move funds between accounts.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
+<td><p>Increment Account nonce</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.write_code" title="ethereum.frontier.state.write_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_code</span></code></a></p></td>
+<td><p>Update Account code</p></td>
 </tr>
 </tbody>
 </table>
@@ -389,6 +397,42 @@ the key.</p>
 
     <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">reduce_sender_balance</span><span class="p">)</span>
     <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">recipient_address</span><span class="p">,</span> <span class="n">increase_recipient_balance</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="increment-nonce">
+<h4>increment_nonce<a class="headerlink" href="#increment-nonce" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.increment_nonce">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">increment_nonce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.increment_nonce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment Account nonce</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment_nonce</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">_increment_nonce</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">nonce</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">_increment_nonce</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="write-code">
+<h4>write_code<a class="headerlink" href="#write-code" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.write_code">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">write_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.write_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update Account code</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_code</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">:</span> <span class="n">Bytes</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">_write_code</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">contract_code</span>
+
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">_write_code</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

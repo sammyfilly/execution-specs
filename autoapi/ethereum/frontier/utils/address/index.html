@@ -66,6 +66,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.utils.address.to_address" title="ethereum.frontier.utils.address.to_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_address</span></code></a></p></td>
 <td><p>Convert a Uint or U256 value to a valid address (20 bytes).</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.utils.address.compute_contract_address" title="ethereum.frontier.utils.address.compute_contract_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_contract_address</span></code></a></p></td>
+<td><p>Computes address of the new account that needs to be created.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -93,6 +96,37 @@
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_address</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Uint</span><span class="p">,</span> <span class="n">U256</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Address</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span>
+</pre></div>
+</div>
+</section>
+<section id="compute-contract-address">
+<h4>compute_contract_address<a class="headerlink" href="#compute-contract-address" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.utils.address.compute_contract_address">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.utils.address.</span></span><span class="sig-name descname"><span class="pre">compute_contract_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonce</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a><a class="headerlink" href="#ethereum.frontier.utils.address.compute_contract_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes address of the new account that needs to be created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The address of the account that wants to create the new account.</p></li>
+<li><p><strong>nonce</strong> – The transaction count of the account that wants to create the new
+account.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>address</strong> – The computed address of the new account.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.frontier.eth_types.Address</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_contract_address</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">nonce</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Address</span><span class="p">:</span>
+    <span class="n">computed_address</span> <span class="o">=</span> <span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">address</span><span class="p">,</span> <span class="n">nonce</span><span class="p">]))</span>
+    <span class="n">canonical_address</span> <span class="o">=</span> <span class="n">computed_address</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span>
+    <span class="n">padded_address</span> <span class="o">=</span> <span class="n">canonical_address</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Address</span><span class="p">(</span><span class="n">padded_address</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

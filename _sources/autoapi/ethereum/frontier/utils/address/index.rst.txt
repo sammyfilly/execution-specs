@@ -27,6 +27,7 @@ Functions
    :nosignatures:
 
    ethereum.frontier.utils.address.to_address
+   ethereum.frontier.utils.address.compute_contract_address
 
 
 
@@ -52,4 +53,27 @@ to_address
 
 .. undocinclude:: /../src/ethereum/frontier/utils/address.py
    :language: python
-   :lines: 20-34
+   :lines: 22-36
+
+compute_contract_address
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: compute_contract_address(address: ethereum.frontier.eth_types.Address, nonce: ethereum.base_types.Uint) -> ethereum.frontier.eth_types.Address
+   :noindexentry:
+
+   Computes address of the new account that needs to be created.
+
+   :param address: The address of the account that wants to create the new account.
+   :param nonce: The transaction count of the account that wants to create the new
+                 account.
+
+   :returns: **address** -- The computed address of the new account.
+   :rtype: `ethereum.frontier.eth_types.Address`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/utils/address.py
+   :language: python
+   :lines: 39-59

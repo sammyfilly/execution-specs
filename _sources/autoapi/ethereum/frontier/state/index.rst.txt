@@ -45,6 +45,8 @@ Functions
    ethereum.frontier.state.state_root
    ethereum.frontier.state.modify_state
    ethereum.frontier.state.move_ether
+   ethereum.frontier.state.increment_nonce
+   ethereum.frontier.state.write_code
 
 
 
@@ -276,3 +278,35 @@ move_ether
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
    :lines: 203-221
+
+increment_nonce
+~~~~~~~~~~~~~~~
+
+
+.. function:: increment_nonce(state: State, sender_address: ethereum.frontier.eth_types.Address) -> None
+   :noindexentry:
+
+   Increment Account nonce
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 224-232
+
+write_code
+~~~~~~~~~~
+
+
+.. function:: write_code(state: State, sender_address: ethereum.frontier.eth_types.Address, contract_code: ethereum.base_types.Bytes) -> None
+   :noindexentry:
+
+   Update Account code
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 235-245

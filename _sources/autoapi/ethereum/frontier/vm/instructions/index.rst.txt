@@ -34,6 +34,7 @@ Submodules
    memory/index.rst
    stack/index.rst
    storage/index.rst
+   system/index.rst
 
 
 Package Contents
@@ -688,6 +689,16 @@ Enum for EVM Opcodes
 
    .. py:attribute:: LOG4
       :annotation: = 164
+
+      
+
+   .. py:attribute:: CREATE
+      :annotation: = 240
+
+      
+
+   .. py:attribute:: RETURN
+      :annotation: = 243
 
       
 

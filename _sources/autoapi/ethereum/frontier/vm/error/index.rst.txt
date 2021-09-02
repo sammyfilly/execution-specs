@@ -95,3 +95,17 @@ following criteria:
    Bases: :py:obj:`Exception`
 
 
+
+StackDepthLimitError
+~~~~~~~~~~~~~~~~~~~~
+
+
+Raised when the message depth is greater than `1024`
+
+
+.. exception:: StackDepthLimitError
+
+
+   Bases: :py:obj:`Exception`
+
+

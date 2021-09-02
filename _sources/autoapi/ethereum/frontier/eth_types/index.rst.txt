@@ -140,7 +140,7 @@ Atomic operation performed on the block chain.
       
 
    .. py:attribute:: to
-      :annotation: :Optional[Address]
+      :annotation: :Union[ethereum.base_types.Bytes0, Address]
 
       
 

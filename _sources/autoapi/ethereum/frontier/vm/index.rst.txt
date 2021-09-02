@@ -49,6 +49,7 @@ Classes
 .. autoapisummary::
 
    ethereum.frontier.vm.Environment
+   ethereum.frontier.vm.Message
    ethereum.frontier.vm.Evm
 
 
@@ -118,6 +119,57 @@ Items external to the virtual machine itself, provided by the environment.
 
 
 
+Message
+~~~~~~~
+
+
+Items that are used by contract creation or message call.
+
+
+.. class:: Message
+
+   .. py:attribute:: caller
+      :annotation: :ethereum.frontier.eth_types.Address
+
+      
+
+   .. py:attribute:: target
+      :annotation: :ethereum.frontier.eth_types.Address
+
+      
+
+   .. py:attribute:: current_target
+      :annotation: :ethereum.frontier.eth_types.Address
+
+      
+
+   .. py:attribute:: gas
+      :annotation: :ethereum.base_types.U256
+
+      
+
+   .. py:attribute:: value
+      :annotation: :ethereum.base_types.U256
+
+      
+
+   .. py:attribute:: data
+      :annotation: :ethereum.base_types.Bytes
+
+      
+
+   .. py:attribute:: code
+      :annotation: :ethereum.base_types.Bytes
+
+      
+
+   .. py:attribute:: depth
+      :annotation: :ethereum.base_types.Uint
+
+      
+
+
+
 Evm
 ~~~
 
@@ -143,37 +195,12 @@ The internal state of the virtual machine.
       
 
    .. py:attribute:: code
-      :annotation: :bytes
+      :annotation: :ethereum.base_types.Bytes
 
       
 
    .. py:attribute:: gas_left
       :annotation: :ethereum.base_types.U256
-
-      
-
-   .. py:attribute:: current
-      :annotation: :ethereum.frontier.eth_types.Address
-
-      
-
-   .. py:attribute:: caller
-      :annotation: :ethereum.frontier.eth_types.Address
-
-      
-
-   .. py:attribute:: data
-      :annotation: :bytes
-
-      
-
-   .. py:attribute:: value
-      :annotation: :ethereum.base_types.U256
-
-      
-
-   .. py:attribute:: depth
-      :annotation: :ethereum.base_types.Uint
 
       
 
@@ -199,6 +226,16 @@ The internal state of the virtual machine.
 
    .. py:attribute:: running
       :annotation: :bool
+
+      
+
+   .. py:attribute:: message
+      :annotation: :Message
+
+      
+
+   .. py:attribute:: output
+      :annotation: :ethereum.base_types.Bytes
 
       
 

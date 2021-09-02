@@ -55,6 +55,7 @@ Attributes
    ethereum.base_types.U8_MAX_VALUE
    ethereum.base_types.MAX_VALUE
    ethereum.base_types.Bytes
+   ethereum.base_types.Bytes0
    ethereum.base_types.Bytes8
    ethereum.base_types.Bytes20
    ethereum.base_types.Bytes32
@@ -477,6 +478,15 @@ Bytes
    
 
 
+Bytes0
+~~~~~~
+
+.. py:data:: Bytes0
+   
+
+   
+
+
 Bytes8
 ~~~~~~
 
@@ -534,7 +544,7 @@ _setattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 643-647
+   :lines: 644-648
 
 _delattr_function
 ~~~~~~~~~~~~~~~~~
@@ -548,7 +558,7 @@ _delattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 650-654
+   :lines: 651-655
 
 _make_init_function
 ~~~~~~~~~~~~~~~~~~~
@@ -562,7 +572,7 @@ _make_init_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 657-664
+   :lines: 658-665
 
 slotted_freezable
 ~~~~~~~~~~~~~~~~~
@@ -582,7 +592,7 @@ slotted_freezable
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 667-679
+   :lines: 668-680
 
 T
 ~
@@ -616,4 +626,4 @@ modify
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 685-705
+   :lines: 686-706

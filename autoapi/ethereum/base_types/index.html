@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="ethereum.crypto" href="../crypto/index.html" />
-    <link rel="prev" title="ethereum.utils.numeric" href="../utils/numeric/index.html" />
+    <link rel="prev" title="ethereum.utils.transaction" href="../utils/transaction/index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -61,17 +61,18 @@
 <li><p><a class="reference internal" href="#u256" id="id13">U256</a></p></li>
 <li><p><a class="reference internal" href="#max-value" id="id14">MAX_VALUE</a></p></li>
 <li><p><a class="reference internal" href="#bytes" id="id15">Bytes</a></p></li>
-<li><p><a class="reference internal" href="#bytes8" id="id16">Bytes8</a></p></li>
-<li><p><a class="reference internal" href="#bytes20" id="id17">Bytes20</a></p></li>
-<li><p><a class="reference internal" href="#bytes32" id="id18">Bytes32</a></p></li>
-<li><p><a class="reference internal" href="#bytes64" id="id19">Bytes64</a></p></li>
-<li><p><a class="reference internal" href="#bytes256" id="id20">Bytes256</a></p></li>
-<li><p><a class="reference internal" href="#setattr-function" id="id21">_setattr_function</a></p></li>
-<li><p><a class="reference internal" href="#delattr-function" id="id22">_delattr_function</a></p></li>
-<li><p><a class="reference internal" href="#make-init-function" id="id23">_make_init_function</a></p></li>
-<li><p><a class="reference internal" href="#slotted-freezable" id="id24">slotted_freezable</a></p></li>
-<li><p><a class="reference internal" href="#t" id="id25">T</a></p></li>
-<li><p><a class="reference internal" href="#modify" id="id26">modify</a></p></li>
+<li><p><a class="reference internal" href="#bytes0" id="id16">Bytes0</a></p></li>
+<li><p><a class="reference internal" href="#bytes8" id="id17">Bytes8</a></p></li>
+<li><p><a class="reference internal" href="#bytes20" id="id18">Bytes20</a></p></li>
+<li><p><a class="reference internal" href="#bytes32" id="id19">Bytes32</a></p></li>
+<li><p><a class="reference internal" href="#bytes64" id="id20">Bytes64</a></p></li>
+<li><p><a class="reference internal" href="#bytes256" id="id21">Bytes256</a></p></li>
+<li><p><a class="reference internal" href="#setattr-function" id="id22">_setattr_function</a></p></li>
+<li><p><a class="reference internal" href="#delattr-function" id="id23">_delattr_function</a></p></li>
+<li><p><a class="reference internal" href="#make-init-function" id="id24">_make_init_function</a></p></li>
+<li><p><a class="reference internal" href="#slotted-freezable" id="id25">slotted_freezable</a></p></li>
+<li><p><a class="reference internal" href="#t" id="id26">T</a></p></li>
+<li><p><a class="reference internal" href="#modify" id="id27">modify</a></p></li>
 </ul>
 </li>
 </ul>
@@ -154,22 +155,25 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes0" title="ethereum.base_types.Bytes0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes0</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes20" title="ethereum.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes32" title="ethereum.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes20" title="ethereum.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes64" title="ethereum.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes32" title="ethereum.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes256" title="ethereum.base_types.Bytes256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes256</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes64" title="ethereum.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.T" title="ethereum.base_types.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes256" title="ethereum.base_types.Bytes256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes256</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.T" title="ethereum.base_types.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -670,6 +674,14 @@ representation, omitting leading zero bytes.
 <dd></dd></dl>
 
 </section>
+<section id="bytes0">
+<h4>Bytes0<a class="headerlink" href="#bytes0" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes0">
+<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes0</span></span><a class="headerlink" href="#ethereum.base_types.Bytes0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="bytes8">
 <h4>Bytes8<a class="headerlink" href="#bytes8" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
@@ -859,7 +871,7 @@ apply <cite>f</cite> to the copy before freezing it.</p>
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">API Reference</a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum</span></code></a><ul>
-      <li>Previous: <a href="../utils/numeric/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.utils.numeric</span></code></a></li>
+      <li>Previous: <a href="../utils/transaction/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.utils.transaction</span></code></a></li>
       <li>Next: <a href="../crypto/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.crypto</span></code></a></li>
   </ul></li>
   </ul></li>

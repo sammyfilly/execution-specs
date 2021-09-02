@@ -496,7 +496,7 @@ fits in N bytes to 32 bytes.</p>
 
         <span class="c1"># Now among the obtained value bytes, consider only</span>
         <span class="c1"># N `least significant bytes`, where N is `byte_num + 1`.</span>
-        <span class="n">value_bytes</span> <span class="o">=</span> <span class="n">value_bytes</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">value_bytes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">byte_num</span> <span class="p">:]</span>
+        <span class="n">value_bytes</span> <span class="o">=</span> <span class="n">value_bytes</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">value_bytes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">byte_num</span><span class="p">)</span> <span class="p">:]</span>
         <span class="n">sign_bit</span> <span class="o">=</span> <span class="n">value_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span>
         <span class="k">if</span> <span class="n">sign_bit</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">value_bytes</span><span class="p">)</span>

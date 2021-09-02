@@ -26,7 +26,10 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
-   ethereum.frontier.vm.interpreter.process_call
+   ethereum.frontier.vm.interpreter.process_message_call
+   ethereum.frontier.vm.interpreter.process_create_message
+   ethereum.frontier.vm.interpreter.process_message
+   ethereum.frontier.vm.interpreter.execute_code
 
 
 
@@ -36,6 +39,7 @@ Attributes
 .. autoapisummary::
 
    ethereum.frontier.vm.interpreter.PC_CHANGING_OPS
+   ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT
 
 
 Module Details
@@ -50,21 +54,26 @@ PC_CHANGING_OPS
    
 
 
-process_call
-~~~~~~~~~~~~
+STACK_DEPTH_LIMIT
+~~~~~~~~~~~~~~~~~
+
+.. py:data:: STACK_DEPTH_LIMIT
+   
+
+   
 
 
-.. function:: process_call(caller: ethereum.frontier.eth_types.Address, target: ethereum.frontier.eth_types.Address, data: bytes, value: ethereum.base_types.U256, gas: ethereum.base_types.U256, depth: ethereum.base_types.Uint, env: ethereum.frontier.vm.Environment) -> Tuple[ethereum.base_types.U256, Tuple[ethereum.frontier.eth_types.Log, Ellipsis]]
+process_message_call
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: process_message_call(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> Tuple[ethereum.base_types.U256, Tuple[ethereum.frontier.eth_types.Log, Ellipsis]]
    :noindexentry:
 
-   Executes a call from the `caller` to the `target` in a new EVM instance.
+   If `message.current` is empty then it creates a smart contract
+   else it executes a call from the `message.caller` to the `message.target`.
 
-   :param caller: Account which initiated this call.
-   :param target: Account whose code will be executed.
-   :param data: Array of bytes provided to the code in `target`.
-   :param value: Value to be transferred.
-   :param gas: Gas provided for the code in `target`.
-   :param depth: Number of call/contract creation environments on the call stack.
+   :param message: Transaction specific items.
    :param env: External items required for EVM execution.
 
    :returns: **output** -- The tuple `(gas_left, logs)`, where `gas_left` is the remaining gas
@@ -77,4 +86,70 @@ process_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 29-112
+   :lines: 33-65
+
+process_create_message
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: process_create_message(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> ethereum.frontier.vm.Evm
+   :noindexentry:
+
+   Executes a call to create a smart contract.
+
+   :param message: Transaction specific items.
+   :param env: External items required for EVM execution.
+
+   :returns: **evm** -- Items containing execution specific objects.
+   :rtype: `ethereum.frontier.vm.Evm`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
+   :language: python
+   :lines: 68-90
+
+process_message
+~~~~~~~~~~~~~~~
+
+
+.. function:: process_message(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> ethereum.frontier.vm.Evm
+   :noindexentry:
+
+   Executes a call to create a smart contract.
+
+   :param message: Transaction specific items.
+   :param env: External items required for EVM execution.
+
+   :returns: **evm** -- Items containing execution specific objects
+   :rtype: `ethereum.frontier.vm.Evm`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
+   :language: python
+   :lines: 93-118
+
+execute_code
+~~~~~~~~~~~~
+
+
+.. function:: execute_code(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> ethereum.frontier.vm.Evm
+   :noindexentry:
+
+   Executes bytecode present in the `message`.
+
+   :param message: Transaction specific items.
+   :param env: External items required for EVM execution.
+
+   :returns: **evm** -- Items containing execution specific objects
+   :rtype: `ethereum.vm.EVM`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
+   :language: python
+   :lines: 121-166

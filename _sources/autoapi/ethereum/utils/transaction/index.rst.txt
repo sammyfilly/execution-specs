@@ -1,0 +1,55 @@
+:mod:`ethereum.utils.transaction`
+=================================
+
+.. py:module:: ethereum.utils.transaction
+
+Utility Functions For Transactions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..contents:: Table of Contents
+    :backlinks: none
+    :local:
+
+Introduction
+------------
+
+Transactions specific utility functions used in this application.
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+   :nosignatures:
+
+   ethereum.utils.transaction.json_to_transactions
+
+
+
+Module Details
+---------------
+
+json_to_transactions
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: json_to_transactions(json_data: Dict[Any, Any]) -> Tuple[ethereum.frontier.eth_types.Transaction, Ellipsis]
+   :noindexentry:
+
+   Convert json data to tuple of transaction objects.
+
+   :param json_data: The transactions data where the values are hexadecimals.
+
+   :returns: **transactions** -- The transaction objects obtained from the json data.
+   :rtype: `Tuple[Transaction, ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/transaction.py
+   :language: python
+   :lines: 22-55

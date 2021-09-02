@@ -56,6 +56,9 @@ Attributes
    ethereum.frontier.vm.gas.GAS_LOG
    ethereum.frontier.vm.gas.GAS_LOG_DATA
    ethereum.frontier.vm.gas.GAS_LOG_TOPIC
+   ethereum.frontier.vm.gas.GAS_CREATE
+   ethereum.frontier.vm.gas.GAS_CODE_DEPOSIT
+   ethereum.frontier.vm.gas.GAS_ZERO
 
 
 Module Details
@@ -232,6 +235,33 @@ GAS_LOG_TOPIC
    
 
 
+GAS_CREATE
+~~~~~~~~~~
+
+.. py:data:: GAS_CREATE
+   
+
+   
+
+
+GAS_CODE_DEPOSIT
+~~~~~~~~~~~~~~~~
+
+.. py:data:: GAS_CODE_DEPOSIT
+   
+
+   
+
+
+GAS_ZERO
+~~~~~~~~
+
+.. py:data:: GAS_ZERO
+   
+
+   
+
+
 subtract_gas
 ~~~~~~~~~~~~
 
@@ -251,7 +281,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 40-59
+   :lines: 43-62
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -274,7 +304,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 62-82
+   :lines: 65-85
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -299,4 +329,4 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 85-117
+   :lines: 88-120

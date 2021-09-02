@@ -52,7 +52,11 @@
 <li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
 <ul>
 <li><p><a class="reference internal" href="#pc-changing-ops" id="id6">PC_CHANGING_OPS</a></p></li>
-<li><p><a class="reference internal" href="#process-call" id="id7">process_call</a></p></li>
+<li><p><a class="reference internal" href="#stack-depth-limit" id="id7">STACK_DEPTH_LIMIT</a></p></li>
+<li><p><a class="reference internal" href="#process-message-call" id="id8">process_message_call</a></p></li>
+<li><p><a class="reference internal" href="#process-create-message" id="id9">process_create_message</a></p></li>
+<li><p><a class="reference internal" href="#process-message" id="id10">process_message</a></p></li>
+<li><p><a class="reference internal" href="#execute-code" id="id11">execute_code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -71,8 +75,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.process_call" title="ethereum.frontier.vm.interpreter.process_call"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_call</span></code></a></p></td>
-<td><p>Executes a call from the <cite>caller</cite> to the <cite>target</cite> in a new EVM instance.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.process_message_call" title="ethereum.frontier.vm.interpreter.process_message_call"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_message_call</span></code></a></p></td>
+<td><p>If <cite>message.current</cite> is empty then it creates a smart contract</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.process_create_message" title="ethereum.frontier.vm.interpreter.process_create_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_create_message</span></code></a></p></td>
+<td><p>Executes a call to create a smart contract.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.process_message" title="ethereum.frontier.vm.interpreter.process_message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_message</span></code></a></p></td>
+<td><p>Executes a call to create a smart contract.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.execute_code" title="ethereum.frontier.vm.interpreter.execute_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">execute_code</span></code></a></p></td>
+<td><p>Executes bytecode present in the <cite>message</cite>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -86,6 +99,9 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.PC_CHANGING_OPS" title="ethereum.frontier.vm.interpreter.PC_CHANGING_OPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PC_CHANGING_OPS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT" title="ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STACK_DEPTH_LIMIT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -102,21 +118,25 @@
 <dd></dd></dl>
 
 </section>
-<section id="process-call">
-<h4>process_call<a class="headerlink" href="#process-call" title="Permalink to this headline">¶</a></h4>
+<section id="stack-depth-limit">
+<h4>STACK_DEPTH_LIMIT<a class="headerlink" href="#stack-depth-limit" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">STACK_DEPTH_LIMIT</span></span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="process-message-call">
+<h4>process_message_call<a class="headerlink" href="#process-message-call" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
-<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_call">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caller</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Log" title="ethereum.frontier.eth_types.Log"><span class="pre">ethereum.frontier.eth_types.Log</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_call" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes a call from the <cite>caller</cite> to the <cite>target</cite> in a new EVM instance.</p>
+<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_message_call">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Log" title="ethereum.frontier.eth_types.Log"><span class="pre">ethereum.frontier.eth_types.Log</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <cite>message.current</cite> is empty then it creates a smart contract
+else it executes a call from the <cite>message.caller</cite> to the <cite>message.target</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>caller</strong> – Account which initiated this call.</p></li>
-<li><p><strong>target</strong> – Account whose code will be executed.</p></li>
-<li><p><strong>data</strong> – Array of bytes provided to the code in <cite>target</cite>.</p></li>
-<li><p><strong>value</strong> – Value to be transferred.</p></li>
-<li><p><strong>gas</strong> – Gas provided for the code in <cite>target</cite>.</p></li>
-<li><p><strong>depth</strong> – Number of call/contract creation environments on the call stack.</p></li>
+<li><p><strong>message</strong> – Transaction specific items.</p></li>
 <li><p><strong>env</strong> – External items required for EVM execution.</p></li>
 </ul>
 </dd>
@@ -131,40 +151,132 @@ generated during execution.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_call</span><span class="p">(</span>
-    <span class="n">caller</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span>
-    <span class="n">target</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span>
-    <span class="n">value</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span>
-    <span class="n">gas</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span>
-    <span class="n">depth</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
-    <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message_call</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
-    <span class="n">code</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">code</span>
-    <span class="n">valid_jump_destinations</span> <span class="o">=</span> <span class="n">get_valid_jump_destinations</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="n">gas_before</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">gas</span>
 
+    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">Bytes0</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="n">evm</span> <span class="o">=</span> <span class="n">process_create_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">gas_before</span> <span class="o">-</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
+    <span class="n">refund</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">+</span> <span class="n">refund</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">logs</span>
+</pre></div>
+</div>
+</section>
+<section id="process-create-message">
+<h4>process_create_message<a class="headerlink" href="#process-create-message" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_create_message">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_create_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_create_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a call to create a smart contract.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – Transaction specific items.</p></li>
+<li><p><strong>env</strong> – External items required for EVM execution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>evm</strong> – Items containing execution specific objects.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.frontier.vm.Evm</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_create_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
+    <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+    <span class="n">contract_code</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">output</span>
+    <span class="k">if</span> <span class="n">contract_code</span><span class="p">:</span>
+        <span class="n">contract_code_gas</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">contract_code</span><span class="p">)</span> <span class="o">*</span> <span class="n">GAS_CODE_DEPOSIT</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">contract_code_gas</span><span class="p">)</span>
+        <span class="n">write_code</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">evm</span>
+</pre></div>
+</div>
+</section>
+<section id="process-message">
+<h4>process_message<a class="headerlink" href="#process-message" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_message">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a call to create a smart contract.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – Transaction specific items.</p></li>
+<li><p><strong>env</strong> – External items required for EVM execution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>evm</strong> – Items containing execution specific objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.frontier.vm.Evm</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="n">STACK_DEPTH_LIMIT</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">StackDepthLimitError</span><span class="p">(</span><span class="s2">&quot;Stack depth limit reached&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">move_ether</span><span class="p">(</span>
+            <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">caller</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="n">evm</span> <span class="o">=</span> <span class="n">execute_code</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+    <span class="c1"># TODO: revert state check if code execution resulted in error</span>
+    <span class="k">return</span> <span class="n">evm</span>
+</pre></div>
+</div>
+</section>
+<section id="execute-code">
+<h4>execute_code<a class="headerlink" href="#execute-code" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.execute_code">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">execute_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a><a class="headerlink" href="#ethereum.frontier.vm.interpreter.execute_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes bytecode present in the <cite>message</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – Transaction specific items.</p></li>
+<li><p><strong>env</strong> – External items required for EVM execution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>evm</strong> – Items containing execution specific objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.vm.EVM</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_code</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">code</span>
+    <span class="n">valid_jump_destinations</span> <span class="o">=</span> <span class="n">get_valid_jump_destinations</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
     <span class="n">evm</span> <span class="o">=</span> <span class="n">Evm</span><span class="p">(</span>
         <span class="n">pc</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
         <span class="n">stack</span><span class="o">=</span><span class="p">[],</span>
         <span class="n">memory</span><span class="o">=</span><span class="nb">bytearray</span><span class="p">(),</span>
         <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
-        <span class="n">gas_left</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span>
-        <span class="n">current</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-        <span class="n">caller</span><span class="o">=</span><span class="n">caller</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-        <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
-        <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span>
+        <span class="n">gas_left</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">gas</span><span class="p">,</span>
         <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
         <span class="n">valid_jump_destinations</span><span class="o">=</span><span class="n">valid_jump_destinations</span><span class="p">,</span>
         <span class="n">logs</span><span class="o">=</span><span class="p">(),</span>
         <span class="n">refund_counter</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
         <span class="n">running</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">move_ether</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">caller</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-
-    <span class="k">while</span> <span class="n">evm</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="ow">and</span> <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">op</span> <span class="o">=</span> <span class="n">Ops</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
@@ -177,11 +289,7 @@ generated during execution.</p>
 
         <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
             <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">gas</span> <span class="o">-</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
-    <span class="n">refund</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">+</span> <span class="n">refund</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">logs</span>
+    <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
 </section>
