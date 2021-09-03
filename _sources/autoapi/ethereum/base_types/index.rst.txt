@@ -26,6 +26,7 @@ Classes
 
    ethereum.base_types.Uint
    ethereum.base_types.U256
+   ethereum.base_types.Uint32
 
 
 
@@ -48,14 +49,12 @@ Attributes
 
 .. autoapisummary::
 
-   ethereum.base_types.U255_MAX_VALUE
+   ethereum.base_types.UINT32_CEIL_VALUE
    ethereum.base_types.U255_CEIL_VALUE
-   ethereum.base_types.U256_MAX_VALUE
    ethereum.base_types.U256_CEIL_VALUE
-   ethereum.base_types.U8_MAX_VALUE
-   ethereum.base_types.MAX_VALUE
    ethereum.base_types.Bytes
    ethereum.base_types.Bytes0
+   ethereum.base_types.Bytes4
    ethereum.base_types.Bytes8
    ethereum.base_types.Bytes20
    ethereum.base_types.Bytes32
@@ -67,10 +66,10 @@ Attributes
 Module Details
 ---------------
 
-U255_MAX_VALUE
-~~~~~~~~~~~~~~
+UINT32_CEIL_VALUE
+~~~~~~~~~~~~~~~~~
 
-.. py:data:: U255_MAX_VALUE
+.. py:data:: UINT32_CEIL_VALUE
    
 
    
@@ -85,28 +84,10 @@ U255_CEIL_VALUE
    
 
 
-U256_MAX_VALUE
-~~~~~~~~~~~~~~
-
-.. py:data:: U256_MAX_VALUE
-   
-
-   
-
-
 U256_CEIL_VALUE
 ~~~~~~~~~~~~~~~
 
 .. py:data:: U256_CEIL_VALUE
-   
-
-   
-
-
-U8_MAX_VALUE
-~~~~~~~~~~~~
-
-.. py:data:: U8_MAX_VALUE
    
 
    
@@ -138,6 +119,10 @@ Unsigned positive integer.
 
       :returns: **self** -- Unsigned integer decoded from `buffer`.
       :rtype: `Uint`
+
+
+   .. py:method:: from_le_bytes(cls: Type, buffer: Bytes) -> Uint
+      :classmethod:
 
 
    .. py:method:: __radd__(self, left: int) -> Uint
@@ -228,6 +213,19 @@ Unsigned positive integer.
    .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint
 
 
+   .. py:method:: __xor__(self, right: int) -> Uint
+
+      Return self^value.
+
+
+   .. py:method:: __rxor__(self, left: int) -> Uint
+
+      Return value^self.
+
+
+   .. py:method:: __ixor__(self, right: int) -> Uint
+
+
    .. py:method:: to_be_bytes32(self) -> Bytes32
 
       Converts this arbitrarily sized unsigned integer into its big endian
@@ -242,6 +240,9 @@ Unsigned positive integer.
       representation.
       :returns: **big_endian** -- Big endian (most significant bits first) representation.
       :rtype: `Bytes`
+
+
+   .. py:method:: to_le_bytes(self, number_bytes: int = None) -> Bytes
 
 
 
@@ -460,13 +461,187 @@ inclusive.
 
 
 
-MAX_VALUE
-~~~~~~~~~
+Uint32
+~~~~~~
 
-.. py:data:: MAX_VALUE
-   
 
-   
+Unsigned positive integer, which can represent `0` to `2 ** 32 - 1`,
+inclusive.
+
+
+.. class:: Uint32
+
+
+   Bases: :py:obj:`int`
+
+   .. py:attribute:: MAX_VALUE
+      :annotation: :Uint32
+
+      
+
+   .. py:attribute:: __slots__
+      :annotation: = []
+
+      
+
+   .. py:method:: from_le_bytes(cls: Type, buffer: Bytes) -> Uint32
+      :classmethod:
+
+      Converts a sequence of bytes into an arbitrarily sized unsigned integer
+      from its little endian representation.
+
+
+   .. py:method:: __radd__(self, left: int) -> Uint32
+
+      Return value+self.
+
+
+   .. py:method:: __add__(self, right: int) -> Uint32
+
+      Return self+value.
+
+
+   .. py:method:: unchecked_add(self, right: int) -> int
+
+
+   .. py:method:: wrapping_add(self, right: int) -> Uint32
+
+
+   .. py:method:: __iadd__(self, right: int) -> Uint32
+
+
+   .. py:method:: __sub__(self, right: int) -> Uint32
+
+      Return self-value.
+
+
+   .. py:method:: unchecked_sub(self, right: int) -> int
+
+
+   .. py:method:: wrapping_sub(self, right: int) -> Uint32
+
+
+   .. py:method:: __rsub__(self, left: int) -> Uint32
+
+      Return value-self.
+
+
+   .. py:method:: __isub__(self, right: int) -> Uint32
+
+
+   .. py:method:: unchecked_mul(self, right: int) -> int
+
+
+   .. py:method:: wrapping_mul(self, right: int) -> Uint32
+
+
+   .. py:method:: __mul__(self, right: int) -> Uint32
+
+      Return self*value.
+
+
+   .. py:method:: __rmul__(self, left: int) -> Uint32
+
+      Return value*self.
+
+
+   .. py:method:: __imul__(self, right: int) -> Uint32
+
+
+   .. py:method:: __floordiv__(self, right: int) -> Uint32
+
+      Return self//value.
+
+
+   .. py:method:: __rfloordiv__(self, left: int) -> Uint32
+
+      Return value//self.
+
+
+   .. py:method:: __ifloordiv__(self, right: int) -> Uint32
+
+
+   .. py:method:: __mod__(self, right: int) -> Uint32
+
+      Return self%value.
+
+
+   .. py:method:: __rmod__(self, left: int) -> Uint32
+
+      Return value%self.
+
+
+   .. py:method:: __imod__(self, right: int) -> Uint32
+
+
+   .. py:method:: __divmod__(self, right: int) -> Tuple[Uint32, Uint32]
+
+      Return divmod(self, value).
+
+
+   .. py:method:: __rdivmod__(self, left: int) -> Tuple[Uint32, Uint32]
+
+      Return divmod(value, self).
+
+
+   .. py:method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
+
+
+   .. py:method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> Uint32
+
+
+   .. py:method:: __pow__(self, right: int, modulo: Optional[int] = None) -> Uint32
+
+      Return pow(self, value, mod).
+
+
+   .. py:method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> Uint32
+
+      Return pow(value, self, mod).
+
+
+   .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint32
+
+
+   .. py:method:: __and__(self, right: int) -> Uint32
+
+      Return self&value.
+
+
+   .. py:method:: __or__(self, right: int) -> Uint32
+
+      Return self|value.
+
+
+   .. py:method:: __xor__(self, right: int) -> Uint32
+
+      Return self^value.
+
+
+   .. py:method:: __rxor__(self, left: int) -> Uint32
+
+      Return value^self.
+
+
+   .. py:method:: __ixor__(self, right: int) -> Uint32
+
+
+   .. py:method:: __invert__(self) -> Uint32
+
+      ~self
+
+
+   .. py:method:: __rshift__(self, shift_by: int) -> Uint32
+
+      Return self>>value.
+
+
+   .. py:method:: to_le_bytes4(self) -> Bytes4
+
+
+   .. py:method:: to_le_bytes(self) -> Bytes
+
+
 
 
 Bytes
@@ -482,6 +657,15 @@ Bytes0
 ~~~~~~
 
 .. py:data:: Bytes0
+   
+
+   
+
+
+Bytes4
+~~~~~~
+
+.. py:data:: Bytes4
    
 
    
@@ -544,7 +728,7 @@ _setattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 644-648
+   :lines: 1004-1008
 
 _delattr_function
 ~~~~~~~~~~~~~~~~~
@@ -558,7 +742,7 @@ _delattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 651-655
+   :lines: 1011-1015
 
 _make_init_function
 ~~~~~~~~~~~~~~~~~~~
@@ -572,7 +756,7 @@ _make_init_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 658-665
+   :lines: 1018-1025
 
 slotted_freezable
 ~~~~~~~~~~~~~~~~~
@@ -592,7 +776,7 @@ slotted_freezable
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 668-680
+   :lines: 1028-1040
 
 T
 ~
@@ -626,4 +810,4 @@ modify
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 686-706
+   :lines: 1046-1066

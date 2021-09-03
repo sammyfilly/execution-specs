@@ -28,6 +28,10 @@ Functions
 
    ethereum.utils.numeric.get_sign
    ethereum.utils.numeric.ceil32
+   ethereum.utils.numeric.is_prime
+   ethereum.utils.numeric.le_bytes_to_uint32_sequence
+   ethereum.utils.numeric.le_uint32_sequence_to_bytes
+   ethereum.utils.numeric.le_uint32_sequence_to_uint
 
 
 
@@ -54,7 +58,7 @@ get_sign
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 17-37
+   :lines: 19-39
 
 ceil32
 ~~~~~~
@@ -77,4 +81,106 @@ ceil32
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 40-61
+   :lines: 42-63
+
+is_prime
+~~~~~~~~
+
+
+.. function:: is_prime(number: int) -> bool
+   :noindexentry:
+
+   Checks if `number` is a prime number.
+
+   :param number: The number to check for primality.
+
+   :returns: **is_number_prime** -- Boolean indicating if `number` is prime or not.
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :lines: 66-89
+
+le_bytes_to_uint32_sequence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_bytes_to_uint32_sequence(data: bytes) -> Tuple[ethereum.base_types.Uint32, Ellipsis]
+   :noindexentry:
+
+   Convert little endian byte stream `data` to a little endian Uint32
+   sequence i.e., the first Uint32 number of the sequence is the least
+   significant Uint32 number.
+
+   :param data: The byte stream (little endian) which is to be converted to a Uint32
+                stream.
+
+   :returns: **uint32_sequence** -- Sequence of Uint32 numbers obtained from the little endian byte
+             stream.
+   :rtype: `Tuple[Uint32, ...]`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :lines: 92-114
+
+le_uint32_sequence_to_bytes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_uint32_sequence_to_bytes(sequence: Sequence[ethereum.base_types.Uint32]) -> bytes
+   :noindexentry:
+
+   Obtain little endian byte stream from a little endian Uint32 sequence
+   i.e., the first Uint32 number of the sequence is the least significant
+   Uint32 number.
+
+   Note - In this conversion, the most significant byte (byte at the end of
+   the little endian stream) may have leading zeroes. This function doesn't
+   take care of removing these leading zeroes as shown in below example.
+
+   >>> le_uint32_sequence_to_bytes([Uint32(8)])
+   b'\x08\x00\x00\x00'
+
+
+   :param sequence: The Uint32 stream (little endian) which is to be converted to a
+                    little endian byte stream.
+
+   :returns: **result** -- The byte stream obtained from the little endian Uint32 stream.
+   :rtype: `bytes`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :lines: 117-146
+
+le_uint32_sequence_to_uint
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: le_uint32_sequence_to_uint(sequence: Sequence[ethereum.base_types.Uint32]) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Obtain Uint from a Uint32 sequence assuming that this sequence is little
+   endian i.e., the first Uint32 number of the sequence is the least
+   significant Uint32 number.
+
+   :param sequence: The Uint32 stream (little endian) which is to be converted to a Uint.
+
+   :returns: **value** -- The Uint number obtained from the conversion of the little endian
+             Uint32 stream.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/utils/numeric.py
+   :language: python
+   :lines: 149-167
