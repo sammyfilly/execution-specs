@@ -53,17 +53,18 @@
 <ul>
 <li><p><a class="reference internal" href="#id1" id="id7">State</a></p></li>
 <li><p><a class="reference internal" href="#get-account" id="id8">get_account</a></p></li>
-<li><p><a class="reference internal" href="#set-account" id="id9">set_account</a></p></li>
-<li><p><a class="reference internal" href="#destroy-account" id="id10">destroy_account</a></p></li>
-<li><p><a class="reference internal" href="#get-storage" id="id11">get_storage</a></p></li>
-<li><p><a class="reference internal" href="#set-storage" id="id12">set_storage</a></p></li>
-<li><p><a class="reference internal" href="#storage-root" id="id13">storage_root</a></p></li>
-<li><p><a class="reference internal" href="#state-root" id="id14">state_root</a></p></li>
-<li><p><a class="reference internal" href="#account-exists" id="id15">account_exists</a></p></li>
-<li><p><a class="reference internal" href="#modify-state" id="id16">modify_state</a></p></li>
-<li><p><a class="reference internal" href="#move-ether" id="id17">move_ether</a></p></li>
-<li><p><a class="reference internal" href="#increment-nonce" id="id18">increment_nonce</a></p></li>
-<li><p><a class="reference internal" href="#set-code" id="id19">set_code</a></p></li>
+<li><p><a class="reference internal" href="#get-account-optional" id="id9">get_account_optional</a></p></li>
+<li><p><a class="reference internal" href="#set-account" id="id10">set_account</a></p></li>
+<li><p><a class="reference internal" href="#destroy-account" id="id11">destroy_account</a></p></li>
+<li><p><a class="reference internal" href="#get-storage" id="id12">get_storage</a></p></li>
+<li><p><a class="reference internal" href="#set-storage" id="id13">set_storage</a></p></li>
+<li><p><a class="reference internal" href="#storage-root" id="id14">storage_root</a></p></li>
+<li><p><a class="reference internal" href="#state-root" id="id15">state_root</a></p></li>
+<li><p><a class="reference internal" href="#account-exists" id="id16">account_exists</a></p></li>
+<li><p><a class="reference internal" href="#modify-state" id="id17">modify_state</a></p></li>
+<li><p><a class="reference internal" href="#move-ether" id="id18">move_ether</a></p></li>
+<li><p><a class="reference internal" href="#increment-nonce" id="id19">increment_nonce</a></p></li>
+<li><p><a class="reference internal" href="#set-code" id="id20">set_code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -72,6 +73,8 @@
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The state contains all information that is preserved between transactions.</p>
 <p>It consists of a main account trie and storage tries for each contract.</p>
+<p>There is a distinction between an account that does not exist and
+<cite>EMPTY_ACCOUNT</cite>.</p>
 </section>
 <section id="module-contents">
 <h3>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
@@ -100,37 +103,40 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account" title="ethereum.frontier.state.get_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account</span></code></a></p></td>
 <td><p>Get the <cite>Account</cite> object at an address. Returns <cite>EMPTY_ACCOUNT</cite> if there</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account" title="ethereum.frontier.state.set_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account</span></code></a></p></td>
-<td><p>Set the <cite>Account</cite> object at an address. Setting to <cite>EMPTY_ACCOUNT</cite> deletes</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account_optional" title="ethereum.frontier.state.get_account_optional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_optional</span></code></a></p></td>
+<td><p>Get the <cite>Account</cite> object at an address. Returns <cite>None</cite> (rather than</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.destroy_account" title="ethereum.frontier.state.destroy_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy_account</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account" title="ethereum.frontier.state.set_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account</span></code></a></p></td>
+<td><p>Set the <cite>Account</cite> object at an address. Setting to <cite>None</cite> deletes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.destroy_account" title="ethereum.frontier.state.destroy_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy_account</span></code></a></p></td>
 <td><p>Completely remove the account at <cite>address</cite> and all of its storage.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_storage" title="ethereum.frontier.state.get_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_storage</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_storage" title="ethereum.frontier.state.get_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_storage</span></code></a></p></td>
 <td><p>Get a value at a storage key on an account. Returns <cite>U256(0)</cite> if the</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_storage" title="ethereum.frontier.state.set_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_storage</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_storage" title="ethereum.frontier.state.set_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_storage</span></code></a></p></td>
 <td><p>Set a value at a storage key on an account. Setting to <cite>U256(0)</cite> deletes</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.storage_root" title="ethereum.frontier.state.storage_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">storage_root</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.storage_root" title="ethereum.frontier.state.storage_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">storage_root</span></code></a></p></td>
 <td><p>Calculate the storage root of an account.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
 <td><p>Calculate the state root.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_exists" title="ethereum.frontier.state.account_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_exists</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_exists" title="ethereum.frontier.state.account_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_exists</span></code></a></p></td>
 <td><p>Checks if an account exists in the state trie</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
 <td><p>Modify an <cite>Account</cite> in the <cite>State</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
 <td><p>Move funds between accounts.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
 <td><p>Increments the nonce of an account.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
 <td><p>Sets Account code.</p></td>
 </tr>
 </tbody>
@@ -147,7 +153,7 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#ethereum.frontier.state.State" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.state.State._main_trie">
-<span class="sig-name descname"><span class="pre">_main_trie</span></span><em class="property"> <span class="pre">:ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Account]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._main_trie" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_main_trie</span></span><em class="property"> <span class="pre">:ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._main_trie" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -165,6 +171,8 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">get_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a><a class="headerlink" href="#ethereum.frontier.state.get_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the <cite>Account</cite> object at an address. Returns <cite>EMPTY_ACCOUNT</cite> if there
 is no account at the address.</p>
+<p>Use <cite>get_account_optional()</cite> if you care about the difference between a
+non-existent account and <cite>EMPTY_ACCOUNT</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -183,7 +191,38 @@ is no account at the address.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Account</span><span class="p">:</span>
     <span class="n">account</span> <span class="o">=</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">Account</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">account</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">EMPTY_ACCOUNT</span>
+</pre></div>
+</div>
+</section>
+<section id="get-account-optional">
+<h4>get_account_optional<a class="headerlink" href="#get-account-optional" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.get_account_optional">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">get_account_optional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.state.get_account_optional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <cite>Account</cite> object at an address. Returns <cite>None</cite> (rather than
+<cite>EMPTY_ACCOUNT</cite>) if there is no account at the address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
+<li><p><strong>address</strong> (<cite>Address</cite>) – Address to lookup.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>account</strong> – Account at address.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Account</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_account_optional</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Account</span><span class="p">]:</span>
+    <span class="n">account</span> <span class="o">=</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">account</span>
 </pre></div>
 </div>
@@ -192,8 +231,8 @@ is no account at the address.</p>
 <h4>set_account<a class="headerlink" href="#set-account" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.state.set_account">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">set_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">account</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.set_account" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the <cite>Account</cite> object at an address. Setting to <cite>EMPTY_ACCOUNT</cite> deletes
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">set_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">account</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Account" title="ethereum.frontier.eth_types.Account"><span class="pre">ethereum.frontier.eth_types.Account</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.set_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>Account</cite> object at an address. Setting to <cite>None</cite> deletes
 the account (but not its storage, see <cite>destroy_account()</cite>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -206,7 +245,9 @@ the account (but not its storage, see <cite>destroy_account()</cite>).</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_account</span><span class="p">(</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Account</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">trie_set</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">account</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -232,7 +273,7 @@ hardfork and this function will be removed.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">destroy_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
-    <span class="n">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">EMPTY_ACCOUNT</span><span class="p">)</span>
+    <span class="n">set_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

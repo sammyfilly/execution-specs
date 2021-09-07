@@ -17,6 +17,9 @@ The state contains all information that is preserved between transactions.
 
 It consists of a main account trie and storage tries for each contract.
 
+There is a distinction between an account that does not exist and
+`EMPTY_ACCOUNT`.
+
 
 Module Contents
 ---------------
@@ -37,6 +40,7 @@ Functions
    :nosignatures:
 
    ethereum.frontier.state.get_account
+   ethereum.frontier.state.get_account_optional
    ethereum.frontier.state.set_account
    ethereum.frontier.state.destroy_account
    ethereum.frontier.state.get_storage
@@ -64,7 +68,7 @@ Contains all information that is preserved between transactions.
 .. class:: State
 
    .. py:attribute:: _main_trie
-      :annotation: :ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Account]
+      :annotation: :ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]]
 
       
 
@@ -85,6 +89,9 @@ get_account
    Get the `Account` object at an address. Returns `EMPTY_ACCOUNT` if there
    is no account at the address.
 
+   Use `get_account_optional()` if you care about the difference between a
+   non-existent account and `EMPTY_ACCOUNT`.
+
    :param state: The state
    :type state: `State`
    :param address: Address to lookup.
@@ -98,16 +105,41 @@ get_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 37-56
+   :lines: 40-64
+
+get_account_optional
+~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: get_account_optional(state: State, address: ethereum.frontier.eth_types.Address) -> Optional[ethereum.frontier.eth_types.Account]
+   :noindexentry:
+
+   Get the `Account` object at an address. Returns `None` (rather than
+   `EMPTY_ACCOUNT`) if there is no account at the address.
+
+   :param state: The state
+   :type state: `State`
+   :param address: Address to lookup.
+   :type address: `Address`
+
+   :returns: **account** -- Account at address.
+   :rtype: `Account`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 67-85
 
 set_account
 ~~~~~~~~~~~
 
 
-.. function:: set_account(state: State, address: ethereum.frontier.eth_types.Address, account: ethereum.frontier.eth_types.Account) -> None
+.. function:: set_account(state: State, address: ethereum.frontier.eth_types.Address, account: Optional[ethereum.frontier.eth_types.Account]) -> None
    :noindexentry:
 
-   Set the `Account` object at an address. Setting to `EMPTY_ACCOUNT` deletes
+   Set the `Account` object at an address. Setting to `None` deletes
    the account (but not its storage, see `destroy_account()`).
 
    :param state: The state
@@ -122,7 +154,7 @@ set_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 59-73
+   :lines: 88-104
 
 destroy_account
 ~~~~~~~~~~~~~~~
@@ -147,7 +179,7 @@ destroy_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 76-92
+   :lines: 107-123
 
 get_storage
 ~~~~~~~~~~~
@@ -174,7 +206,7 @@ get_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 95-121
+   :lines: 126-152
 
 set_storage
 ~~~~~~~~~~~
@@ -200,7 +232,7 @@ set_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 124-148
+   :lines: 155-179
 
 storage_root
 ~~~~~~~~~~~~
@@ -224,7 +256,7 @@ storage_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 151-170
+   :lines: 182-201
 
 state_root
 ~~~~~~~~~~
@@ -246,7 +278,7 @@ state_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 173-191
+   :lines: 204-222
 
 account_exists
 ~~~~~~~~~~~~~~
@@ -268,7 +300,7 @@ account_exists
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 194-210
+   :lines: 225-241
 
 modify_state
 ~~~~~~~~~~~~
@@ -284,7 +316,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 213-219
+   :lines: 244-250
 
 move_ether
 ~~~~~~~~~~
@@ -300,7 +332,7 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 222-240
+   :lines: 253-271
 
 increment_nonce
 ~~~~~~~~~~~~~~~
@@ -319,7 +351,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 243-259
+   :lines: 274-290
 
 set_code
 ~~~~~~~~
@@ -339,4 +371,4 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 262-281
+   :lines: 293-312
