@@ -25,6 +25,7 @@ Classes
 .. autoapisummary::
 
    ethereum.base_types.Uint
+   ethereum.base_types.FixedUInt
    ethereum.base_types.U256
    ethereum.base_types.Uint32
 
@@ -52,6 +53,7 @@ Attributes
    ethereum.base_types.UINT32_CEIL_VALUE
    ethereum.base_types.U255_CEIL_VALUE
    ethereum.base_types.U256_CEIL_VALUE
+   ethereum.base_types.T
    ethereum.base_types.Bytes
    ethereum.base_types.Bytes0
    ethereum.base_types.Bytes4
@@ -60,7 +62,7 @@ Attributes
    ethereum.base_types.Bytes32
    ethereum.base_types.Bytes64
    ethereum.base_types.Bytes256
-   ethereum.base_types.T
+   ethereum.base_types.S
 
 
 Module Details
@@ -100,7 +102,7 @@ Uint
 Unsigned positive integer.
 
 
-.. class:: Uint
+.. class:: Uint(value: int)
 
 
    Bases: :py:obj:`int`
@@ -247,6 +249,173 @@ Unsigned positive integer.
 
 
 
+T
+~
+
+.. py:data:: T
+   
+
+   
+
+
+FixedUInt
+~~~~~~~~~
+
+
+Superclass for fixed size unsigned integers. Not intended to be used
+directly, but rather to be subclassed.
+
+
+.. class:: FixedUInt(value: int)
+
+
+   Bases: :py:obj:`int`
+
+   .. py:attribute:: MAX_VALUE
+      :annotation: :FixedUInt
+
+      
+
+   .. py:attribute:: __slots__
+      :annotation: = []
+
+      
+
+   .. py:method:: __radd__(self: T, left: int) -> T
+
+      Return value+self.
+
+
+   .. py:method:: __add__(self: T, right: int) -> T
+
+      Return self+value.
+
+
+   .. py:method:: wrapping_add(self: T, right: int) -> T
+
+
+   .. py:method:: __iadd__(self: T, right: int) -> T
+
+
+   .. py:method:: __sub__(self: T, right: int) -> T
+
+      Return self-value.
+
+
+   .. py:method:: wrapping_sub(self: T, right: int) -> T
+
+
+   .. py:method:: __rsub__(self: T, left: int) -> T
+
+      Return value-self.
+
+
+   .. py:method:: __isub__(self: T, right: int) -> T
+
+
+   .. py:method:: __mul__(self: T, right: int) -> T
+
+      Return self*value.
+
+
+   .. py:method:: wrapping_mul(self: T, right: int) -> T
+
+
+   .. py:method:: __rmul__(self: T, left: int) -> T
+
+      Return value*self.
+
+
+   .. py:method:: __imul__(self: T, right: int) -> T
+
+
+   .. py:method:: __floordiv__(self: T, right: int) -> T
+
+      Return self//value.
+
+
+   .. py:method:: __rfloordiv__(self: T, left: int) -> T
+
+      Return value//self.
+
+
+   .. py:method:: __ifloordiv__(self: T, right: int) -> T
+
+
+   .. py:method:: __mod__(self: T, right: int) -> T
+
+      Return self%value.
+
+
+   .. py:method:: __rmod__(self: T, left: int) -> T
+
+      Return value%self.
+
+
+   .. py:method:: __imod__(self: T, right: int) -> T
+
+
+   .. py:method:: __divmod__(self: T, right: int) -> Tuple[T, T]
+
+      Return divmod(self, value).
+
+
+   .. py:method:: __rdivmod__(self: T, left: int) -> Tuple[T, T]
+
+      Return divmod(value, self).
+
+
+   .. py:method:: __pow__(self: T, right: int, modulo: Optional[int] = None) -> T
+
+      Return pow(self, value, mod).
+
+
+   .. py:method:: wrapping_pow(self: T, right: int, modulo: Optional[int] = None) -> T
+
+
+   .. py:method:: __rpow__(self: T, left: int, modulo: Optional[int] = None) -> T
+
+      Return pow(value, self, mod).
+
+
+   .. py:method:: __ipow__(self: T, right: int, modulo: Optional[int] = None) -> T
+
+
+   .. py:method:: __and__(self: T, right: int) -> T
+
+      Return self&value.
+
+
+   .. py:method:: __or__(self: T, right: int) -> T
+
+      Return self|value.
+
+
+   .. py:method:: __xor__(self: T, right: int) -> T
+
+      Return self^value.
+
+
+   .. py:method:: __rxor__(self: T, left: int) -> T
+
+      Return value^self.
+
+
+   .. py:method:: __ixor__(self: T, right: int) -> T
+
+
+   .. py:method:: __invert__(self: T) -> T
+
+      ~self
+
+
+   .. py:method:: __rshift__(self: T, shift_by: int) -> T
+
+      Return self>>value.
+
+
+
+
 U256
 ~~~~
 
@@ -255,15 +424,10 @@ Unsigned positive integer, which can represent `0` to `2 ** 256 - 1`,
 inclusive.
 
 
-.. class:: U256
+.. class:: U256(value: int)
 
 
-   Bases: :py:obj:`int`
-
-   .. py:attribute:: MAX_VALUE
-      :annotation: :U256
-
-      
+   Bases: :py:obj:`FixedUInt`
 
    .. py:attribute:: __slots__
       :annotation: = []
@@ -289,151 +453,6 @@ inclusive.
 
       :returns: **self** -- Unsigned integer obtained from `value`.
       :rtype: `U256`
-
-
-   .. py:method:: __radd__(self, left: int) -> U256
-
-      Return value+self.
-
-
-   .. py:method:: __add__(self, right: int) -> U256
-
-      Return self+value.
-
-
-   .. py:method:: unchecked_add(self, right: int) -> int
-
-
-   .. py:method:: wrapping_add(self, right: int) -> U256
-
-
-   .. py:method:: __iadd__(self, right: int) -> U256
-
-
-   .. py:method:: __sub__(self, right: int) -> U256
-
-      Return self-value.
-
-
-   .. py:method:: unchecked_sub(self, right: int) -> int
-
-
-   .. py:method:: wrapping_sub(self, right: int) -> U256
-
-
-   .. py:method:: __rsub__(self, left: int) -> U256
-
-      Return value-self.
-
-
-   .. py:method:: __isub__(self, right: int) -> U256
-
-
-   .. py:method:: unchecked_mul(self, right: int) -> int
-
-
-   .. py:method:: wrapping_mul(self, right: int) -> U256
-
-
-   .. py:method:: __mul__(self, right: int) -> U256
-
-      Return self*value.
-
-
-   .. py:method:: __rmul__(self, left: int) -> U256
-
-      Return value*self.
-
-
-   .. py:method:: __imul__(self, right: int) -> U256
-
-
-   .. py:method:: __floordiv__(self, right: int) -> U256
-
-      Return self//value.
-
-
-   .. py:method:: __rfloordiv__(self, left: int) -> U256
-
-      Return value//self.
-
-
-   .. py:method:: __ifloordiv__(self, right: int) -> U256
-
-
-   .. py:method:: __mod__(self, right: int) -> U256
-
-      Return self%value.
-
-
-   .. py:method:: __rmod__(self, left: int) -> U256
-
-      Return value%self.
-
-
-   .. py:method:: __imod__(self, right: int) -> U256
-
-
-   .. py:method:: __divmod__(self, right: int) -> Tuple[U256, U256]
-
-      Return divmod(self, value).
-
-
-   .. py:method:: __rdivmod__(self, left: int) -> Tuple[U256, U256]
-
-      Return divmod(value, self).
-
-
-   .. py:method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
-
-
-   .. py:method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> U256
-
-
-   .. py:method:: __pow__(self, right: int, modulo: Optional[int] = None) -> U256
-
-      Return pow(self, value, mod).
-
-
-   .. py:method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> U256
-
-      Return pow(value, self, mod).
-
-
-   .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> U256
-
-
-   .. py:method:: __and__(self, right: int) -> U256
-
-      Return self&value.
-
-
-   .. py:method:: __or__(self, right: int) -> U256
-
-      Return self|value.
-
-
-   .. py:method:: __xor__(self, right: int) -> U256
-
-      Return self^value.
-
-
-   .. py:method:: __rxor__(self, left: int) -> U256
-
-      Return value^self.
-
-
-   .. py:method:: __ixor__(self, right: int) -> U256
-
-
-   .. py:method:: __invert__(self) -> U256
-
-      ~self
-
-
-   .. py:method:: __rshift__(self, shift_by: int) -> U256
-
-      Return self>>value.
 
 
    .. py:method:: to_be_bytes32(self) -> Bytes32
@@ -469,10 +488,10 @@ Unsigned positive integer, which can represent `0` to `2 ** 32 - 1`,
 inclusive.
 
 
-.. class:: Uint32
+.. class:: Uint32(value: int)
 
 
-   Bases: :py:obj:`int`
+   Bases: :py:obj:`FixedUInt`
 
    .. py:attribute:: MAX_VALUE
       :annotation: :Uint32
@@ -489,151 +508,6 @@ inclusive.
 
       Converts a sequence of bytes into an arbitrarily sized unsigned integer
       from its little endian representation.
-
-
-   .. py:method:: __radd__(self, left: int) -> Uint32
-
-      Return value+self.
-
-
-   .. py:method:: __add__(self, right: int) -> Uint32
-
-      Return self+value.
-
-
-   .. py:method:: unchecked_add(self, right: int) -> int
-
-
-   .. py:method:: wrapping_add(self, right: int) -> Uint32
-
-
-   .. py:method:: __iadd__(self, right: int) -> Uint32
-
-
-   .. py:method:: __sub__(self, right: int) -> Uint32
-
-      Return self-value.
-
-
-   .. py:method:: unchecked_sub(self, right: int) -> int
-
-
-   .. py:method:: wrapping_sub(self, right: int) -> Uint32
-
-
-   .. py:method:: __rsub__(self, left: int) -> Uint32
-
-      Return value-self.
-
-
-   .. py:method:: __isub__(self, right: int) -> Uint32
-
-
-   .. py:method:: unchecked_mul(self, right: int) -> int
-
-
-   .. py:method:: wrapping_mul(self, right: int) -> Uint32
-
-
-   .. py:method:: __mul__(self, right: int) -> Uint32
-
-      Return self*value.
-
-
-   .. py:method:: __rmul__(self, left: int) -> Uint32
-
-      Return value*self.
-
-
-   .. py:method:: __imul__(self, right: int) -> Uint32
-
-
-   .. py:method:: __floordiv__(self, right: int) -> Uint32
-
-      Return self//value.
-
-
-   .. py:method:: __rfloordiv__(self, left: int) -> Uint32
-
-      Return value//self.
-
-
-   .. py:method:: __ifloordiv__(self, right: int) -> Uint32
-
-
-   .. py:method:: __mod__(self, right: int) -> Uint32
-
-      Return self%value.
-
-
-   .. py:method:: __rmod__(self, left: int) -> Uint32
-
-      Return value%self.
-
-
-   .. py:method:: __imod__(self, right: int) -> Uint32
-
-
-   .. py:method:: __divmod__(self, right: int) -> Tuple[Uint32, Uint32]
-
-      Return divmod(self, value).
-
-
-   .. py:method:: __rdivmod__(self, left: int) -> Tuple[Uint32, Uint32]
-
-      Return divmod(value, self).
-
-
-   .. py:method:: unchecked_pow(self, right: int, modulo: Optional[int] = None) -> int
-
-
-   .. py:method:: wrapping_pow(self, right: int, modulo: Optional[int] = None) -> Uint32
-
-
-   .. py:method:: __pow__(self, right: int, modulo: Optional[int] = None) -> Uint32
-
-      Return pow(self, value, mod).
-
-
-   .. py:method:: __rpow__(self, left: int, modulo: Optional[int] = None) -> Uint32
-
-      Return pow(value, self, mod).
-
-
-   .. py:method:: __ipow__(self, right: int, modulo: Optional[int] = None) -> Uint32
-
-
-   .. py:method:: __and__(self, right: int) -> Uint32
-
-      Return self&value.
-
-
-   .. py:method:: __or__(self, right: int) -> Uint32
-
-      Return self|value.
-
-
-   .. py:method:: __xor__(self, right: int) -> Uint32
-
-      Return self^value.
-
-
-   .. py:method:: __rxor__(self, left: int) -> Uint32
-
-      Return value^self.
-
-
-   .. py:method:: __ixor__(self, right: int) -> Uint32
-
-
-   .. py:method:: __invert__(self) -> Uint32
-
-      ~self
-
-
-   .. py:method:: __rshift__(self, shift_by: int) -> Uint32
-
-      Return self>>value.
 
 
    .. py:method:: to_le_bytes4(self) -> Bytes4
@@ -728,7 +602,7 @@ _setattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 1004-1008
+   :lines: 697-701
 
 _delattr_function
 ~~~~~~~~~~~~~~~~~
@@ -742,7 +616,7 @@ _delattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 1011-1015
+   :lines: 704-708
 
 _make_init_function
 ~~~~~~~~~~~~~~~~~~~
@@ -756,7 +630,7 @@ _make_init_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 1018-1025
+   :lines: 711-718
 
 slotted_freezable
 ~~~~~~~~~~~~~~~~~
@@ -776,12 +650,12 @@ slotted_freezable
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 1028-1040
+   :lines: 721-733
 
-T
+S
 ~
 
-.. py:data:: T
+.. py:data:: S
    
 
    
@@ -791,23 +665,23 @@ modify
 ~~~~~~
 
 
-.. function:: modify(obj: T, f: Callable[[T], None]) -> T
+.. function:: modify(obj: S, f: Callable[[S], None]) -> S
    :noindexentry:
 
    Create a mutable copy of `obj` (which must be `@slotted_freezable`) and
    apply `f` to the copy before freezing it.
 
    :param obj: Object to copy.
-   :type obj: `T`
+   :type obj: `S`
    :param f: Function to apply to `obj`.
-   :type f: `Callable[[T], None]`
+   :type f: `Callable[[S], None]`
 
    :returns: **new_obj** -- Compact byte array.
-   :rtype: `T`
+   :rtype: `S`
 
 
 
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 1046-1066
+   :lines: 739-759
