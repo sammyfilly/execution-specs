@@ -28,6 +28,8 @@ Functions
 
    ethereum.frontier.vm.instructions.system.create
    ethereum.frontier.vm.instructions.system.return_
+   ethereum.frontier.vm.instructions.system.call
+   ethereum.frontier.vm.instructions.system.callcode
 
 
 
@@ -50,7 +52,7 @@ create
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 29-86
+   :lines: 31-88
 
 return_
 ~~~~~~~
@@ -68,4 +70,40 @@ return_
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 89-109
+   :lines: 91-111
+
+call
+~~~~
+
+
+.. function:: call(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into an account.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
+   :language: python
+   :lines: 114-186
+
+callcode
+~~~~~~~~
+
+
+.. function:: callcode(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Message-call into this account with alternative account’s code.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
+   :language: python
+   :lines: 189-262

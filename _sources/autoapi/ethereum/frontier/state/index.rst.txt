@@ -43,10 +43,11 @@ Functions
    ethereum.frontier.state.set_storage
    ethereum.frontier.state.storage_root
    ethereum.frontier.state.state_root
+   ethereum.frontier.state.account_exists
    ethereum.frontier.state.modify_state
    ethereum.frontier.state.move_ether
    ethereum.frontier.state.increment_nonce
-   ethereum.frontier.state.write_code
+   ethereum.frontier.state.set_code
 
 
 
@@ -234,7 +235,7 @@ state_root
 
    Calculate the state root.
 
-   :param state: The state
+   :param state: The current state.
    :type state: `State`
 
    :returns: **root** -- The state root.
@@ -246,6 +247,28 @@ state_root
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
    :lines: 173-191
+
+account_exists
+~~~~~~~~~~~~~~
+
+
+.. function:: account_exists(state: State, address: ethereum.frontier.eth_types.Address) -> bool
+   :noindexentry:
+
+   Checks if an account exists in the state trie
+
+   :param state: The state
+   :param address: Address of the account that needs to be checked.
+
+   :returns: **account_exists** -- True if account exists in the state trie, False otherwise
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 194-210
 
 modify_state
 ~~~~~~~~~~~~
@@ -261,7 +284,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 194-200
+   :lines: 213-219
 
 move_ether
 ~~~~~~~~~~
@@ -277,36 +300,43 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 203-221
+   :lines: 222-240
 
 increment_nonce
 ~~~~~~~~~~~~~~~
 
 
-.. function:: increment_nonce(state: State, sender_address: ethereum.frontier.eth_types.Address) -> None
+.. function:: increment_nonce(state: State, address: ethereum.frontier.eth_types.Address) -> None
    :noindexentry:
 
-   Increment Account nonce
+   Increments the nonce of an account.
+
+   :param state: The current state.
+   :param address: Address of the account whose nonce needs to be incremented.
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 224-232
+   :lines: 243-259
 
-write_code
-~~~~~~~~~~
+set_code
+~~~~~~~~
 
 
-.. function:: write_code(state: State, sender_address: ethereum.frontier.eth_types.Address, contract_code: ethereum.base_types.Bytes) -> None
+.. function:: set_code(state: State, address: ethereum.frontier.eth_types.Address, code: ethereum.base_types.Bytes) -> None
    :noindexentry:
 
-   Update Account code
+   Sets Account code.
+
+   :param state: The current state.
+   :param address: Address of the account whose code needs to be update.
+   :param code: The bytecode that needs to be set.
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 235-245
+   :lines: 262-281

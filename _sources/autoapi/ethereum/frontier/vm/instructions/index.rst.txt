@@ -702,6 +702,16 @@ Enum for EVM Opcodes
 
       
 
+   .. py:attribute:: CALL
+      :annotation: = 241
+
+      
+
+   .. py:attribute:: CALLCODE
+      :annotation: = 242
+
+      
+
 
 
 op_implementation

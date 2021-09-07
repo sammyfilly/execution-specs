@@ -59,10 +59,11 @@
 <li><p><a class="reference internal" href="#set-storage" id="id12">set_storage</a></p></li>
 <li><p><a class="reference internal" href="#storage-root" id="id13">storage_root</a></p></li>
 <li><p><a class="reference internal" href="#state-root" id="id14">state_root</a></p></li>
-<li><p><a class="reference internal" href="#modify-state" id="id15">modify_state</a></p></li>
-<li><p><a class="reference internal" href="#move-ether" id="id16">move_ether</a></p></li>
-<li><p><a class="reference internal" href="#increment-nonce" id="id17">increment_nonce</a></p></li>
-<li><p><a class="reference internal" href="#write-code" id="id18">write_code</a></p></li>
+<li><p><a class="reference internal" href="#account-exists" id="id15">account_exists</a></p></li>
+<li><p><a class="reference internal" href="#modify-state" id="id16">modify_state</a></p></li>
+<li><p><a class="reference internal" href="#move-ether" id="id17">move_ether</a></p></li>
+<li><p><a class="reference internal" href="#increment-nonce" id="id18">increment_nonce</a></p></li>
+<li><p><a class="reference internal" href="#set-code" id="id19">set_code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -117,17 +118,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
 <td><p>Calculate the state root.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_exists" title="ethereum.frontier.state.account_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_exists</span></code></a></p></td>
+<td><p>Checks if an account exists in the state trie</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
 <td><p>Modify an <cite>Account</cite> in the <cite>State</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
 <td><p>Move funds between accounts.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
-<td><p>Increment Account nonce</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
+<td><p>Increments the nonce of an account.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.write_code" title="ethereum.frontier.state.write_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_code</span></code></a></p></td>
-<td><p>Update Account code</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
+<td><p>Sets Account code.</p></td>
 </tr>
 </tbody>
 </table>
@@ -338,7 +342,7 @@ the key.</p>
 <dd><p>Calculate the state root.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>state</strong> (<cite>State</cite>) – The state</p>
+<dd class="field-odd"><p><strong>state</strong> (<cite>State</cite>) – The current state.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>root</strong> – The state root.</p>
@@ -355,6 +359,33 @@ the key.</p>
         <span class="k">return</span> <span class="n">storage_root</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">root</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">get_storage_root</span><span class="o">=</span><span class="n">get_storage_root</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="account-exists">
+<h4>account_exists<a class="headerlink" href="#account-exists" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.account_exists">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">account_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#ethereum.frontier.state.account_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if an account exists in the state trie</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The state</p></li>
+<li><p><strong>address</strong> – Address of the account that needs to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>account_exists</strong> – True if account exists in the state trie, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>bool</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">account_exists</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="o">.</span><span class="n">_data</span>
 </pre></div>
 </div>
 </section>
@@ -404,35 +435,50 @@ the key.</p>
 <h4>increment_nonce<a class="headerlink" href="#increment-nonce" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.state.increment_nonce">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">increment_nonce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.increment_nonce" title="Permalink to this definition">¶</a></dt>
-<dd><p>Increment Account nonce</p>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">increment_nonce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.increment_nonce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increments the nonce of an account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The current state.</p></li>
+<li><p><strong>address</strong> – Address of the account whose nonce needs to be incremented.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment_nonce</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment_nonce</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">_increment_nonce</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">increase_nonce</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">sender</span><span class="o">.</span><span class="n">nonce</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">_increment_nonce</span><span class="p">)</span>
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">increase_nonce</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="write-code">
-<h4>write_code<a class="headerlink" href="#write-code" title="Permalink to this headline">¶</a></h4>
+<section id="set-code">
+<h4>set_code<a class="headerlink" href="#set-code" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
-<dt class="sig sig-object py" id="ethereum.frontier.state.write_code">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">write_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.write_code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update Account code</p>
+<dt class="sig sig-object py" id="ethereum.frontier.state.set_code">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">set_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.set_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets Account code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The current state.</p></li>
+<li><p><strong>address</strong> – Address of the account whose code needs to be update.</p></li>
+<li><p><strong>code</strong> – The bytecode that needs to be set.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_code</span><span class="p">(</span>
-    <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">:</span> <span class="n">Bytes</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_code</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">_write_code</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">sender</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">contract_code</span>
+    <span class="k">def</span> <span class="nf">write_code</span><span class="p">(</span><span class="n">sender</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sender</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
 
-    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">sender_address</span><span class="p">,</span> <span class="n">_write_code</span><span class="p">)</span>
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">write_code</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
