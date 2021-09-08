@@ -30,6 +30,7 @@ Functions
    ethereum.frontier.vm.instructions.system.return_
    ethereum.frontier.vm.instructions.system.call
    ethereum.frontier.vm.instructions.system.callcode
+   ethereum.frontier.vm.instructions.system.selfdestruct
 
 
 
@@ -52,7 +53,7 @@ create
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 31-88
+   :lines: 32-91
 
 return_
 ~~~~~~~
@@ -70,7 +71,7 @@ return_
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 91-111
+   :lines: 94-114
 
 call
 ~~~~
@@ -88,7 +89,7 @@ call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 114-186
+   :lines: 117-191
 
 callcode
 ~~~~~~~~
@@ -106,4 +107,22 @@ callcode
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 189-262
+   :lines: 194-269
+
+selfdestruct
+~~~~~~~~~~~~
+
+
+.. function:: selfdestruct(evm: ethereum.frontier.vm.Evm) -> None
+   :noindexentry:
+
+   Halt execution and register account for later deletion.
+
+   :param evm: The current EVM frame.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
+   :language: python
+   :lines: 272-302

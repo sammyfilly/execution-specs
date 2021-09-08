@@ -65,6 +65,7 @@ Attributes
    ethereum.frontier.vm.gas.GAS_NEW_ACCOUNT
    ethereum.frontier.vm.gas.GAS_CALL_VALUE
    ethereum.frontier.vm.gas.GAS_CALL_STIPEND
+   ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT
 
 
 Module Details
@@ -304,6 +305,15 @@ GAS_CALL_STIPEND
    
 
 
+REFUND_SELF_DESTRUCT
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:data:: REFUND_SELF_DESTRUCT
+   
+
+   
+
+
 subtract_gas
 ~~~~~~~~~~~~
 
@@ -323,7 +333,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 49-68
+   :lines: 50-69
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -346,7 +356,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 71-91
+   :lines: 72-92
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -371,7 +381,7 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 94-126
+   :lines: 95-127
 
 calculate_call_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -395,7 +405,7 @@ calculate_call_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 129-154
+   :lines: 130-155
 
 calculate_message_call_gas_stipend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -417,4 +427,4 @@ calculate_message_call_gas_stipend
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 157-171
+   :lines: 158-172

@@ -712,6 +712,11 @@ Enum for EVM Opcodes
 
       
 
+   .. py:attribute:: SELFDESTRUCT
+      :annotation: = 255
+
+      
+
 
 
 op_implementation

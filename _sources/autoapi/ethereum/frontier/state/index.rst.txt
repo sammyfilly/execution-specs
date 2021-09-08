@@ -50,6 +50,7 @@ Functions
    ethereum.frontier.state.account_exists
    ethereum.frontier.state.modify_state
    ethereum.frontier.state.move_ether
+   ethereum.frontier.state.set_account_balance
    ethereum.frontier.state.increment_nonce
    ethereum.frontier.state.set_code
 
@@ -334,6 +335,26 @@ move_ether
    :language: python
    :lines: 253-271
 
+set_account_balance
+~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: set_account_balance(state: State, address: ethereum.frontier.eth_types.Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Sets the balance of an account.
+
+   :param state: The current state.
+   :param address: Address of the account whose nonce needs to be incremented.
+   :param amount: The amount that needs to set in balance.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 274-293
+
 increment_nonce
 ~~~~~~~~~~~~~~~
 
@@ -351,7 +372,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 274-290
+   :lines: 296-312
 
 set_code
 ~~~~~~~~
@@ -371,4 +392,4 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 293-312
+   :lines: 315-334

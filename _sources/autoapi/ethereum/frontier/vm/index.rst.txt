@@ -220,7 +220,7 @@ The internal state of the virtual machine.
       
 
    .. py:attribute:: refund_counter
-      :annotation: :ethereum.base_types.Uint
+      :annotation: :ethereum.base_types.U256
 
       
 
@@ -236,6 +236,11 @@ The internal state of the virtual machine.
 
    .. py:attribute:: output
       :annotation: :ethereum.base_types.Bytes
+
+      
+
+   .. py:attribute:: accounts_to_delete
+      :annotation: :Set[ethereum.frontier.eth_types.Address]
 
       
 
