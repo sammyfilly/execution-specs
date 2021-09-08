@@ -60,18 +60,19 @@
 <li><p><a class="reference internal" href="#get-recent-block-hashes" id="id12">get_recent_block_hashes</a></p></li>
 <li><p><a class="reference internal" href="#state-transition" id="id13">state_transition</a></p></li>
 <li><p><a class="reference internal" href="#validate-header" id="id14">validate_header</a></p></li>
-<li><p><a class="reference internal" href="#apply-body" id="id15">apply_body</a></p></li>
-<li><p><a class="reference internal" href="#compute-ommers-hash" id="id16">compute_ommers_hash</a></p></li>
-<li><p><a class="reference internal" href="#process-transaction" id="id17">process_transaction</a></p></li>
-<li><p><a class="reference internal" href="#validate-transaction" id="id18">validate_transaction</a></p></li>
-<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id19">calculate_intrinsic_cost</a></p></li>
-<li><p><a class="reference internal" href="#recover-sender" id="id20">recover_sender</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash" id="id21">signing_hash</a></p></li>
-<li><p><a class="reference internal" href="#compute-header-hash" id="id22">compute_header_hash</a></p></li>
-<li><p><a class="reference internal" href="#get-block-header-by-hash" id="id23">get_block_header_by_hash</a></p></li>
-<li><p><a class="reference internal" href="#check-proof-of-work" id="id24">check_proof_of_work</a></p></li>
-<li><p><a class="reference internal" href="#check-gas-limit" id="id25">check_gas_limit</a></p></li>
-<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id26">calculate_block_difficulty</a></p></li>
+<li><p><a class="reference internal" href="#generate-header-hash-for-pow" id="id15">generate_header_hash_for_pow</a></p></li>
+<li><p><a class="reference internal" href="#validate-proof-of-work" id="id16">validate_proof_of_work</a></p></li>
+<li><p><a class="reference internal" href="#apply-body" id="id17">apply_body</a></p></li>
+<li><p><a class="reference internal" href="#compute-ommers-hash" id="id18">compute_ommers_hash</a></p></li>
+<li><p><a class="reference internal" href="#process-transaction" id="id19">process_transaction</a></p></li>
+<li><p><a class="reference internal" href="#validate-transaction" id="id20">validate_transaction</a></p></li>
+<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id21">calculate_intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#recover-sender" id="id22">recover_sender</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash" id="id23">signing_hash</a></p></li>
+<li><p><a class="reference internal" href="#compute-header-hash" id="id24">compute_header_hash</a></p></li>
+<li><p><a class="reference internal" href="#get-block-header-by-hash" id="id25">get_block_header_by_hash</a></p></li>
+<li><p><a class="reference internal" href="#check-gas-limit" id="id26">check_gas_limit</a></p></li>
+<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id27">calculate_block_difficulty</a></p></li>
 </ul>
 </li>
 </ul>
@@ -113,6 +114,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_header" title="ethereum.frontier.spec.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
 <td><p>Verifies a block header.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.generate_header_hash_for_pow" title="ethereum.frontier.spec.generate_header_hash_for_pow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_header_hash_for_pow</span></code></a></p></td>
+<td><p>Generate rlp hash of the header which is to be used for Proof-of-Work</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.validate_proof_of_work" title="ethereum.frontier.spec.validate_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_proof_of_work</span></code></a></p></td>
+<td><p>Validates the Proof of Work constraints.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.apply_body" title="ethereum.frontier.spec.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
 <td><p>Executes a block.</p></td>
 </tr>
@@ -140,13 +147,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_block_header_by_hash" title="ethereum.frontier.spec.get_block_header_by_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_block_header_by_hash</span></code></a></p></td>
 <td><p>Fetches the block header with the corresponding hash.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_proof_of_work" title="ethereum.frontier.spec.check_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_proof_of_work</span></code></a></p></td>
-<td><p>Validates the Proof of Work constraints.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_gas_limit" title="ethereum.frontier.spec.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.check_gas_limit" title="ethereum.frontier.spec.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
 <td><p>Validates the gas limit for a block.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_block_difficulty" title="ethereum.frontier.spec.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.calculate_block_difficulty" title="ethereum.frontier.spec.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
 <td><p>Computes difficulty of a block using its header and parent header.</p></td>
 </tr>
 </tbody>
@@ -347,9 +351,7 @@ block number.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># TODO: get rid of the comment below once</span>
-    <span class="c1">#  check_proof_of_work is implemented</span>
-    <span class="c1"># assert check_proof_of_work(header)</span>
+    <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span> <span class="o">==</span> <span class="n">calculate_block_difficulty</span><span class="p">(</span>
         <span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
         <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
@@ -358,8 +360,91 @@ block number.</p>
     <span class="p">)</span>
     <span class="k">assert</span> <span class="n">check_gas_limit</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span>
-    <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">validate_proof_of_work</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">extra_data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</section>
+<section id="generate-header-hash-for-pow">
+<h4>generate_header_hash_for_pow<a class="headerlink" href="#generate-header-hash-for-pow" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.spec.generate_header_hash_for_pow">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">generate_header_hash_for_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">ethereum.frontier.eth_types.Hash32</span><a class="headerlink" href="#ethereum.frontier.spec.generate_header_hash_for_pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate rlp hash of the header which is to be used for Proof-of-Work
+verification. This hash is generated with the following header fields:
+* parent_hash
+* ommers_hash
+* coinbase
+* state_root
+* transactions_root
+* receipt_root
+* bloom
+* difficulty
+* number
+* gas_limit
+* gas_used
+* timestamp
+* extra_data</p>
+<p>In other words the PoW artefacts which are <cite>mix_digest</cite> and <cite>nonce</cite> are
+ignored while calculating this hash.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>header</strong> – The header object for which the hash is to be generated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hash</strong> – The PoW valid rlp hash of the passed in header.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Hash32</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_header_hash_for_pow</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
+    <span class="n">header_data_without_pow_artefacts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">parent_hash</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">ommers_hash</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">state_root</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">transactions_root</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">receipt_root</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">bloom</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">gas_used</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">extra_data</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">header_data_without_pow_artefacts</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validate-proof-of-work">
+<h4>validate_proof_of_work<a class="headerlink" href="#validate-proof-of-work" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.spec.validate_proof_of_work">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">validate_proof_of_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.spec.validate_proof_of_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the Proof of Work constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>header</strong> – Header of interest.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_proof_of_work</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">header_hash</span> <span class="o">=</span> <span class="n">generate_header_hash_for_pow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="c1"># TODO: Memoize this somewhere and read from that data instead of</span>
+    <span class="c1"># calculating cache for every block validation.</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">generate_cache</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">mix_digest</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">hashimoto_light</span><span class="p">(</span>
+        <span class="n">header_hash</span><span class="p">,</span> <span class="n">header</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span> <span class="n">cache</span><span class="p">,</span> <span class="n">dataset_size</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">mix_digest</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">mix_digest</span>
+    <span class="k">assert</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">U256_CEIL_VALUE</span> <span class="o">//</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -721,33 +806,6 @@ execution is instantiated.</p>
             <span class="k">return</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find header with hash=</span><span class="si">{</span><span class="nb">hash</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="check-proof-of-work">
-<h4>check_proof_of_work<a class="headerlink" href="#check-proof-of-work" title="Permalink to this headline">¶</a></h4>
-<dl class="py function">
-<dt class="sig sig-object py" id="ethereum.frontier.spec.check_proof_of_work">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">check_proof_of_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#ethereum.frontier.spec.check_proof_of_work" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the Proof of Work constraints.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>header</strong> – Header of interest.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>check</strong> – True if Proof of Work constraints are satisfied, False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>bool</cite></p>
-</dd>
-</dl>
-</dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_proof_of_work</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="c1"># TODO: Implement this method once proof of work</span>
-    <span class="c1">#  algorithm is implemented</span>
-    <span class="c1">#  https://github.com/ethereum/eth1.0-specs/issues/238</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </pre></div>
 </div>
 </section>

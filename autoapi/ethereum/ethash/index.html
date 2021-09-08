@@ -89,6 +89,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.ethash.generate_dataset" title="ethereum.ethash.generate_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_dataset</span></code></a></p></td>
 <td><p>Generate the full dataset for the block identified by <cite>block_number</cite>.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.ethash.hashimoto" title="ethereum.ethash.hashimoto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hashimoto</span></code></a></p></td>
+<td><p>Obtain the mix digest and the final value for a header, by aggregating</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.ethash.hashimoto_light" title="ethereum.ethash.hashimoto_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hashimoto_light</span></code></a></p></td>
+<td><p>Run the hashimoto algorithm by generating dataset item using the cache</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -125,6 +131,9 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.ethash.DATASET_PARENTS" title="ethereum.ethash.DATASET_PARENTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASET_PARENTS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.ethash.HASHIMOTO_ACCESSES" title="ethereum.ethash.HASHIMOTO_ACCESSES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HASHIMOTO_ACCESSES</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -202,6 +211,14 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.DATASET_PARENTS">
 <span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">DATASET_PARENTS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">256</span></em><a class="headerlink" href="#ethereum.ethash.DATASET_PARENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="hashimoto-accesses">
+<h4>HASHIMOTO_ACCESSES<a class="headerlink" href="#hashimoto-accesses" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.ethash.HASHIMOTO_ACCESSES">
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">HASHIMOTO_ACCESSES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">64</span></em><a class="headerlink" href="#ethereum.ethash.HASHIMOTO_ACCESSES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -458,10 +475,10 @@ dataset item.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>dataset_item</strong> – The cache generation seed for the passed in block.</p>
+<dd class="field-even"><p><strong>dataset_item</strong> – The generated dataset item for passed index.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Hash32</cite></p>
+<dd class="field-odd"><p><cite>Hash64</cite></p>
 </dd>
 </dl>
 </dd></dl>
@@ -518,6 +535,113 @@ a long time to execute.</p>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
         <span class="n">generate_dataset_item</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dataset_size_bytes</span> <span class="o">//</span> <span class="n">HASH_BYTES</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hashimoto">
+<h4>hashimoto<a class="headerlink" href="#hashimoto" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.ethash.hashimoto">
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">hashimoto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header_hash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../crypto/index.html#ethereum.crypto.Hash32" title="ethereum.crypto.Hash32"><span class="pre">ethereum.crypto.Hash32</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonce</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><span class="pre">ethereum.base_types.Bytes8</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch_dataset_item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint32" title="ethereum.base_types.Uint32"><span class="pre">ethereum.base_types.Uint32</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../crypto/index.html#ethereum.crypto.Hash32" title="ethereum.crypto.Hash32"><span class="pre">ethereum.crypto.Hash32</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.ethash.hashimoto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the mix digest and the final value for a header, by aggregating
+data from the full dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>header_hash</strong> – The PoW valid rlp hash of a header.</p></li>
+<li><p><strong>nonce</strong> – The propogated nonce for the given block.</p></li>
+<li><p><strong>dataset_size</strong> – Dataset size for the epoch to which the current block belongs to.</p></li>
+<li><p><strong>fetch_dataset_item</strong> – The function which will be used to obtain a specific dataset item
+from an index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mix_digest</strong> (<cite>bytes</cite>) – The mix digest generated from the header hash and propogated nonce.</p></li>
+<li><p><strong>result</strong> (<cite>Hash32</cite>) – The final result obtained which will be checked for leading zeros (in
+byte representation) in correspondance with the block difficulty.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hashimoto</span><span class="p">(</span>
+    <span class="n">header_hash</span><span class="p">:</span> <span class="n">Hash32</span><span class="p">,</span>
+    <span class="n">nonce</span><span class="p">:</span> <span class="n">Bytes8</span><span class="p">,</span>
+    <span class="n">dataset_size</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+    <span class="n">fetch_dataset_item</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Uint</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint32</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">Hash32</span><span class="p">]:</span>
+    <span class="n">nonce_le</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">nonce</span><span class="p">))</span>
+    <span class="n">seed_hash</span> <span class="o">=</span> <span class="n">keccak512</span><span class="p">(</span><span class="n">header_hash</span> <span class="o">+</span> <span class="n">nonce_le</span><span class="p">)</span>
+    <span class="n">seed_head</span> <span class="o">=</span> <span class="n">Uint32</span><span class="o">.</span><span class="n">from_le_bytes</span><span class="p">(</span><span class="n">seed_hash</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">dataset_size</span> <span class="o">//</span> <span class="mi">128</span>
+    <span class="n">mix</span> <span class="o">=</span> <span class="n">le_bytes_to_uint32_sequence</span><span class="p">(</span><span class="n">seed_hash</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">MIX_BYTES</span> <span class="o">//</span> <span class="n">HASH_BYTES</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">HASHIMOTO_ACCESSES</span><span class="p">):</span>
+        <span class="n">new_data</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint32</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">fnv</span><span class="p">(</span><span class="n">i</span> <span class="o">^</span> <span class="n">seed_head</span><span class="p">,</span> <span class="n">mix</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">mix</span><span class="p">)])</span> <span class="o">%</span> <span class="n">rows</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MIX_BYTES</span> <span class="o">//</span> <span class="n">HASH_BYTES</span><span class="p">):</span>
+            <span class="c1"># Typecasting `parent` from Uint32 to Uint as 2*parent + j may</span>
+            <span class="c1"># overflow Uint32.</span>
+            <span class="n">new_data</span> <span class="o">+=</span> <span class="n">fetch_dataset_item</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Uint</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span>
+
+        <span class="n">mix</span> <span class="o">=</span> <span class="n">fnv_hash</span><span class="p">(</span><span class="n">mix</span><span class="p">,</span> <span class="n">new_data</span><span class="p">)</span>
+
+    <span class="n">compressed_mix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mix</span><span class="p">),</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">compressed_mix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">fnv</span><span class="p">(</span><span class="n">fnv</span><span class="p">(</span><span class="n">fnv</span><span class="p">(</span><span class="n">mix</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">mix</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">mix</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">mix</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="p">)</span>
+
+    <span class="n">mix_digest</span> <span class="o">=</span> <span class="n">le_uint32_sequence_to_bytes</span><span class="p">(</span><span class="n">compressed_mix</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">keccak256</span><span class="p">(</span><span class="n">seed_hash</span> <span class="o">+</span> <span class="n">mix_digest</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mix_digest</span><span class="p">,</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="hashimoto-light">
+<h4>hashimoto_light<a class="headerlink" href="#hashimoto-light" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.ethash.hashimoto_light">
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">hashimoto_light</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header_hash</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../crypto/index.html#ethereum.crypto.Hash32" title="ethereum.crypto.Hash32"><span class="pre">ethereum.crypto.Hash32</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonce</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><span class="pre">ethereum.base_types.Bytes8</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint32" title="ethereum.base_types.Uint32"><span class="pre">ethereum.base_types.Uint32</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../crypto/index.html#ethereum.crypto.Hash32" title="ethereum.crypto.Hash32"><span class="pre">ethereum.crypto.Hash32</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.ethash.hashimoto_light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the hashimoto algorithm by generating dataset item using the cache
+instead of loading the full dataset into main memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>header_hash</strong> – The PoW valid rlp hash of a header.</p></li>
+<li><p><strong>nonce</strong> – The propogated nonce for the given block.</p></li>
+<li><p><strong>cache</strong> – The generated cache for the epoch to which the current block belongs
+to.</p></li>
+<li><p><strong>dataset_size</strong> – Dataset size for the epoch to which the current block belongs to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mix_digest</strong> (<cite>bytes</cite>) – The mix digest generated from the header hash and propogated nonce.</p></li>
+<li><p><strong>result</strong> (<cite>Hash32</cite>) – The final result obtained which will be checked for leading zeros (in
+byte representation) in correspondance with the block difficulty.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hashimoto_light</span><span class="p">(</span>
+    <span class="n">header_hash</span><span class="p">:</span> <span class="n">Hash32</span><span class="p">,</span>
+    <span class="n">nonce</span><span class="p">:</span> <span class="n">Bytes8</span><span class="p">,</span>
+    <span class="n">cache</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Uint32</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span>
+    <span class="n">dataset_size</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">Hash32</span><span class="p">]:</span>
+
+    <span class="k">def</span> <span class="nf">fetch_dataset_item</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">Uint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint32</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="n">item</span><span class="p">:</span> <span class="n">Hash64</span> <span class="o">=</span> <span class="n">generate_dataset_item</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">le_bytes_to_uint32_sequence</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">hashimoto</span><span class="p">(</span><span class="n">header_hash</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">dataset_size</span><span class="p">,</span> <span class="n">fetch_dataset_item</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

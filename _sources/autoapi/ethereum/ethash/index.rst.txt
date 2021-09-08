@@ -35,6 +35,8 @@ Functions
    ethereum.ethash.fnv_hash
    ethereum.ethash.generate_dataset_item
    ethereum.ethash.generate_dataset
+   ethereum.ethash.hashimoto
+   ethereum.ethash.hashimoto_light
 
 
 
@@ -52,6 +54,7 @@ Attributes
    ethereum.ethash.MIX_BYTES
    ethereum.ethash.CACHE_ROUNDS
    ethereum.ethash.DATASET_PARENTS
+   ethereum.ethash.HASHIMOTO_ACCESSES
 
 
 Module Details
@@ -138,6 +141,15 @@ DATASET_PARENTS
    
 
 
+HASHIMOTO_ACCESSES
+~~~~~~~~~~~~~~~~~~
+
+.. py:data:: HASHIMOTO_ACCESSES
+   :annotation: = 64
+
+   
+
+
 epoch
 ~~~~~
 
@@ -158,7 +170,7 @@ epoch
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 37-52
+   :lines: 38-53
 
 cache_size
 ~~~~~~~~~~
@@ -180,7 +192,7 @@ cache_size
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 55-75
+   :lines: 56-76
 
 dataset_size
 ~~~~~~~~~~~~
@@ -202,7 +214,7 @@ dataset_size
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 78-100
+   :lines: 79-101
 
 generate_seed
 ~~~~~~~~~~~~~
@@ -224,7 +236,7 @@ generate_seed
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 103-125
+   :lines: 104-126
 
 generate_cache
 ~~~~~~~~~~~~~~
@@ -246,7 +258,7 @@ generate_cache
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 128-171
+   :lines: 129-172
 
 fnv
 ~~~
@@ -273,7 +285,7 @@ fnv
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 175-198
+   :lines: 176-199
 
 fnv_hash
 ~~~~~~~~
@@ -296,7 +308,7 @@ fnv_hash
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 201-221
+   :lines: 202-222
 
 generate_dataset_item
 ~~~~~~~~~~~~~~~~~~~~~
@@ -313,15 +325,15 @@ generate_dataset_item
                  dataset item.
    :param index: The index of the dataset item to generate.
 
-   :returns: **dataset_item** -- The cache generation seed for the passed in block.
-   :rtype: `Hash32`
+   :returns: **dataset_item** -- The generated dataset item for passed index.
+   :rtype: `Hash64`
 
 
 
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 225-262
+   :lines: 226-263
 
 generate_dataset
 ~~~~~~~~~~~~~~~~
@@ -345,4 +357,58 @@ generate_dataset
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 265-288
+   :lines: 266-289
+
+hashimoto
+~~~~~~~~~
+
+
+.. function:: hashimoto(header_hash: ethereum.crypto.Hash32, nonce: ethereum.base_types.Bytes8, dataset_size: ethereum.base_types.Uint, fetch_dataset_item: Callable[[ethereum.base_types.Uint], Tuple[ethereum.base_types.Uint32, Ellipsis]]) -> Tuple[bytes, ethereum.crypto.Hash32]
+   :noindexentry:
+
+   Obtain the mix digest and the final value for a header, by aggregating
+   data from the full dataset.
+
+   :param header_hash: The PoW valid rlp hash of a header.
+   :param nonce: The propogated nonce for the given block.
+   :param dataset_size: Dataset size for the epoch to which the current block belongs to.
+   :param fetch_dataset_item: The function which will be used to obtain a specific dataset item
+                              from an index.
+
+   :returns: * **mix_digest** (`bytes`) -- The mix digest generated from the header hash and propogated nonce.
+             * **result** (`Hash32`) -- The final result obtained which will be checked for leading zeros (in
+               byte representation) in correspondance with the block difficulty.
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 293-349
+
+hashimoto_light
+~~~~~~~~~~~~~~~
+
+
+.. function:: hashimoto_light(header_hash: ethereum.crypto.Hash32, nonce: ethereum.base_types.Bytes8, cache: Tuple[Tuple[ethereum.base_types.Uint32, Ellipsis], Ellipsis], dataset_size: ethereum.base_types.Uint) -> Tuple[bytes, ethereum.crypto.Hash32]
+   :noindexentry:
+
+   Run the hashimoto algorithm by generating dataset item using the cache
+   instead of loading the full dataset into main memory.
+
+   :param header_hash: The PoW valid rlp hash of a header.
+   :param nonce: The propogated nonce for the given block.
+   :param cache: The generated cache for the epoch to which the current block belongs
+                 to.
+   :param dataset_size: Dataset size for the epoch to which the current block belongs to.
+
+   :returns: * **mix_digest** (`bytes`) -- The mix digest generated from the header hash and propogated nonce.
+             * **result** (`Hash32`) -- The final result obtained which will be checked for leading zeros (in
+               byte representation) in correspondance with the block difficulty.
+
+
+
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 352-400
