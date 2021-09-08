@@ -339,6 +339,7 @@ the key.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_storage</span><span class="p">(</span>
     <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">U256</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="n">trie</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">trie</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">trie</span> <span class="o">=</span> <span class="n">Trie</span><span class="p">(</span><span class="n">secured</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
@@ -430,7 +431,7 @@ the key.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">account_exists</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="o">.</span><span class="n">_data</span>
+    <span class="k">return</span> <span class="n">get_account_optional</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </pre></div>
 </div>
 </section>
