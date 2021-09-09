@@ -320,6 +320,7 @@ block number.</p>
         <span class="n">block</span><span class="o">.</span><span class="n">transactions</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span>
     <span class="p">)</span>
+    <span class="n">chain</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
 
     <span class="k">assert</span> <span class="n">gas_used</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span>
     <span class="k">assert</span> <span class="n">compute_ommers_hash</span><span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">ommers_hash</span>
@@ -521,7 +522,7 @@ block.</p></li>
             <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="n">gas_used</span><span class="p">,</span> <span class="n">logs</span> <span class="o">=</span> <span class="n">process_transaction</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">tx</span><span class="p">)</span>
+        <span class="n">gas_used</span><span class="p">,</span> <span class="n">logs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">process_transaction</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">tx</span><span class="p">)</span>
         <span class="n">gas_available</span> <span class="o">-=</span> <span class="n">gas_used</span>
 
         <span class="n">trie_set</span><span class="p">(</span>
@@ -571,7 +572,7 @@ block.</p></li>
 <h4>process_transaction<a class="headerlink" href="#process-transaction" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.process_transaction">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../vm/index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Transaction" title="ethereum.frontier.eth_types.Transaction"><span class="pre">ethereum.frontier.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Log" title="ethereum.frontier.eth_types.Log"><span class="pre">ethereum.frontier.eth_types.Log</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.process_transaction" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../vm/index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Transaction" title="ethereum.frontier.eth_types.Transaction"><span class="pre">ethereum.frontier.eth_types.Transaction</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Log" title="ethereum.frontier.eth_types.Log"><span class="pre">ethereum.frontier.eth_types.Log</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../state/index.html#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">ethereum.frontier.state.State</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.process_transaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a transaction against the provided environment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -592,7 +593,7 @@ block.</p></li>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_transaction</span><span class="p">(</span>
     <span class="n">env</span><span class="p">:</span> <span class="n">vm</span><span class="o">.</span><span class="n">Environment</span><span class="p">,</span> <span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">State</span><span class="p">]:</span>
     <span class="k">assert</span> <span class="n">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
 
     <span class="n">sender</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">origin</span>
@@ -612,16 +613,17 @@ block.</p></li>
         <span class="n">env</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="n">gas_left</span><span class="p">,</span> <span class="n">refund</span><span class="p">,</span> <span class="n">logs</span><span class="p">,</span> <span class="n">accounts_to_delete</span> <span class="o">=</span> <span class="n">process_message_call</span><span class="p">(</span>
-        <span class="n">message</span><span class="p">,</span> <span class="n">env</span>
-    <span class="p">)</span>
-    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">-</span> <span class="n">gas_left</span> <span class="o">-</span> <span class="n">refund</span>
+    <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message_call</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+
+    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">gas</span> <span class="o">-</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
+    <span class="n">gas_refund</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span><span class="p">)</span>
+    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">-</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">-</span> <span class="n">gas_refund</span>
     <span class="n">move_ether</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span> <span class="n">gas_used</span> <span class="o">*</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas_price</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">accounts_to_delete</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="p">:</span>
         <span class="n">destroy_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">gas_used</span><span class="p">,</span> <span class="n">logs</span>
+    <span class="k">return</span> <span class="n">gas_used</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span>
 </pre></div>
 </div>
 </section>
@@ -707,15 +709,11 @@ execution is instantiated.</p>
     <span class="c1">#  if v &gt; 28:</span>
     <span class="c1">#      v = v - (chain_id*2+8)</span>
 
-    <span class="n">secp256k1n</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="mh">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>
-    <span class="p">)</span>
-
     <span class="k">assert</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">27</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">28</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">secp256k1n</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">SECP256K1N</span>
 
     <span class="c1"># TODO: this causes error starting in block 46169 (or 46170?)</span>
-    <span class="c1"># assert 0&lt;s_int and s_int&lt;(secp256k1n//2+1)</span>
+    <span class="c1"># assert 0&lt;s_int and s_int&lt;(SECP256K1N//2+1)</span>
 
     <span class="n">public_key</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">secp256k1_recover</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span> <span class="o">-</span> <span class="mi">27</span><span class="p">,</span> <span class="n">signing_hash</span><span class="p">(</span><span class="n">tx</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">Address</span><span class="p">(</span><span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">public_key</span><span class="p">)[</span><span class="mi">12</span><span class="p">:</span><span class="mi">32</span><span class="p">])</span>

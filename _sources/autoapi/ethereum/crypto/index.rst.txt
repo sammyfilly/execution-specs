@@ -39,6 +39,7 @@ Attributes
 
    ethereum.crypto.Hash32
    ethereum.crypto.Hash64
+   ethereum.crypto.SECP256K1N
 
 
 Module Details
@@ -62,6 +63,15 @@ Hash64
    
 
 
+SECP256K1N
+~~~~~~~~~~
+
+.. py:data:: SECP256K1N
+   :annotation: = 115792089237316195423570985008687907852837564279074904382605163141518161494337
+
+   
+
+
 keccak256
 ~~~~~~~~~
 
@@ -81,7 +91,7 @@ keccak256
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 24-38
+   :lines: 26-40
 
 keccak512
 ~~~~~~~~~
@@ -102,7 +112,7 @@ keccak512
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 41-55
+   :lines: 43-57
 
 secp256k1_recover
 ~~~~~~~~~~~~~~~~~
@@ -126,4 +136,4 @@ secp256k1_recover
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 58-89
+   :lines: 60-91

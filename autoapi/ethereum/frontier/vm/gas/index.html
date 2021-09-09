@@ -78,11 +78,18 @@
 <li><p><a class="reference internal" href="#gas-call-value" id="id30">GAS_CALL_VALUE</a></p></li>
 <li><p><a class="reference internal" href="#gas-call-stipend" id="id31">GAS_CALL_STIPEND</a></p></li>
 <li><p><a class="reference internal" href="#refund-self-destruct" id="id32">REFUND_SELF_DESTRUCT</a></p></li>
-<li><p><a class="reference internal" href="#subtract-gas" id="id33">subtract_gas</a></p></li>
-<li><p><a class="reference internal" href="#calculate-memory-gas-cost" id="id34">calculate_memory_gas_cost</a></p></li>
-<li><p><a class="reference internal" href="#calculate-gas-extend-memory" id="id35">calculate_gas_extend_memory</a></p></li>
-<li><p><a class="reference internal" href="#calculate-call-gas-cost" id="id36">calculate_call_gas_cost</a></p></li>
-<li><p><a class="reference internal" href="#calculate-message-call-gas-stipend" id="id37">calculate_message_call_gas_stipend</a></p></li>
+<li><p><a class="reference internal" href="#gas-ecrecover" id="id33">GAS_ECRECOVER</a></p></li>
+<li><p><a class="reference internal" href="#gas-sha256" id="id34">GAS_SHA256</a></p></li>
+<li><p><a class="reference internal" href="#gas-sha256-word" id="id35">GAS_SHA256_WORD</a></p></li>
+<li><p><a class="reference internal" href="#gas-ripemd160" id="id36">GAS_RIPEMD160</a></p></li>
+<li><p><a class="reference internal" href="#gas-ripemd160-word" id="id37">GAS_RIPEMD160_WORD</a></p></li>
+<li><p><a class="reference internal" href="#gas-identity" id="id38">GAS_IDENTITY</a></p></li>
+<li><p><a class="reference internal" href="#gas-identity-word" id="id39">GAS_IDENTITY_WORD</a></p></li>
+<li><p><a class="reference internal" href="#subtract-gas" id="id40">subtract_gas</a></p></li>
+<li><p><a class="reference internal" href="#calculate-memory-gas-cost" id="id41">calculate_memory_gas_cost</a></p></li>
+<li><p><a class="reference internal" href="#calculate-gas-extend-memory" id="id42">calculate_gas_extend_memory</a></p></li>
+<li><p><a class="reference internal" href="#calculate-call-gas-cost" id="id43">calculate_call_gas_cost</a></p></li>
+<li><p><a class="reference internal" href="#calculate-message-call-gas-stipend" id="id44">calculate_message_call_gas_stipend</a></p></li>
 </ul>
 </li>
 </ul>
@@ -206,6 +213,27 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT" title="ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REFUND_SELF_DESTRUCT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_ECRECOVER" title="ethereum.frontier.vm.gas.GAS_ECRECOVER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_ECRECOVER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_SHA256" title="ethereum.frontier.vm.gas.GAS_SHA256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_SHA256</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_SHA256_WORD" title="ethereum.frontier.vm.gas.GAS_SHA256_WORD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_SHA256_WORD</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_RIPEMD160" title="ethereum.frontier.vm.gas.GAS_RIPEMD160"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_RIPEMD160</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_RIPEMD160_WORD" title="ethereum.frontier.vm.gas.GAS_RIPEMD160_WORD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_RIPEMD160_WORD</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_IDENTITY" title="ethereum.frontier.vm.gas.GAS_IDENTITY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_IDENTITY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.gas.GAS_IDENTITY_WORD" title="ethereum.frontier.vm.gas.GAS_IDENTITY_WORD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAS_IDENTITY_WORD</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -427,6 +455,62 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT">
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">REFUND_SELF_DESTRUCT</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-ecrecover">
+<h4>GAS_ECRECOVER<a class="headerlink" href="#gas-ecrecover" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_ECRECOVER">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_ECRECOVER</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_ECRECOVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-sha256">
+<h4>GAS_SHA256<a class="headerlink" href="#gas-sha256" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_SHA256">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_SHA256</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_SHA256" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-sha256-word">
+<h4>GAS_SHA256_WORD<a class="headerlink" href="#gas-sha256-word" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_SHA256_WORD">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_SHA256_WORD</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_SHA256_WORD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-ripemd160">
+<h4>GAS_RIPEMD160<a class="headerlink" href="#gas-ripemd160" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_RIPEMD160">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_RIPEMD160</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_RIPEMD160" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-ripemd160-word">
+<h4>GAS_RIPEMD160_WORD<a class="headerlink" href="#gas-ripemd160-word" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_RIPEMD160_WORD">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_RIPEMD160_WORD</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_RIPEMD160_WORD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-identity">
+<h4>GAS_IDENTITY<a class="headerlink" href="#gas-identity" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_IDENTITY">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_IDENTITY</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_IDENTITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="gas-identity-word">
+<h4>GAS_IDENTITY_WORD<a class="headerlink" href="#gas-identity-word" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.vm.gas.GAS_IDENTITY_WORD">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.gas.</span></span><span class="sig-name descname"><span class="pre">GAS_IDENTITY_WORD</span></span><a class="headerlink" href="#ethereum.frontier.vm.gas.GAS_IDENTITY_WORD" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

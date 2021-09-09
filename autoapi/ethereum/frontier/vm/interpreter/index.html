@@ -130,7 +130,7 @@
 <h4>process_message_call<a class="headerlink" href="#process-message-call" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_message_call">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Log" title="ethereum.frontier.eth_types.Log"><span class="pre">ethereum.frontier.eth_types.Log</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message_call" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message_call" title="Permalink to this definition">¶</a></dt>
 <dd><p>If <cite>message.current</cite> is empty then it creates a smart contract
 else it executes a call from the <cite>message.caller</cite> to the <cite>message.target</cite>.</p>
 <dl class="field-list simple">
@@ -151,20 +151,13 @@ generated during execution.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message_call</span><span class="p">(</span>
-    <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">Set</span><span class="p">[</span><span class="n">Address</span><span class="p">]]:</span>
-    <span class="n">gas_before</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">gas</span>
-
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message_call</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">Bytes0</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="n">evm</span> <span class="o">=</span> <span class="n">process_create_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
 
-    <span class="n">gas_used</span> <span class="o">=</span> <span class="n">gas_before</span> <span class="o">-</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
-    <span class="n">refund</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">refund</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span>
+    <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
 </section>
@@ -224,15 +217,23 @@ generated during execution.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
+    <span class="c1"># take snapshot of state before processing the message</span>
+    <span class="n">state_snapshot</span> <span class="o">=</span> <span class="n">snapshot_state</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="n">STACK_DEPTH_LIMIT</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">StackDepthLimitError</span><span class="p">(</span><span class="s2">&quot;Stack depth limit reached&quot;</span><span class="p">)</span>
+
+    <span class="n">touch_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">move_ether</span><span class="p">(</span>
             <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">caller</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span>
         <span class="p">)</span>
 
     <span class="n">evm</span> <span class="o">=</span> <span class="n">execute_code</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
-    <span class="c1"># TODO: revert state check if code execution resulted in error</span>
+    <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span><span class="p">:</span>
+        <span class="c1"># revert state to the last saved checkpoint</span>
+        <span class="c1"># since the message call resulted in an error</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state_snapshot</span>
     <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
@@ -276,21 +277,41 @@ generated during execution.</p>
         <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
         <span class="n">output</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="n">accounts_to_delete</span><span class="o">=</span><span class="nb">set</span><span class="p">(),</span>
+        <span class="n">has_erred</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">while</span> <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="ow">and</span> <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">op</span> <span class="o">=</span> <span class="n">Ops</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
-        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">InvalidOpcode</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
 
-        <span class="n">op_implementation</span><span class="p">[</span><span class="n">op</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">code_address</span> <span class="ow">in</span> <span class="n">PRE_COMPILED_CONTRACTS</span><span class="p">:</span>
+            <span class="n">PRE_COMPILED_CONTRACTS</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">code_address</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">evm</span>
 
-        <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PC_CHANGING_OPS</span><span class="p">:</span>
-            <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="ow">and</span> <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="n">Ops</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">InvalidOpcode</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
 
-        <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
-            <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="n">evm</span>
+            <span class="n">op_implementation</span><span class="p">[</span><span class="n">op</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PC_CHANGING_OPS</span><span class="p">:</span>
+                <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">except</span> <span class="n">OutOfGasError</span><span class="p">:</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="p">(</span>
+        <span class="n">OutOfGasError</span><span class="p">,</span>
+        <span class="n">InvalidOpcode</span><span class="p">,</span>
+        <span class="n">InvalidJumpDestError</span><span class="p">,</span>
+        <span class="n">StackOverflowError</span><span class="p">,</span>
+        <span class="n">StackUnderflowError</span><span class="p">,</span>
+        <span class="n">StackDepthLimitError</span><span class="p">,</span>
+        <span class="ne">AssertionError</span><span class="p">,</span>
+        <span class="ne">ValueError</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
 </section>

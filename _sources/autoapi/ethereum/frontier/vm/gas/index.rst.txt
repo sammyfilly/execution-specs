@@ -66,6 +66,13 @@ Attributes
    ethereum.frontier.vm.gas.GAS_CALL_VALUE
    ethereum.frontier.vm.gas.GAS_CALL_STIPEND
    ethereum.frontier.vm.gas.REFUND_SELF_DESTRUCT
+   ethereum.frontier.vm.gas.GAS_ECRECOVER
+   ethereum.frontier.vm.gas.GAS_SHA256
+   ethereum.frontier.vm.gas.GAS_SHA256_WORD
+   ethereum.frontier.vm.gas.GAS_RIPEMD160
+   ethereum.frontier.vm.gas.GAS_RIPEMD160_WORD
+   ethereum.frontier.vm.gas.GAS_IDENTITY
+   ethereum.frontier.vm.gas.GAS_IDENTITY_WORD
 
 
 Module Details
@@ -314,6 +321,69 @@ REFUND_SELF_DESTRUCT
    
 
 
+GAS_ECRECOVER
+~~~~~~~~~~~~~
+
+.. py:data:: GAS_ECRECOVER
+   
+
+   
+
+
+GAS_SHA256
+~~~~~~~~~~
+
+.. py:data:: GAS_SHA256
+   
+
+   
+
+
+GAS_SHA256_WORD
+~~~~~~~~~~~~~~~
+
+.. py:data:: GAS_SHA256_WORD
+   
+
+   
+
+
+GAS_RIPEMD160
+~~~~~~~~~~~~~
+
+.. py:data:: GAS_RIPEMD160
+   
+
+   
+
+
+GAS_RIPEMD160_WORD
+~~~~~~~~~~~~~~~~~~
+
+.. py:data:: GAS_RIPEMD160_WORD
+   
+
+   
+
+
+GAS_IDENTITY
+~~~~~~~~~~~~
+
+.. py:data:: GAS_IDENTITY
+   
+
+   
+
+
+GAS_IDENTITY_WORD
+~~~~~~~~~~~~~~~~~
+
+.. py:data:: GAS_IDENTITY_WORD
+   
+
+   
+
+
 subtract_gas
 ~~~~~~~~~~~~
 
@@ -333,7 +403,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 50-69
+   :lines: 57-76
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,7 +426,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 72-92
+   :lines: 79-99
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -381,7 +451,7 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 95-127
+   :lines: 102-134
 
 calculate_call_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -405,7 +475,7 @@ calculate_call_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 130-155
+   :lines: 137-162
 
 calculate_message_call_gas_stipend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -427,4 +497,4 @@ calculate_message_call_gas_stipend
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 158-172
+   :lines: 165-179

@@ -24,6 +24,7 @@ Subpackages
    :maxdepth: 3
 
    instructions/index.rst
+   precompiled_contracts/index.rst
 
 
 Submodules
@@ -158,6 +159,11 @@ Items that are used by contract creation or message call.
 
       
 
+   .. py:attribute:: code_address
+      :annotation: :Optional[ethereum.frontier.eth_types.Address]
+
+      
+
    .. py:attribute:: code
       :annotation: :ethereum.base_types.Bytes
 
@@ -241,6 +247,11 @@ The internal state of the virtual machine.
 
    .. py:attribute:: accounts_to_delete
       :annotation: :Set[ethereum.frontier.eth_types.Address]
+
+      
+
+   .. py:attribute:: has_erred
+      :annotation: :bool
 
       
 

@@ -51,8 +51,10 @@ Functions
    ethereum.frontier.state.modify_state
    ethereum.frontier.state.move_ether
    ethereum.frontier.state.set_account_balance
+   ethereum.frontier.state.touch_account
    ethereum.frontier.state.increment_nonce
    ethereum.frontier.state.set_code
+   ethereum.frontier.state.snapshot_state
 
 
 
@@ -106,7 +108,7 @@ get_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 40-64
+   :lines: 41-65
 
 get_account_optional
 ~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +133,7 @@ get_account_optional
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 67-85
+   :lines: 68-86
 
 set_account
 ~~~~~~~~~~~
@@ -155,7 +157,7 @@ set_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 88-104
+   :lines: 89-105
 
 destroy_account
 ~~~~~~~~~~~~~~~
@@ -180,7 +182,7 @@ destroy_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 107-123
+   :lines: 108-124
 
 get_storage
 ~~~~~~~~~~~
@@ -207,7 +209,7 @@ get_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 126-152
+   :lines: 127-153
 
 set_storage
 ~~~~~~~~~~~
@@ -233,7 +235,7 @@ set_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 155-180
+   :lines: 156-181
 
 storage_root
 ~~~~~~~~~~~~
@@ -257,7 +259,7 @@ storage_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 183-202
+   :lines: 184-203
 
 state_root
 ~~~~~~~~~~
@@ -279,7 +281,7 @@ state_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 205-223
+   :lines: 206-224
 
 account_exists
 ~~~~~~~~~~~~~~
@@ -301,7 +303,7 @@ account_exists
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 226-242
+   :lines: 227-243
 
 modify_state
 ~~~~~~~~~~~~
@@ -317,7 +319,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 245-251
+   :lines: 246-252
 
 move_ether
 ~~~~~~~~~~
@@ -333,7 +335,7 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 254-272
+   :lines: 255-273
 
 set_account_balance
 ~~~~~~~~~~~~~~~~~~~
@@ -353,7 +355,26 @@ set_account_balance
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 275-294
+   :lines: 276-295
+
+touch_account
+~~~~~~~~~~~~~
+
+
+.. function:: touch_account(state: State, address: ethereum.frontier.eth_types.Address) -> None
+   :noindexentry:
+
+   Initializes an account to state.
+
+   :param state: The current state.
+   :param address: The address of the account that need to initialised.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 298-311
 
 increment_nonce
 ~~~~~~~~~~~~~~~
@@ -372,7 +393,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 297-313
+   :lines: 314-330
 
 set_code
 ~~~~~~~~
@@ -392,4 +413,26 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 316-335
+   :lines: 333-352
+
+snapshot_state
+~~~~~~~~~~~~~~
+
+
+.. function:: snapshot_state(state: State) -> State
+   :noindexentry:
+
+   Creates a copy of the `state` so that any changes made to the
+   `state` are not applied to the newly created copy of the `state`.
+
+   :param state: The current state.
+
+   :returns: **copied_state** -- A new copy of the `state`.
+   :rtype: `State`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 355-396
