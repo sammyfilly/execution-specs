@@ -406,7 +406,7 @@
     <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="n">REFUND_SELF_DESTRUCT</span>
 
     <span class="c1"># register account for deletion</span>
-    <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">beneficiary</span><span class="p">)</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">originator</span><span class="p">)</span>
 
     <span class="c1"># HALT the execution</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
