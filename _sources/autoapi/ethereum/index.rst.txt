@@ -30,3 +30,15 @@ Submodules
    ethash/index.rst
 
 
+Package Contents
+----------------
+
+
+EVM_RECURSION_LIMIT
+~~~~~~~~~~~~~~~~~~~
+
+.. py:data:: EVM_RECURSION_LIMIT
+   
+
+   
+
