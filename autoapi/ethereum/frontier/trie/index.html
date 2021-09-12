@@ -62,14 +62,15 @@
 <li><p><a class="reference internal" href="#encode-internal-node" id="id14">encode_internal_node</a></p></li>
 <li><p><a class="reference internal" href="#encode-node" id="id15">encode_node</a></p></li>
 <li><p><a class="reference internal" href="#trie" id="id16">Trie</a></p></li>
-<li><p><a class="reference internal" href="#trie-set" id="id17">trie_set</a></p></li>
-<li><p><a class="reference internal" href="#trie-get" id="id18">trie_get</a></p></li>
-<li><p><a class="reference internal" href="#common-prefix-length" id="id19">common_prefix_length</a></p></li>
-<li><p><a class="reference internal" href="#nibble-list-to-compact" id="id20">nibble_list_to_compact</a></p></li>
-<li><p><a class="reference internal" href="#bytes-to-nibble-list" id="id21">bytes_to_nibble_list</a></p></li>
-<li><p><a class="reference internal" href="#prepare-trie" id="id22">_prepare_trie</a></p></li>
-<li><p><a class="reference internal" href="#root" id="id23">root</a></p></li>
-<li><p><a class="reference internal" href="#patricialize" id="id24">patricialize</a></p></li>
+<li><p><a class="reference internal" href="#copy-trie" id="id17">copy_trie</a></p></li>
+<li><p><a class="reference internal" href="#trie-set" id="id18">trie_set</a></p></li>
+<li><p><a class="reference internal" href="#trie-get" id="id19">trie_get</a></p></li>
+<li><p><a class="reference internal" href="#common-prefix-length" id="id20">common_prefix_length</a></p></li>
+<li><p><a class="reference internal" href="#nibble-list-to-compact" id="id21">nibble_list_to_compact</a></p></li>
+<li><p><a class="reference internal" href="#bytes-to-nibble-list" id="id22">bytes_to_nibble_list</a></p></li>
+<li><p><a class="reference internal" href="#prepare-trie" id="id23">_prepare_trie</a></p></li>
+<li><p><a class="reference internal" href="#root" id="id24">root</a></p></li>
+<li><p><a class="reference internal" href="#patricialize" id="id25">patricialize</a></p></li>
 </ul>
 </li>
 </ul>
@@ -118,28 +119,31 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.encode_node" title="ethereum.frontier.trie.encode_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_node</span></code></a></p></td>
 <td><p>Encode a Node for storage in the Merkle Trie.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.trie_set" title="ethereum.frontier.trie.trie_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trie_set</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.copy_trie" title="ethereum.frontier.trie.copy_trie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_trie</span></code></a></p></td>
+<td><p>Create a copy of <cite>trie</cite>. Since only frozen objects may be stored in tries,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.trie_set" title="ethereum.frontier.trie.trie_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trie_set</span></code></a></p></td>
 <td><p>Stores an item in a Merkle Trie.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.trie_get" title="ethereum.frontier.trie.trie_get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trie_get</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.trie_get" title="ethereum.frontier.trie.trie_get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trie_get</span></code></a></p></td>
 <td><p>Gets an item from the Merkle Trie.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.common_prefix_length" title="ethereum.frontier.trie.common_prefix_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">common_prefix_length</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.common_prefix_length" title="ethereum.frontier.trie.common_prefix_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">common_prefix_length</span></code></a></p></td>
 <td><p>Find the longest common prefix of two sequences.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.nibble_list_to_compact" title="ethereum.frontier.trie.nibble_list_to_compact"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nibble_list_to_compact</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.nibble_list_to_compact" title="ethereum.frontier.trie.nibble_list_to_compact"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nibble_list_to_compact</span></code></a></p></td>
 <td><p>Compresses nibble-list into a standard byte array with a flag.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.bytes_to_nibble_list" title="ethereum.frontier.trie.bytes_to_nibble_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes_to_nibble_list</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.bytes_to_nibble_list" title="ethereum.frontier.trie.bytes_to_nibble_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes_to_nibble_list</span></code></a></p></td>
 <td><p>Converts a <cite>Bytes</cite> into to a sequence of nibbles (bytes with value &lt; 16).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie._prepare_trie" title="ethereum.frontier.trie._prepare_trie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_prepare_trie</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie._prepare_trie" title="ethereum.frontier.trie._prepare_trie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_prepare_trie</span></code></a></p></td>
 <td><p>Prepares the trie for root calculation. Removes values that are empty,</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.root" title="ethereum.frontier.trie.root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.root" title="ethereum.frontier.trie.root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code></a></p></td>
 <td><p>Computes the root of a modified merkle patricia trie (MPT).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.patricialize" title="ethereum.frontier.trie.patricialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patricialize</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.patricialize" title="ethereum.frontier.trie.patricialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patricialize</span></code></a></p></td>
 <td><p>Structural composition function.</p></td>
 </tr>
 </tbody>
@@ -357,6 +361,31 @@ which is encoded to <cite>b””</cite>.</p>
 
 </dd></dl>
 
+</section>
+<section id="copy-trie">
+<h4>copy_trie<a class="headerlink" href="#copy-trie" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.trie.copy_trie">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">copy_trie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.trie.copy_trie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a copy of <cite>trie</cite>. Since only frozen objects may be stored in tries,
+the contents are reused.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trie</strong> (<cite>Trie</cite>) – Trie to copy.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>new_trie</strong> – A copy of the trie.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>T</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copy_trie</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Trie</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">Trie</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">secured</span><span class="p">,</span> <span class="n">trie</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="p">))</span>
+</pre></div>
+</div>
 </section>
 <section id="trie-set">
 <h4>trie_set<a class="headerlink" href="#trie-set" title="Permalink to this headline">¶</a></h4>
