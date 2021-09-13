@@ -86,7 +86,7 @@ process_message_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 47-72
+   :lines: 51-78
 
 process_create_message
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -108,7 +108,7 @@ process_create_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 75-97
+   :lines: 81-103
 
 process_message
 ~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ process_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 100-135
+   :lines: 106-141
 
 execute_code
 ~~~~~~~~~~~~
@@ -152,4 +152,4 @@ execute_code
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 138-205
+   :lines: 144-211

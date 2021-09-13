@@ -157,6 +157,8 @@ generated during execution.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
 
+    <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="p">)</span> <span class="o">*</span> <span class="n">REFUND_SELF_DESTRUCT</span>
+
     <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
