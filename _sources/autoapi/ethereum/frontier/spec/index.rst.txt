@@ -165,7 +165,7 @@ state_transition
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 105-146
+   :lines: 105-145
 
 validate_header
 ~~~~~~~~~~~~~~~
@@ -184,7 +184,7 @@ validate_header
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 149-170
+   :lines: 148-169
 
 generate_header_hash_for_pow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -222,7 +222,7 @@ generate_header_hash_for_pow
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 173-220
+   :lines: 172-219
 
 validate_proof_of_work
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -240,7 +240,7 @@ validate_proof_of_work
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 223-241
+   :lines: 222-240
 
 apply_body
 ~~~~~~~~~~
@@ -275,7 +275,7 @@ apply_body
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 244-350
+   :lines: 243-349
 
 compute_ommers_hash
 ~~~~~~~~~~~~~~~~~~~
@@ -291,13 +291,13 @@ compute_ommers_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 354-358
+   :lines: 353-357
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: process_transaction(env: ethereum.frontier.vm.Environment, tx: ethereum.frontier.eth_types.Transaction) -> Tuple[ethereum.base_types.U256, Tuple[ethereum.frontier.eth_types.Log, Ellipsis], ethereum.frontier.state.State]
+.. function:: process_transaction(env: ethereum.frontier.vm.Environment, tx: ethereum.frontier.eth_types.Transaction) -> Tuple[ethereum.base_types.U256, Tuple[ethereum.frontier.eth_types.Log, Ellipsis]]
    :noindexentry:
 
    Execute a transaction against the provided environment.
@@ -313,7 +313,7 @@ process_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 361-412
+   :lines: 360-411
 
 validate_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -334,7 +334,7 @@ validate_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 415-429
+   :lines: 414-428
 
 calculate_intrinsic_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,7 +356,7 @@ calculate_intrinsic_cost
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 432-455
+   :lines: 431-454
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -377,7 +377,7 @@ recover_sender
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 458-484
+   :lines: 457-483
 
 signing_hash
 ~~~~~~~~~~~~
@@ -398,7 +398,7 @@ signing_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 487-509
+   :lines: 486-508
 
 compute_header_hash
 ~~~~~~~~~~~~~~~~~~~
@@ -419,7 +419,7 @@ compute_header_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 515-529
+   :lines: 514-528
 
 get_block_header_by_hash
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -441,7 +441,7 @@ get_block_header_by_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 532-553
+   :lines: 531-552
 
 check_gas_limit
 ~~~~~~~~~~~~~~~
@@ -463,7 +463,7 @@ check_gas_limit
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 556-581
+   :lines: 555-580
 
 calculate_block_difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -486,4 +486,4 @@ calculate_block_difficulty
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 584-615
+   :lines: 583-614
