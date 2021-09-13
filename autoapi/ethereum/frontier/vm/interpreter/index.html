@@ -298,9 +298,6 @@ generated during execution.</p>
             <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PC_CHANGING_OPS</span><span class="p">:</span>
                 <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">except</span> <span class="n">OutOfGasError</span><span class="p">:</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="p">(</span>
         <span class="n">OutOfGasError</span><span class="p">,</span>
         <span class="n">InvalidOpcode</span><span class="p">,</span>
@@ -308,6 +305,10 @@ generated during execution.</p>
         <span class="n">StackOverflowError</span><span class="p">,</span>
         <span class="n">StackUnderflowError</span><span class="p">,</span>
         <span class="n">StackDepthLimitError</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="p">(</span>
         <span class="ne">AssertionError</span><span class="p">,</span>
         <span class="ne">ValueError</span><span class="p">,</span>
     <span class="p">):</span>
