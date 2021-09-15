@@ -152,4 +152,4 @@ execute_code
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 144-211
+   :lines: 144-214

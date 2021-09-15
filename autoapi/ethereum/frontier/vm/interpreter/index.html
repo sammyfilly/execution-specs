@@ -309,6 +309,9 @@ generated during execution.</p>
         <span class="n">StackDepthLimitError</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="p">(</span>
         <span class="ne">AssertionError</span><span class="p">,</span>
