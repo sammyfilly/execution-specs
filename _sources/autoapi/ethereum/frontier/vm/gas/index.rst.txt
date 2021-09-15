@@ -403,7 +403,7 @@ subtract_gas
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 57-76
+   :lines: 58-77
 
 calculate_memory_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -426,7 +426,7 @@ calculate_memory_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 79-99
+   :lines: 80-103
 
 calculate_gas_extend_memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -451,7 +451,7 @@ calculate_gas_extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 102-134
+   :lines: 106-138
 
 calculate_call_gas_cost
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -475,7 +475,7 @@ calculate_call_gas_cost
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 137-162
+   :lines: 141-171
 
 calculate_message_call_gas_stipend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -497,4 +497,4 @@ calculate_message_call_gas_stipend
 
 .. undocinclude:: /../src/ethereum/frontier/vm/gas.py
    :language: python
-   :lines: 165-179
+   :lines: 175-189

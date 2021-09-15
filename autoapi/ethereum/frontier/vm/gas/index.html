@@ -567,7 +567,10 @@ such that the allocated size is at least as big as the given size.</p>
     <span class="n">linear_cost</span> <span class="o">=</span> <span class="n">size_in_words</span> <span class="o">*</span> <span class="n">GAS_MEMORY</span>
     <span class="n">quadratic_cost</span> <span class="o">=</span> <span class="n">size_in_words</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">//</span> <span class="mi">512</span>
     <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="n">linear_cost</span> <span class="o">+</span> <span class="n">quadratic_cost</span>
-    <span class="k">return</span> <span class="n">U256</span><span class="p">(</span><span class="n">total_gas_cost</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">U256</span><span class="p">(</span><span class="n">total_gas_cost</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OutOfGasError</span>
 </pre></div>
 </div>
 </section>
@@ -643,7 +646,12 @@ else it returns the amount that needs to be paid for extendinng memory.</p>
     <span class="n">_account_exists</span> <span class="o">=</span> <span class="n">account_exists</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
     <span class="n">create_gas_cost</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">_account_exists</span> <span class="k">else</span> <span class="n">GAS_NEW_ACCOUNT</span>
     <span class="n">transfer_gas_cost</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">GAS_CALL_VALUE</span>
-    <span class="k">return</span> <span class="n">GAS_CALL</span> <span class="o">+</span> <span class="n">gas</span> <span class="o">+</span> <span class="n">create_gas_cost</span> <span class="o">+</span> <span class="n">transfer_gas_cost</span>
+    <span class="k">return</span> <span class="n">u256_safe_add</span><span class="p">(</span>
+        <span class="n">GAS_CALL</span><span class="p">,</span>
+        <span class="n">gas</span><span class="p">,</span>
+        <span class="n">create_gas_cost</span><span class="p">,</span>
+        <span class="n">transfer_gas_cost</span><span class="p">,</span>
+        <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span><span class="p">,</span>
 </pre></div>
 </div>
 </section>

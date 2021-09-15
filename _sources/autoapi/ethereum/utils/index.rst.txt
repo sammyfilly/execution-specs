@@ -25,6 +25,7 @@ Submodules
    byte/index.rst
    hexadecimal/index.rst
    numeric/index.rst
+   safe_arithmetic/index.rst
    transaction/index.rst
 
 

@@ -114,7 +114,7 @@
 <h4>log_n<a class="headerlink" href="#log-n" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.log.log_n">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.log.</span></span><span class="sig-name descname"><span class="pre">log_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_topics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.log.log_n" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.log.</span></span><span class="sig-name descname"><span class="pre">log_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_topics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.log.log_n" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends a log entry, having <cite>num_topics</cite> topics, to the evm logs.</p>
 <p>This will also expand the memory if the data (required by the log entry)
 corresponding to the memory is not accessible.</p>
@@ -131,17 +131,27 @@ corresponding to the memory is not accessible.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_n</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_n</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">:</span> <span class="n">U256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Converting memory_start_index to Uint as memory_start_index + size - 1</span>
     <span class="c1"># can overflow U256.</span>
     <span class="n">memory_start_index</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
     <span class="n">size</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
 
-    <span class="n">gas_cost</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">GAS_LOG</span>
-        <span class="o">+</span> <span class="p">(</span><span class="n">GAS_LOG_DATA</span> <span class="o">*</span> <span class="n">size</span><span class="p">)</span>
-        <span class="o">+</span> <span class="p">(</span><span class="n">GAS_LOG_TOPIC</span> <span class="o">*</span> <span class="n">num_topics</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">calculate_gas_extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">memory_start_index</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">gas_cost_log_data</span> <span class="o">=</span> <span class="n">u256_safe_multiply</span><span class="p">(</span>
+        <span class="n">GAS_LOG_DATA</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span>
+    <span class="p">)</span>
+    <span class="n">gas_cost_log_topic</span> <span class="o">=</span> <span class="n">u256_safe_multiply</span><span class="p">(</span>
+        <span class="n">GAS_LOG_TOPIC</span><span class="p">,</span> <span class="n">num_topics</span><span class="p">,</span> <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span>
+    <span class="p">)</span>
+    <span class="n">gas_cost_memory_extend</span> <span class="o">=</span> <span class="n">calculate_gas_extend_memory</span><span class="p">(</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">memory_start_index</span><span class="p">,</span> <span class="n">size</span>
+    <span class="p">)</span>
+    <span class="n">gas_cost</span> <span class="o">=</span> <span class="n">u256_safe_add</span><span class="p">(</span>
+        <span class="n">GAS_LOG</span><span class="p">,</span>
+        <span class="n">gas_cost_log_data</span><span class="p">,</span>
+        <span class="n">gas_cost_log_topic</span><span class="p">,</span>
+        <span class="n">gas_cost_memory_extend</span><span class="p">,</span>
+        <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">gas_cost</span><span class="p">)</span>
 
