@@ -54,4 +54,4 @@ keccak
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/keccak.py
    :language: python
-   :lines: 30-65
+   :lines: 32-76

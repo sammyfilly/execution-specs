@@ -63,7 +63,7 @@ address
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 33-48
+   :lines: 35-50
 
 balance
 ~~~~~~~
@@ -84,7 +84,7 @@ balance
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 51-76
+   :lines: 53-78
 
 origin
 ~~~~~~
@@ -105,7 +105,7 @@ origin
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 79-95
+   :lines: 81-97
 
 caller
 ~~~~~~
@@ -125,7 +125,7 @@ caller
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 98-113
+   :lines: 100-115
 
 callvalue
 ~~~~~~~~~
@@ -145,7 +145,7 @@ callvalue
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 116-131
+   :lines: 118-133
 
 calldataload
 ~~~~~~~~~~~~
@@ -167,7 +167,7 @@ calldataload
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 134-160
+   :lines: 136-162
 
 calldatasize
 ~~~~~~~~~~~~
@@ -187,7 +187,7 @@ calldatasize
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 163-178
+   :lines: 165-180
 
 calldatacopy
 ~~~~~~~~~~~~
@@ -210,7 +210,7 @@ calldatacopy
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 181-222
+   :lines: 183-233
 
 codesize
 ~~~~~~~~
@@ -230,7 +230,7 @@ codesize
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 225-240
+   :lines: 236-251
 
 codecopy
 ~~~~~~~~
@@ -253,7 +253,7 @@ codecopy
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 243-285
+   :lines: 254-305
 
 gasprice
 ~~~~~~~~
@@ -273,7 +273,7 @@ gasprice
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 288-303
+   :lines: 308-323
 
 extcodesize
 ~~~~~~~~~~~
@@ -294,7 +294,7 @@ extcodesize
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 306-331
+   :lines: 326-351
 
 extcodecopy
 ~~~~~~~~~~~
@@ -314,4 +314,4 @@ extcodecopy
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/environment.py
    :language: python
-   :lines: 334-378
+   :lines: 354-407

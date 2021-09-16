@@ -117,9 +117,13 @@ insufficient to store the word.</p>
     <span class="n">start_position</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes32</span><span class="p">()</span>
 
-    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">calculate_gas_extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
-        <span class="o">+</span> <span class="n">GAS_VERY_LOW</span>
+    <span class="n">gas_cost_memory_extend</span> <span class="o">=</span> <span class="n">calculate_gas_extend_memory</span><span class="p">(</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="n">u256_safe_add</span><span class="p">(</span>
+        <span class="n">GAS_VERY_LOW</span><span class="p">,</span>
+        <span class="n">gas_cost_memory_extend</span><span class="p">,</span>
+        <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">total_gas_cost</span><span class="p">)</span>
 
@@ -158,9 +162,13 @@ insufficient to store the word.</p>
     <span class="c1"># make sure that value doesn&#39;t exceed 1 byte</span>
     <span class="n">normalized_bytes_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="n">U8_MAX_VALUE</span><span class="p">)</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
 
-    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">calculate_gas_extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-        <span class="o">+</span> <span class="n">GAS_VERY_LOW</span>
+    <span class="n">memory_extend_gas_cost</span> <span class="o">=</span> <span class="n">calculate_gas_extend_memory</span><span class="p">(</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="n">u256_safe_add</span><span class="p">(</span>
+        <span class="n">GAS_VERY_LOW</span><span class="p">,</span>
+        <span class="n">memory_extend_gas_cost</span><span class="p">,</span>
+        <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">total_gas_cost</span><span class="p">)</span>
 
@@ -194,9 +202,13 @@ insufficient to store the word.</p>
     <span class="c1"># convert to Uint as start_position + size_to_extend can overflow.</span>
     <span class="n">start_position</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">))</span>
 
-    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">calculate_gas_extend_memory</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
-        <span class="o">+</span> <span class="n">GAS_VERY_LOW</span>
+    <span class="n">memory_extend_gas_cost</span> <span class="o">=</span> <span class="n">calculate_gas_extend_memory</span><span class="p">(</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">start_position</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">total_gas_cost</span> <span class="o">=</span> <span class="n">u256_safe_add</span><span class="p">(</span>
+        <span class="n">GAS_VERY_LOW</span><span class="p">,</span>
+        <span class="n">memory_extend_gas_cost</span><span class="p">,</span>
+        <span class="n">exception_type</span><span class="o">=</span><span class="n">OutOfGasError</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">total_gas_cost</span><span class="p">)</span>
 

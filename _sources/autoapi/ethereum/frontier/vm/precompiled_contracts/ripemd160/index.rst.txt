@@ -49,4 +49,4 @@ ripemd160
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/ripemd160.py
    :language: python
-   :lines: 24-39
+   :lines: 26-50

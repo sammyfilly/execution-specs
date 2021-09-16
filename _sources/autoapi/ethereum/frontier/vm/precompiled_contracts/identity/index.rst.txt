@@ -49,4 +49,4 @@ identity
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/identity.py
    :language: python
-   :lines: 21-34
+   :lines: 23-45

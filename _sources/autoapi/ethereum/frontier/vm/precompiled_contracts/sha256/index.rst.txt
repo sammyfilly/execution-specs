@@ -49,4 +49,4 @@ sha256
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/sha256.py
    :language: python
-   :lines: 23-36
+   :lines: 25-47
