@@ -67,7 +67,7 @@ process_message_call
 ~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: process_message_call(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> ethereum.frontier.vm.Evm
+.. function:: process_message_call(message: ethereum.frontier.vm.Message, env: ethereum.frontier.vm.Environment) -> Tuple[ethereum.base_types.U256, ethereum.base_types.U256, Union[Tuple[], Tuple[ethereum.frontier.eth_types.Log, Ellipsis]], Set[ethereum.base_types.Bytes], bool]
    :noindexentry:
 
    If `message.current` is empty then it creates a smart contract
@@ -86,7 +86,7 @@ process_message_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 51-78
+   :lines: 55-95
 
 process_create_message
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -108,7 +108,7 @@ process_create_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 81-103
+   :lines: 99-125
 
 process_message
 ~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ process_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 106-141
+   :lines: 128-163
 
 execute_code
 ~~~~~~~~~~~~
@@ -152,4 +152,4 @@ execute_code
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 144-214
+   :lines: 166-236

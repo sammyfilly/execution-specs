@@ -51,6 +51,7 @@ Functions
    ethereum.frontier.state.storage_root
    ethereum.frontier.state.state_root
    ethereum.frontier.state.account_exists
+   ethereum.frontier.state.account_has_code_or_nonce
    ethereum.frontier.state.modify_state
    ethereum.frontier.state.move_ether
    ethereum.frontier.state.set_account_balance
@@ -373,6 +374,29 @@ account_exists
    :language: python
    :lines: 277-293
 
+account_has_code_or_nonce
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: account_has_code_or_nonce(state: State, address: ethereum.frontier.eth_types.Address) -> bool
+   :noindexentry:
+
+   Checks if an account has non zero nonce or non empty code
+
+   :param state: The state
+   :param address: Address of the account that needs to be checked.
+
+   :returns: **has_code_or_nonce** -- True if if an account has non zero nonce or non empty code,
+             False otherwise.
+   :rtype: `bool`
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 296-314
+
 modify_state
 ~~~~~~~~~~~~
 
@@ -387,7 +411,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 296-302
+   :lines: 317-323
 
 move_ether
 ~~~~~~~~~~
@@ -403,7 +427,7 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 305-323
+   :lines: 326-344
 
 set_account_balance
 ~~~~~~~~~~~~~~~~~~~
@@ -423,7 +447,7 @@ set_account_balance
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 326-345
+   :lines: 347-366
 
 touch_account
 ~~~~~~~~~~~~~
@@ -442,7 +466,7 @@ touch_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 348-361
+   :lines: 369-382
 
 increment_nonce
 ~~~~~~~~~~~~~~~
@@ -461,7 +485,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 364-380
+   :lines: 385-401
 
 set_code
 ~~~~~~~~
@@ -481,4 +505,4 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 383-402
+   :lines: 404-423

@@ -130,7 +130,7 @@
 <h4>process_message_call<a class="headerlink" href="#process-message-call" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.process_message_call">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message_call" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">process_message_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Message" title="ethereum.frontier.vm.Message"><span class="pre">ethereum.frontier.vm.Message</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../index.html#ethereum.frontier.vm.Environment" title="ethereum.frontier.vm.Environment"><span class="pre">ethereum.frontier.vm.Environment</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple[ethereum.base_types.U256,</span> <span class="pre">ethereum.base_types.U256,</span> <span class="pre">Union[Tuple[],</span> <span class="pre">Tuple[ethereum.frontier.eth_types.Log,</span> <span class="pre">Ellipsis]],</span> <span class="pre">Set[ethereum.base_types.Bytes],</span> <span class="pre">bool]</span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.process_message_call" title="Permalink to this definition">¶</a></dt>
 <dd><p>If <cite>message.current</cite> is empty then it creates a smart contract
 else it executes a call from the <cite>message.caller</cite> to the <cite>message.target</cite>.</p>
 <dl class="field-list simple">
@@ -151,15 +151,28 @@ generated during execution.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message_call</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Evm</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_message_call</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">U256</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[()],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span> <span class="n">Set</span><span class="p">[</span><span class="n">Bytes</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">Bytes0</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-        <span class="n">evm</span> <span class="o">=</span> <span class="n">process_create_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+        <span class="n">is_collision</span> <span class="o">=</span> <span class="n">account_has_code_or_nonce</span><span class="p">(</span>
+            <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_collision</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(),</span> <span class="nb">set</span><span class="p">(),</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">evm</span> <span class="o">=</span> <span class="n">process_create_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
 
     <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="p">)</span> <span class="o">*</span> <span class="n">REFUND_SELF_DESTRUCT</span>
 
-    <span class="k">return</span> <span class="n">evm</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span><span class="p">,</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="p">,</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span><span class="p">,</span>
 </pre></div>
 </div>
 </section>
@@ -190,8 +203,12 @@ generated during execution.</p>
     <span class="n">contract_code</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">output</span>
     <span class="k">if</span> <span class="n">contract_code</span><span class="p">:</span>
         <span class="n">contract_code_gas</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">contract_code</span><span class="p">)</span> <span class="o">*</span> <span class="n">GAS_CODE_DEPOSIT</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">contract_code_gas</span><span class="p">)</span>
-        <span class="n">set_code</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">contract_code_gas</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">OutOfGasError</span><span class="p">:</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">set_code</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">evm</span>
 </pre></div>
 </div>
