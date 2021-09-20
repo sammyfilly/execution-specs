@@ -141,6 +141,10 @@
     <span class="p">)</span>
 
     <span class="n">increment_nonce</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
+
+    <span class="n">create_message_gas</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">create_message_gas</span><span class="p">)</span>
+
     <span class="n">contract_address</span> <span class="o">=</span> <span class="n">compute_contract_address</span><span class="p">(</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span>
         <span class="n">get_account</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span><span class="o">.</span><span class="n">nonce</span> <span class="o">-</span> <span class="n">U256</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
@@ -150,13 +154,10 @@
         <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span>
 
-    <span class="n">gas_left</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span>
-    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">gas_left</span><span class="p">)</span>
-
     <span class="n">child_message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span>
         <span class="n">caller</span><span class="o">=</span><span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span>
         <span class="n">target</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">gas</span><span class="o">=</span><span class="n">gas_left</span><span class="p">,</span>
+        <span class="n">gas</span><span class="o">=</span><span class="n">create_message_gas</span><span class="p">,</span>
         <span class="n">value</span><span class="o">=</span><span class="n">endowment</span><span class="p">,</span>
         <span class="n">data</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="n">code</span><span class="o">=</span><span class="n">call_data</span><span class="p">,</span>
