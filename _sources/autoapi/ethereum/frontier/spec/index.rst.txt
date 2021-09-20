@@ -91,7 +91,7 @@ GAS_LIMIT_MINIMUM
 ~~~~~~~~~~~~~~~~~
 
 .. py:data:: GAS_LIMIT_MINIMUM
-   :annotation: = 125000
+   :annotation: = 5000
 
    
 
