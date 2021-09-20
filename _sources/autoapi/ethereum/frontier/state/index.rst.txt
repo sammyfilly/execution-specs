@@ -58,6 +58,7 @@ Functions
    ethereum.frontier.state.touch_account
    ethereum.frontier.state.increment_nonce
    ethereum.frontier.state.set_code
+   ethereum.frontier.state.create_ether
 
 
 
@@ -506,3 +507,23 @@ set_code
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
    :lines: 404-423
+
+create_ether
+~~~~~~~~~~~~
+
+
+.. function:: create_ether(state: State, address: ethereum.frontier.eth_types.Address, amount: ethereum.base_types.U256) -> None
+   :noindexentry:
+
+   Add newly created ether to an account.
+
+   :param state: The current state.
+   :param address: Address of the account to which ether is added.
+   :param amount: The amount of ether to be added to the account of interest.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 426-443

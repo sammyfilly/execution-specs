@@ -67,8 +67,11 @@
 <li><p><a class="reference internal" href="#encode-transaction" id="id19">encode_transaction</a></p></li>
 <li><p><a class="reference internal" href="#encode-receipt" id="id20">encode_receipt</a></p></li>
 <li><p><a class="reference internal" href="#encode-log" id="id21">encode_log</a></p></li>
-<li><p><a class="reference internal" href="#decode-to-header" id="id22">decode_to_header</a></p></li>
-<li><p><a class="reference internal" href="#rlp-hash" id="id23">rlp_hash</a></p></li>
+<li><p><a class="reference internal" href="#sequence-to-header" id="id22">sequence_to_header</a></p></li>
+<li><p><a class="reference internal" href="#sequence-to-transaction" id="id23">sequence_to_transaction</a></p></li>
+<li><p><a class="reference internal" href="#decode-to-header" id="id24">decode_to_header</a></p></li>
+<li><p><a class="reference internal" href="#decode-to-block" id="id25">decode_to_block</a></p></li>
+<li><p><a class="reference internal" href="#rlp-hash" id="id26">rlp_hash</a></p></li>
 </ul>
 </li>
 </ul>
@@ -132,10 +135,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.encode_log" title="ethereum.frontier.rlp.encode_log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode_log</span></code></a></p></td>
 <td><p>Encode <cite>Log</cite> dataclass</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.sequence_to_header" title="ethereum.frontier.rlp.sequence_to_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequence_to_header</span></code></a></p></td>
+<td><p>Build a Header object from a sequence of bytes. The sequence should be</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.sequence_to_transaction" title="ethereum.frontier.rlp.sequence_to_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequence_to_transaction</span></code></a></p></td>
+<td><p>Build a Transaction object from a sequence of bytes. The sequence should</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.decode_to_header" title="ethereum.frontier.rlp.decode_to_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_to_header</span></code></a></p></td>
 <td><p>Decodes a rlp encoded byte stream assuming that the decoded data</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.rlp_hash" title="ethereum.frontier.rlp.rlp_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rlp_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.decode_to_block" title="ethereum.frontier.rlp.decode_to_block"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_to_block</span></code></a></p></td>
+<td><p>Decodes a rlp encoded byte stream assuming that the decoded data</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.rlp.rlp_hash" title="ethereum.frontier.rlp.rlp_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rlp_hash</span></code></a></p></td>
 <td><p>Obtain the keccak-256 hash of the rlp encoding of the passed in data.</p></td>
 </tr>
 </tbody>
@@ -681,6 +693,94 @@ enocoded with providing a storage root.</p>
 </pre></div>
 </div>
 </section>
+<section id="sequence-to-header">
+<h4>sequence_to_header<a class="headerlink" href="#sequence-to-header" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.rlp.sequence_to_header">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">sequence_to_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a><a class="headerlink" href="#ethereum.frontier.rlp.sequence_to_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Header object from a sequence of bytes. The sequence should be
+containing exactly 15 byte sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sequence</strong> – The sequence of bytes which is supposed to form the Header
+object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>header</strong> – The obtained <cite>Header</cite> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Header</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequence_to_header</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Header</span><span class="p">:</span>
+    <span class="c1"># TODO: Add assertions about the number of bytes in each of the below</span>
+    <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
+
+    <span class="k">return</span> <span class="n">Header</span><span class="p">(</span>
+        <span class="n">parent_hash</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+        <span class="n">state_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+        <span class="n">transactions_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+        <span class="n">receipt_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span>
+        <span class="n">bloom</span><span class="o">=</span><span class="n">Bloom</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span>
+        <span class="n">difficulty</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">7</span><span class="p">]),</span>
+        <span class="n">number</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span>
+        <span class="n">gas_limit</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">9</span><span class="p">]),</span>
+        <span class="n">gas_used</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">10</span><span class="p">]),</span>
+        <span class="n">timestamp</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">11</span><span class="p">]),</span>
+        <span class="n">extra_data</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span>
+        <span class="n">mix_digest</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span>
+        <span class="n">nonce</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span>
+</pre></div>
+</div>
+</section>
+<section id="sequence-to-transaction">
+<h4>sequence_to_transaction<a class="headerlink" href="#sequence-to-transaction" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.rlp.sequence_to_transaction">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">sequence_to_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Transaction" title="ethereum.frontier.eth_types.Transaction"><span class="pre">ethereum.frontier.eth_types.Transaction</span></a><a class="headerlink" href="#ethereum.frontier.rlp.sequence_to_transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Transaction object from a sequence of bytes. The sequence should
+be containing exactly 9 byte sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sequence</strong> – The sequence of bytes which is supposed to form the Transaction
+object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>transaction</strong> – The obtained <cite>Transaction</cite> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Transaction</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequence_to_transaction</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Transaction</span><span class="p">:</span>
+    <span class="c1"># TODO: Add assertions about the number of bytes in each of the below</span>
+    <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+
+    <span class="n">to</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">to</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">Transaction</span><span class="p">(</span>
+        <span class="n">nonce</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="n">gas_price</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">gas</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+        <span class="n">to</span><span class="o">=</span><span class="n">to</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+        <span class="n">v</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">7</span><span class="p">]),</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span>
+</pre></div>
+</div>
+</section>
 <section id="decode-to-header">
 <h4>decode_to_header<a class="headerlink" href="#decode-to-header" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
@@ -706,26 +806,50 @@ the introduction of <cite>base_fee</cite> parameter.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_header</span><span class="p">(</span><span class="n">encoded_header</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Header</span><span class="p">:</span>
     <span class="n">decoded_data</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">],</span> <span class="n">decode</span><span class="p">(</span><span class="n">encoded_header</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sequence_to_header</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="decode-to-block">
+<h4>decode_to_block<a class="headerlink" href="#decode-to-block" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.rlp.decode_to_block">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.rlp.</span></span><span class="sig-name descname"><span class="pre">decode_to_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Block" title="ethereum.frontier.eth_types.Block"><span class="pre">ethereum.frontier.eth_types.Block</span></a><a class="headerlink" href="#ethereum.frontier.rlp.decode_to_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a rlp encoded byte stream assuming that the decoded data
+should be of type <cite>Block</cite>.</p>
+<p>NOTE - This function is valid only till the London Hardfork. Post that
+there would be changes in the Header object as well as this function with
+the introduction of <cite>base_fee</cite> parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encoded_block</strong> – An RLP encoded block.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>decoded_block</strong> – The block object decoded from <cite>encoded_block</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Block</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
-    <span class="c1"># TODO: Add assertions about the number of bytes in each of the below</span>
-    <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_block</span><span class="p">(</span><span class="n">encoded_block</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Block</span><span class="p">:</span>
+    <span class="n">sequential_header</span><span class="p">,</span> <span class="n">sequential_transactions</span><span class="p">,</span> <span class="n">sequential_ommers</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+        <span class="n">decode</span><span class="p">(</span><span class="n">encoded_block</span><span class="p">),</span>
+    <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">Header</span><span class="p">(</span>
-        <span class="n">parent_hash</span><span class="o">=</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-        <span class="n">state_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
-        <span class="n">transactions_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
-        <span class="n">receipt_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span>
-        <span class="n">bloom</span><span class="o">=</span><span class="n">Bloom</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span>
-        <span class="n">difficulty</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">7</span><span class="p">]),</span>
-        <span class="n">number</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span>
-        <span class="n">gas_limit</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">9</span><span class="p">]),</span>
-        <span class="n">gas_used</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">10</span><span class="p">]),</span>
-        <span class="n">timestamp</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">11</span><span class="p">]),</span>
-        <span class="n">extra_data</span><span class="o">=</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span>
-        <span class="n">mix_digest</span><span class="o">=</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span>
-        <span class="n">nonce</span><span class="o">=</span><span class="n">decoded_data</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">sequence_to_header</span><span class="p">(</span><span class="n">sequential_header</span><span class="p">)</span>
+    <span class="n">transactions</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="n">sequence_to_transaction</span><span class="p">(</span><span class="n">sequential_tx</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">sequential_tx</span> <span class="ow">in</span> <span class="n">sequential_transactions</span>
+    <span class="p">)</span>
+    <span class="n">ommers</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="n">sequence_to_header</span><span class="p">(</span><span class="n">sequential_ommer</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">sequential_ommer</span> <span class="ow">in</span> <span class="n">sequential_ommers</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Block</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">transactions</span><span class="p">,</span> <span class="n">ommers</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

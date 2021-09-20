@@ -71,6 +71,7 @@
 <li><p><a class="reference internal" href="#touch-account" id="id24">touch_account</a></p></li>
 <li><p><a class="reference internal" href="#increment-nonce" id="id25">increment_nonce</a></p></li>
 <li><p><a class="reference internal" href="#set-code" id="id26">set_code</a></p></li>
+<li><p><a class="reference internal" href="#create-ether" id="id27">create_ether</a></p></li>
 </ul>
 </li>
 </ul>
@@ -162,6 +163,9 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
 <td><p>Sets Account code.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.create_ether" title="ethereum.frontier.state.create_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ether</span></code></a></p></td>
+<td><p>Add newly created ether to an account.</p></td>
 </tr>
 </tbody>
 </table>
@@ -690,6 +694,32 @@ False otherwise.</p>
         <span class="n">sender</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
 
     <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">write_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-ether">
+<h4>create_ether<a class="headerlink" href="#create-ether" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.create_ether">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">create_ether</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.create_ether" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add newly created ether to an account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – The current state.</p></li>
+<li><p><strong>address</strong> – Address of the account to which ether is added.</p></li>
+<li><p><strong>amount</strong> – The amount of ether to be added to the account of interest.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_ether</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="n">U256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">increase_balance</span><span class="p">(</span><span class="n">account</span><span class="p">:</span> <span class="n">Account</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">account</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="n">modify_state</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">increase_balance</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
