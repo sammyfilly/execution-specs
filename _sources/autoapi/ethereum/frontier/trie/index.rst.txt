@@ -59,7 +59,8 @@ Attributes
 
    ethereum.frontier.trie.EMPTY_TRIE_ROOT
    ethereum.frontier.trie.Node
-   ethereum.frontier.trie.T
+   ethereum.frontier.trie.K
+   ethereum.frontier.trie.V
    ethereum.frontier.trie.InternalNode
 
 
@@ -84,10 +85,19 @@ Node
    
 
 
-T
+K
 ~
 
-.. py:data:: T
+.. py:data:: K
+   
+
+   
+
+
+V
+~
+
+.. py:data:: V
    
 
    
@@ -190,7 +200,7 @@ encode_internal_node
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 98-139
+   :lines: 101-142
 
 encode_node
 ~~~~~~~~~~~
@@ -208,7 +218,7 @@ encode_node
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 142-157
+   :lines: 145-160
 
 Trie
 ~~~~
@@ -219,7 +229,7 @@ The Merkle Trie.
 
 .. class:: Trie
 
-   Bases: :py:obj:`Generic`\ [\ :py:obj:`T`\ ]
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`K`\ , :py:obj:`V`\ ]
 
    .. py:attribute:: secured
       :annotation: :bool
@@ -227,12 +237,12 @@ The Merkle Trie.
       
 
    .. py:attribute:: default
-      :annotation: :T
+      :annotation: :V
 
       
 
    .. py:attribute:: _data
-      :annotation: :Dict[ethereum.base_types.Bytes, T]
+      :annotation: :Dict[K, V]
 
       
 
@@ -242,7 +252,7 @@ copy_trie
 ~~~~~~~~~
 
 
-.. function:: copy_trie(trie: Trie[T]) -> Trie[T]
+.. function:: copy_trie(trie: Trie[K, V]) -> Trie[K, V]
    :noindexentry:
 
    Create a copy of `trie`. Since only frozen objects may be stored in tries,
@@ -252,20 +262,20 @@ copy_trie
    :type trie: `Trie`
 
    :returns: **new_trie** -- A copy of the trie.
-   :rtype: `T`
+   :rtype: `Trie[K, V]`
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 172-187
+   :lines: 175-190
 
 trie_set
 ~~~~~~~~
 
 
-.. function:: trie_set(trie: Trie[T], key: ethereum.base_types.Bytes, value: T) -> None
+.. function:: trie_set(trie: Trie[K, V], key: K, value: V) -> None
    :noindexentry:
 
    Stores an item in a Merkle Trie.
@@ -278,20 +288,20 @@ trie_set
    :param key: Key to lookup.
    :type key: `Bytes`
    :param value: Node to insert at `key`.
-   :type value: `T`
+   :type value: `V`
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 190-210
+   :lines: 193-213
 
 trie_get
 ~~~~~~~~
 
 
-.. function:: trie_get(trie: Trie, key: ethereum.base_types.Bytes) -> T
+.. function:: trie_get(trie: Trie[K, V], key: K) -> V
    :noindexentry:
 
    Gets an item from the Merkle Trie.
@@ -299,19 +309,17 @@ trie_get
    This method returns `trie.default` if the key is missing.
 
    :param trie: Trie to lookup in.
-   :type trie: `Trie`
    :param key: Key to lookup.
-   :type key: `Bytes`
 
    :returns: **node** -- Node at `key` in the trie.
-   :rtype: `T`
+   :rtype: `V`
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 213-231
+   :lines: 216-234
 
 common_prefix_length
 ~~~~~~~~~~~~~~~~~~~~
@@ -327,7 +335,7 @@ common_prefix_length
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 234-241
+   :lines: 237-244
 
 nibble_list_to_compact
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -367,19 +375,18 @@ nibble_list_to_compact
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 244-289
+   :lines: 247-292
 
 bytes_to_nibble_list
 ~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: bytes_to_nibble_list(bytes: ethereum.base_types.Bytes) -> ethereum.base_types.Bytes
+.. function:: bytes_to_nibble_list(bytes_: ethereum.base_types.Bytes) -> ethereum.base_types.Bytes
    :noindexentry:
 
    Converts a `Bytes` into to a sequence of nibbles (bytes with value < 16).
 
-   :param bytes: The `Bytes` to convert.
-   :type bytes: `Bytes`
+   :param bytes_: The `Bytes` to convert.
 
    :returns: **nibble_list** -- The `Bytes` in nibble-list format.
    :rtype: `Bytes`
@@ -389,23 +396,21 @@ bytes_to_nibble_list
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 292-310
+   :lines: 295-313
 
 _prepare_trie
 ~~~~~~~~~~~~~
 
 
-.. function:: _prepare_trie(trie: Trie, get_storage_root: Callable[[ethereum.base_types.Bytes], ethereum.base_types.Bytes] = None) -> Mapping[ethereum.base_types.Bytes, ethereum.base_types.Bytes]
+.. function:: _prepare_trie(trie: Trie[K, V], get_storage_root: Callable[[ethereum.frontier.eth_types.Address], ethereum.frontier.eth_types.Root] = None) -> Mapping[ethereum.base_types.Bytes, ethereum.base_types.Bytes]
    :noindexentry:
 
    Prepares the trie for root calculation. Removes values that are empty,
    hashes the keys (if `secured == True`) and encodes all the nodes.
 
    :param trie: The `Trie` to prepare.
-   :type trie: `Trie`
    :param get_storage_root: Function to get the storage root of an account. Needed to encode
                             `Account` objects.
-   :type get_storage_root: `Callable[[Bytes], Bytes]`
 
    :returns: **out** -- Object with keys mapped to nibble-byte form.
    :rtype: `Mapping[eth1spec.base_types.Bytes, Node]`
@@ -415,22 +420,20 @@ _prepare_trie
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 313-348
+   :lines: 316-356
 
 root
 ~~~~
 
 
-.. function:: root(trie: Trie, get_storage_root: Callable[[ethereum.base_types.Bytes], ethereum.base_types.Bytes] = None) -> ethereum.frontier.eth_types.Root
+.. function:: root(trie: Trie[K, V], get_storage_root: Callable[[ethereum.frontier.eth_types.Address], ethereum.frontier.eth_types.Root] = None) -> ethereum.frontier.eth_types.Root
    :noindexentry:
 
    Computes the root of a modified merkle patricia trie (MPT).
 
    :param trie: `Trie` to get the root of.
-   :type trie: `Trie`
    :param get_storage_root: Function to get the storage root of an account. Needed to encode
                             `Account` objects.
-   :type get_storage_root: `Callable[[Bytes], Bytes]`
 
    :returns: **root** -- MPT root of the underlying key-value pairs.
    :rtype: `eth1spec.eth_types.Root`
@@ -440,7 +443,7 @@ root
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 351-379
+   :lines: 359-387
 
 patricialize
 ~~~~~~~~~~~~
@@ -465,4 +468,4 @@ patricialize
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 382-452
+   :lines: 390-460

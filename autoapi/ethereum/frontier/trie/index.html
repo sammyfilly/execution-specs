@@ -54,23 +54,24 @@
 <ul>
 <li><p><a class="reference internal" href="#empty-trie-root" id="id7">EMPTY_TRIE_ROOT</a></p></li>
 <li><p><a class="reference internal" href="#node" id="id8">Node</a></p></li>
-<li><p><a class="reference internal" href="#t" id="id9">T</a></p></li>
-<li><p><a class="reference internal" href="#leafnode" id="id10">LeafNode</a></p></li>
-<li><p><a class="reference internal" href="#extensionnode" id="id11">ExtensionNode</a></p></li>
-<li><p><a class="reference internal" href="#branchnode" id="id12">BranchNode</a></p></li>
-<li><p><a class="reference internal" href="#internalnode" id="id13">InternalNode</a></p></li>
-<li><p><a class="reference internal" href="#encode-internal-node" id="id14">encode_internal_node</a></p></li>
-<li><p><a class="reference internal" href="#encode-node" id="id15">encode_node</a></p></li>
-<li><p><a class="reference internal" href="#trie" id="id16">Trie</a></p></li>
-<li><p><a class="reference internal" href="#copy-trie" id="id17">copy_trie</a></p></li>
-<li><p><a class="reference internal" href="#trie-set" id="id18">trie_set</a></p></li>
-<li><p><a class="reference internal" href="#trie-get" id="id19">trie_get</a></p></li>
-<li><p><a class="reference internal" href="#common-prefix-length" id="id20">common_prefix_length</a></p></li>
-<li><p><a class="reference internal" href="#nibble-list-to-compact" id="id21">nibble_list_to_compact</a></p></li>
-<li><p><a class="reference internal" href="#bytes-to-nibble-list" id="id22">bytes_to_nibble_list</a></p></li>
-<li><p><a class="reference internal" href="#prepare-trie" id="id23">_prepare_trie</a></p></li>
-<li><p><a class="reference internal" href="#root" id="id24">root</a></p></li>
-<li><p><a class="reference internal" href="#patricialize" id="id25">patricialize</a></p></li>
+<li><p><a class="reference internal" href="#k" id="id9">K</a></p></li>
+<li><p><a class="reference internal" href="#v" id="id10">V</a></p></li>
+<li><p><a class="reference internal" href="#leafnode" id="id11">LeafNode</a></p></li>
+<li><p><a class="reference internal" href="#extensionnode" id="id12">ExtensionNode</a></p></li>
+<li><p><a class="reference internal" href="#branchnode" id="id13">BranchNode</a></p></li>
+<li><p><a class="reference internal" href="#internalnode" id="id14">InternalNode</a></p></li>
+<li><p><a class="reference internal" href="#encode-internal-node" id="id15">encode_internal_node</a></p></li>
+<li><p><a class="reference internal" href="#encode-node" id="id16">encode_node</a></p></li>
+<li><p><a class="reference internal" href="#trie" id="id17">Trie</a></p></li>
+<li><p><a class="reference internal" href="#copy-trie" id="id18">copy_trie</a></p></li>
+<li><p><a class="reference internal" href="#trie-set" id="id19">trie_set</a></p></li>
+<li><p><a class="reference internal" href="#trie-get" id="id20">trie_get</a></p></li>
+<li><p><a class="reference internal" href="#common-prefix-length" id="id21">common_prefix_length</a></p></li>
+<li><p><a class="reference internal" href="#nibble-list-to-compact" id="id22">nibble_list_to_compact</a></p></li>
+<li><p><a class="reference internal" href="#bytes-to-nibble-list" id="id23">bytes_to_nibble_list</a></p></li>
+<li><p><a class="reference internal" href="#prepare-trie" id="id24">_prepare_trie</a></p></li>
+<li><p><a class="reference internal" href="#root" id="id25">root</a></p></li>
+<li><p><a class="reference internal" href="#patricialize" id="id26">patricialize</a></p></li>
 </ul>
 </li>
 </ul>
@@ -163,10 +164,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.Node" title="ethereum.frontier.trie.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Node</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">K</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.InternalNode" title="ethereum.frontier.trie.InternalNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InternalNode</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.trie.InternalNode" title="ethereum.frontier.trie.InternalNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InternalNode</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -191,11 +195,19 @@
 <dd></dd></dl>
 
 </section>
-<section id="t">
-<h4>T<a class="headerlink" href="#t" title="Permalink to this headline">¶</a></h4>
+<section id="k">
+<h4>K<a class="headerlink" href="#k" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
-<dt class="sig sig-object py" id="ethereum.frontier.trie.T">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ethereum.frontier.trie.T" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ethereum.frontier.trie.K">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#ethereum.frontier.trie.K" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="v">
+<h4>V<a class="headerlink" href="#v" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.frontier.trie.V">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#ethereum.frontier.trie.V" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -343,7 +355,7 @@ which is encoded to <cite>b””</cite>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.Trie">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">Trie</span></span><a class="headerlink" href="#ethereum.frontier.trie.Trie" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">K</span></code></a>, <a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V</span></code></a>]</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.Trie.secured">
 <span class="sig-name descname"><span class="pre">secured</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#ethereum.frontier.trie.Trie.secured" title="Permalink to this definition">¶</a></dt>
@@ -351,12 +363,12 @@ which is encoded to <cite>b””</cite>.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.Trie.default">
-<span class="sig-name descname"><span class="pre">default</span></span><em class="property"> <span class="pre">:T</span></em><a class="headerlink" href="#ethereum.frontier.trie.Trie.default" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"> <span class="pre">:V</span></em><a class="headerlink" href="#ethereum.frontier.trie.Trie.default" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.Trie._data">
-<span class="sig-name descname"><span class="pre">_data</span></span><em class="property"> <span class="pre">:Dict[ethereum.base_types.Bytes,</span> <span class="pre">T]</span></em><a class="headerlink" href="#ethereum.frontier.trie.Trie._data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_data</span></span><em class="property"> <span class="pre">:Dict[K,</span> <span class="pre">V]</span></em><a class="headerlink" href="#ethereum.frontier.trie.Trie._data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -366,7 +378,7 @@ which is encoded to <cite>b””</cite>.</p>
 <h4>copy_trie<a class="headerlink" href="#copy-trie" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.copy_trie">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">copy_trie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.trie.copy_trie" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">copy_trie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.trie.copy_trie" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a copy of <cite>trie</cite>. Since only frozen objects may be stored in tries,
 the contents are reused.</p>
 <dl class="field-list simple">
@@ -377,12 +389,12 @@ the contents are reused.</p>
 <dd class="field-even"><p><strong>new_trie</strong> – A copy of the trie.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>T</cite></p>
+<dd class="field-odd"><p><cite>Trie[K, V]</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copy_trie</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Trie</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copy_trie</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">]:</span>
     <span class="k">return</span> <span class="n">Trie</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">secured</span><span class="p">,</span> <span class="n">trie</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -391,7 +403,7 @@ the contents are reused.</p>
 <h4>trie_set<a class="headerlink" href="#trie-set" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.trie_set">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">trie_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.trie.trie_set" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">trie_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.trie.trie_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores an item in a Merkle Trie.</p>
 <p>This method deletes the key if <cite>value == trie.default</cite>, because the Merkle
 Trie represents the default value by omitting it from the trie.</p>
@@ -400,13 +412,13 @@ Trie represents the default value by omitting it from the trie.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>trie</strong> (<cite>Trie</cite>) – Trie to store in.</p></li>
 <li><p><strong>key</strong> (<cite>Bytes</cite>) – Key to lookup.</p></li>
-<li><p><strong>value</strong> (<cite>T</cite>) – Node to insert at <cite>key</cite>.</p></li>
+<li><p><strong>value</strong> (<cite>V</cite>) – Node to insert at <cite>key</cite>.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trie_set</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trie_set</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="n">K</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">V</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">trie</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
@@ -419,26 +431,26 @@ Trie represents the default value by omitting it from the trie.</p>
 <h4>trie_get<a class="headerlink" href="#trie-get" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.trie_get">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">trie_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.trie.T" title="ethereum.frontier.trie.T"><span class="pre">T</span></a><a class="headerlink" href="#ethereum.frontier.trie.trie_get" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">trie_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><a class="headerlink" href="#ethereum.frontier.trie.trie_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an item from the Merkle Trie.</p>
 <p>This method returns <cite>trie.default</cite> if the key is missing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>trie</strong> (<cite>Trie</cite>) – Trie to lookup in.</p></li>
-<li><p><strong>key</strong> (<cite>Bytes</cite>) – Key to lookup.</p></li>
+<li><p><strong>trie</strong> – Trie to lookup in.</p></li>
+<li><p><strong>key</strong> – Key to lookup.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>node</strong> – Node at <cite>key</cite> in the trie.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>T</cite></p>
+<dd class="field-odd"><p><cite>V</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trie_get</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trie_get</span><span class="p">(</span><span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="n">K</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">V</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">trie</span><span class="o">.</span><span class="n">default</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -516,11 +528,11 @@ node.</p></li>
 <h4>bytes_to_nibble_list<a class="headerlink" href="#bytes-to-nibble-list" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.bytes_to_nibble_list">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">bytes_to_nibble_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.trie.bytes_to_nibble_list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">bytes_to_nibble_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.trie.bytes_to_nibble_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a <cite>Bytes</cite> into to a sequence of nibbles (bytes with value &lt; 16).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>bytes</strong> (<cite>Bytes</cite>) – The <cite>Bytes</cite> to convert.</p>
+<dd class="field-odd"><p><strong>bytes</strong> – The <cite>Bytes</cite> to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>nibble_list</strong> – The <cite>Bytes</cite> in nibble-list format.</p>
@@ -531,9 +543,9 @@ node.</p></li>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bytes_to_nibble_list</span><span class="p">(</span><span class="nb">bytes</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="n">nibble_list</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bytes</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">byte_index</span><span class="p">,</span> <span class="n">byte</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">bytes</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bytes_to_nibble_list</span><span class="p">(</span><span class="n">bytes_</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+    <span class="n">nibble_list</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bytes_</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">byte_index</span><span class="p">,</span> <span class="n">byte</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bytes_</span><span class="p">):</span>
         <span class="n">nibble_list</span><span class="p">[</span><span class="n">byte_index</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">&amp;</span> <span class="mh">0xF0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
         <span class="n">nibble_list</span><span class="p">[</span><span class="n">byte_index</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">byte</span> <span class="o">&amp;</span> <span class="mh">0x0F</span>
     <span class="k">return</span> <span class="n">Bytes</span><span class="p">(</span><span class="n">nibble_list</span><span class="p">)</span>
@@ -544,14 +556,14 @@ node.</p></li>
 <h4>_prepare_trie<a class="headerlink" href="#prepare-trie" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie._prepare_trie">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">_prepare_trie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_storage_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.trie._prepare_trie" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">_prepare_trie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_storage_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.trie._prepare_trie" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepares the trie for root calculation. Removes values that are empty,
 hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>trie</strong> (<cite>Trie</cite>) – The <cite>Trie</cite> to prepare.</p></li>
-<li><p><strong>get_storage_root</strong> (<cite>Callable[[Bytes], Bytes]</cite>) – Function to get the storage root of an account. Needed to encode
+<li><p><strong>trie</strong> – The <cite>Trie</cite> to prepare.</p></li>
+<li><p><strong>get_storage_root</strong> – Function to get the storage root of an account. Needed to encode
 <cite>Account</cite> objects.</p></li>
 </ul>
 </dd>
@@ -565,21 +577,26 @@ hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_prepare_trie</span><span class="p">(</span>
-    <span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">,</span>
-    <span class="n">get_storage_root</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Bytes</span><span class="p">],</span> <span class="n">Bytes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span>
+    <span class="n">get_storage_root</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Address</span><span class="p">],</span> <span class="n">Root</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">]:</span>
     <span class="n">mapped</span><span class="p">:</span> <span class="n">MutableMapping</span><span class="p">[</span><span class="n">Bytes</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="n">preimage</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">trie</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
             <span class="k">assert</span> <span class="n">get_storage_root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-            <span class="n">encoded_value</span> <span class="o">=</span> <span class="n">encode_node</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">get_storage_root</span><span class="p">(</span><span class="n">preimage</span><span class="p">))</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">preimage</span><span class="p">)</span>
+            <span class="n">encoded_value</span> <span class="o">=</span> <span class="n">encode_node</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">get_storage_root</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">encoded_value</span> <span class="o">=</span> <span class="n">encode_node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="c1"># Empty values are represented by their absence</span>
         <span class="k">assert</span> <span class="n">encoded_value</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-        <span class="c1"># &quot;secure&quot; tries hash keys once before construction</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">preimage</span><span class="p">)</span> <span class="k">if</span> <span class="n">trie</span><span class="o">.</span><span class="n">secured</span> <span class="k">else</span> <span class="n">preimage</span>
+        <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span>
+        <span class="k">if</span> <span class="n">trie</span><span class="o">.</span><span class="n">secured</span><span class="p">:</span>
+            <span class="c1"># &quot;secure&quot; tries hash keys once before construction</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">preimage</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">preimage</span>
         <span class="n">mapped</span><span class="p">[</span><span class="n">bytes_to_nibble_list</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">encoded_value</span>
 
     <span class="k">return</span> <span class="n">mapped</span>
@@ -590,13 +607,13 @@ hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
 <h4>root<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.root">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_storage_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><a class="headerlink" href="#ethereum.frontier.trie.root" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trie</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.trie.Trie" title="ethereum.frontier.trie.Trie"><span class="pre">Trie</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ethereum.frontier.trie.K" title="ethereum.frontier.trie.K"><span class="pre">K</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#ethereum.frontier.trie.V" title="ethereum.frontier.trie.V"><span class="pre">V</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_storage_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><a class="headerlink" href="#ethereum.frontier.trie.root" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the root of a modified merkle patricia trie (MPT).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>trie</strong> (<cite>Trie</cite>) – <cite>Trie</cite> to get the root of.</p></li>
-<li><p><strong>get_storage_root</strong> (<cite>Callable[[Bytes], Bytes]</cite>) – Function to get the storage root of an account. Needed to encode
+<li><p><strong>trie</strong> – <cite>Trie</cite> to get the root of.</p></li>
+<li><p><strong>get_storage_root</strong> – Function to get the storage root of an account. Needed to encode
 <cite>Account</cite> objects.</p></li>
 </ul>
 </dd>
@@ -610,8 +627,8 @@ hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">root</span><span class="p">(</span>
-    <span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">,</span>
-    <span class="n">get_storage_root</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Bytes</span><span class="p">],</span> <span class="n">Bytes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">trie</span><span class="p">:</span> <span class="n">Trie</span><span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span>
+    <span class="n">get_storage_root</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Address</span><span class="p">],</span> <span class="n">Root</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="n">_prepare_trie</span><span class="p">(</span><span class="n">trie</span><span class="p">,</span> <span class="n">get_storage_root</span><span class="p">)</span>
 
@@ -620,7 +637,7 @@ hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
         <span class="k">return</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">root_node</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">root_node</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">root_node</span>
+        <span class="k">return</span> <span class="n">Root</span><span class="p">(</span><span class="n">root_node</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

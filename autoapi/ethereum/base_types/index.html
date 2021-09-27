@@ -60,20 +60,22 @@
 <li><p><a class="reference internal" href="#fixeduint" id="id12">FixedUInt</a></p></li>
 <li><p><a class="reference internal" href="#u256" id="id13">U256</a></p></li>
 <li><p><a class="reference internal" href="#uint32" id="id14">Uint32</a></p></li>
-<li><p><a class="reference internal" href="#bytes" id="id15">Bytes</a></p></li>
-<li><p><a class="reference internal" href="#bytes0" id="id16">Bytes0</a></p></li>
-<li><p><a class="reference internal" href="#bytes4" id="id17">Bytes4</a></p></li>
-<li><p><a class="reference internal" href="#bytes8" id="id18">Bytes8</a></p></li>
-<li><p><a class="reference internal" href="#bytes20" id="id19">Bytes20</a></p></li>
-<li><p><a class="reference internal" href="#bytes32" id="id20">Bytes32</a></p></li>
-<li><p><a class="reference internal" href="#bytes64" id="id21">Bytes64</a></p></li>
-<li><p><a class="reference internal" href="#bytes256" id="id22">Bytes256</a></p></li>
-<li><p><a class="reference internal" href="#setattr-function" id="id23">_setattr_function</a></p></li>
-<li><p><a class="reference internal" href="#delattr-function" id="id24">_delattr_function</a></p></li>
-<li><p><a class="reference internal" href="#make-init-function" id="id25">_make_init_function</a></p></li>
-<li><p><a class="reference internal" href="#slotted-freezable" id="id26">slotted_freezable</a></p></li>
-<li><p><a class="reference internal" href="#s" id="id27">S</a></p></li>
-<li><p><a class="reference internal" href="#modify" id="id28">modify</a></p></li>
+<li><p><a class="reference internal" href="#b" id="id15">B</a></p></li>
+<li><p><a class="reference internal" href="#fixedbytes" id="id16">FixedBytes</a></p></li>
+<li><p><a class="reference internal" href="#bytes0" id="id17">Bytes0</a></p></li>
+<li><p><a class="reference internal" href="#bytes4" id="id18">Bytes4</a></p></li>
+<li><p><a class="reference internal" href="#bytes8" id="id19">Bytes8</a></p></li>
+<li><p><a class="reference internal" href="#bytes20" id="id20">Bytes20</a></p></li>
+<li><p><a class="reference internal" href="#bytes32" id="id21">Bytes32</a></p></li>
+<li><p><a class="reference internal" href="#bytes64" id="id22">Bytes64</a></p></li>
+<li><p><a class="reference internal" href="#bytes256" id="id23">Bytes256</a></p></li>
+<li><p><a class="reference internal" href="#bytes" id="id24">Bytes</a></p></li>
+<li><p><a class="reference internal" href="#setattr-function" id="id25">_setattr_function</a></p></li>
+<li><p><a class="reference internal" href="#delattr-function" id="id26">_delattr_function</a></p></li>
+<li><p><a class="reference internal" href="#make-init-function" id="id27">_make_init_function</a></p></li>
+<li><p><a class="reference internal" href="#slotted-freezable" id="id28">slotted_freezable</a></p></li>
+<li><p><a class="reference internal" href="#s" id="id29">S</a></p></li>
+<li><p><a class="reference internal" href="#modify" id="id30">modify</a></p></li>
 </ul>
 </li>
 </ul>
@@ -103,6 +105,30 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Uint32" title="ethereum.base_types.Uint32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uint32</span></code></a></p></td>
 <td><p>Unsigned positive integer, which can represent <cite>0</cite> to <cite>2 ** 32 - 1</cite>,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p></td>
+<td><p>Superclass for fixed sized byte arrays. Not intended to be used directly,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes0" title="ethereum.base_types.Bytes0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes0</span></code></a></p></td>
+<td><p>Byte array of exactly zero elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes4" title="ethereum.base_types.Bytes4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes4</span></code></a></p></td>
+<td><p>Byte array of exactly four elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
+<td><p>Byte array of exactly eight elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes20" title="ethereum.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
+<td><p>Byte array of exactly 20 elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes32" title="ethereum.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
+<td><p>Byte array of exactly 32 elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes64" title="ethereum.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
+<td><p>Byte array of exactly 64 elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes256" title="ethereum.base_types.Bytes256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes256</span></code></a></p></td>
+<td><p>Byte array of exactly 256 elements.</p></td>
 </tr>
 </tbody>
 </table>
@@ -153,28 +179,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.T" title="ethereum.base_types.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.B" title="ethereum.base_types.B"><code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes0" title="ethereum.base_types.Bytes0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes0</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes4" title="ethereum.base_types.Bytes4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes4</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes8" title="ethereum.base_types.Bytes8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes8</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes20" title="ethereum.base_types.Bytes20"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes20</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes32" title="ethereum.base_types.Bytes32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes32</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes64" title="ethereum.base_types.Bytes64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes64</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes256" title="ethereum.base_types.Bytes256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes256</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bytes</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.base_types.S" title="ethereum.base_types.S"><code class="xref py py-obj docutils literal notranslate"><span class="pre">S</span></code></a></p></td>
@@ -715,67 +723,145 @@ from its little endian representation.</p>
 </dd></dl>
 
 </section>
+<section id="b">
+<h4>B<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h4>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.base_types.B">
+<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">B</span></span><a class="headerlink" href="#ethereum.base_types.B" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="fixedbytes">
+<h4>FixedBytes<a class="headerlink" href="#fixedbytes" title="Permalink to this headline">¶</a></h4>
+<p>Superclass for fixed sized byte arrays. Not intended to be used directly,
+but should be subclassed.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.FixedBytes">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">FixedBytes</span></span><a class="headerlink" href="#ethereum.base_types.FixedBytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.FixedBytes.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#ethereum.base_types.FixedBytes.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.FixedBytes.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#ethereum.base_types.FixedBytes.__slots__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes0">
+<h4>Bytes0<a class="headerlink" href="#bytes0" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly zero elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes0">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes0</span></span><a class="headerlink" href="#ethereum.base_types.Bytes0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes0.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#ethereum.base_types.Bytes0.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes4">
+<h4>Bytes4<a class="headerlink" href="#bytes4" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly four elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes4">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes4</span></span><a class="headerlink" href="#ethereum.base_types.Bytes4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes4.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#ethereum.base_types.Bytes4.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes8">
+<h4>Bytes8<a class="headerlink" href="#bytes8" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly eight elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes8">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes8</span></span><a class="headerlink" href="#ethereum.base_types.Bytes8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes8.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#ethereum.base_types.Bytes8.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes20">
+<h4>Bytes20<a class="headerlink" href="#bytes20" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly 20 elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes20">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes20</span></span><a class="headerlink" href="#ethereum.base_types.Bytes20" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes20.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">20</span></em><a class="headerlink" href="#ethereum.base_types.Bytes20.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes32">
+<h4>Bytes32<a class="headerlink" href="#bytes32" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly 32 elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes32">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes32</span></span><a class="headerlink" href="#ethereum.base_types.Bytes32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes32.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#ethereum.base_types.Bytes32.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes64">
+<h4>Bytes64<a class="headerlink" href="#bytes64" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly 64 elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes64">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes64</span></span><a class="headerlink" href="#ethereum.base_types.Bytes64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes64.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">64</span></em><a class="headerlink" href="#ethereum.base_types.Bytes64.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bytes256">
+<h4>Bytes256<a class="headerlink" href="#bytes256" title="Permalink to this headline">¶</a></h4>
+<p>Byte array of exactly 256 elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes256">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes256</span></span><a class="headerlink" href="#ethereum.base_types.Bytes256" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ethereum.base_types.FixedBytes" title="ethereum.base_types.FixedBytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedBytes</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.base_types.Bytes256.LENGTH">
+<span class="sig-name descname"><span class="pre">LENGTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">256</span></em><a class="headerlink" href="#ethereum.base_types.Bytes256.LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="bytes">
 <h4>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.base_types.Bytes">
 <span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes</span></span><a class="headerlink" href="#ethereum.base_types.Bytes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes0">
-<h4>Bytes0<a class="headerlink" href="#bytes0" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes0">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes0</span></span><a class="headerlink" href="#ethereum.base_types.Bytes0" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes4">
-<h4>Bytes4<a class="headerlink" href="#bytes4" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes4">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes4</span></span><a class="headerlink" href="#ethereum.base_types.Bytes4" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes8">
-<h4>Bytes8<a class="headerlink" href="#bytes8" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes8">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes8</span></span><a class="headerlink" href="#ethereum.base_types.Bytes8" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes20">
-<h4>Bytes20<a class="headerlink" href="#bytes20" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes20">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes20</span></span><a class="headerlink" href="#ethereum.base_types.Bytes20" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes32">
-<h4>Bytes32<a class="headerlink" href="#bytes32" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes32">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes32</span></span><a class="headerlink" href="#ethereum.base_types.Bytes32" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes64">
-<h4>Bytes64<a class="headerlink" href="#bytes64" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes64">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes64</span></span><a class="headerlink" href="#ethereum.base_types.Bytes64" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="bytes256">
-<h4>Bytes256<a class="headerlink" href="#bytes256" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.base_types.Bytes256">
-<span class="sig-prename descclassname"><span class="pre">ethereum.base_types.</span></span><span class="sig-name descname"><span class="pre">Bytes256</span></span><a class="headerlink" href="#ethereum.base_types.Bytes256" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>

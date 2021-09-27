@@ -135,7 +135,7 @@ Items that are used by contract creation or message call.
       
 
    .. py:attribute:: target
-      :annotation: :ethereum.frontier.eth_types.Address
+      :annotation: :Union[ethereum.base_types.Bytes0, ethereum.frontier.eth_types.Address]
 
       
 

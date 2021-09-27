@@ -337,7 +337,7 @@ belongs.</p>
         <span class="n">seed</span> <span class="o">=</span> <span class="n">keccak256</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
         <span class="n">epoch_number</span> <span class="o">-=</span> <span class="mi">1</span>
 
-    <span class="k">return</span> <span class="n">seed</span>
+    <span class="k">return</span> <span class="n">Hash32</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -500,7 +500,7 @@ dataset item.</p></li>
         <span class="n">parent</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">cache_index</span><span class="p">]</span>
         <span class="n">mix_integers</span> <span class="o">=</span> <span class="n">fnv_hash</span><span class="p">(</span><span class="n">mix_integers</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
 
-    <span class="n">mix</span> <span class="o">=</span> <span class="n">le_uint32_sequence_to_bytes</span><span class="p">(</span><span class="n">mix_integers</span><span class="p">)</span>
+    <span class="n">mix</span> <span class="o">=</span> <span class="n">Hash64</span><span class="p">(</span><span class="n">le_uint32_sequence_to_bytes</span><span class="p">(</span><span class="n">mix_integers</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">keccak512</span><span class="p">(</span><span class="n">mix</span><span class="p">)</span>
 </pre></div>

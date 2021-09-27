@@ -715,13 +715,13 @@ object.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequence_to_header</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Header</span><span class="p">:</span>
-    <span class="c1"># TODO: Add assertions about the number of bytes in each of the below</span>
-    <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
 
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">32</span>
+
     <span class="k">return</span> <span class="n">Header</span><span class="p">(</span>
-        <span class="n">parent_hash</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">parent_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
         <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
         <span class="n">state_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
         <span class="n">transactions_root</span><span class="o">=</span><span class="n">Root</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
@@ -733,8 +733,8 @@ object.</p>
         <span class="n">gas_used</span><span class="o">=</span><span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">10</span><span class="p">]),</span>
         <span class="n">timestamp</span><span class="o">=</span><span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">11</span><span class="p">]),</span>
         <span class="n">extra_data</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span>
-        <span class="n">mix_digest</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span>
-        <span class="n">nonce</span><span class="o">=</span><span class="n">sequence</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span>
+        <span class="n">mix_digest</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">13</span><span class="p">]),</span>
+        <span class="n">nonce</span><span class="o">=</span><span class="n">Bytes8</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">14</span><span class="p">]),</span>
 </pre></div>
 </div>
 </section>
@@ -764,7 +764,7 @@ object.</p>
     <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
 
-    <span class="n">to</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="n">to</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Bytes0</span><span class="p">,</span> <span class="n">Address</span><span class="p">]</span> <span class="o">=</span> <span class="n">Bytes0</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
         <span class="n">to</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 

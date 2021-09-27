@@ -28,6 +28,14 @@ Classes
    ethereum.base_types.FixedUInt
    ethereum.base_types.U256
    ethereum.base_types.Uint32
+   ethereum.base_types.FixedBytes
+   ethereum.base_types.Bytes0
+   ethereum.base_types.Bytes4
+   ethereum.base_types.Bytes8
+   ethereum.base_types.Bytes20
+   ethereum.base_types.Bytes32
+   ethereum.base_types.Bytes64
+   ethereum.base_types.Bytes256
 
 
 
@@ -54,14 +62,8 @@ Attributes
    ethereum.base_types.U255_CEIL_VALUE
    ethereum.base_types.U256_CEIL_VALUE
    ethereum.base_types.T
+   ethereum.base_types.B
    ethereum.base_types.Bytes
-   ethereum.base_types.Bytes0
-   ethereum.base_types.Bytes4
-   ethereum.base_types.Bytes8
-   ethereum.base_types.Bytes20
-   ethereum.base_types.Bytes32
-   ethereum.base_types.Bytes64
-   ethereum.base_types.Bytes256
    ethereum.base_types.S
 
 
@@ -518,73 +520,177 @@ inclusive.
 
 
 
-Bytes
-~~~~~
+B
+~
 
-.. py:data:: Bytes
+.. py:data:: B
    
 
    
+
+
+FixedBytes
+~~~~~~~~~~
+
+
+Superclass for fixed sized byte arrays. Not intended to be used directly,
+but should be subclassed.
+
+
+.. class:: FixedBytes
+
+
+   Bases: :py:obj:`bytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: :int
+
+      
+
+   .. py:attribute:: __slots__
+      :annotation: = []
+
+      
+
 
 
 Bytes0
 ~~~~~~
 
-.. py:data:: Bytes0
-   
 
-   
+Byte array of exactly zero elements.
+
+
+.. class:: Bytes0
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 0
+
+      
+
 
 
 Bytes4
 ~~~~~~
 
-.. py:data:: Bytes4
-   
 
-   
+Byte array of exactly four elements.
+
+
+.. class:: Bytes4
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 4
+
+      
+
 
 
 Bytes8
 ~~~~~~
 
-.. py:data:: Bytes8
-   
 
-   
+Byte array of exactly eight elements.
+
+
+.. class:: Bytes8
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 8
+
+      
+
 
 
 Bytes20
 ~~~~~~~
 
-.. py:data:: Bytes20
-   
 
-   
+Byte array of exactly 20 elements.
+
+
+.. class:: Bytes20
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 20
+
+      
+
 
 
 Bytes32
 ~~~~~~~
 
-.. py:data:: Bytes32
-   
 
-   
+Byte array of exactly 32 elements.
+
+
+.. class:: Bytes32
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 32
+
+      
+
 
 
 Bytes64
 ~~~~~~~
 
-.. py:data:: Bytes64
-   
 
-   
+Byte array of exactly 64 elements.
+
+
+.. class:: Bytes64
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 64
+
+      
+
 
 
 Bytes256
 ~~~~~~~~
 
-.. py:data:: Bytes256
+
+Byte array of exactly 256 elements.
+
+
+.. class:: Bytes256
+
+
+   Bases: :py:obj:`FixedBytes`
+
+   .. py:attribute:: LENGTH
+      :annotation: = 256
+
+      
+
+
+
+Bytes
+~~~~~
+
+.. py:data:: Bytes
    
 
    
@@ -602,7 +708,7 @@ _setattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 697-701
+   :lines: 768-772
 
 _delattr_function
 ~~~~~~~~~~~~~~~~~
@@ -616,7 +722,7 @@ _delattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 704-708
+   :lines: 775-779
 
 _make_init_function
 ~~~~~~~~~~~~~~~~~~~
@@ -630,7 +736,7 @@ _make_init_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 711-718
+   :lines: 782-789
 
 slotted_freezable
 ~~~~~~~~~~~~~~~~~
@@ -650,7 +756,7 @@ slotted_freezable
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 721-733
+   :lines: 792-804
 
 S
 ~
@@ -684,4 +790,4 @@ modify
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 739-759
+   :lines: 810-830

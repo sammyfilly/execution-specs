@@ -41,7 +41,6 @@ Attributes
 
    ethereum.frontier.eth_types.Address
    ethereum.frontier.eth_types.Root
-   ethereum.frontier.eth_types.Storage
    ethereum.frontier.eth_types.Bloom
    ethereum.frontier.eth_types.TX_BASE_COST
    ethereum.frontier.eth_types.TX_DATA_COST_PER_NON_ZERO
@@ -65,15 +64,6 @@ Root
 ~~~~
 
 .. py:data:: Root
-   
-
-   
-
-
-Storage
-~~~~~~~
-
-.. py:data:: Storage
    
 
    

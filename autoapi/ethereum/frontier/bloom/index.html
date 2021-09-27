@@ -148,7 +148,7 @@ the caller address and the log topics.</p>
         <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">log</span><span class="o">.</span><span class="n">topics</span><span class="p">:</span>
             <span class="n">add_to_bloom</span><span class="p">(</span><span class="n">bloom</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">bloom</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Bloom</span><span class="p">(</span><span class="n">bloom</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

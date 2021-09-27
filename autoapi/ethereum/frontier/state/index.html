@@ -181,17 +181,17 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#ethereum.frontier.state.State" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.state.State._main_trie">
-<span class="sig-name descname"><span class="pre">_main_trie</span></span><em class="property"> <span class="pre">:ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._main_trie" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_main_trie</span></span><em class="property"> <span class="pre">:ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Address,</span> <span class="pre">Optional[ethereum.frontier.eth_types.Account]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._main_trie" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.state.State._storage_tries">
-<span class="sig-name descname"><span class="pre">_storage_tries</span></span><em class="property"> <span class="pre">:Dict[ethereum.frontier.eth_types.Address,</span> <span class="pre">ethereum.frontier.trie.Trie[ethereum.base_types.U256]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._storage_tries" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_storage_tries</span></span><em class="property"> <span class="pre">:Dict[ethereum.frontier.eth_types.Address,</span> <span class="pre">ethereum.frontier.trie.Trie[ethereum.base_types.Bytes,</span> <span class="pre">ethereum.base_types.U256]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._storage_tries" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.state.State._snapshots">
-<span class="sig-name descname"><span class="pre">_snapshots</span></span><em class="property"> <span class="pre">:List[Tuple[ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]],</span> <span class="pre">Dict[ethereum.base_types.Bytes,</span> <span class="pre">ethereum.frontier.trie.Trie[ethereum.base_types.U256]]]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._snapshots" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">_snapshots</span></span><em class="property"> <span class="pre">:List[Tuple[ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Address,</span> <span class="pre">Optional[ethereum.frontier.eth_types.Account]],</span> <span class="pre">Dict[ethereum.frontier.eth_types.Address,</span> <span class="pre">ethereum.frontier.trie.Trie[ethereum.base_types.Bytes,</span> <span class="pre">ethereum.base_types.U256]]]]</span></em><a class="headerlink" href="#ethereum.frontier.state.State._snapshots" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -444,25 +444,25 @@ the key.</p>
 <h4>storage_root<a class="headerlink" href="#storage-root" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.state.storage_root">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">storage_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.state.storage_root" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">storage_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Address" title="ethereum.frontier.eth_types.Address"><span class="pre">ethereum.frontier.eth_types.Address</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><a class="headerlink" href="#ethereum.frontier.state.storage_root" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the storage root of an account.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>state</strong> (<cite>State</cite>) – The state</p></li>
-<li><p><strong>address</strong> (<cite>Address</cite>) – Address of the account.</p></li>
+<li><p><strong>state</strong> – The state</p></li>
+<li><p><strong>address</strong> – Address of the account.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>root</strong> – Storage root of the account.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Bytes</cite></p>
+<dd class="field-odd"><p><cite>Root</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storage_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storage_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
     <span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">_snapshots</span> <span class="o">==</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">root</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="p">[</span><span class="n">address</span><span class="p">])</span>
@@ -475,22 +475,22 @@ the key.</p>
 <h4>state_root<a class="headerlink" href="#state-root" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.state.state_root">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">state_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.state.state_root" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">state_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Root" title="ethereum.frontier.eth_types.Root"><span class="pre">ethereum.frontier.eth_types.Root</span></a><a class="headerlink" href="#ethereum.frontier.state.state_root" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the state root.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>state</strong> (<cite>State</cite>) – The current state.</p>
+<dd class="field-odd"><p><strong>state</strong> – The current state.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>root</strong> – The state root.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><cite>Bytes</cite></p>
+<dd class="field-odd"><p><cite>Root</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>
     <span class="k">assert</span> <span class="n">state</span><span class="o">.</span><span class="n">_snapshots</span> <span class="o">==</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="nf">get_storage_root</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Root</span><span class="p">:</span>

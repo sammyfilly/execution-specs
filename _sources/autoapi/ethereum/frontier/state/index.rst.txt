@@ -75,17 +75,17 @@ Contains all information that is preserved between transactions.
 .. class:: State
 
    .. py:attribute:: _main_trie
-      :annotation: :ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]]
+      :annotation: :ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Address, Optional[ethereum.frontier.eth_types.Account]]
 
       
 
    .. py:attribute:: _storage_tries
-      :annotation: :Dict[ethereum.frontier.eth_types.Address, ethereum.frontier.trie.Trie[ethereum.base_types.U256]]
+      :annotation: :Dict[ethereum.frontier.eth_types.Address, ethereum.frontier.trie.Trie[ethereum.base_types.Bytes, ethereum.base_types.U256]]
 
       
 
    .. py:attribute:: _snapshots
-      :annotation: :List[Tuple[ethereum.frontier.trie.Trie[Optional[ethereum.frontier.eth_types.Account]], Dict[ethereum.base_types.Bytes, ethereum.frontier.trie.Trie[ethereum.base_types.U256]]]]
+      :annotation: :List[Tuple[ethereum.frontier.trie.Trie[ethereum.frontier.eth_types.Address, Optional[ethereum.frontier.eth_types.Account]], Dict[ethereum.frontier.eth_types.Address, ethereum.frontier.trie.Trie[ethereum.base_types.Bytes, ethereum.base_types.U256]]]]
 
       
 
@@ -111,7 +111,7 @@ begin_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 43-58
+   :lines: 47-62
 
 commit_transaction
 ~~~~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ commit_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 63-72
+   :lines: 67-76
 
 rollback_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -150,7 +150,7 @@ rollback_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 75-85
+   :lines: 79-89
 
 get_account
 ~~~~~~~~~~~
@@ -178,7 +178,7 @@ get_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 88-112
+   :lines: 92-116
 
 get_account_optional
 ~~~~~~~~~~~~~~~~~~~~
@@ -203,7 +203,7 @@ get_account_optional
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 115-133
+   :lines: 119-137
 
 set_account
 ~~~~~~~~~~~
@@ -227,7 +227,7 @@ set_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 136-152
+   :lines: 140-156
 
 destroy_account
 ~~~~~~~~~~~~~~~
@@ -252,7 +252,7 @@ destroy_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 155-172
+   :lines: 159-176
 
 get_storage
 ~~~~~~~~~~~
@@ -279,7 +279,7 @@ get_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 175-201
+   :lines: 179-205
 
 set_storage
 ~~~~~~~~~~~
@@ -305,53 +305,50 @@ set_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 204-229
+   :lines: 208-233
 
 storage_root
 ~~~~~~~~~~~~
 
 
-.. function:: storage_root(state: State, address: ethereum.frontier.eth_types.Address) -> ethereum.base_types.Bytes
+.. function:: storage_root(state: State, address: ethereum.frontier.eth_types.Address) -> ethereum.frontier.eth_types.Root
    :noindexentry:
 
    Calculate the storage root of an account.
 
    :param state: The state
-   :type state: `State`
    :param address: Address of the account.
-   :type address: `Address`
 
    :returns: **root** -- Storage root of the account.
-   :rtype: `Bytes`
+   :rtype: `Root`
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 232-252
+   :lines: 236-256
 
 state_root
 ~~~~~~~~~~
 
 
-.. function:: state_root(state: State) -> ethereum.base_types.Bytes
+.. function:: state_root(state: State) -> ethereum.frontier.eth_types.Root
    :noindexentry:
 
    Calculate the state root.
 
    :param state: The current state.
-   :type state: `State`
 
    :returns: **root** -- The state root.
-   :rtype: `Bytes`
+   :rtype: `Root`
 
 
 
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 255-274
+   :lines: 259-278
 
 account_exists
 ~~~~~~~~~~~~~~
@@ -373,7 +370,7 @@ account_exists
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 277-293
+   :lines: 281-297
 
 account_has_code_or_nonce
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -396,7 +393,7 @@ account_has_code_or_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 296-314
+   :lines: 300-318
 
 modify_state
 ~~~~~~~~~~~~
@@ -412,7 +409,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 317-323
+   :lines: 321-327
 
 move_ether
 ~~~~~~~~~~
@@ -428,7 +425,7 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 326-344
+   :lines: 330-348
 
 set_account_balance
 ~~~~~~~~~~~~~~~~~~~
@@ -448,7 +445,7 @@ set_account_balance
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 347-366
+   :lines: 351-370
 
 touch_account
 ~~~~~~~~~~~~~
@@ -467,7 +464,7 @@ touch_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 369-382
+   :lines: 373-386
 
 increment_nonce
 ~~~~~~~~~~~~~~~
@@ -486,7 +483,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 385-401
+   :lines: 389-405
 
 set_code
 ~~~~~~~~
@@ -506,7 +503,7 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 404-423
+   :lines: 408-427
 
 create_ether
 ~~~~~~~~~~~~
@@ -526,4 +523,4 @@ create_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 426-443
+   :lines: 430-447

@@ -286,7 +286,7 @@ apply_body
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 245-348
+   :lines: 245-350
 
 validate_ommers
 ~~~~~~~~~~~~~~~
@@ -306,7 +306,7 @@ validate_ommers
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 352-417
+   :lines: 354-419
 
 pay_rewards
 ~~~~~~~~~~~
@@ -327,7 +327,7 @@ pay_rewards
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 421-448
+   :lines: 423-450
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
@@ -349,7 +349,7 @@ process_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 451-524
+   :lines: 453-526
 
 validate_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -370,7 +370,7 @@ validate_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 527-541
+   :lines: 529-543
 
 calculate_intrinsic_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -392,7 +392,7 @@ calculate_intrinsic_cost
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 544-567
+   :lines: 546-569
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -413,7 +413,7 @@ recover_sender
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 570-596
+   :lines: 572-598
 
 signing_hash
 ~~~~~~~~~~~~
@@ -434,7 +434,7 @@ signing_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 599-621
+   :lines: 601-623
 
 compute_header_hash
 ~~~~~~~~~~~~~~~~~~~
@@ -455,7 +455,7 @@ compute_header_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 627-641
+   :lines: 629-643
 
 get_block_header_by_hash
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -477,7 +477,7 @@ get_block_header_by_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 644-665
+   :lines: 646-667
 
 check_gas_limit
 ~~~~~~~~~~~~~~~
@@ -499,7 +499,7 @@ check_gas_limit
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 668-693
+   :lines: 670-695
 
 calculate_block_difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -522,4 +522,4 @@ calculate_block_difficulty
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 696-727
+   :lines: 698-729
