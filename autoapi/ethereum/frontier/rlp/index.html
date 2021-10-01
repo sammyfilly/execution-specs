@@ -283,11 +283,11 @@ objects.</p>
     <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="mh">0x38</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xC0</span> <span class="o">+</span> <span class="n">len_joined_encodings</span><span class="p">])</span> <span class="o">+</span> <span class="n">joined_encodings</span>
+        <span class="k">return</span> <span class="n">Bytes</span><span class="p">([</span><span class="mh">0xC0</span> <span class="o">+</span> <span class="n">len_joined_encodings</span><span class="p">])</span> <span class="o">+</span> <span class="n">joined_encodings</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">len_joined_encodings_as_be</span> <span class="o">=</span> <span class="n">len_joined_encodings</span><span class="o">.</span><span class="n">to_be_bytes</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="nb">bytearray</span><span class="p">([</span><span class="mh">0xF7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_joined_encodings_as_be</span><span class="p">)])</span>
+            <span class="n">Bytes</span><span class="p">([</span><span class="mh">0xF7</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">len_joined_encodings_as_be</span><span class="p">)])</span>
             <span class="o">+</span> <span class="n">len_joined_encodings_as_be</span>
             <span class="o">+</span> <span class="n">joined_encodings</span>
 </pre></div>
@@ -315,11 +315,7 @@ raw_sequence.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_joined_encodings</span><span class="p">(</span><span class="n">raw_sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">RLP</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
-    <span class="n">joined_encodings</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw_sequence</span><span class="p">:</span>
-        <span class="n">joined_encodings</span> <span class="o">+=</span> <span class="n">encode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">joined_encodings</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw_sequence</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

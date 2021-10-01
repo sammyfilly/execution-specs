@@ -224,7 +224,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.LeafNode.value">
-<span class="sig-name descname"><span class="pre">value</span></span><em class="property"> <span class="pre">:ethereum.base_types.Bytes</span></em><a class="headerlink" href="#ethereum.frontier.trie.LeafNode.value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"> <span class="pre">:ethereum.frontier.rlp.RLP</span></em><a class="headerlink" href="#ethereum.frontier.trie.LeafNode.value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -475,7 +475,7 @@ Trie represents the default value by omitting it from the trie.</p>
 <h4>nibble_list_to_compact<a class="headerlink" href="#nibble-list-to-compact" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.trie.nibble_list_to_compact">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">nibble_list_to_compact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytearray</span><a class="headerlink" href="#ethereum.frontier.trie.nibble_list_to_compact" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">nibble_list_to_compact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_leaf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Bytes" title="ethereum.base_types.Bytes"><span class="pre">ethereum.base_types.Bytes</span></a><a class="headerlink" href="#ethereum.frontier.trie.nibble_list_to_compact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compresses nibble-list into a standard byte array with a flag.</p>
 <p>A nibble-list is a list of byte values no greater than <cite>15</cite>. The flag is
 encoded in high nibble of the highest byte. The flag nibble can be broken
@@ -508,7 +508,7 @@ node.</p></li>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nibble_list_to_compact</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">is_leaf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytearray</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nibble_list_to_compact</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">is_leaf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bytes</span><span class="p">:</span>
     <span class="n">compact</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># ie even length</span>
@@ -520,7 +520,7 @@ node.</p></li>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
             <span class="n">compact</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
 
-    <span class="k">return</span> <span class="n">compact</span>
+    <span class="k">return</span> <span class="n">Bytes</span><span class="p">(</span><span class="n">compact</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

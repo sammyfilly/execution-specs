@@ -118,7 +118,7 @@ Leaf node in the Merkle Trie
       
 
    .. py:attribute:: value
-      :annotation: :ethereum.base_types.Bytes
+      :annotation: :ethereum.frontier.rlp.RLP
 
       
 
@@ -200,7 +200,7 @@ encode_internal_node
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 101-142
+   :lines: 102-143
 
 encode_node
 ~~~~~~~~~~~
@@ -218,7 +218,7 @@ encode_node
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 145-160
+   :lines: 146-161
 
 Trie
 ~~~~
@@ -269,7 +269,7 @@ copy_trie
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 175-190
+   :lines: 176-191
 
 trie_set
 ~~~~~~~~
@@ -295,7 +295,7 @@ trie_set
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 193-213
+   :lines: 194-214
 
 trie_get
 ~~~~~~~~
@@ -319,7 +319,7 @@ trie_get
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 216-234
+   :lines: 217-235
 
 common_prefix_length
 ~~~~~~~~~~~~~~~~~~~~
@@ -335,13 +335,13 @@ common_prefix_length
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 237-244
+   :lines: 238-245
 
 nibble_list_to_compact
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: nibble_list_to_compact(x: ethereum.base_types.Bytes, is_leaf: bool) -> bytearray
+.. function:: nibble_list_to_compact(x: ethereum.base_types.Bytes, is_leaf: bool) -> ethereum.base_types.Bytes
    :noindexentry:
 
    Compresses nibble-list into a standard byte array with a flag.
@@ -375,7 +375,7 @@ nibble_list_to_compact
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 247-292
+   :lines: 248-293
 
 bytes_to_nibble_list
 ~~~~~~~~~~~~~~~~~~~~
@@ -396,7 +396,7 @@ bytes_to_nibble_list
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 295-313
+   :lines: 296-314
 
 _prepare_trie
 ~~~~~~~~~~~~~
@@ -420,7 +420,7 @@ _prepare_trie
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 316-356
+   :lines: 317-357
 
 root
 ~~~~
@@ -443,7 +443,7 @@ root
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 359-387
+   :lines: 360-388
 
 patricialize
 ~~~~~~~~~~~~
@@ -468,4 +468,4 @@ patricialize
 
 .. undocinclude:: /../src/ethereum/frontier/trie.py
    :language: python
-   :lines: 390-460
+   :lines: 391-461
