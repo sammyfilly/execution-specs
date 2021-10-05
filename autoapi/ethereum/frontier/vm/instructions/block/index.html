@@ -119,23 +119,17 @@ stack. The block number to hash is present at the top of the stack.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">block_hash</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># TODO: This function hasn&#39;t been tested. Need to come up with unit tests</span>
-    <span class="c1"># for this function.</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_EXTERNAL</span><span class="p">)</span>
 
     <span class="n">block_number</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
-    <span class="c1"># The block age (1-indexed) with respect to the current block number.</span>
-    <span class="c1"># A block having age of `a` indicates that it is `a` blocks</span>
-    <span class="c1"># behind the current block number.</span>
-    <span class="n">block_age</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="n">block_number</span>
 
-    <span class="k">if</span> <span class="n">block_age</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">block_age</span> <span class="o">&gt;</span> <span class="mi">256</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">number</span> <span class="o">&lt;=</span> <span class="n">block_number</span> <span class="ow">or</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">number</span> <span class="o">&gt;</span> <span class="n">block_number</span> <span class="o">+</span> <span class="mi">256</span><span class="p">:</span>
         <span class="c1"># Default hash to 0, if the block of interest is not yet on the chain</span>
         <span class="c1"># (including the block which has the current executing transaction),</span>
         <span class="c1"># or if the block&#39;s age is more than 256.</span>
         <span class="nb">hash</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">hash</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">block_hashes</span><span class="p">[</span><span class="mi">256</span> <span class="o">-</span> <span class="n">block_age</span><span class="p">]</span>
+        <span class="nb">hash</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">block_hashes</span><span class="p">[</span><span class="mi">256</span> <span class="o">-</span> <span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="n">block_number</span><span class="p">)]</span>
 
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="nb">hash</span><span class="p">))</span>
 </pre></div>
