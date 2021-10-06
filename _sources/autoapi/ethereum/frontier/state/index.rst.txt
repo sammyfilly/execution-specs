@@ -39,6 +39,7 @@ Functions
 .. autoapisummary::
    :nosignatures:
 
+   ethereum.frontier.state.close_state
    ethereum.frontier.state.begin_transaction
    ethereum.frontier.state.commit_transaction
    ethereum.frontier.state.rollback_transaction
@@ -91,6 +92,23 @@ Contains all information that is preserved between transactions.
 
 
 
+close_state
+~~~~~~~~~~~
+
+
+.. function:: close_state(state: State) -> None
+   :noindexentry:
+
+   Free resources held by the state. Used by optmized implementations to
+   release file descriptors.
+
+
+
+
+.. undocinclude:: /../src/ethereum/frontier/state.py
+   :language: python
+   :lines: 47-54
+
 begin_transaction
 ~~~~~~~~~~~~~~~~~
 
@@ -111,7 +129,7 @@ begin_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 47-62
+   :lines: 57-72
 
 commit_transaction
 ~~~~~~~~~~~~~~~~~~
@@ -130,7 +148,7 @@ commit_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 67-76
+   :lines: 77-86
 
 rollback_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -150,7 +168,7 @@ rollback_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 79-89
+   :lines: 89-99
 
 get_account
 ~~~~~~~~~~~
@@ -178,7 +196,7 @@ get_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 92-116
+   :lines: 102-126
 
 get_account_optional
 ~~~~~~~~~~~~~~~~~~~~
@@ -203,7 +221,7 @@ get_account_optional
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 119-137
+   :lines: 129-147
 
 set_account
 ~~~~~~~~~~~
@@ -227,7 +245,7 @@ set_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 140-156
+   :lines: 150-166
 
 destroy_account
 ~~~~~~~~~~~~~~~
@@ -252,7 +270,7 @@ destroy_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 159-176
+   :lines: 169-186
 
 get_storage
 ~~~~~~~~~~~
@@ -279,7 +297,7 @@ get_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 179-205
+   :lines: 189-215
 
 set_storage
 ~~~~~~~~~~~
@@ -305,7 +323,7 @@ set_storage
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 208-233
+   :lines: 218-243
 
 storage_root
 ~~~~~~~~~~~~
@@ -327,7 +345,7 @@ storage_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 236-256
+   :lines: 246-266
 
 state_root
 ~~~~~~~~~~
@@ -348,7 +366,7 @@ state_root
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 259-278
+   :lines: 269-288
 
 account_exists
 ~~~~~~~~~~~~~~
@@ -370,7 +388,7 @@ account_exists
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 281-297
+   :lines: 291-307
 
 account_has_code_or_nonce
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -393,7 +411,7 @@ account_has_code_or_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 300-318
+   :lines: 310-328
 
 modify_state
 ~~~~~~~~~~~~
@@ -409,7 +427,7 @@ modify_state
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 321-327
+   :lines: 331-337
 
 move_ether
 ~~~~~~~~~~
@@ -425,7 +443,7 @@ move_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 330-348
+   :lines: 340-358
 
 set_account_balance
 ~~~~~~~~~~~~~~~~~~~
@@ -445,7 +463,7 @@ set_account_balance
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 351-370
+   :lines: 361-380
 
 touch_account
 ~~~~~~~~~~~~~
@@ -464,7 +482,7 @@ touch_account
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 373-386
+   :lines: 383-396
 
 increment_nonce
 ~~~~~~~~~~~~~~~
@@ -483,7 +501,7 @@ increment_nonce
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 389-405
+   :lines: 399-415
 
 set_code
 ~~~~~~~~
@@ -503,7 +521,7 @@ set_code
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 408-427
+   :lines: 418-437
 
 create_ether
 ~~~~~~~~~~~~
@@ -523,4 +541,4 @@ create_ether
 
 .. undocinclude:: /../src/ethereum/frontier/state.py
    :language: python
-   :lines: 430-447
+   :lines: 440-457

@@ -52,26 +52,27 @@
 <li><p><a class="reference internal" href="#module-details" id="id6">Module Details</a></p>
 <ul>
 <li><p><a class="reference internal" href="#id1" id="id7">State</a></p></li>
-<li><p><a class="reference internal" href="#begin-transaction" id="id8">begin_transaction</a></p></li>
-<li><p><a class="reference internal" href="#commit-transaction" id="id9">commit_transaction</a></p></li>
-<li><p><a class="reference internal" href="#rollback-transaction" id="id10">rollback_transaction</a></p></li>
-<li><p><a class="reference internal" href="#get-account" id="id11">get_account</a></p></li>
-<li><p><a class="reference internal" href="#get-account-optional" id="id12">get_account_optional</a></p></li>
-<li><p><a class="reference internal" href="#set-account" id="id13">set_account</a></p></li>
-<li><p><a class="reference internal" href="#destroy-account" id="id14">destroy_account</a></p></li>
-<li><p><a class="reference internal" href="#get-storage" id="id15">get_storage</a></p></li>
-<li><p><a class="reference internal" href="#set-storage" id="id16">set_storage</a></p></li>
-<li><p><a class="reference internal" href="#storage-root" id="id17">storage_root</a></p></li>
-<li><p><a class="reference internal" href="#state-root" id="id18">state_root</a></p></li>
-<li><p><a class="reference internal" href="#account-exists" id="id19">account_exists</a></p></li>
-<li><p><a class="reference internal" href="#account-has-code-or-nonce" id="id20">account_has_code_or_nonce</a></p></li>
-<li><p><a class="reference internal" href="#modify-state" id="id21">modify_state</a></p></li>
-<li><p><a class="reference internal" href="#move-ether" id="id22">move_ether</a></p></li>
-<li><p><a class="reference internal" href="#set-account-balance" id="id23">set_account_balance</a></p></li>
-<li><p><a class="reference internal" href="#touch-account" id="id24">touch_account</a></p></li>
-<li><p><a class="reference internal" href="#increment-nonce" id="id25">increment_nonce</a></p></li>
-<li><p><a class="reference internal" href="#set-code" id="id26">set_code</a></p></li>
-<li><p><a class="reference internal" href="#create-ether" id="id27">create_ether</a></p></li>
+<li><p><a class="reference internal" href="#close-state" id="id8">close_state</a></p></li>
+<li><p><a class="reference internal" href="#begin-transaction" id="id9">begin_transaction</a></p></li>
+<li><p><a class="reference internal" href="#commit-transaction" id="id10">commit_transaction</a></p></li>
+<li><p><a class="reference internal" href="#rollback-transaction" id="id11">rollback_transaction</a></p></li>
+<li><p><a class="reference internal" href="#get-account" id="id12">get_account</a></p></li>
+<li><p><a class="reference internal" href="#get-account-optional" id="id13">get_account_optional</a></p></li>
+<li><p><a class="reference internal" href="#set-account" id="id14">set_account</a></p></li>
+<li><p><a class="reference internal" href="#destroy-account" id="id15">destroy_account</a></p></li>
+<li><p><a class="reference internal" href="#get-storage" id="id16">get_storage</a></p></li>
+<li><p><a class="reference internal" href="#set-storage" id="id17">set_storage</a></p></li>
+<li><p><a class="reference internal" href="#storage-root" id="id18">storage_root</a></p></li>
+<li><p><a class="reference internal" href="#state-root" id="id19">state_root</a></p></li>
+<li><p><a class="reference internal" href="#account-exists" id="id20">account_exists</a></p></li>
+<li><p><a class="reference internal" href="#account-has-code-or-nonce" id="id21">account_has_code_or_nonce</a></p></li>
+<li><p><a class="reference internal" href="#modify-state" id="id22">modify_state</a></p></li>
+<li><p><a class="reference internal" href="#move-ether" id="id23">move_ether</a></p></li>
+<li><p><a class="reference internal" href="#set-account-balance" id="id24">set_account_balance</a></p></li>
+<li><p><a class="reference internal" href="#touch-account" id="id25">touch_account</a></p></li>
+<li><p><a class="reference internal" href="#increment-nonce" id="id26">increment_nonce</a></p></li>
+<li><p><a class="reference internal" href="#set-code" id="id27">set_code</a></p></li>
+<li><p><a class="reference internal" href="#create-ether" id="id28">create_ether</a></p></li>
 </ul>
 </li>
 </ul>
@@ -107,64 +108,67 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.begin_transaction" title="ethereum.frontier.state.begin_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">begin_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.close_state" title="ethereum.frontier.state.close_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close_state</span></code></a></p></td>
+<td><p>Free resources held by the state. Used by optmized implementations to</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.begin_transaction" title="ethereum.frontier.state.begin_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">begin_transaction</span></code></a></p></td>
 <td><p>Start a state transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.commit_transaction" title="ethereum.frontier.state.commit_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commit_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.commit_transaction" title="ethereum.frontier.state.commit_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commit_transaction</span></code></a></p></td>
 <td><p>Commit a state transaction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.rollback_transaction" title="ethereum.frontier.state.rollback_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rollback_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.rollback_transaction" title="ethereum.frontier.state.rollback_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rollback_transaction</span></code></a></p></td>
 <td><p>Rollback a state transaction, resetting the state to the point when the</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account" title="ethereum.frontier.state.get_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account" title="ethereum.frontier.state.get_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account</span></code></a></p></td>
 <td><p>Get the <cite>Account</cite> object at an address. Returns <cite>EMPTY_ACCOUNT</cite> if there</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account_optional" title="ethereum.frontier.state.get_account_optional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_optional</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_account_optional" title="ethereum.frontier.state.get_account_optional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_account_optional</span></code></a></p></td>
 <td><p>Get the <cite>Account</cite> object at an address. Returns <cite>None</cite> (rather than</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account" title="ethereum.frontier.state.set_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account" title="ethereum.frontier.state.set_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account</span></code></a></p></td>
 <td><p>Set the <cite>Account</cite> object at an address. Setting to <cite>None</cite> deletes</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.destroy_account" title="ethereum.frontier.state.destroy_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy_account</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.destroy_account" title="ethereum.frontier.state.destroy_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy_account</span></code></a></p></td>
 <td><p>Completely remove the account at <cite>address</cite> and all of its storage.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_storage" title="ethereum.frontier.state.get_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_storage</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.get_storage" title="ethereum.frontier.state.get_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_storage</span></code></a></p></td>
 <td><p>Get a value at a storage key on an account. Returns <cite>U256(0)</cite> if the</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_storage" title="ethereum.frontier.state.set_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_storage</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_storage" title="ethereum.frontier.state.set_storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_storage</span></code></a></p></td>
 <td><p>Set a value at a storage key on an account. Setting to <cite>U256(0)</cite> deletes</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.storage_root" title="ethereum.frontier.state.storage_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">storage_root</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.storage_root" title="ethereum.frontier.state.storage_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">storage_root</span></code></a></p></td>
 <td><p>Calculate the storage root of an account.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.state_root" title="ethereum.frontier.state.state_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_root</span></code></a></p></td>
 <td><p>Calculate the state root.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_exists" title="ethereum.frontier.state.account_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_exists</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_exists" title="ethereum.frontier.state.account_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_exists</span></code></a></p></td>
 <td><p>Checks if an account exists in the state trie</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_has_code_or_nonce" title="ethereum.frontier.state.account_has_code_or_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_has_code_or_nonce</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.account_has_code_or_nonce" title="ethereum.frontier.state.account_has_code_or_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account_has_code_or_nonce</span></code></a></p></td>
 <td><p>Checks if an account has non zero nonce or non empty code</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.modify_state" title="ethereum.frontier.state.modify_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modify_state</span></code></a></p></td>
 <td><p>Modify an <cite>Account</cite> in the <cite>State</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.move_ether" title="ethereum.frontier.state.move_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_ether</span></code></a></p></td>
 <td><p>Move funds between accounts.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account_balance" title="ethereum.frontier.state.set_account_balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account_balance</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_account_balance" title="ethereum.frontier.state.set_account_balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account_balance</span></code></a></p></td>
 <td><p>Sets the balance of an account.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.touch_account" title="ethereum.frontier.state.touch_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">touch_account</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.touch_account" title="ethereum.frontier.state.touch_account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">touch_account</span></code></a></p></td>
 <td><p>Initializes an account to state.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.increment_nonce" title="ethereum.frontier.state.increment_nonce"><code class="xref py py-obj docutils literal notranslate"><span class="pre">increment_nonce</span></code></a></p></td>
 <td><p>Increments the nonce of an account.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.set_code" title="ethereum.frontier.state.set_code"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_code</span></code></a></p></td>
 <td><p>Sets Account code.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.state.create_ether" title="ethereum.frontier.state.create_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ether</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.state.create_ether" title="ethereum.frontier.state.create_ether"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ether</span></code></a></p></td>
 <td><p>Add newly created ether to an account.</p></td>
 </tr>
 </tbody>
@@ -196,6 +200,22 @@
 
 </dd></dl>
 
+</section>
+<section id="close-state">
+<h4>close_state<a class="headerlink" href="#close-state" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.frontier.state.close_state">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.state.</span></span><span class="sig-name descname"><span class="pre">close_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.state.State" title="ethereum.frontier.state.State"><span class="pre">State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.state.close_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Free resources held by the state. Used by optmized implementations to
+release file descriptors.</p>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">close_state</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span>
+    <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span>
+    <span class="k">del</span> <span class="n">state</span><span class="o">.</span><span class="n">_snapshots</span>
+</pre></div>
+</div>
 </section>
 <section id="begin-transaction">
 <h4>begin_transaction<a class="headerlink" href="#begin-transaction" title="Permalink to this headline">¶</a></h4>
