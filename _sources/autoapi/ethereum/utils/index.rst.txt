@@ -23,6 +23,7 @@ Submodules
    :maxdepth: 1
 
    byte/index.rst
+   ensure/index.rst
    hexadecimal/index.rst
    numeric/index.rst
    safe_arithmetic/index.rst

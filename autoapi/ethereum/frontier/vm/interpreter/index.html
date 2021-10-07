@@ -340,7 +340,7 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
         <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="p">(</span>
-        <span class="ne">AssertionError</span><span class="p">,</span>
+        <span class="n">EnsureError</span><span class="p">,</span>
         <span class="ne">ValueError</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>

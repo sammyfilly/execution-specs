@@ -89,7 +89,7 @@ encode
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 55-90
+   :lines: 56-91
 
 encode_bytes
 ~~~~~~~~~~~~
@@ -110,7 +110,7 @@ encode_bytes
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 94-120
+   :lines: 95-121
 
 encode_sequence
 ~~~~~~~~~~~~~~~
@@ -131,7 +131,7 @@ encode_sequence
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 124-148
+   :lines: 125-149
 
 get_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~
@@ -154,7 +154,7 @@ get_joined_encodings
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 152-168
+   :lines: 153-169
 
 decode
 ~~~~~~
@@ -176,7 +176,7 @@ decode
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 176-202
+   :lines: 177-203
 
 decode_to_bytes
 ~~~~~~~~~~~~~~~
@@ -198,7 +198,7 @@ decode_to_bytes
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 205-242
+   :lines: 206-243
 
 decode_to_sequence
 ~~~~~~~~~~~~~~~~~~
@@ -220,7 +220,7 @@ decode_to_sequence
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 245-282
+   :lines: 246-283
 
 decode_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -242,7 +242,7 @@ decode_joined_encodings
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 285-314
+   :lines: 286-317
 
 decode_item_length
 ~~~~~~~~~~~~~~~~~~
@@ -270,7 +270,7 @@ decode_item_length
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 317-384
+   :lines: 320-387
 
 encode_block
 ~~~~~~~~~~~~
@@ -286,7 +286,7 @@ encode_block
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 393-401
+   :lines: 396-404
 
 encode_header
 ~~~~~~~~~~~~~
@@ -302,7 +302,7 @@ encode_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 406-426
+   :lines: 409-429
 
 encode_account
 ~~~~~~~~~~~~~~
@@ -321,7 +321,7 @@ encode_account
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 431-443
+   :lines: 434-446
 
 encode_transaction
 ~~~~~~~~~~~~~~~~~~
@@ -337,7 +337,7 @@ encode_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 448-462
+   :lines: 451-465
 
 encode_receipt
 ~~~~~~~~~~~~~~
@@ -353,7 +353,7 @@ encode_receipt
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 467-476
+   :lines: 470-479
 
 encode_log
 ~~~~~~~~~~
@@ -369,7 +369,7 @@ encode_log
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 481-489
+   :lines: 484-492
 
 sequence_to_header
 ~~~~~~~~~~~~~~~~~~
@@ -392,7 +392,7 @@ sequence_to_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 494-529
+   :lines: 497-532
 
 sequence_to_transaction
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -415,7 +415,7 @@ sequence_to_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 533-566
+   :lines: 536-569
 
 decode_to_header
 ~~~~~~~~~~~~~~~~
@@ -441,7 +441,7 @@ decode_to_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 570-590
+   :lines: 573-593
 
 decode_to_block
 ~~~~~~~~~~~~~~~
@@ -467,7 +467,7 @@ decode_to_block
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 593-627
+   :lines: 596-630
 
 rlp_hash
 ~~~~~~~~
@@ -488,4 +488,4 @@ rlp_hash
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 630-644
+   :lines: 633-647

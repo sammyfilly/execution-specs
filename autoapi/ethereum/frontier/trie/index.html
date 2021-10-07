@@ -590,7 +590,7 @@ hashes the keys (if <cite>secured == True</cite>) and encodes all the nodes.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">encoded_value</span> <span class="o">=</span> <span class="n">encode_node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="c1"># Empty values are represented by their absence</span>
-        <span class="k">assert</span> <span class="n">encoded_value</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">encoded_value</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="n">key</span><span class="p">:</span> <span class="n">Bytes</span>
         <span class="k">if</span> <span class="n">trie</span><span class="o">.</span><span class="n">secured</span><span class="p">:</span>
             <span class="c1"># &quot;secure&quot; tries hash keys once before construction</span>

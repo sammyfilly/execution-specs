@@ -126,7 +126,7 @@ pop
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 23-40
+   :lines: 24-41
 
 push_n
 ~~~~~~
@@ -149,7 +149,7 @@ push_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 43-71
+   :lines: 44-72
 
 dup_n
 ~~~~~
@@ -171,7 +171,7 @@ dup_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 74-96
+   :lines: 75-97
 
 swap_n
 ~~~~~~
@@ -197,7 +197,7 @@ swap_n
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/stack.py
    :language: python
-   :lines: 99-128
+   :lines: 100-129
 
 push1
 ~~~~~

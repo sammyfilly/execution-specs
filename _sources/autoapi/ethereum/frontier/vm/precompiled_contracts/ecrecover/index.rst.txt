@@ -50,4 +50,4 @@ ecrecover
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/ecrecover.py
    :language: python
-   :lines: 23-56
+   :lines: 23-59

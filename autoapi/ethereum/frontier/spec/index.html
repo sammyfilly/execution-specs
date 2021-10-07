@@ -338,11 +338,11 @@ block number.</p>
         <span class="n">block</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="k">assert</span> <span class="n">gas_used</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span>
-    <span class="k">assert</span> <span class="n">transactions_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">transactions_root</span>
-    <span class="k">assert</span> <span class="n">receipt_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">receipt_root</span>
-    <span class="k">assert</span> <span class="n">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">state_root</span>
-    <span class="k">assert</span> <span class="n">block_logs_bloom</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">bloom</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">transactions_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">transactions_root</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">receipt_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">receipt_root</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">state_root</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">block_logs_bloom</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">bloom</span><span class="p">)</span>
 
     <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
 </pre></div>
@@ -365,17 +365,20 @@ block number.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span> <span class="o">==</span> <span class="n">calculate_block_difficulty</span><span class="p">(</span>
+    <span class="n">block_difficulty</span> <span class="o">=</span> <span class="n">calculate_block_difficulty</span><span class="p">(</span>
         <span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
         <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
         <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
         <span class="n">parent_header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">assert</span> <span class="n">check_gas_limit</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span>
+
+    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">difficulty</span> <span class="o">==</span> <span class="n">block_difficulty</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">check_gas_limit</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">))</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">extra_data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">)</span>
+
     <span class="n">validate_proof_of_work</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">extra_data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">32</span>
 </pre></div>
 </div>
 </section>
@@ -457,8 +460,9 @@ ignored while calculating this hash.</p>
         <span class="n">header_hash</span><span class="p">,</span> <span class="n">header</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span> <span class="n">cache</span><span class="p">,</span> <span class="n">dataset_size</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="k">assert</span> <span class="n">mix_digest</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">mix_digest</span>
-    <span class="k">assert</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">U256_CEIL_VALUE</span> <span class="o">//</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">mix_digest</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">mix_digest</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span>
+        <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">U256_CEIL_VALUE</span> <span class="o">//</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -521,7 +525,7 @@ block.</p></li>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">transactions</span><span class="p">):</span>
         <span class="n">trie_set</span><span class="p">(</span><span class="n">transactions_trie</span><span class="p">,</span> <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">Uint</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">tx</span><span class="p">)</span>
 
-        <span class="k">assert</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">&lt;=</span> <span class="n">gas_available</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">&lt;=</span> <span class="n">gas_available</span><span class="p">)</span>
         <span class="n">sender_address</span> <span class="o">=</span> <span class="n">recover_sender</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
 
         <span class="n">env</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span>
@@ -589,7 +593,7 @@ block.</p></li>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">block_hash</span> <span class="o">=</span> <span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">block_header</span><span class="p">)</span>
 
-    <span class="k">assert</span> <span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">ommers</span><span class="p">)</span> <span class="o">==</span> <span class="n">block_header</span><span class="o">.</span><span class="n">ommers_hash</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">ommers</span><span class="p">)</span> <span class="o">==</span> <span class="n">block_header</span><span class="o">.</span><span class="n">ommers_hash</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ommers</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># Nothing to validate</span>
@@ -597,16 +601,16 @@ block.</p></li>
 
     <span class="c1"># Check that each ommer satisfies the constraints of a header</span>
     <span class="k">for</span> <span class="n">ommer</span> <span class="ow">in</span> <span class="n">ommers</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span> <span class="o">&lt;</span> <span class="n">block_header</span><span class="o">.</span><span class="n">number</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span> <span class="o">&lt;</span> <span class="n">block_header</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
         <span class="n">ommer_parent_header</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">ommer</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
         <span class="n">validate_header</span><span class="p">(</span><span class="n">ommer</span><span class="p">,</span> <span class="n">ommer_parent_header</span><span class="p">)</span>
 
     <span class="c1"># Check that there can be only at most 2 ommers for a block.</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ommers</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ommers</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="n">ommers_hashes</span> <span class="o">=</span> <span class="p">[</span><span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">ommer</span><span class="p">)</span> <span class="k">for</span> <span class="n">ommer</span> <span class="ow">in</span> <span class="n">ommers</span><span class="p">]</span>
     <span class="c1"># Check that there are no duplicates in the ommers of current block</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">))</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">)))</span>
 
     <span class="n">recent_canonical_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">MAX_UNCLE_DEPTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
     <span class="n">recent_canonical_block_hashes</span> <span class="o">=</span> <span class="p">{</span>
@@ -621,21 +625,21 @@ block.</p></li>
     <span class="k">for</span> <span class="n">ommer_index</span><span class="p">,</span> <span class="n">ommer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ommers</span><span class="p">):</span>
         <span class="n">ommer_hash</span> <span class="o">=</span> <span class="n">ommers_hashes</span><span class="p">[</span><span class="n">ommer_index</span><span class="p">]</span>
         <span class="c1"># The current block shouldn&#39;t be the ommer</span>
-        <span class="k">assert</span> <span class="n">ommer_hash</span> <span class="o">!=</span> <span class="n">block_hash</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">ommer_hash</span> <span class="o">!=</span> <span class="n">block_hash</span><span class="p">)</span>
 
         <span class="c1"># Ommer shouldn&#39;t be one of the recent canonical blocks</span>
-        <span class="k">assert</span> <span class="n">ommer_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">recent_canonical_block_hashes</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">ommer_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">recent_canonical_block_hashes</span><span class="p">)</span>
 
         <span class="c1"># Ommer shouldn&#39;t be one of the uncles mentioned in the recent</span>
         <span class="c1"># canonical blocks</span>
-        <span class="k">assert</span> <span class="n">ommer_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">recent_ommers_hashes</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">ommer_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">recent_ommers_hashes</span><span class="p">)</span>
 
         <span class="c1"># Ommer age with respect to the current block. For example, an age of</span>
         <span class="c1"># 1 indicates that the ommer is a sibling of previous block.</span>
         <span class="n">ommer_age</span> <span class="o">=</span> <span class="n">block_header</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer_age</span> <span class="o">&lt;=</span> <span class="n">MAX_UNCLE_DEPTH</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer_age</span> <span class="o">&lt;=</span> <span class="n">MAX_UNCLE_DEPTH</span><span class="p">)</span>
 
-        <span class="k">assert</span> <span class="p">(</span>
+        <span class="n">ensure</span><span class="p">(</span>
             <span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="ow">in</span> <span class="n">recent_canonical_block_hashes</span>
             <span class="ow">and</span> <span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="o">!=</span> <span class="n">block_header</span><span class="o">.</span><span class="n">parent_hash</span>
 </pre></div>
@@ -702,13 +706,13 @@ block.</p></li>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_transaction</span><span class="p">(</span>
     <span class="n">env</span><span class="p">:</span> <span class="n">vm</span><span class="o">.</span><span class="n">Environment</span><span class="p">,</span> <span class="n">tx</span><span class="p">:</span> <span class="n">Transaction</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">U256</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Log</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
-    <span class="k">assert</span> <span class="n">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">validate_transaction</span><span class="p">(</span><span class="n">tx</span><span class="p">))</span>
 
     <span class="n">sender</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">origin</span>
     <span class="n">sender_account</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">sender</span><span class="p">)</span>
     <span class="n">gas_fee</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">*</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas_price</span>
-    <span class="k">assert</span> <span class="n">sender_account</span><span class="o">.</span><span class="n">nonce</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">nonce</span>
-    <span class="k">assert</span> <span class="n">sender_account</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">gas_fee</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">sender_account</span><span class="o">.</span><span class="n">nonce</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">nonce</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">sender_account</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">gas_fee</span><span class="p">)</span>
 
     <span class="n">gas</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">gas</span> <span class="o">-</span> <span class="n">calculate_intrinsic_cost</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
     <span class="n">increment_nonce</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">sender</span><span class="p">)</span>
@@ -841,8 +845,8 @@ execution is instantiated.</p>
     <span class="c1">#  if v &gt; 28:</span>
     <span class="c1">#      v = v - (chain_id*2+8)</span>
 
-    <span class="k">assert</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">27</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">28</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">SECP256K1N</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="mi">27</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">28</span><span class="p">)</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">SECP256K1N</span><span class="p">)</span>
 
     <span class="c1"># TODO: this causes error starting in block 46169 (or 46170?)</span>
     <span class="c1"># assert 0&lt;s_int and s_int&lt;(SECP256K1N//2+1)</span>

@@ -344,7 +344,7 @@ from the byte sequence <cite>encoded_data</cite>, using RLP.</p>
     <span class="c1"># given raw data (including empty raw data)</span>
     <span class="c1"># RLP Encoding(b&#39;&#39;) -&gt; [0x80]  # noqa: SC100</span>
     <span class="c1"># RLP Encoding([])  -&gt; [0xc0]  # noqa: SC100</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
         <span class="c1"># This means that the raw data is of type bytes</span>
@@ -380,24 +380,24 @@ should be of type <cite>bytes</cite>.</p>
         <span class="k">return</span> <span class="n">encoded_bytes</span>
     <span class="k">elif</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xB7</span><span class="p">:</span>
         <span class="n">len_raw_data</span> <span class="o">=</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x80</span>
-        <span class="k">assert</span> <span class="n">len_raw_data</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">len_raw_data</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">))</span>
         <span class="n">raw_data</span> <span class="o">=</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_raw_data</span><span class="p">]</span>
-        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="n">len_raw_data</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mh">0x80</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">raw_data</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># This is the index in the encoded data at which decoded data</span>
         <span class="c1"># starts from.</span>
         <span class="n">decoded_data_start_idx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="k">assert</span> <span class="n">decoded_data_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">decoded_data_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">))</span>
         <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
         <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
-        <span class="k">assert</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">len_decoded_data</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
             <span class="n">encoded_bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">decoded_data_start_idx</span><span class="p">]</span>
         <span class="p">)</span>
-        <span class="k">assert</span> <span class="n">len_decoded_data</span> <span class="o">&gt;=</span> <span class="mh">0x38</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">len_decoded_data</span> <span class="o">&gt;=</span> <span class="mh">0x38</span><span class="p">)</span>
         <span class="n">decoded_data_end_idx</span> <span class="o">=</span> <span class="n">decoded_data_start_idx</span> <span class="o">+</span> <span class="n">len_decoded_data</span>
-        <span class="k">assert</span> <span class="n">decoded_data_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">decoded_data_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_bytes</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">encoded_bytes</span><span class="p">[</span><span class="n">decoded_data_start_idx</span><span class="p">:</span><span class="n">decoded_data_end_idx</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -425,22 +425,22 @@ should be of type <cite>Sequence</cite> of objects.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_to_sequence</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RLP</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mh">0xF7</span><span class="p">:</span>
         <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xC0</span>
-        <span class="k">assert</span> <span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">len_joined_encodings</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">))</span>
         <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len_joined_encodings</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">joined_encodings_start_idx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0xF7</span>
-        <span class="k">assert</span> <span class="n">joined_encodings_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">joined_encodings_start_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">))</span>
         <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
         <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
-        <span class="k">assert</span> <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">len_joined_encodings</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
             <span class="n">encoded_sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">joined_encodings_start_idx</span><span class="p">]</span>
         <span class="p">)</span>
-        <span class="k">assert</span> <span class="n">len_joined_encodings</span> <span class="o">&gt;=</span> <span class="mh">0x38</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">len_joined_encodings</span> <span class="o">&gt;=</span> <span class="mh">0x38</span><span class="p">)</span>
         <span class="n">joined_encodings_end_idx</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">joined_encodings_start_idx</span> <span class="o">+</span> <span class="n">len_joined_encodings</span>
         <span class="p">)</span>
-        <span class="k">assert</span> <span class="n">joined_encodings_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">joined_encodings_end_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_sequence</span><span class="p">))</span>
         <span class="n">joined_encodings</span> <span class="o">=</span> <span class="n">encoded_sequence</span><span class="p">[</span>
             <span class="n">joined_encodings_start_idx</span><span class="p">:</span><span class="n">joined_encodings_end_idx</span>
         <span class="p">]</span>
@@ -477,7 +477,9 @@ objects.</p>
         <span class="n">encoded_item_length</span> <span class="o">=</span> <span class="n">decode_item_length</span><span class="p">(</span>
             <span class="n">joined_encodings</span><span class="p">[</span><span class="n">item_start_idx</span><span class="p">:]</span>
         <span class="p">)</span>
-        <span class="k">assert</span> <span class="n">item_start_idx</span> <span class="o">+</span> <span class="n">encoded_item_length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span>
+            <span class="n">item_start_idx</span> <span class="o">+</span> <span class="n">encoded_item_length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">joined_encodings</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">encoded_item</span> <span class="o">=</span> <span class="n">joined_encodings</span><span class="p">[</span>
             <span class="n">item_start_idx</span> <span class="p">:</span> <span class="n">item_start_idx</span> <span class="o">+</span> <span class="n">encoded_item_length</span>
         <span class="p">]</span>
@@ -515,7 +517,7 @@ data.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_item_length</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="c1"># Can&#39;t decode item length for empty encoding</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="n">first_rlp_byte</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -538,10 +540,10 @@ data.</p>
     <span class="c1"># into the above cases</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xBF</span><span class="p">:</span>
         <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xB7</span>
-        <span class="k">assert</span> <span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">))</span>
         <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
         <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
-        <span class="k">assert</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
             <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">]</span>
         <span class="p">)</span>
@@ -553,10 +555,10 @@ data.</p>
     <span class="c1"># doesn&#39;t fall into the above cases.</span>
     <span class="k">elif</span> <span class="n">first_rlp_byte</span> <span class="o">&lt;=</span> <span class="mh">0xFF</span><span class="p">:</span>
         <span class="n">length_length</span> <span class="o">=</span> <span class="n">first_rlp_byte</span> <span class="o">-</span> <span class="mh">0xF7</span>
-        <span class="k">assert</span> <span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">length_length</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">))</span>
         <span class="c1"># Expectation is that the big endian bytes shouldn&#39;t start with 0</span>
         <span class="c1"># while trying to decode using RLP, in which case is an error.</span>
-        <span class="k">assert</span> <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">decoded_data_length</span> <span class="o">=</span> <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span>
             <span class="n">encoded_data</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length_length</span><span class="p">]</span>
         <span class="p">)</span>
@@ -711,9 +713,9 @@ object.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequence_to_header</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Header</span><span class="p">:</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span><span class="p">)</span>
 
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">32</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">Header</span><span class="p">(</span>
         <span class="n">parent_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -758,7 +760,7 @@ object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequence_to_transaction</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Transaction</span><span class="p">:</span>
     <span class="c1"># TODO: Add assertions about the number of bytes in each of the below</span>
     <span class="c1"># variables if it&#39;s used in chain sync later on.</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
 
     <span class="n">to</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Bytes0</span><span class="p">,</span> <span class="n">Address</span><span class="p">]</span> <span class="o">=</span> <span class="n">Bytes0</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
