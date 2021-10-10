@@ -58,7 +58,7 @@ block_hash
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 22-51
+   :lines: 22-53
 
 coinbase
 ~~~~~~~~
@@ -83,7 +83,7 @@ coinbase
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 54-75
+   :lines: 56-79
 
 timestamp
 ~~~~~~~~~
@@ -108,7 +108,7 @@ timestamp
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 78-99
+   :lines: 82-105
 
 number
 ~~~~~~
@@ -132,7 +132,7 @@ number
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 102-122
+   :lines: 108-130
 
 difficulty
 ~~~~~~~~~~
@@ -156,7 +156,7 @@ difficulty
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 125-145
+   :lines: 133-155
 
 gas_limit
 ~~~~~~~~~
@@ -180,4 +180,4 @@ gas_limit
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/block.py
    :language: python
-   :lines: 148-168
+   :lines: 158-180

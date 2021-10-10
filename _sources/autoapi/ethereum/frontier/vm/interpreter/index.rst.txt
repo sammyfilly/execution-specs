@@ -38,21 +38,11 @@ Attributes
 
 .. autoapisummary::
 
-   ethereum.frontier.vm.interpreter.PC_CHANGING_OPS
    ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT
 
 
 Module Details
 ---------------
-
-PC_CHANGING_OPS
-~~~~~~~~~~~~~~~
-
-.. py:data:: PC_CHANGING_OPS
-   
-
-   
-
 
 STACK_DEPTH_LIMIT
 ~~~~~~~~~~~~~~~~~
@@ -92,7 +82,7 @@ process_message_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 56-100
+   :lines: 53-97
 
 process_create_message
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -114,7 +104,7 @@ process_create_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 104-130
+   :lines: 101-127
 
 process_message
 ~~~~~~~~~~~~~~~
@@ -136,7 +126,7 @@ process_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 133-168
+   :lines: 130-165
 
 execute_code
 ~~~~~~~~~~~~
@@ -158,4 +148,4 @@ execute_code
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 171-241
+   :lines: 168-234

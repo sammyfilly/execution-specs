@@ -109,6 +109,8 @@ storage of the current account.</p>
     <span class="n">value</span> <span class="o">=</span> <span class="n">get_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
     <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -152,6 +154,8 @@ storage of the current account.</p>
         <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">+=</span> <span class="n">GAS_STORAGE_CLEAR_REFUND</span>
 
     <span class="n">set_storage</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>

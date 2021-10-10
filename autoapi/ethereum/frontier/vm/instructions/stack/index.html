@@ -380,6 +380,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="n">evm</span><span class="p">:</span> <span class="n">Evm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">GAS_BASE</span><span class="p">)</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
+
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -415,7 +417,7 @@ the stack.</p></li>
     <span class="p">)</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">data_to_push</span><span class="p">)</span>
 
-    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="n">num_bytes</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">num_bytes</span>
 </pre></div>
 </div>
 </section>
@@ -445,6 +447,8 @@ to the top of stack.</p></li>
 
     <span class="n">data_to_duplicate</span> <span class="o">=</span> <span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">item_number</span><span class="p">]</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">data_to_duplicate</span><span class="p">)</span>
+
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -480,6 +484,9 @@ with the top of stack element.</p></li>
     <span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="n">top_element_idx</span><span class="p">],</span> <span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="n">nth_element_idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="n">nth_element_idx</span><span class="p">],</span>
         <span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="n">top_element_idx</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>

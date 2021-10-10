@@ -63,7 +63,7 @@ add
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 29-52
+   :lines: 29-54
 
 sub
 ~~~
@@ -85,7 +85,7 @@ sub
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 55-78
+   :lines: 57-82
 
 mul
 ~~~
@@ -107,7 +107,7 @@ mul
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 81-104
+   :lines: 85-110
 
 div
 ~~~
@@ -129,7 +129,7 @@ div
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 107-133
+   :lines: 113-141
 
 sdiv
 ~~~~
@@ -151,7 +151,7 @@ sdiv
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 136-166
+   :lines: 144-176
 
 mod
 ~~~
@@ -173,7 +173,7 @@ mod
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 169-195
+   :lines: 179-207
 
 smod
 ~~~~
@@ -195,7 +195,7 @@ smod
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 198-225
+   :lines: 210-239
 
 addmod
 ~~~~~~
@@ -217,7 +217,7 @@ addmod
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 228-256
+   :lines: 242-272
 
 mulmod
 ~~~~~~
@@ -239,7 +239,7 @@ mulmod
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 259-287
+   :lines: 275-305
 
 exp
 ~~~
@@ -260,7 +260,7 @@ exp
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 290-319
+   :lines: 308-339
 
 signextend
 ~~~~~~~~~~
@@ -282,4 +282,4 @@ signextend
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/arithmetic.py
    :language: python
-   :lines: 322-364
+   :lines: 342-386

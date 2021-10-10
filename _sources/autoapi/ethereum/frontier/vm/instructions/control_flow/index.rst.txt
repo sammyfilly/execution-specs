@@ -131,7 +131,7 @@ pc
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 112-130
+   :lines: 112-131
 
 gas_left
 ~~~~~~~~
@@ -153,7 +153,7 @@ gas_left
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 133-151
+   :lines: 134-153
 
 jumpdest
 ~~~~~~~~
@@ -175,4 +175,4 @@ jumpdest
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 154-171
+   :lines: 156-173

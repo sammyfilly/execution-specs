@@ -54,7 +54,7 @@ sload
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/storage.py
    :language: python
-   :lines: 28-50
+   :lines: 28-52
 
 sstore
 ~~~~~~
@@ -75,4 +75,4 @@ sstore
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/storage.py
    :language: python
-   :lines: 53-88
+   :lines: 55-92

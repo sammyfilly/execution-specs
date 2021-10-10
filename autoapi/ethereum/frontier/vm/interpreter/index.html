@@ -51,12 +51,11 @@
 </li>
 <li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pc-changing-ops" id="id6">PC_CHANGING_OPS</a></p></li>
-<li><p><a class="reference internal" href="#stack-depth-limit" id="id7">STACK_DEPTH_LIMIT</a></p></li>
-<li><p><a class="reference internal" href="#process-message-call" id="id8">process_message_call</a></p></li>
-<li><p><a class="reference internal" href="#process-create-message" id="id9">process_create_message</a></p></li>
-<li><p><a class="reference internal" href="#process-message" id="id10">process_message</a></p></li>
-<li><p><a class="reference internal" href="#execute-code" id="id11">execute_code</a></p></li>
+<li><p><a class="reference internal" href="#stack-depth-limit" id="id6">STACK_DEPTH_LIMIT</a></p></li>
+<li><p><a class="reference internal" href="#process-message-call" id="id7">process_message_call</a></p></li>
+<li><p><a class="reference internal" href="#process-create-message" id="id8">process_create_message</a></p></li>
+<li><p><a class="reference internal" href="#process-message" id="id9">process_message</a></p></li>
+<li><p><a class="reference internal" href="#execute-code" id="id10">execute_code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -98,10 +97,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.PC_CHANGING_OPS" title="ethereum.frontier.vm.interpreter.PC_CHANGING_OPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PC_CHANGING_OPS</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT" title="ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STACK_DEPTH_LIMIT</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT" title="ethereum.frontier.vm.interpreter.STACK_DEPTH_LIMIT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STACK_DEPTH_LIMIT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -110,14 +106,6 @@
 </section>
 <section id="module-details">
 <h3>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline">¶</a></h3>
-<section id="pc-changing-ops">
-<h4>PC_CHANGING_OPS<a class="headerlink" href="#pc-changing-ops" title="Permalink to this headline">¶</a></h4>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.frontier.vm.interpreter.PC_CHANGING_OPS">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.interpreter.</span></span><span class="sig-name descname"><span class="pre">PC_CHANGING_OPS</span></span><a class="headerlink" href="#ethereum.frontier.vm.interpreter.PC_CHANGING_OPS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
 <section id="stack-depth-limit">
 <h4>STACK_DEPTH_LIMIT<a class="headerlink" href="#stack-depth-limit" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
@@ -322,10 +310,6 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
                 <span class="k">raise</span> <span class="n">InvalidOpcode</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
 
             <span class="n">op_implementation</span><span class="p">[</span><span class="n">op</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PC_CHANGING_OPS</span><span class="p">:</span>
-                <span class="n">evm</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
-
     <span class="k">except</span> <span class="p">(</span>
         <span class="n">OutOfGasError</span><span class="p">,</span>
         <span class="n">InvalidOpcode</span><span class="p">,</span>

@@ -58,7 +58,7 @@ less_than
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 22-45
+   :lines: 22-47
 
 signed_less_than
 ~~~~~~~~~~~~~~~~
@@ -79,7 +79,7 @@ signed_less_than
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 48-70
+   :lines: 50-74
 
 greater_than
 ~~~~~~~~~~~~
@@ -101,7 +101,7 @@ greater_than
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 73-96
+   :lines: 77-102
 
 signed_greater_than
 ~~~~~~~~~~~~~~~~~~~
@@ -122,7 +122,7 @@ signed_greater_than
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 99-121
+   :lines: 105-129
 
 equal
 ~~~~~
@@ -144,7 +144,7 @@ equal
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 124-147
+   :lines: 132-157
 
 is_zero
 ~~~~~~~
@@ -166,4 +166,4 @@ is_zero
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/comparison.py
    :language: python
-   :lines: 150-172
+   :lines: 160-184
