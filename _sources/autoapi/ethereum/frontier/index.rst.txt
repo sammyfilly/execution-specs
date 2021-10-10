@@ -41,8 +41,13 @@ Package Contents
 MAINNET_FORK_BLOCK
 ~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: MAINNET_FORK_BLOCK
-   :annotation: = 1
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/__init__.py
+   :language: python
+   :lines: 8-8
 

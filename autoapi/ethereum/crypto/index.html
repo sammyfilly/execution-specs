@@ -39,16 +39,28 @@
 <span id="ethereum-crypto"></span><h1><a class="reference internal" href="#module-ethereum.crypto" title="ethereum.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.crypto</span></code></a><a class="headerlink" href="#module-ethereum.crypto" title="Permalink to this headline">¶</a></h1>
 <section id="cryptographic-functions">
 <h2>Cryptographic Functions<a class="headerlink" href="#cryptographic-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>..contents:: Table of Contents</dt><dd><dl class="field-list simple">
-<dt class="field-odd">backlinks</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-<dt class="field-even">local</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-</dd>
-</dl>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hash32" id="id6">Hash32</a></p></li>
+<li><p><a class="reference internal" href="#hash64" id="id7">Hash64</a></p></li>
+<li><p><a class="reference internal" href="#secp256k1n" id="id8">SECP256K1N</a></p></li>
+<li><p><a class="reference internal" href="#keccak256" id="id9">keccak256</a></p></li>
+<li><p><a class="reference internal" href="#keccak512" id="id10">keccak512</a></p></li>
+<li><p><a class="reference internal" href="#secp256k1-recover" id="id11">secp256k1_recover</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>Cryptographic primatives used in—but not defined by—the Ethereum specification.</p>
@@ -105,6 +117,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.crypto.</span></span><span class="sig-name descname"><span class="pre">Hash32</span></span><a class="headerlink" href="#ethereum.crypto.Hash32" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Hash32</span> <span class="o">=</span> <span class="n">Bytes32</span>
+</pre></div>
+</div>
 </section>
 <section id="hash64">
 <h4>Hash64<a class="headerlink" href="#hash64" title="Permalink to this headline">¶</a></h4>
@@ -113,14 +128,20 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.crypto.</span></span><span class="sig-name descname"><span class="pre">Hash64</span></span><a class="headerlink" href="#ethereum.crypto.Hash64" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Hash64</span> <span class="o">=</span> <span class="n">Bytes64</span>
+</pre></div>
+</div>
 </section>
 <section id="secp256k1n">
 <h4>SECP256K1N<a class="headerlink" href="#secp256k1n" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.crypto.SECP256K1N">
-<span class="sig-prename descclassname"><span class="pre">ethereum.crypto.</span></span><span class="sig-name descname"><span class="pre">SECP256K1N</span></span><em class="property"> <span class="pre">=</span> <span class="pre">115792089237316195423570985008687907852837564279074904382605163141518161494337</span></em><a class="headerlink" href="#ethereum.crypto.SECP256K1N" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.crypto.</span></span><span class="sig-name descname"><span class="pre">SECP256K1N</span></span><a class="headerlink" href="#ethereum.crypto.SECP256K1N" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SECP256K1N</span> <span class="o">=</span> <span class="mh">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>
+</pre></div>
+</div>
 </section>
 <section id="keccak256">
 <h4>keccak256<a class="headerlink" href="#keccak256" title="Permalink to this headline">¶</a></h4>

@@ -197,22 +197,31 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">BLOCK_REWARD</span></span><a class="headerlink" href="#ethereum.frontier.spec.BLOCK_REWARD" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BLOCK_REWARD</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="gas-limit-adjustment-factor">
 <h4>GAS_LIMIT_ADJUSTMENT_FACTOR<a class="headerlink" href="#gas-limit-adjustment-factor" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.GAS_LIMIT_ADJUSTMENT_FACTOR">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">GAS_LIMIT_ADJUSTMENT_FACTOR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1024</span></em><a class="headerlink" href="#ethereum.frontier.spec.GAS_LIMIT_ADJUSTMENT_FACTOR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">GAS_LIMIT_ADJUSTMENT_FACTOR</span></span><a class="headerlink" href="#ethereum.frontier.spec.GAS_LIMIT_ADJUSTMENT_FACTOR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GAS_LIMIT_ADJUSTMENT_FACTOR</span> <span class="o">=</span> <span class="mi">1024</span>
+</pre></div>
+</div>
 </section>
 <section id="gas-limit-minimum">
 <h4>GAS_LIMIT_MINIMUM<a class="headerlink" href="#gas-limit-minimum" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.GAS_LIMIT_MINIMUM">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">GAS_LIMIT_MINIMUM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">5000</span></em><a class="headerlink" href="#ethereum.frontier.spec.GAS_LIMIT_MINIMUM" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">GAS_LIMIT_MINIMUM</span></span><a class="headerlink" href="#ethereum.frontier.spec.GAS_LIMIT_MINIMUM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GAS_LIMIT_MINIMUM</span> <span class="o">=</span> <span class="mi">5000</span>
+</pre></div>
+</div>
 </section>
 <section id="genesis-difficulty">
 <h4>GENESIS_DIFFICULTY<a class="headerlink" href="#genesis-difficulty" title="Permalink to this headline">¶</a></h4>
@@ -221,14 +230,20 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">GENESIS_DIFFICULTY</span></span><a class="headerlink" href="#ethereum.frontier.spec.GENESIS_DIFFICULTY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GENESIS_DIFFICULTY</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">131072</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="max-uncle-depth">
 <h4>MAX_UNCLE_DEPTH<a class="headerlink" href="#max-uncle-depth" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.MAX_UNCLE_DEPTH">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">MAX_UNCLE_DEPTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">6</span></em><a class="headerlink" href="#ethereum.frontier.spec.MAX_UNCLE_DEPTH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">MAX_UNCLE_DEPTH</span></span><a class="headerlink" href="#ethereum.frontier.spec.MAX_UNCLE_DEPTH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_UNCLE_DEPTH</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
 </section>
 <section id="blockchain">
 <h4>BlockChain<a class="headerlink" href="#blockchain" title="Permalink to this headline">¶</a></h4>
@@ -388,22 +403,26 @@ block number.</p>
 <dt class="sig sig-object py" id="ethereum.frontier.spec.generate_header_hash_for_pow">
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">generate_header_hash_for_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../eth_types/index.html#ethereum.frontier.eth_types.Header" title="ethereum.frontier.eth_types.Header"><span class="pre">ethereum.frontier.eth_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">ethereum.frontier.eth_types.Hash32</span><a class="headerlink" href="#ethereum.frontier.spec.generate_header_hash_for_pow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate rlp hash of the header which is to be used for Proof-of-Work
-verification. This hash is generated with the following header fields:
-* parent_hash
-* ommers_hash
-* coinbase
-* state_root
-* transactions_root
-* receipt_root
-* bloom
-* difficulty
-* number
-* gas_limit
-* gas_used
-* timestamp
-* extra_data</p>
-<p>In other words the PoW artefacts which are <cite>mix_digest</cite> and <cite>nonce</cite> are
-ignored while calculating this hash.</p>
+verification. This hash is generated with the following header fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>parent_hash</cite></p></li>
+<li><p><cite>ommers_hash</cite></p></li>
+<li><p><cite>coinbase</cite></p></li>
+<li><p><cite>state_root</cite></p></li>
+<li><p><cite>transactions_root</cite></p></li>
+<li><p><cite>receipt_root</cite></p></li>
+<li><p><cite>bloom</cite></p></li>
+<li><p><cite>difficulty</cite></p></li>
+<li><p><cite>number</cite></p></li>
+<li><p><cite>gas_limit</cite></p></li>
+<li><p><cite>gas_used</cite></p></li>
+<li><p><cite>timestamp</cite></p></li>
+<li><p><cite>extra_data</cite></p></li>
+</ul>
+</div></blockquote>
+<p>In other words, the PoW artefacts <cite>mix_digest</cite> and <cite>nonce</cite> are ignored
+while calculating this hash.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>header</strong> – The header object for which the hash is to be generated.</p>
@@ -463,6 +482,7 @@ ignored while calculating this hash.</p>
     <span class="n">ensure</span><span class="p">(</span><span class="n">mix_digest</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">mix_digest</span><span class="p">)</span>
     <span class="n">ensure</span><span class="p">(</span>
         <span class="n">Uint</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">U256_CEIL_VALUE</span> <span class="o">//</span> <span class="n">header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -568,6 +588,7 @@ block.</p></li>
         <span class="n">root</span><span class="p">(</span><span class="n">receipts_trie</span><span class="p">),</span>
         <span class="n">block_logs_bloom</span><span class="p">,</span>
         <span class="n">state</span><span class="p">,</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -642,6 +663,7 @@ block.</p></li>
         <span class="n">ensure</span><span class="p">(</span>
             <span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="ow">in</span> <span class="n">recent_canonical_block_hashes</span>
             <span class="ow">and</span> <span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="o">!=</span> <span class="n">block_header</span><span class="o">.</span><span class="n">parent_hash</span>
+        <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -885,6 +907,9 @@ execution is instantiated.</p>
                 <span class="n">tx</span><span class="o">.</span><span class="n">to</span><span class="p">,</span>
                 <span class="n">tx</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                 <span class="n">tx</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -983,17 +1008,21 @@ execution is instantiated.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.calculate_block_difficulty">
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">calculate_block_difficulty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_timestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.U256" title="ethereum.base_types.U256"><span class="pre">ethereum.base_types.U256</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_difficulty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><a class="headerlink" href="#ethereum.frontier.spec.calculate_block_difficulty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes difficulty of a block using its header and parent header.
-:param number: Block number of the block
-:param timestamp: Timestmap of the block
-:param parent_timestamp: Timestanp of the parent block
-:param parent_difficulty: difficulty of the parent block</p>
+<dd><p>Computes difficulty of a block using its header and parent header.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>difficulty</strong> – Computed difficulty for a block.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> – Block number of the block</p></li>
+<li><p><strong>timestamp</strong> – Timestmap of the block</p></li>
+<li><p><strong>parent_timestamp</strong> – Timestanp of the parent block</p></li>
+<li><p><strong>parent_difficulty</strong> – difficulty of the parent block</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><cite>ethereum.base_types.Uint</cite></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>difficulty</strong> – Computed difficulty for a block.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>ethereum.base_types.Uint</cite></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1013,6 +1042,7 @@ execution is instantiated.</p>
         <span class="k">return</span> <span class="nb">max</span><span class="p">(</span>
             <span class="n">GENESIS_DIFFICULTY</span><span class="p">,</span>
             <span class="n">parent_difficulty</span> <span class="o">-</span> <span class="n">max_adjustment_delta</span><span class="p">,</span>
+        <span class="p">)</span>
 </pre></div>
 </div>
 </section>

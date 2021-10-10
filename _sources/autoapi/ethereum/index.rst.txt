@@ -37,8 +37,13 @@ Package Contents
 EVM_RECURSION_LIMIT
 ~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: EVM_RECURSION_LIMIT
-   
 
    
+
+.. undocinclude:: /../src/ethereum/__init__.py
+   :language: python
+   :lines: 12-12
 

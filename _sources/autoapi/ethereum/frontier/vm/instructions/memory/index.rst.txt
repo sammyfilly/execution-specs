@@ -58,7 +58,7 @@ mstore
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/memory.py
    :language: python
-   :lines: 29-66
+   :pyobject: mstore
 
 mstore8
 ~~~~~~~
@@ -82,7 +82,7 @@ mstore8
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/memory.py
    :language: python
-   :lines: 69-108
+   :pyobject: mstore8
 
 mload
 ~~~~~
@@ -104,7 +104,7 @@ mload
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/memory.py
    :language: python
-   :lines: 111-148
+   :pyobject: mload
 
 msize
 ~~~~~
@@ -124,4 +124,4 @@ msize
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/memory.py
    :language: python
-   :lines: 151-169
+   :pyobject: msize

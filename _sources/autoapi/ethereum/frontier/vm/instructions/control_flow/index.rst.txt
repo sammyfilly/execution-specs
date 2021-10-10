@@ -54,7 +54,7 @@ stop
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 29-38
+   :pyobject: stop
 
 jump
 ~~~~
@@ -81,7 +81,7 @@ jump
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 41-70
+   :pyobject: jump
 
 jumpi
 ~~~~~
@@ -109,7 +109,7 @@ jumpi
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 73-109
+   :pyobject: jumpi
 
 pc
 ~~
@@ -131,7 +131,7 @@ pc
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 112-131
+   :pyobject: pc
 
 gas_left
 ~~~~~~~~
@@ -153,7 +153,7 @@ gas_left
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 134-153
+   :pyobject: gas_left
 
 jumpdest
 ~~~~~~~~
@@ -175,4 +175,4 @@ jumpdest
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/control_flow.py
    :language: python
-   :lines: 156-173
+   :pyobject: jumpdest

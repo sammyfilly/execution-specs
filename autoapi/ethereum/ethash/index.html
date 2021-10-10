@@ -38,16 +38,43 @@
 <span id="ethereum-ethash"></span><h1><a class="reference internal" href="#module-ethereum.ethash" title="ethereum.ethash"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.ethash</span></code></a><a class="headerlink" href="#module-ethereum.ethash" title="Permalink to this headline">¶</a></h1>
 <section id="ethash-functions">
 <h2>Ethash Functions<a class="headerlink" href="#ethash-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>..contents:: Table of Contents</dt><dd><dl class="field-list simple">
-<dt class="field-odd">backlinks</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-<dt class="field-even">local</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-</dd>
-</dl>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#epoch-size" id="id6">EPOCH_SIZE</a></p></li>
+<li><p><a class="reference internal" href="#initial-cache-size" id="id7">INITIAL_CACHE_SIZE</a></p></li>
+<li><p><a class="reference internal" href="#cache-epoch-growth-size" id="id8">CACHE_EPOCH_GROWTH_SIZE</a></p></li>
+<li><p><a class="reference internal" href="#initial-dataset-size" id="id9">INITIAL_DATASET_SIZE</a></p></li>
+<li><p><a class="reference internal" href="#dataset-epoch-growth-size" id="id10">DATASET_EPOCH_GROWTH_SIZE</a></p></li>
+<li><p><a class="reference internal" href="#hash-bytes" id="id11">HASH_BYTES</a></p></li>
+<li><p><a class="reference internal" href="#mix-bytes" id="id12">MIX_BYTES</a></p></li>
+<li><p><a class="reference internal" href="#cache-rounds" id="id13">CACHE_ROUNDS</a></p></li>
+<li><p><a class="reference internal" href="#dataset-parents" id="id14">DATASET_PARENTS</a></p></li>
+<li><p><a class="reference internal" href="#hashimoto-accesses" id="id15">HASHIMOTO_ACCESSES</a></p></li>
+<li><p><a class="reference internal" href="#epoch" id="id16">epoch</a></p></li>
+<li><p><a class="reference internal" href="#cache-size" id="id17">cache_size</a></p></li>
+<li><p><a class="reference internal" href="#dataset-size" id="id18">dataset_size</a></p></li>
+<li><p><a class="reference internal" href="#generate-seed" id="id19">generate_seed</a></p></li>
+<li><p><a class="reference internal" href="#generate-cache" id="id20">generate_cache</a></p></li>
+<li><p><a class="reference internal" href="#fnv" id="id21">fnv</a></p></li>
+<li><p><a class="reference internal" href="#fnv-hash" id="id22">fnv_hash</a></p></li>
+<li><p><a class="reference internal" href="#generate-dataset-item" id="id23">generate_dataset_item</a></p></li>
+<li><p><a class="reference internal" href="#generate-dataset" id="id24">generate_dataset</a></p></li>
+<li><p><a class="reference internal" href="#hashimoto" id="id25">hashimoto</a></p></li>
+<li><p><a class="reference internal" href="#hashimoto-light" id="id26">hashimoto_light</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>Ethash algorithm related functionalities.</p>
@@ -146,9 +173,12 @@
 <h4>EPOCH_SIZE<a class="headerlink" href="#epoch-size" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.EPOCH_SIZE">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">EPOCH_SIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">30000</span></em><a class="headerlink" href="#ethereum.ethash.EPOCH_SIZE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">EPOCH_SIZE</span></span><a class="headerlink" href="#ethereum.ethash.EPOCH_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EPOCH_SIZE</span> <span class="o">=</span> <span class="mi">30000</span>
+</pre></div>
+</div>
 </section>
 <section id="initial-cache-size">
 <h4>INITIAL_CACHE_SIZE<a class="headerlink" href="#initial-cache-size" title="Permalink to this headline">¶</a></h4>
@@ -157,6 +187,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">INITIAL_CACHE_SIZE</span></span><a class="headerlink" href="#ethereum.ethash.INITIAL_CACHE_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INITIAL_CACHE_SIZE</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">24</span>
+</pre></div>
+</div>
 </section>
 <section id="cache-epoch-growth-size">
 <h4>CACHE_EPOCH_GROWTH_SIZE<a class="headerlink" href="#cache-epoch-growth-size" title="Permalink to this headline">¶</a></h4>
@@ -165,6 +198,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">CACHE_EPOCH_GROWTH_SIZE</span></span><a class="headerlink" href="#ethereum.ethash.CACHE_EPOCH_GROWTH_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CACHE_EPOCH_GROWTH_SIZE</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">17</span>
+</pre></div>
+</div>
 </section>
 <section id="initial-dataset-size">
 <h4>INITIAL_DATASET_SIZE<a class="headerlink" href="#initial-dataset-size" title="Permalink to this headline">¶</a></h4>
@@ -173,6 +209,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">INITIAL_DATASET_SIZE</span></span><a class="headerlink" href="#ethereum.ethash.INITIAL_DATASET_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INITIAL_DATASET_SIZE</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">30</span>
+</pre></div>
+</div>
 </section>
 <section id="dataset-epoch-growth-size">
 <h4>DATASET_EPOCH_GROWTH_SIZE<a class="headerlink" href="#dataset-epoch-growth-size" title="Permalink to this headline">¶</a></h4>
@@ -181,46 +220,64 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">DATASET_EPOCH_GROWTH_SIZE</span></span><a class="headerlink" href="#ethereum.ethash.DATASET_EPOCH_GROWTH_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET_EPOCH_GROWTH_SIZE</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">23</span>
+</pre></div>
+</div>
 </section>
 <section id="hash-bytes">
 <h4>HASH_BYTES<a class="headerlink" href="#hash-bytes" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.HASH_BYTES">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">HASH_BYTES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">64</span></em><a class="headerlink" href="#ethereum.ethash.HASH_BYTES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">HASH_BYTES</span></span><a class="headerlink" href="#ethereum.ethash.HASH_BYTES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HASH_BYTES</span> <span class="o">=</span> <span class="mi">64</span>
+</pre></div>
+</div>
 </section>
 <section id="mix-bytes">
 <h4>MIX_BYTES<a class="headerlink" href="#mix-bytes" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.MIX_BYTES">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">MIX_BYTES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">128</span></em><a class="headerlink" href="#ethereum.ethash.MIX_BYTES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">MIX_BYTES</span></span><a class="headerlink" href="#ethereum.ethash.MIX_BYTES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MIX_BYTES</span> <span class="o">=</span> <span class="mi">128</span>
+</pre></div>
+</div>
 </section>
 <section id="cache-rounds">
 <h4>CACHE_ROUNDS<a class="headerlink" href="#cache-rounds" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.CACHE_ROUNDS">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">CACHE_ROUNDS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#ethereum.ethash.CACHE_ROUNDS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">CACHE_ROUNDS</span></span><a class="headerlink" href="#ethereum.ethash.CACHE_ROUNDS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CACHE_ROUNDS</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
 </section>
 <section id="dataset-parents">
 <h4>DATASET_PARENTS<a class="headerlink" href="#dataset-parents" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.DATASET_PARENTS">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">DATASET_PARENTS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">256</span></em><a class="headerlink" href="#ethereum.ethash.DATASET_PARENTS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">DATASET_PARENTS</span></span><a class="headerlink" href="#ethereum.ethash.DATASET_PARENTS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET_PARENTS</span> <span class="o">=</span> <span class="mi">256</span>
+</pre></div>
+</div>
 </section>
 <section id="hashimoto-accesses">
 <h4>HASHIMOTO_ACCESSES<a class="headerlink" href="#hashimoto-accesses" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.ethash.HASHIMOTO_ACCESSES">
-<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">HASHIMOTO_ACCESSES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">64</span></em><a class="headerlink" href="#ethereum.ethash.HASHIMOTO_ACCESSES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.ethash.</span></span><span class="sig-name descname"><span class="pre">HASHIMOTO_ACCESSES</span></span><a class="headerlink" href="#ethereum.ethash.HASHIMOTO_ACCESSES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HASHIMOTO_ACCESSES</span> <span class="o">=</span> <span class="mi">64</span>
+</pre></div>
+</div>
 </section>
 <section id="epoch">
 <h4>epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h4>
@@ -391,6 +448,7 @@ would later be used to generate the full dataset.</p>
 
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
         <span class="n">le_bytes_to_uint32_sequence</span><span class="p">(</span><span class="n">cache_item</span><span class="p">)</span> <span class="k">for</span> <span class="n">cache_item</span> <span class="ow">in</span> <span class="n">cache</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -455,6 +513,7 @@ data.</p>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Uint32</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
         <span class="n">fnv</span><span class="p">(</span><span class="n">mix_integers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mix_integers</span><span class="p">))</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -535,6 +594,7 @@ a long time to execute.</p>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
         <span class="n">generate_dataset_item</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dataset_size_bytes</span> <span class="o">//</span> <span class="n">HASH_BYTES</span><span class="p">)</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>

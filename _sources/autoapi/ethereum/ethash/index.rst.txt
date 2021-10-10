@@ -6,7 +6,7 @@
 Ethash Functions
 ^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -63,91 +63,141 @@ Module Details
 EPOCH_SIZE
 ~~~~~~~~~~
 
+
+
 .. py:data:: EPOCH_SIZE
-   :annotation: = 30000
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 26-26
 
 
 INITIAL_CACHE_SIZE
 ~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: INITIAL_CACHE_SIZE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 27-27
 
 
 CACHE_EPOCH_GROWTH_SIZE
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: CACHE_EPOCH_GROWTH_SIZE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 28-28
 
 
 INITIAL_DATASET_SIZE
 ~~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: INITIAL_DATASET_SIZE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 29-29
 
 
 DATASET_EPOCH_GROWTH_SIZE
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: DATASET_EPOCH_GROWTH_SIZE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 30-30
 
 
 HASH_BYTES
 ~~~~~~~~~~
 
+
+
 .. py:data:: HASH_BYTES
-   :annotation: = 64
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 31-31
 
 
 MIX_BYTES
 ~~~~~~~~~
 
+
+
 .. py:data:: MIX_BYTES
-   :annotation: = 128
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 32-32
 
 
 CACHE_ROUNDS
 ~~~~~~~~~~~~
 
+
+
 .. py:data:: CACHE_ROUNDS
-   :annotation: = 3
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 33-33
 
 
 DATASET_PARENTS
 ~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: DATASET_PARENTS
-   :annotation: = 256
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 34-34
 
 
 HASHIMOTO_ACCESSES
 ~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: HASHIMOTO_ACCESSES
-   :annotation: = 64
 
    
+
+.. undocinclude:: /../src/ethereum/ethash.py
+   :language: python
+   :lines: 35-35
 
 
 epoch
@@ -170,7 +220,7 @@ epoch
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 38-53
+   :pyobject: epoch
 
 cache_size
 ~~~~~~~~~~
@@ -192,7 +242,7 @@ cache_size
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 56-76
+   :pyobject: cache_size
 
 dataset_size
 ~~~~~~~~~~~~
@@ -214,7 +264,7 @@ dataset_size
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 79-101
+   :pyobject: dataset_size
 
 generate_seed
 ~~~~~~~~~~~~~
@@ -236,7 +286,7 @@ generate_seed
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 104-126
+   :pyobject: generate_seed
 
 generate_cache
 ~~~~~~~~~~~~~~
@@ -258,7 +308,7 @@ generate_cache
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 129-172
+   :pyobject: generate_cache
 
 fnv
 ~~~
@@ -285,7 +335,7 @@ fnv
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 176-199
+   :pyobject: fnv
 
 fnv_hash
 ~~~~~~~~
@@ -308,7 +358,7 @@ fnv_hash
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 202-222
+   :pyobject: fnv_hash
 
 generate_dataset_item
 ~~~~~~~~~~~~~~~~~~~~~
@@ -333,7 +383,7 @@ generate_dataset_item
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 226-263
+   :pyobject: generate_dataset_item
 
 generate_dataset
 ~~~~~~~~~~~~~~~~
@@ -357,7 +407,7 @@ generate_dataset
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 266-289
+   :pyobject: generate_dataset
 
 hashimoto
 ~~~~~~~~~
@@ -384,7 +434,7 @@ hashimoto
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 293-349
+   :pyobject: hashimoto
 
 hashimoto_light
 ~~~~~~~~~~~~~~~
@@ -411,4 +461,4 @@ hashimoto_light
 
 .. undocinclude:: /../src/ethereum/ethash.py
    :language: python
-   :lines: 352-400
+   :pyobject: hashimoto_light

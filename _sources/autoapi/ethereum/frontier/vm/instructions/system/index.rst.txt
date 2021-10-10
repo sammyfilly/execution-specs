@@ -53,7 +53,7 @@ create
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 34-111
+   :pyobject: create
 
 return_
 ~~~~~~~
@@ -71,7 +71,7 @@ return_
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 114-134
+   :pyobject: return_
 
 call
 ~~~~
@@ -89,7 +89,7 @@ call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 137-224
+   :pyobject: call
 
 callcode
 ~~~~~~~~
@@ -107,7 +107,7 @@ callcode
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 227-314
+   :pyobject: callcode
 
 selfdestruct
 ~~~~~~~~~~~~
@@ -125,4 +125,4 @@ selfdestruct
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/system.py
    :language: python
-   :lines: 317-344
+   :pyobject: selfdestruct

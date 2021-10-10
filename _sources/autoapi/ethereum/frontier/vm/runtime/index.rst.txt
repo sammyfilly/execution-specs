@@ -60,4 +60,4 @@ get_valid_jump_destinations
 
 .. undocinclude:: /../src/ethereum/frontier/vm/runtime.py
    :language: python
-   :lines: 21-67
+   :pyobject: get_valid_jump_destinations

@@ -6,7 +6,7 @@
 Safe Arithmetic for U256 Integer Type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -63,7 +63,7 @@ u256_safe_add
 
 .. undocinclude:: /../src/ethereum/utils/safe_arithmetic.py
    :language: python
-   :lines: 19-54
+   :pyobject: u256_safe_add
 
 u256_safe_multiply
 ~~~~~~~~~~~~~~~~~~
@@ -94,4 +94,4 @@ u256_safe_multiply
 
 .. undocinclude:: /../src/ethereum/utils/safe_arithmetic.py
    :language: python
-   :lines: 57-95
+   :pyobject: u256_safe_multiply

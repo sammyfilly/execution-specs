@@ -6,7 +6,7 @@
 Utility Functions For Byte Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -54,7 +54,7 @@ left_pad_zero_bytes
 
 .. undocinclude:: /../src/ethereum/utils/byte.py
    :language: python
-   :lines: 17-33
+   :pyobject: left_pad_zero_bytes
 
 right_pad_zero_bytes
 ~~~~~~~~~~~~~~~~~~~~
@@ -76,4 +76,4 @@ right_pad_zero_bytes
 
 .. undocinclude:: /../src/ethereum/utils/byte.py
    :language: python
-   :lines: 36-52
+   :pyobject: right_pad_zero_bytes

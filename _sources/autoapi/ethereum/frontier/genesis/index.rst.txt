@@ -6,7 +6,7 @@
 Genesis Configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -54,30 +54,42 @@ the fields of the genesis block.
 
 .. class:: GenesisConfiguration
 
+   
+
    .. py:attribute:: difficulty
       :annotation: :ethereum.base_types.Uint
 
       
+
+   
 
    .. py:attribute:: extra_data
       :annotation: :ethereum.base_types.Bytes
 
       
 
+   
+
    .. py:attribute:: gas_limit
       :annotation: :ethereum.base_types.Uint
 
       
+
+   
 
    .. py:attribute:: nonce
       :annotation: :ethereum.base_types.Bytes8
 
       
 
+   
+
    .. py:attribute:: timestamp
       :annotation: :ethereum.base_types.U256
 
       
+
+   
 
    .. py:attribute:: initial_balances
       :annotation: :Dict[ethereum.frontier.eth_types.Address, ethereum.base_types.U256]
@@ -108,4 +120,4 @@ genesis_configuration
 
 .. undocinclude:: /../src/ethereum/frontier/genesis.py
    :language: python
-   :lines: 51-84
+   :pyobject: genesis_configuration

@@ -54,7 +54,7 @@ extend_memory
 
 .. undocinclude:: /../src/ethereum/frontier/vm/memory.py
    :language: python
-   :lines: 19-41
+   :pyobject: extend_memory
 
 memory_write
 ~~~~~~~~~~~~
@@ -74,7 +74,7 @@ memory_write
 
 .. undocinclude:: /../src/ethereum/frontier/vm/memory.py
    :language: python
-   :lines: 44-60
+   :pyobject: memory_write
 
 memory_read_bytes
 ~~~~~~~~~~~~~~~~~
@@ -97,4 +97,4 @@ memory_read_bytes
 
 .. undocinclude:: /../src/ethereum/frontier/vm/memory.py
    :language: python
-   :lines: 63-83
+   :pyobject: memory_read_bytes

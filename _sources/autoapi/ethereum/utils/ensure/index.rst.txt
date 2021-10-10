@@ -65,4 +65,4 @@ ensure
 
 .. undocinclude:: /../src/ethereum/utils/ensure.py
    :language: python
-   :lines: 24-42
+   :pyobject: ensure

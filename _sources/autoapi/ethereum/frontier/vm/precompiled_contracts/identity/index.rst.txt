@@ -6,7 +6,7 @@
 Ethereum Virtual Machine (EVM) IDENTITY PRECOMPILED CONTRACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -49,4 +49,4 @@ identity
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/identity.py
    :language: python
-   :lines: 23-45
+   :pyobject: identity

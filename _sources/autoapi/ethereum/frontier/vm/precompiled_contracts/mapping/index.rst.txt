@@ -23,8 +23,13 @@ Module Contents
 PRE_COMPILED_CONTRACTS
 ~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: PRE_COMPILED_CONTRACTS
-   :annotation: :Dict[ethereum.frontier.eth_types.Address, Callable]
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/mapping.py
+   :language: python
+   :lines: 24-28
 

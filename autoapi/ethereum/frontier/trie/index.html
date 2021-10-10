@@ -186,6 +186,11 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">EMPTY_TRIE_ROOT</span></span><a class="headerlink" href="#ethereum.frontier.trie.EMPTY_TRIE_ROOT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EMPTY_TRIE_ROOT</span> <span class="o">=</span> <span class="n">Root</span><span class="p">(</span>
+    <span class="n">hex_to_bytes</span><span class="p">(</span>
+        <span class="s2">&quot;56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="node">
 <h4>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h4>
@@ -194,6 +199,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><a class="headerlink" href="#ethereum.frontier.trie.Node" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Node</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Account</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">Transaction</span><span class="p">,</span> <span class="n">Receipt</span><span class="p">,</span> <span class="n">Uint</span><span class="p">,</span> <span class="n">U256</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="k">
 <h4>K<a class="headerlink" href="#k" title="Permalink to this headline">¶</a></h4>
@@ -202,6 +210,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#ethereum.frontier.trie.K" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Bytes</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="v">
 <h4>V<a class="headerlink" href="#v" title="Permalink to this headline">¶</a></h4>
@@ -210,6 +221,17 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#ethereum.frontier.trie.V" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span>
+    <span class="s2">&quot;V&quot;</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">[</span><span class="n">Account</span><span class="p">],</span>
+    <span class="n">Optional</span><span class="p">[</span><span class="n">Bytes</span><span class="p">],</span>
+    <span class="n">Bytes</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">[</span><span class="n">Transaction</span><span class="p">],</span>
+    <span class="n">Optional</span><span class="p">[</span><span class="n">Receipt</span><span class="p">],</span>
+    <span class="n">Uint</span><span class="p">,</span>
+    <span class="n">U256</span><span class="p">,</span>
+</pre></div>
+</div>
 </section>
 <section id="leafnode">
 <h4>LeafNode<a class="headerlink" href="#leafnode" title="Permalink to this headline">¶</a></h4>
@@ -275,6 +297,9 @@
 <span class="sig-prename descclassname"><span class="pre">ethereum.frontier.trie.</span></span><span class="sig-name descname"><span class="pre">InternalNode</span></span><a class="headerlink" href="#ethereum.frontier.trie.InternalNode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">InternalNode</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">LeafNode</span><span class="p">,</span> <span class="n">ExtensionNode</span><span class="p">,</span> <span class="n">BranchNode</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="encode-internal-node">
 <h4>encode_internal_node<a class="headerlink" href="#encode-internal-node" title="Permalink to this headline">¶</a></h4>
@@ -346,6 +371,7 @@ which is encoded to <cite>b””</cite>.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;encoding for </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="si">}</span><span class="s2"> is not currently implemented&quot;</span>
+        <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -718,6 +744,7 @@ memoization of the tree structure and hashes.</p>
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
         <span class="p">],</span>
         <span class="n">value</span><span class="p">,</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>

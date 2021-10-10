@@ -51,7 +51,7 @@ add_to_bloom
 
 .. undocinclude:: /../src/ethereum/frontier/bloom.py
    :language: python
-   :lines: 23-49
+   :pyobject: add_to_bloom
 
 logs_bloom
 ~~~~~~~~~~
@@ -73,4 +73,4 @@ logs_bloom
 
 .. undocinclude:: /../src/ethereum/frontier/bloom.py
    :language: python
-   :lines: 52-76
+   :pyobject: logs_bloom

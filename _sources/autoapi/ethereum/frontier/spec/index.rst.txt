@@ -72,46 +72,71 @@ Module Details
 BLOCK_REWARD
 ~~~~~~~~~~~~
 
+
+
 .. py:data:: BLOCK_REWARD
-   
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/spec.py
+   :language: python
+   :lines: 50-50
 
 
 GAS_LIMIT_ADJUSTMENT_FACTOR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: GAS_LIMIT_ADJUSTMENT_FACTOR
-   :annotation: = 1024
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/spec.py
+   :language: python
+   :lines: 51-51
 
 
 GAS_LIMIT_MINIMUM
 ~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: GAS_LIMIT_MINIMUM
-   :annotation: = 5000
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/spec.py
+   :language: python
+   :lines: 52-52
 
 
 GENESIS_DIFFICULTY
 ~~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: GENESIS_DIFFICULTY
-   
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/spec.py
+   :language: python
+   :lines: 53-53
 
 
 MAX_UNCLE_DEPTH
 ~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: MAX_UNCLE_DEPTH
-   :annotation: = 6
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/spec.py
+   :language: python
+   :lines: 54-54
 
 
 BlockChain
@@ -123,10 +148,14 @@ History and current state of the block chain.
 
 .. class:: BlockChain
 
+   
+
    .. py:attribute:: blocks
       :annotation: :List[ethereum.frontier.eth_types.Block]
 
       
+
+   
 
    .. py:attribute:: state
       :annotation: :ethereum.frontier.state.State
@@ -157,7 +186,7 @@ get_recent_block_hashes
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 67-107
+   :pyobject: get_recent_block_hashes
 
 state_transition
 ~~~~~~~~~~~~~~~~
@@ -176,7 +205,7 @@ state_transition
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 110-148
+   :pyobject: state_transition
 
 validate_header
 ~~~~~~~~~~~~~~~
@@ -195,7 +224,7 @@ validate_header
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 151-175
+   :pyobject: validate_header
 
 generate_header_hash_for_pow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -206,22 +235,23 @@ generate_header_hash_for_pow
 
    Generate rlp hash of the header which is to be used for Proof-of-Work
    verification. This hash is generated with the following header fields:
-   * parent_hash
-   * ommers_hash
-   * coinbase
-   * state_root
-   * transactions_root
-   * receipt_root
-   * bloom
-   * difficulty
-   * number
-   * gas_limit
-   * gas_used
-   * timestamp
-   * extra_data
 
-   In other words the PoW artefacts which are `mix_digest` and `nonce` are
-   ignored while calculating this hash.
+     * `parent_hash`
+     * `ommers_hash`
+     * `coinbase`
+     * `state_root`
+     * `transactions_root`
+     * `receipt_root`
+     * `bloom`
+     * `difficulty`
+     * `number`
+     * `gas_limit`
+     * `gas_used`
+     * `timestamp`
+     * `extra_data`
+
+   In other words, the PoW artefacts `mix_digest` and `nonce` are ignored
+   while calculating this hash.
 
    :param header: The header object for which the hash is to be generated.
 
@@ -233,7 +263,7 @@ generate_header_hash_for_pow
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 178-225
+   :pyobject: generate_header_hash_for_pow
 
 validate_proof_of_work
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -251,7 +281,7 @@ validate_proof_of_work
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 228-247
+   :pyobject: validate_proof_of_work
 
 apply_body
 ~~~~~~~~~~
@@ -286,7 +316,7 @@ apply_body
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 251-356
+   :pyobject: apply_body
 
 validate_ommers
 ~~~~~~~~~~~~~~~
@@ -306,7 +336,7 @@ validate_ommers
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 360-425
+   :pyobject: validate_ommers
 
 pay_rewards
 ~~~~~~~~~~~
@@ -327,7 +357,7 @@ pay_rewards
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 429-456
+   :pyobject: pay_rewards
 
 process_transaction
 ~~~~~~~~~~~~~~~~~~~
@@ -349,7 +379,7 @@ process_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 459-532
+   :pyobject: process_transaction
 
 validate_transaction
 ~~~~~~~~~~~~~~~~~~~~
@@ -370,7 +400,7 @@ validate_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 535-549
+   :pyobject: validate_transaction
 
 calculate_intrinsic_cost
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -392,7 +422,7 @@ calculate_intrinsic_cost
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 552-575
+   :pyobject: calculate_intrinsic_cost
 
 recover_sender
 ~~~~~~~~~~~~~~
@@ -413,7 +443,7 @@ recover_sender
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 578-604
+   :pyobject: recover_sender
 
 signing_hash
 ~~~~~~~~~~~~
@@ -434,7 +464,7 @@ signing_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 607-629
+   :pyobject: signing_hash
 
 compute_header_hash
 ~~~~~~~~~~~~~~~~~~~
@@ -455,7 +485,7 @@ compute_header_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 635-649
+   :pyobject: compute_header_hash
 
 get_block_header_by_hash
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -477,7 +507,7 @@ get_block_header_by_hash
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 652-673
+   :pyobject: get_block_header_by_hash
 
 check_gas_limit
 ~~~~~~~~~~~~~~~
@@ -499,7 +529,7 @@ check_gas_limit
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 676-701
+   :pyobject: check_gas_limit
 
 calculate_block_difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -509,6 +539,7 @@ calculate_block_difficulty
    :noindexentry:
 
    Computes difficulty of a block using its header and parent header.
+
    :param number: Block number of the block
    :param timestamp: Timestmap of the block
    :param parent_timestamp: Timestanp of the parent block
@@ -522,4 +553,4 @@ calculate_block_difficulty
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :lines: 704-735
+   :pyobject: calculate_block_difficulty

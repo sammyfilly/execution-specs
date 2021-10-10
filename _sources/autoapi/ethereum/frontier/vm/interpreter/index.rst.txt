@@ -47,10 +47,15 @@ Module Details
 STACK_DEPTH_LIMIT
 ~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: STACK_DEPTH_LIMIT
-   
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
+   :language: python
+   :lines: 50-50
 
 
 process_message_call
@@ -82,7 +87,7 @@ process_message_call
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 53-97
+   :pyobject: process_message_call
 
 process_create_message
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -104,7 +109,7 @@ process_create_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 101-127
+   :pyobject: process_create_message
 
 process_message
 ~~~~~~~~~~~~~~~
@@ -126,7 +131,7 @@ process_message
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 130-165
+   :pyobject: process_message
 
 execute_code
 ~~~~~~~~~~~~
@@ -148,4 +153,4 @@ execute_code
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 168-234
+   :pyobject: execute_code

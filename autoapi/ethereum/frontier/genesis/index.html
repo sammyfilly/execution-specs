@@ -39,16 +39,24 @@
 <span id="ethereum-frontier-genesis"></span><h1><a class="reference internal" href="#module-ethereum.frontier.genesis" title="ethereum.frontier.genesis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.frontier.genesis</span></code></a><a class="headerlink" href="#module-ethereum.frontier.genesis" title="Permalink to this headline">¶</a></h1>
 <section id="genesis-configuration">
 <h2>Genesis Configuration<a class="headerlink" href="#genesis-configuration" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>..contents:: Table of Contents</dt><dd><dl class="field-list simple">
-<dt class="field-odd">backlinks</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-<dt class="field-even">local</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-</dd>
-</dl>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id2">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#module-contents" id="id3">Module Contents</a></p>
+<ul>
+<li><p><a class="reference internal" href="#classes" id="id4">Classes</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id5">Functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id6">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#genesisconfiguration" id="id7">GenesisConfiguration</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id8">genesis_configuration</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>Functionalities and entities to obtain the genesis configurations for
@@ -167,6 +175,7 @@ and the pre-sale allocation data.</p>
         <span class="n">nonce</span><span class="o">=</span><span class="n">hex_to_bytes8</span><span class="p">(</span><span class="n">genesis_data</span><span class="p">[</span><span class="s2">&quot;nonce&quot;</span><span class="p">]),</span>
         <span class="n">timestamp</span><span class="o">=</span><span class="n">hex_to_u256</span><span class="p">(</span><span class="n">genesis_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]),</span>
         <span class="n">initial_balances</span><span class="o">=</span><span class="n">initial_balances</span><span class="p">,</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>

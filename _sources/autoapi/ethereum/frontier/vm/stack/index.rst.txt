@@ -55,7 +55,7 @@ pop
 
 .. undocinclude:: /../src/ethereum/frontier/vm/stack.py
    :language: python
-   :lines: 22-44
+   :pyobject: pop
 
 push
 ~~~~
@@ -76,4 +76,4 @@ push
 
 .. undocinclude:: /../src/ethereum/frontier/vm/stack.py
    :language: python
-   :lines: 47-67
+   :pyobject: push

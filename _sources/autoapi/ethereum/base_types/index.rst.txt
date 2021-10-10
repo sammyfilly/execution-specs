@@ -73,28 +73,43 @@ Module Details
 UINT32_CEIL_VALUE
 ~~~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: UINT32_CEIL_VALUE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 24-24
 
 
 U255_CEIL_VALUE
 ~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: U255_CEIL_VALUE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 26-26
 
 
 U256_CEIL_VALUE
 ~~~~~~~~~~~~~~~
 
+
+
 .. py:data:: U256_CEIL_VALUE
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 28-28
 
 
 Uint
@@ -108,6 +123,8 @@ Unsigned positive integer.
 
 
    Bases: :py:obj:`int`
+
+   
 
    .. py:attribute:: __slots__
       :annotation: = []
@@ -254,10 +271,15 @@ Unsigned positive integer.
 T
 ~
 
+
+
 .. py:data:: T
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 276-276
 
 
 FixedUInt
@@ -273,10 +295,14 @@ directly, but rather to be subclassed.
 
    Bases: :py:obj:`int`
 
+   
+
    .. py:attribute:: MAX_VALUE
       :annotation: :FixedUInt
 
       
+
+   
 
    .. py:attribute:: __slots__
       :annotation: = []
@@ -431,6 +457,8 @@ inclusive.
 
    Bases: :py:obj:`FixedUInt`
 
+   
+
    .. py:attribute:: __slots__
       :annotation: = []
 
@@ -495,10 +523,14 @@ inclusive.
 
    Bases: :py:obj:`FixedUInt`
 
+   
+
    .. py:attribute:: MAX_VALUE
       :annotation: :Uint32
 
       
+
+   
 
    .. py:attribute:: __slots__
       :annotation: = []
@@ -523,10 +555,15 @@ inclusive.
 B
 ~
 
+
+
 .. py:data:: B
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 687-687
 
 
 FixedBytes
@@ -542,10 +579,14 @@ but should be subclassed.
 
    Bases: :py:obj:`bytes`
 
+   
+
    .. py:attribute:: LENGTH
       :annotation: :int
 
       
+
+   
 
    .. py:attribute:: __slots__
       :annotation: = []
@@ -566,6 +607,8 @@ Byte array of exactly zero elements.
 
    Bases: :py:obj:`FixedBytes`
 
+   
+
    .. py:attribute:: LENGTH
       :annotation: = 0
 
@@ -584,6 +627,8 @@ Byte array of exactly four elements.
 
 
    Bases: :py:obj:`FixedBytes`
+
+   
 
    .. py:attribute:: LENGTH
       :annotation: = 4
@@ -604,6 +649,8 @@ Byte array of exactly eight elements.
 
    Bases: :py:obj:`FixedBytes`
 
+   
+
    .. py:attribute:: LENGTH
       :annotation: = 8
 
@@ -622,6 +669,8 @@ Byte array of exactly 20 elements.
 
 
    Bases: :py:obj:`FixedBytes`
+
+   
 
    .. py:attribute:: LENGTH
       :annotation: = 20
@@ -642,6 +691,8 @@ Byte array of exactly 32 elements.
 
    Bases: :py:obj:`FixedBytes`
 
+   
+
    .. py:attribute:: LENGTH
       :annotation: = 32
 
@@ -660,6 +711,8 @@ Byte array of exactly 64 elements.
 
 
    Bases: :py:obj:`FixedBytes`
+
+   
 
    .. py:attribute:: LENGTH
       :annotation: = 64
@@ -680,6 +733,8 @@ Byte array of exactly 256 elements.
 
    Bases: :py:obj:`FixedBytes`
 
+   
+
    .. py:attribute:: LENGTH
       :annotation: = 256
 
@@ -690,10 +745,15 @@ Byte array of exactly 256 elements.
 Bytes
 ~~~~~
 
+
+
 .. py:data:: Bytes
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 765-765
 
 
 _setattr_function
@@ -708,7 +768,7 @@ _setattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 768-772
+   :pyobject: _setattr_function
 
 _delattr_function
 ~~~~~~~~~~~~~~~~~
@@ -722,7 +782,7 @@ _delattr_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 775-779
+   :pyobject: _delattr_function
 
 _make_init_function
 ~~~~~~~~~~~~~~~~~~~
@@ -736,7 +796,7 @@ _make_init_function
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 782-789
+   :pyobject: _make_init_function
 
 slotted_freezable
 ~~~~~~~~~~~~~~~~~
@@ -756,15 +816,20 @@ slotted_freezable
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 792-804
+   :pyobject: slotted_freezable
 
 S
 ~
 
+
+
 .. py:data:: S
-   
 
    
+
+.. undocinclude:: /../src/ethereum/base_types.py
+   :language: python
+   :lines: 807-807
 
 
 modify
@@ -790,4 +855,4 @@ modify
 
 .. undocinclude:: /../src/ethereum/base_types.py
    :language: python
-   :lines: 810-830
+   :pyobject: modify

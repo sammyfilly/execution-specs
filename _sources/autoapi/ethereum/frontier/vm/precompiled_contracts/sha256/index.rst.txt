@@ -6,7 +6,7 @@
 Ethereum Virtual Machine (EVM) SHA256 PRECOMPILED CONTRACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -49,4 +49,4 @@ sha256
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/sha256.py
    :language: python
-   :lines: 25-47
+   :pyobject: sha256

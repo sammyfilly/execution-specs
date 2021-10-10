@@ -60,9 +60,16 @@
 <h4>PRE_COMPILED_CONTRACTS<a class="headerlink" href="#pre-compiled-contracts" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.precompiled_contracts.mapping.PRE_COMPILED_CONTRACTS">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.precompiled_contracts.mapping.</span></span><span class="sig-name descname"><span class="pre">PRE_COMPILED_CONTRACTS</span></span><em class="property"> <span class="pre">:Dict[ethereum.frontier.eth_types.Address,</span> <span class="pre">Callable]</span></em><a class="headerlink" href="#ethereum.frontier.vm.precompiled_contracts.mapping.PRE_COMPILED_CONTRACTS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.precompiled_contracts.mapping.</span></span><span class="sig-name descname"><span class="pre">PRE_COMPILED_CONTRACTS</span></span><a class="headerlink" href="#ethereum.frontier.vm.precompiled_contracts.mapping.PRE_COMPILED_CONTRACTS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PRE_COMPILED_CONTRACTS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Address</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x01&quot;</span><span class="p">):</span> <span class="n">ecrecover</span><span class="p">,</span>
+    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x02&quot;</span><span class="p">):</span> <span class="n">sha256</span><span class="p">,</span>
+    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x03&quot;</span><span class="p">):</span> <span class="n">ripemd160</span><span class="p">,</span>
+    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x04&quot;</span><span class="p">):</span> <span class="n">identity</span><span class="p">,</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>

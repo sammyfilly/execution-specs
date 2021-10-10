@@ -237,6 +237,8 @@ calculate the state root during a transaction.</p>
         <span class="p">(</span>
             <span class="n">copy_trie</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">),</span>
             <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">copy_trie</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">_storage_tries</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </section>

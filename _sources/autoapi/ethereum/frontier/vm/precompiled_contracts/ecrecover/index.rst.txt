@@ -6,7 +6,7 @@
 Ethereum Virtual Machine (EVM) ECRECOVER PRECOMPILED CONTRACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -50,4 +50,4 @@ ecrecover
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/ecrecover.py
    :language: python
-   :lines: 23-59
+   :pyobject: ecrecover

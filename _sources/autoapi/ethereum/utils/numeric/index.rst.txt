@@ -6,7 +6,7 @@
 Utility Functions For Numeric Operations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -58,7 +58,7 @@ get_sign
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 19-39
+   :pyobject: get_sign
 
 ceil32
 ~~~~~~
@@ -81,7 +81,7 @@ ceil32
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 42-63
+   :pyobject: ceil32
 
 is_prime
 ~~~~~~~~
@@ -102,7 +102,7 @@ is_prime
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 66-89
+   :pyobject: is_prime
 
 le_bytes_to_uint32_sequence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,7 +127,7 @@ le_bytes_to_uint32_sequence
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 92-114
+   :pyobject: le_bytes_to_uint32_sequence
 
 le_uint32_sequence_to_bytes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,7 +159,7 @@ le_uint32_sequence_to_bytes
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 117-146
+   :pyobject: le_uint32_sequence_to_bytes
 
 le_uint32_sequence_to_uint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -183,4 +183,4 @@ le_uint32_sequence_to_uint
 
 .. undocinclude:: /../src/ethereum/utils/numeric.py
    :language: python
-   :lines: 149-167
+   :pyobject: le_uint32_sequence_to_uint

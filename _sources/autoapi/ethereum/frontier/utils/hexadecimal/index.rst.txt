@@ -6,7 +6,7 @@
 Utility Functions For Hexadecimal Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -55,7 +55,7 @@ hex_to_root
 
 .. undocinclude:: /../src/ethereum/frontier/utils/hexadecimal.py
    :language: python
-   :lines: 20-34
+   :pyobject: hex_to_root
 
 hex_to_bloom
 ~~~~~~~~~~~~
@@ -76,7 +76,7 @@ hex_to_bloom
 
 .. undocinclude:: /../src/ethereum/frontier/utils/hexadecimal.py
    :language: python
-   :lines: 37-51
+   :pyobject: hex_to_bloom
 
 hex_to_address
 ~~~~~~~~~~~~~~
@@ -97,4 +97,4 @@ hex_to_address
 
 .. undocinclude:: /../src/ethereum/frontier/utils/hexadecimal.py
    :language: python
-   :lines: 54-68
+   :pyobject: hex_to_address

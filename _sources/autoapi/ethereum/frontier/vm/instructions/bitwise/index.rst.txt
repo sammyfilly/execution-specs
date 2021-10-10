@@ -57,7 +57,7 @@ bitwise_and
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/bitwise.py
    :language: python
-   :lines: 22-44
+   :pyobject: bitwise_and
 
 bitwise_or
 ~~~~~~~~~~
@@ -79,7 +79,7 @@ bitwise_or
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/bitwise.py
    :language: python
-   :lines: 47-69
+   :pyobject: bitwise_or
 
 bitwise_xor
 ~~~~~~~~~~~
@@ -101,7 +101,7 @@ bitwise_xor
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/bitwise.py
    :language: python
-   :lines: 72-94
+   :pyobject: bitwise_xor
 
 bitwise_not
 ~~~~~~~~~~~
@@ -123,7 +123,7 @@ bitwise_not
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/bitwise.py
    :language: python
-   :lines: 97-118
+   :pyobject: bitwise_not
 
 get_byte
 ~~~~~~~~
@@ -146,4 +146,4 @@ get_byte
 
 .. undocinclude:: /../src/ethereum/frontier/vm/instructions/bitwise.py
    :language: python
-   :lines: 121-157
+   :pyobject: get_byte

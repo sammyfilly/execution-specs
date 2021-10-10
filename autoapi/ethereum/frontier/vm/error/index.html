@@ -105,11 +105,15 @@ frame.</p>
 <section id="invalidjumpdesterror">
 <h4>InvalidJumpDestError<a class="headerlink" href="#invalidjumpdesterror" title="Permalink to this headline">¶</a></h4>
 <p>Occurs when the destination of a jump operation doesn’t meet any of the
-following criteria:
-* The jump destination is less than the length of the code.
-* The jump destination should have the <cite>JUMPDEST</cite> opcode (0x5B).
-* The jump destination shouldn’t be part of the data corresponding to
-<cite>PUSH-N</cite> opcodes.</p>
+following criteria:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The jump destination is less than the length of the code.</p></li>
+<li><p>The jump destination should have the <cite>JUMPDEST</cite> opcode (0x5B).</p></li>
+<li><p>The jump destination shouldn’t be part of the data corresponding to
+<cite>PUSH-N</cite> opcodes.</p></li>
+</ul>
+</div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.error.InvalidJumpDestError">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.error.</span></span><span class="sig-name descname"><span class="pre">InvalidJumpDestError</span></span><a class="headerlink" href="#ethereum.frontier.vm.error.InvalidJumpDestError" title="Permalink to this definition">¶</a></dt>

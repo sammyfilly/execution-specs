@@ -6,7 +6,7 @@
 Frontier Utility Functions For The Message Data-structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -60,4 +60,4 @@ prepare_message
 
 .. undocinclude:: /../src/ethereum/frontier/utils/message.py
    :language: python
-   :lines: 24-83
+   :pyobject: prepare_message

@@ -6,7 +6,7 @@
 Utility Functions For Hexadecimal Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -59,7 +59,7 @@ has_hex_prefix
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 18-32
+   :pyobject: has_hex_prefix
 
 remove_hex_prefix
 ~~~~~~~~~~~~~~~~~
@@ -81,7 +81,7 @@ remove_hex_prefix
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 35-53
+   :pyobject: remove_hex_prefix
 
 hex_to_bytes
 ~~~~~~~~~~~~
@@ -102,7 +102,7 @@ hex_to_bytes
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 56-70
+   :pyobject: hex_to_bytes
 
 hex_to_bytes8
 ~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ hex_to_bytes8
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 73-87
+   :pyobject: hex_to_bytes8
 
 hex_to_bytes32
 ~~~~~~~~~~~~~~
@@ -144,7 +144,7 @@ hex_to_bytes32
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 90-104
+   :pyobject: hex_to_bytes32
 
 hex_to_hash
 ~~~~~~~~~~~
@@ -165,7 +165,7 @@ hex_to_hash
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 107-121
+   :pyobject: hex_to_hash
 
 hex_to_uint
 ~~~~~~~~~~~
@@ -186,7 +186,7 @@ hex_to_uint
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 124-138
+   :pyobject: hex_to_uint
 
 hex_to_u256
 ~~~~~~~~~~~
@@ -207,4 +207,4 @@ hex_to_u256
 
 .. undocinclude:: /../src/ethereum/utils/hexadecimal.py
    :language: python
-   :lines: 141-155
+   :pyobject: hex_to_u256

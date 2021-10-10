@@ -6,7 +6,7 @@
 Cryptographic Functions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-..contents:: Table of Contents
+.. contents:: Table of Contents
     :backlinks: none
     :local:
 
@@ -48,28 +48,43 @@ Module Details
 Hash32
 ~~~~~~
 
+
+
 .. py:data:: Hash32
-   
 
    
+
+.. undocinclude:: /../src/ethereum/crypto.py
+   :language: python
+   :lines: 20-20
 
 
 Hash64
 ~~~~~~
 
+
+
 .. py:data:: Hash64
-   
 
    
+
+.. undocinclude:: /../src/ethereum/crypto.py
+   :language: python
+   :lines: 21-21
 
 
 SECP256K1N
 ~~~~~~~~~~
 
+
+
 .. py:data:: SECP256K1N
-   :annotation: = 115792089237316195423570985008687907852837564279074904382605163141518161494337
 
    
+
+.. undocinclude:: /../src/ethereum/crypto.py
+   :language: python
+   :lines: 23-23
 
 
 keccak256
@@ -91,7 +106,7 @@ keccak256
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 26-40
+   :pyobject: keccak256
 
 keccak512
 ~~~~~~~~~
@@ -112,7 +127,7 @@ keccak512
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 43-57
+   :pyobject: keccak512
 
 secp256k1_recover
 ~~~~~~~~~~~~~~~~~
@@ -136,4 +151,4 @@ secp256k1_recover
 
 .. undocinclude:: /../src/ethereum/crypto.py
    :language: python
-   :lines: 60-91
+   :pyobject: secp256k1_recover

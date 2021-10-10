@@ -63,10 +63,15 @@ Module Details
 RLP
 ~~~
 
+
+
 .. py:data:: RLP
-   
 
    
+
+.. undocinclude:: /../src/ethereum/frontier/rlp.py
+   :language: python
+   :lines: 37-47
 
 
 encode
@@ -89,7 +94,7 @@ encode
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 56-91
+   :pyobject: encode
 
 encode_bytes
 ~~~~~~~~~~~~
@@ -110,7 +115,7 @@ encode_bytes
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 95-121
+   :pyobject: encode_bytes
 
 encode_sequence
 ~~~~~~~~~~~~~~~
@@ -131,7 +136,7 @@ encode_sequence
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 125-149
+   :pyobject: encode_sequence
 
 get_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~
@@ -154,7 +159,7 @@ get_joined_encodings
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 153-169
+   :pyobject: get_joined_encodings
 
 decode
 ~~~~~~
@@ -176,7 +181,7 @@ decode
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 177-203
+   :pyobject: decode
 
 decode_to_bytes
 ~~~~~~~~~~~~~~~
@@ -198,7 +203,7 @@ decode_to_bytes
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 206-243
+   :pyobject: decode_to_bytes
 
 decode_to_sequence
 ~~~~~~~~~~~~~~~~~~
@@ -220,7 +225,7 @@ decode_to_sequence
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 246-283
+   :pyobject: decode_to_sequence
 
 decode_joined_encodings
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -242,7 +247,7 @@ decode_joined_encodings
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 286-317
+   :pyobject: decode_joined_encodings
 
 decode_item_length
 ~~~~~~~~~~~~~~~~~~
@@ -270,7 +275,7 @@ decode_item_length
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 320-387
+   :pyobject: decode_item_length
 
 encode_block
 ~~~~~~~~~~~~
@@ -286,7 +291,7 @@ encode_block
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 396-404
+   :pyobject: encode_block
 
 encode_header
 ~~~~~~~~~~~~~
@@ -302,7 +307,7 @@ encode_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 409-429
+   :pyobject: encode_header
 
 encode_account
 ~~~~~~~~~~~~~~
@@ -321,7 +326,7 @@ encode_account
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 434-446
+   :pyobject: encode_account
 
 encode_transaction
 ~~~~~~~~~~~~~~~~~~
@@ -337,7 +342,7 @@ encode_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 451-465
+   :pyobject: encode_transaction
 
 encode_receipt
 ~~~~~~~~~~~~~~
@@ -353,7 +358,7 @@ encode_receipt
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 470-479
+   :pyobject: encode_receipt
 
 encode_log
 ~~~~~~~~~~
@@ -369,7 +374,7 @@ encode_log
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 484-492
+   :pyobject: encode_log
 
 sequence_to_header
 ~~~~~~~~~~~~~~~~~~
@@ -392,7 +397,7 @@ sequence_to_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 497-532
+   :pyobject: sequence_to_header
 
 sequence_to_transaction
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -415,7 +420,7 @@ sequence_to_transaction
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 536-569
+   :pyobject: sequence_to_transaction
 
 decode_to_header
 ~~~~~~~~~~~~~~~~
@@ -441,7 +446,7 @@ decode_to_header
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 573-593
+   :pyobject: decode_to_header
 
 decode_to_block
 ~~~~~~~~~~~~~~~
@@ -467,7 +472,7 @@ decode_to_block
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 596-630
+   :pyobject: decode_to_block
 
 rlp_hash
 ~~~~~~~~
@@ -488,4 +493,4 @@ rlp_hash
 
 .. undocinclude:: /../src/ethereum/frontier/rlp.py
    :language: python
-   :lines: 633-647
+   :pyobject: rlp_hash
