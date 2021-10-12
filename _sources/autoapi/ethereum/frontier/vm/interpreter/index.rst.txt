@@ -55,7 +55,7 @@ STACK_DEPTH_LIMIT
 
 .. undocinclude:: /../src/ethereum/frontier/vm/interpreter.py
    :language: python
-   :lines: 50-50
+   :lines: 52-52
 
 
 process_message_call

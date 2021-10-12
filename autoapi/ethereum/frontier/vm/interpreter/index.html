@@ -244,7 +244,15 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
     <span class="n">begin_transaction</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
 
     <span class="n">touch_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
+
+    <span class="n">sender_balance</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">caller</span><span class="p">)</span><span class="o">.</span><span class="n">balance</span>
+
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sender_balance</span> <span class="o">&lt;</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="n">rollback_transaction</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">InsufficientFunds</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Insufficient funds: </span><span class="si">{</span><span class="n">sender_balance</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
         <span class="n">move_ether</span><span class="p">(</span>
             <span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">caller</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">value</span>
         <span class="p">)</span>
@@ -314,10 +322,12 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
                 <span class="k">raise</span> <span class="n">InvalidOpcode</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="n">evm</span><span class="o">.</span><span class="n">pc</span><span class="p">])</span>
 
             <span class="n">op_implementation</span><span class="p">[</span><span class="n">op</span><span class="p">](</span><span class="n">evm</span><span class="p">)</span>
+
     <span class="k">except</span> <span class="p">(</span>
         <span class="n">OutOfGasError</span><span class="p">,</span>
         <span class="n">InvalidOpcode</span><span class="p">,</span>
         <span class="n">InvalidJumpDestError</span><span class="p">,</span>
+        <span class="n">InsufficientFunds</span><span class="p">,</span>
         <span class="n">StackOverflowError</span><span class="p">,</span>
         <span class="n">StackUnderflowError</span><span class="p">,</span>
         <span class="n">StackDepthLimitError</span><span class="p">,</span>
