@@ -298,7 +298,9 @@ block number.</p>
     <span class="c1"># We are computing the hash only for the most recent block and not for</span>
     <span class="c1"># the rest of the blocks as they have successors which have the hash of</span>
     <span class="c1"># the current block as parent hash.</span>
-    <span class="n">most_recent_block_hash</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">most_recent_block_hash</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span>
+        <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+    <span class="p">)</span>
     <span class="n">recent_block_hashes</span> <span class="o">=</span> <span class="p">[</span><span class="n">most_recent_block_hash</span><span class="p">]</span>
 
     <span class="c1"># We consider only the last `num_blocks - 1` blocks as we already have</span>
