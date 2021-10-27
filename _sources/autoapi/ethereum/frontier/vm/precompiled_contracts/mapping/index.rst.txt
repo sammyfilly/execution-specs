@@ -31,5 +31,5 @@ PRE_COMPILED_CONTRACTS
 
 .. undocinclude:: /../src/ethereum/frontier/vm/precompiled_contracts/mapping.py
    :language: python
-   :lines: 24-28
+   :lines: 23-27
 
