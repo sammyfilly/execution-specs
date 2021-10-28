@@ -59,7 +59,7 @@
 <li><p><a class="reference internal" href="#max-uncle-depth" id="id11">MAX_UNCLE_DEPTH</a></p></li>
 <li><p><a class="reference internal" href="#blockchain" id="id12">BlockChain</a></p></li>
 <li><p><a class="reference internal" href="#apply-fork" id="id13">apply_fork</a></p></li>
-<li><p><a class="reference internal" href="#get-recent-block-hashes" id="id14">get_recent_block_hashes</a></p></li>
+<li><p><a class="reference internal" href="#get-last-256-block-hashes" id="id14">get_last_256_block_hashes</a></p></li>
 <li><p><a class="reference internal" href="#state-transition" id="id15">state_transition</a></p></li>
 <li><p><a class="reference internal" href="#validate-header" id="id16">validate_header</a></p></li>
 <li><p><a class="reference internal" href="#generate-header-hash-for-pow" id="id17">generate_header_hash_for_pow</a></p></li>
@@ -111,8 +111,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.apply_fork" title="ethereum.frontier.spec.apply_fork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_fork</span></code></a></p></td>
 <td><p>Transforms the state from the previous hard fork (<cite>old</cite>) into the block</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_recent_block_hashes" title="ethereum.frontier.spec.get_recent_block_hashes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_recent_block_hashes</span></code></a></p></td>
-<td><p>Obtain the list of hashes of the previous <cite>num_blocks</cite> blocks in the</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.frontier.spec.get_last_256_block_hashes" title="ethereum.frontier.spec.get_last_256_block_hashes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_last_256_block_hashes</span></code></a></p></td>
+<td><p>Obtain the list of hashes of the previous 256 blocks in order of increasing</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.frontier.spec.state_transition" title="ethereum.frontier.spec.state_transition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_transition</span></code></a></p></td>
 <td><p>Attempts to apply a block to an existing block chain.</p></td>
@@ -324,23 +324,20 @@ chain object for this hard fork and returns it.</p>
 </pre></div>
 </div>
 </section>
-<section id="get-recent-block-hashes">
-<h4>get_recent_block_hashes<a class="headerlink" href="#get-recent-block-hashes" title="Permalink to this headline">¶</a></h4>
+<section id="get-last-256-block-hashes">
+<h4>get_last_256_block_hashes<a class="headerlink" href="#get-last-256-block-hashes" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
-<dt class="sig sig-object py" id="ethereum.frontier.spec.get_recent_block_hashes">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">get_recent_block_hashes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_blocks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ethereum.frontier.eth_types.Hash32</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.get_recent_block_hashes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Obtain the list of hashes of the previous <cite>num_blocks</cite> blocks in the
-order of increasing block number.</p>
+<dt class="sig sig-object py" id="ethereum.frontier.spec.get_last_256_block_hashes">
+<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.spec.</span></span><span class="sig-name descname"><span class="pre">get_last_256_block_hashes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ethereum.frontier.eth_types.Hash32</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ethereum.frontier.spec.get_last_256_block_hashes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the list of hashes of the previous 256 blocks in order of increasing
+block number.</p>
+<p>This function will return less hashes for the first 256 blocks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>chain</strong> – History and current state.</p></li>
-<li><p><strong>num_blocks</strong> – Number of recent block hashes one wishes to obtain.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>chain</strong> – History and current state.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>recent_block_hashes</strong> – Hashes of the recent <cite>num_blocks</cite> blocks in order of increasing
-block number.</p>
+<dd class="field-even"><p><strong>recent_block_hashes</strong> – Hashes of the recent 256 blocks in order of increasing block number.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>List[Hash32]</cite></p>
@@ -348,32 +345,27 @@ block number.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_recent_block_hashes</span><span class="p">(</span>
-    <span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">,</span> <span class="n">num_blocks</span><span class="p">:</span> <span class="n">Uint</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Hash32</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_last_256_block_hashes</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Hash32</span><span class="p">]:</span>
+    <span class="n">recent_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">255</span><span class="p">:]</span>
     <span class="c1"># TODO: This function has not been tested rigorously</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num_blocks</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recent_blocks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">recent_block_hashes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">recent_blocks</span><span class="p">:</span>
+        <span class="n">prev_block_hash</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent_hash</span>
+        <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_block_hash</span><span class="p">)</span>
 
     <span class="c1"># We are computing the hash only for the most recent block and not for</span>
     <span class="c1"># the rest of the blocks as they have successors which have the hash of</span>
     <span class="c1"># the current block as parent hash.</span>
     <span class="n">most_recent_block_hash</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">keccak256</span><span class="p">(</span>
-        <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+        <span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">recent_blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="n">recent_block_hashes</span> <span class="o">=</span> <span class="p">[</span><span class="n">most_recent_block_hash</span><span class="p">]</span>
+    <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">most_recent_block_hash</span><span class="p">)</span>
 
-    <span class="c1"># We consider only the last `num_blocks - 1` blocks as we already have</span>
-    <span class="c1"># the most recent block hash computed and need only `num_blocks - 1` more</span>
-    <span class="c1"># hashes.</span>
-    <span class="n">recent_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
-
-    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">recent_blocks</span><span class="p">):</span>
-        <span class="n">prev_block_hash</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">parent_hash</span>
-        <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_block_hash</span><span class="p">)</span>
-
-    <span class="n">recent_block_hashes</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">recent_block_hashes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">recent_block_hashes</span>
 </pre></div>
 </div>
 </section>
@@ -394,7 +386,7 @@ block number.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">state_transition</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="n">Block</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">parent_header</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+    <span class="n">parent_header</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
     <span class="n">validate_header</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">)</span>
     <span class="n">validate_ommers</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">chain</span><span class="p">)</span>
     <span class="p">(</span>
@@ -405,7 +397,7 @@ block number.</p>
         <span class="n">state</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">=</span> <span class="n">apply_body</span><span class="p">(</span>
         <span class="n">chain</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
-        <span class="n">get_recent_block_hashes</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">256</span><span class="p">)),</span>
+        <span class="n">get_last_256_block_hashes</span><span class="p">(</span><span class="n">chain</span><span class="p">),</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
@@ -414,7 +406,6 @@ block number.</p>
         <span class="n">block</span><span class="o">.</span><span class="n">transactions</span><span class="p">,</span>
         <span class="n">block</span><span class="o">.</span><span class="n">ommers</span><span class="p">,</span>
     <span class="p">)</span>
-
     <span class="n">ensure</span><span class="p">(</span><span class="n">gas_used</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span><span class="p">)</span>
     <span class="n">ensure</span><span class="p">(</span><span class="n">transactions_root</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">transactions_root</span><span class="p">)</span>
     <span class="n">ensure</span><span class="p">(</span><span class="n">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">state_root</span><span class="p">)</span>
@@ -422,6 +413,10 @@ block number.</p>
     <span class="n">ensure</span><span class="p">(</span><span class="n">block_logs_bloom</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">bloom</span><span class="p">)</span>
 
     <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="c1"># Real clients have to store more blocks to deal with reorgs, but the</span>
+        <span class="c1"># protocol only requires the last 255</span>
+        <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">255</span><span class="p">:]</span>
 </pre></div>
 </div>
 </section>
@@ -685,7 +680,9 @@ block.</p></li>
     <span class="c1"># Check that each ommer satisfies the constraints of a header</span>
     <span class="k">for</span> <span class="n">ommer</span> <span class="ow">in</span> <span class="n">ommers</span><span class="p">:</span>
         <span class="n">ensure</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span> <span class="o">&lt;</span> <span class="n">block_header</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
-        <span class="n">ommer_parent_header</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">ommer</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+        <span class="n">ommer_parent_header</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span>
+            <span class="o">-</span><span class="p">(</span><span class="n">block_header</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">header</span>
         <span class="n">validate_header</span><span class="p">(</span><span class="n">ommer</span><span class="p">,</span> <span class="n">ommer_parent_header</span><span class="p">)</span>
 
     <span class="c1"># Check that there can be only at most 2 ommers for a block.</span>

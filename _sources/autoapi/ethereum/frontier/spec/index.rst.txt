@@ -35,7 +35,7 @@ Functions
    :nosignatures:
 
    ethereum.frontier.spec.apply_fork
-   ethereum.frontier.spec.get_recent_block_hashes
+   ethereum.frontier.spec.get_last_256_block_hashes
    ethereum.frontier.spec.state_transition
    ethereum.frontier.spec.validate_header
    ethereum.frontier.spec.generate_header_hash_for_pow
@@ -187,21 +187,21 @@ apply_fork
    :language: python
    :pyobject: apply_fork
 
-get_recent_block_hashes
-~~~~~~~~~~~~~~~~~~~~~~~
+get_last_256_block_hashes
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: get_recent_block_hashes(chain: BlockChain, num_blocks: ethereum.base_types.Uint) -> List[ethereum.frontier.eth_types.Hash32]
+.. function:: get_last_256_block_hashes(chain: BlockChain) -> List[ethereum.frontier.eth_types.Hash32]
    :noindexentry:
 
-   Obtain the list of hashes of the previous `num_blocks` blocks in the
-   order of increasing block number.
+   Obtain the list of hashes of the previous 256 blocks in order of increasing
+   block number.
+
+   This function will return less hashes for the first 256 blocks.
 
    :param chain: History and current state.
-   :param num_blocks: Number of recent block hashes one wishes to obtain.
 
-   :returns: **recent_block_hashes** -- Hashes of the recent `num_blocks` blocks in order of increasing
-             block number.
+   :returns: **recent_block_hashes** -- Hashes of the recent 256 blocks in order of increasing block number.
    :rtype: `List[Hash32]`
 
 
@@ -209,7 +209,7 @@ get_recent_block_hashes
 
 .. undocinclude:: /../src/ethereum/frontier/spec.py
    :language: python
-   :pyobject: get_recent_block_hashes
+   :pyobject: get_last_256_block_hashes
 
 state_transition
 ~~~~~~~~~~~~~~~~
