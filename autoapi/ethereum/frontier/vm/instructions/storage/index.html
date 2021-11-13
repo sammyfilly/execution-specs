@@ -86,7 +86,7 @@
 <h4>sload<a class="headerlink" href="#sload" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.storage.sload">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.storage.</span></span><span class="sig-name descname"><span class="pre">sload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.storage.sload" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.storage.sload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads to the stack, the value corresponding to a certain key from the
 storage of the current account.</p>
 <dl class="field-list simple">
@@ -95,8 +95,8 @@ storage of the current account.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>50</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>50</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -118,7 +118,7 @@ storage of the current account.</p>
 <h4>sstore<a class="headerlink" href="#sstore" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.storage.sstore">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.storage.</span></span><span class="sig-name descname"><span class="pre">sstore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.storage.sstore" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sstore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.storage.sstore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stores a value at a certain key in the current context’s storage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -126,8 +126,8 @@ storage of the current account.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20000</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20000</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -194,6 +194,10 @@ storage of the current account.</p>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Comparisons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../diffs/index.html">Comparisons</a></li>
 </ul>
 
 <div class="relations">

@@ -82,7 +82,7 @@
 <h4>keccak<a class="headerlink" href="#keccak" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.keccak.keccak">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.keccak.</span></span><span class="sig-name descname"><span class="pre">keccak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.keccak.keccak" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">keccak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.keccak.keccak" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pushes to the stack the Keccak-256 hash of a region of memory.</p>
 <p>This also expands the memory, in case the memory is insufficient to
 access the data’s memory location.</p>
@@ -91,7 +91,7 @@ access the data’s memory location.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -165,6 +165,10 @@ access the data’s memory location.</p>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Comparisons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../diffs/index.html">Comparisons</a></li>
 </ul>
 
 <div class="relations">

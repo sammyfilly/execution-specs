@@ -102,7 +102,7 @@
 <h4>stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.stop">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.stop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop further execution of EVM code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -120,7 +120,7 @@
 <h4>jump<a class="headerlink" href="#jump" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.jump">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jump" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alter the program counter to the location specified by the top of the
 stack.</p>
 <dl class="field-list simple">
@@ -129,13 +129,13 @@ stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.InvalidJumpDestError" title="ethereum.frontier.vm.error.InvalidJumpDestError"><strong>InvalidJumpDestError</strong></a> – If the jump destination doesn’t meet any of the following criteria:
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.InvalidJumpDestError" title="ethereum.frontier.vm.error.InvalidJumpDestError"><strong>ethereum.frontier.vm.error.InvalidJumpDestError</strong></a> – If the jump destination doesn’t meet any of the following criteria:
 * The jump destination is less than the length of the code.
 * The jump destination should have the <cite>JUMPDEST</cite> opcode (0x5B).
 * The jump destination shouldn’t be part of the data corresponding
 to <cite>PUSH-N</cite> opcodes.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -156,7 +156,7 @@ to <cite>PUSH-N</cite> opcodes.</p></li>
 <h4>jumpi<a class="headerlink" href="#jumpi" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.jumpi">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">jumpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jumpi" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">jumpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jumpi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alter the program counter to the specified location if and only if a
 condition is true. If the condition is not true, then the program counter
 would increase only by 1.</p>
@@ -166,13 +166,13 @@ would increase only by 1.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.InvalidJumpDestError" title="ethereum.frontier.vm.error.InvalidJumpDestError"><strong>InvalidJumpDestError</strong></a> – If the jump destination doesn’t meet any of the following criteria:
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.InvalidJumpDestError" title="ethereum.frontier.vm.error.InvalidJumpDestError"><strong>ethereum.frontier.vm.error.InvalidJumpDestError</strong></a> – If the jump destination doesn’t meet any of the following criteria:
 * The jump destination is less than the length of the code.
 * The jump destination should have the <cite>JUMPDEST</cite> opcode (0x5B).
 * The jump destination shouldn’t be part of the data corresponding
 to <cite>PUSH-N</cite> opcodes.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>10</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>10</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -199,7 +199,7 @@ to <cite>PUSH-N</cite> opcodes.</p></li>
 <h4>pc<a class="headerlink" href="#pc" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.pc">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">pc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.pc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.pc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push onto the stack the value of the program counter after reaching the
 current instruction and without increasing it for the next instruction.</p>
 <dl class="field-list simple">
@@ -208,8 +208,8 @@ current instruction and without increasing it for the next instruction.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackOverflowError" title="ethereum.frontier.vm.error.StackOverflowError"><strong>StackOverflowError</strong></a> – If <cite>len(stack)</cite> is more than <cite>1023</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackOverflowError" title="ethereum.frontier.vm.error.StackOverflowError"><strong>ethereum.frontier.vm.error.StackOverflowError</strong></a> – If <cite>len(stack)</cite> is more than <cite>1023</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -226,7 +226,7 @@ current instruction and without increasing it for the next instruction.</p>
 <h4>gas_left<a class="headerlink" href="#gas-left" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.gas_left">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">gas_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.gas_left" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gas_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.gas_left" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the amount of available gas (including the corresponding reduction
 for the cost of this instruction) onto the stack.</p>
 <dl class="field-list simple">
@@ -235,8 +235,8 @@ for the cost of this instruction) onto the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackOverflowError" title="ethereum.frontier.vm.error.StackOverflowError"><strong>StackOverflowError</strong></a> – If <cite>len(stack)</cite> is more than <cite>1023</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackOverflowError" title="ethereum.frontier.vm.error.StackOverflowError"><strong>ethereum.frontier.vm.error.StackOverflowError</strong></a> – If <cite>len(stack)</cite> is more than <cite>1023</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -253,7 +253,7 @@ for the cost of this instruction) onto the stack.</p>
 <h4>jumpdest<a class="headerlink" href="#jumpdest" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.control_flow.jumpdest">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.control_flow.</span></span><span class="sig-name descname"><span class="pre">jumpdest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jumpdest" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">jumpdest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.control_flow.jumpdest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mark a valid destination for jumps. This is a noop, present only
 to be used by <cite>JUMP</cite> and <cite>JUMPI</cite> opcodes to verify that their jump is
 valid.</p>
@@ -262,7 +262,7 @@ valid.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>1</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>1</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -308,6 +308,10 @@ valid.</p>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Comparisons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../diffs/index.html">Comparisons</a></li>
 </ul>
 
 <div class="relations">

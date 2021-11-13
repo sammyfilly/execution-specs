@@ -130,14 +130,14 @@
 <h4>address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.address">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.address" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pushes the address of the current executing account to the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -154,7 +154,7 @@
 <h4>balance<a class="headerlink" href="#balance" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.balance">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.balance" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.balance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pushes the balance of the given account onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -162,8 +162,8 @@
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -189,7 +189,7 @@
 <h4>origin<a class="headerlink" href="#origin" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.origin">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.origin" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pushes the address of the original transaction sender to the stack.
 The origin address can only be an EOA.</p>
 <dl class="field-list simple">
@@ -197,7 +197,7 @@ The origin address can only be an EOA.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -214,14 +214,14 @@ The origin address can only be an EOA.</p>
 <h4>caller<a class="headerlink" href="#caller" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.caller">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">caller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.caller" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">caller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.caller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pushes the address of the caller onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -238,14 +238,14 @@ The origin address can only be an EOA.</p>
 <h4>callvalue<a class="headerlink" href="#callvalue" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.callvalue">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">callvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.callvalue" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">callvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.callvalue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the value (in wei) sent with the call onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,7 +262,7 @@ The origin address can only be an EOA.</p>
 <h4>calldataload<a class="headerlink" href="#calldataload" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.calldataload">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">calldataload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldataload" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calldataload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldataload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push a word (32 bytes) of the input data belonging to the current
 environment onto the stack.</p>
 <dl class="field-list simple">
@@ -271,8 +271,8 @@ environment onto the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -298,14 +298,14 @@ environment onto the stack.</p>
 <h4>calldatasize<a class="headerlink" href="#calldatasize" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.calldatasize">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">calldatasize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldatasize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calldatasize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldatasize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the size of input data in current environment onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -322,7 +322,7 @@ environment onto the stack.</p>
 <h4>calldatacopy<a class="headerlink" href="#calldatacopy" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.calldatacopy">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">calldatacopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldatacopy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">calldatacopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.calldatacopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a portion of the input data in current environment to memory.</p>
 <p>This will also expand the memory, in case that the memory is insufficient
 to store the data.</p>
@@ -331,7 +331,7 @@ to store the data.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -380,14 +380,14 @@ to store the data.</p>
 <h4>codesize<a class="headerlink" href="#codesize" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.codesize">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">codesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.codesize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">codesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.codesize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the size of code running in current environment onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -404,7 +404,7 @@ to store the data.</p>
 <h4>codecopy<a class="headerlink" href="#codecopy" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.codecopy">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">codecopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.codecopy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">codecopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.codecopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a portion of the code in current environment to memory.</p>
 <p>This will also expand the memory, in case that the memory is insufficient
 to store the data.</p>
@@ -413,7 +413,7 @@ to store the data.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -463,14 +463,14 @@ to store the data.</p>
 <h4>gasprice<a class="headerlink" href="#gasprice" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.gasprice">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">gasprice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.gasprice" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gasprice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.gasprice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the gas price used in current environment onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,7 +487,7 @@ to store the data.</p>
 <h4>extcodesize<a class="headerlink" href="#extcodesize" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.extcodesize">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">extcodesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.extcodesize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">extcodesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.extcodesize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the code size of a given account onto the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -495,8 +495,8 @@ to store the data.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>1</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>20</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -522,14 +522,14 @@ to store the data.</p>
 <h4>extcodecopy<a class="headerlink" href="#extcodecopy" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.environment.extcodecopy">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.environment.</span></span><span class="sig-name descname"><span class="pre">extcodecopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.extcodecopy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">extcodecopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.environment.extcodecopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a portion of an account’s code to memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>4</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>4</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -615,6 +615,10 @@ to store the data.</p>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Comparisons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../diffs/index.html">Comparisons</a></li>
 </ul>
 
 <div class="relations">

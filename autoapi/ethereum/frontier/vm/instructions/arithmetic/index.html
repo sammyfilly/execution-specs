@@ -122,7 +122,7 @@
 <h4>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.add">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the top two elements of the stack together, and pushes the result back
 on the stack.</p>
 <dl class="field-list simple">
@@ -131,8 +131,8 @@ on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -155,7 +155,7 @@ on the stack.</p>
 <h4>sub<a class="headerlink" href="#sub" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.sub">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.sub" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.sub" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtracts the top two elements of the stack, and pushes the result back
 on the stack.</p>
 <dl class="field-list simple">
@@ -164,8 +164,8 @@ on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>3</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -188,7 +188,7 @@ on the stack.</p>
 <h4>mul<a class="headerlink" href="#mul" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.mul">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mul" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mul" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiply the top two elements of the stack, and pushes the result back
 on the stack.</p>
 <dl class="field-list simple">
@@ -197,8 +197,8 @@ on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -221,7 +221,7 @@ on the stack.</p>
 <h4>div<a class="headerlink" href="#div" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.div">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.div" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.div" title="Permalink to this definition">¶</a></dt>
 <dd><p>Integer division of the top two elements of the stack. Pushes the result
 back on the stack.</p>
 <dl class="field-list simple">
@@ -230,8 +230,8 @@ back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -257,7 +257,7 @@ back on the stack.</p>
 <h4>sdiv<a class="headerlink" href="#sdiv" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.sdiv">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">sdiv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.sdiv" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sdiv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.sdiv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Signed integer division of the top two elements of the stack. Pushes the
 result back on the stack.</p>
 <dl class="field-list simple">
@@ -266,8 +266,8 @@ result back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -297,7 +297,7 @@ result back on the stack.</p>
 <h4>mod<a class="headerlink" href="#mod" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.mod">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">mod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mod" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modulo remainder of the top two elements of the stack. Pushes the result
 back on the stack.</p>
 <dl class="field-list simple">
@@ -306,8 +306,8 @@ back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -333,7 +333,7 @@ back on the stack.</p>
 <h4>smod<a class="headerlink" href="#smod" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.smod">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">smod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.smod" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">smod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.smod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Signed modulo remainder of the top two elements of the stack. Pushes the
 result back on the stack.</p>
 <dl class="field-list simple">
@@ -342,8 +342,8 @@ result back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -370,7 +370,7 @@ result back on the stack.</p>
 <h4>addmod<a class="headerlink" href="#addmod" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.addmod">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">addmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.addmod" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">addmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.addmod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modulo addition of the top 2 elements with the 3rd element. Pushes the
 result back on the stack.</p>
 <dl class="field-list simple">
@@ -379,8 +379,8 @@ result back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -408,7 +408,7 @@ result back on the stack.</p>
 <h4>mulmod<a class="headerlink" href="#mulmod" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.mulmod">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">mulmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mulmod" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">mulmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.mulmod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modulo multiplication of the top 2 elements with the 3rd element. Pushes
 the result back on the stack.</p>
 <dl class="field-list simple">
@@ -417,8 +417,8 @@ the result back on the stack.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>3</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>8</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -446,7 +446,7 @@ the result back on the stack.</p>
 <h4>exp<a class="headerlink" href="#exp" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.exp">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.exp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exponential operation of the top 2 elements. Pushes the result back on
 the stack.</p>
 <dl class="field-list simple">
@@ -454,7 +454,7 @@ the stack.</p>
 <dd class="field-odd"><p><strong>evm</strong> – The current EVM frame.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p>
+<dd class="field-even"><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -484,7 +484,7 @@ the stack.</p>
 <h4>signextend<a class="headerlink" href="#signextend" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.vm.instructions.arithmetic.signextend">
-<span class="sig-prename descclassname"><span class="pre">ethereum.frontier.vm.instructions.arithmetic.</span></span><span class="sig-name descname"><span class="pre">signextend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.signextend" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">signextend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../index.html#ethereum.frontier.vm.Evm" title="ethereum.frontier.vm.Evm"><span class="pre">ethereum.frontier.vm.Evm</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.frontier.vm.instructions.arithmetic.signextend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sign extend operation. In other words, extend a signed number which
 fits in N bytes to 32 bytes.</p>
 <dl class="field-list simple">
@@ -493,8 +493,8 @@ fits in N bytes to 32 bytes.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
-<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.StackUnderflowError" title="ethereum.frontier.vm.error.StackUnderflowError"><strong>ethereum.frontier.vm.error.StackUnderflowError</strong></a> – If <cite>len(stack)</cite> is less than <cite>2</cite>.</p></li>
+<li><p><a class="reference internal" href="../../error/index.html#ethereum.frontier.vm.error.OutOfGasError" title="ethereum.frontier.vm.error.OutOfGasError"><strong>ethereum.frontier.vm.error.OutOfGasError</strong></a> – If <cite>evm.gas_left</cite> is less than <cite>5</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -566,6 +566,10 @@ fits in N bytes to 32 bytes.</p>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Comparisons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../diffs/index.html">Comparisons</a></li>
 </ul>
 
 <div class="relations">
