@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="ethereum.homestead.state" href="../state/index.html" />
-    <link rel="prev" title="ethereum.homestead.genesis" href="../genesis/index.html" />
+    <link rel="prev" title="ethereum.homestead.eth_types" href="../eth_types/index.html" />
    
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
   
@@ -280,7 +280,7 @@
 <h4>apply_fork<a class="headerlink" href="#apply-fork" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.homestead.spec.apply_fork">
-<span class="sig-name descname"><span class="pre">apply_fork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.homestead.spec.BlockChain" title="ethereum.homestead.spec.BlockChain"><span class="pre">BlockChain</span></a><a class="headerlink" href="#ethereum.homestead.spec.apply_fork" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_fork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.homestead.spec.BlockChain" title="ethereum.homestead.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.homestead.spec.BlockChain" title="ethereum.homestead.spec.BlockChain"><span class="pre">BlockChain</span></a><a class="headerlink" href="#ethereum.homestead.spec.apply_fork" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms the state from the previous hard fork (<cite>old</cite>) into the block
 chain object for this hard fork and returns it.</p>
 <dl class="field-list simple">
@@ -296,39 +296,8 @@ chain object for this hard fork and returns it.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
-    <span class="n">genesis</span> <span class="o">=</span> <span class="n">genesis_configuration</span><span class="p">(</span><span class="s2">&quot;mainnet.json&quot;</span><span class="p">)</span>
-
-    <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
-
-    <span class="k">for</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span> <span class="ow">in</span> <span class="n">genesis</span><span class="o">.</span><span class="n">initial_balances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">create_ether</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
-
-    <span class="n">genesis_header</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span>
-        <span class="n">parent_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(()),</span>
-        <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">),</span>
-        <span class="n">state_root</span><span class="o">=</span><span class="n">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
-        <span class="n">transactions_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
-        <span class="n">receipt_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
-        <span class="n">bloom</span><span class="o">=</span><span class="n">Bloom</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">256</span><span class="p">),</span>
-        <span class="n">difficulty</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
-        <span class="n">number</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="n">gas_limit</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
-        <span class="n">gas_used</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="n">timestamp</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-        <span class="n">extra_data</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">extra_data</span><span class="p">,</span>
-        <span class="n">mix_digest</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="n">nonce</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
-    <span class="p">)</span>
-
-    <span class="n">genesis_block</span> <span class="o">=</span> <span class="n">Block</span><span class="p">(</span>
-        <span class="n">header</span><span class="o">=</span><span class="n">genesis_header</span><span class="p">,</span>
-        <span class="n">transactions</span><span class="o">=</span><span class="p">(),</span>
-        <span class="n">ommers</span><span class="o">=</span><span class="p">(),</span>
-    <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">BlockChain</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="n">genesis_block</span><span class="p">],</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">old</span>
 </pre></div>
 </div>
 </section>
@@ -1101,12 +1070,12 @@ execution is instantiated.</p>
     <span class="n">parent_timestamp</span><span class="p">:</span> <span class="n">U256</span><span class="p">,</span>
     <span class="n">parent_difficulty</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
-    <span class="n">offset</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parent_difficulty</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2048</span>
-    <span class="n">sign</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">parent_timestamp</span><span class="p">))</span> <span class="o">//</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">)</span>
-    <span class="n">difficulty</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
-        <span class="nb">int</span><span class="p">(</span><span class="n">parent_difficulty</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">*</span> <span class="n">sign</span><span class="p">,</span>
-        <span class="nb">min</span><span class="p">(</span><span class="n">parent_difficulty</span><span class="p">,</span> <span class="n">GENESIS_DIFFICULTY</span><span class="p">),</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">parent_difficulty</span><span class="p">)</span>
+        <span class="o">//</span> <span class="mi">2048</span>
+        <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">-</span> <span class="n">parent_timestamp</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">)</span>
     <span class="p">)</span>
+    <span class="n">difficulty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parent_difficulty</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span>
     <span class="c1"># Historical Note: The difficulty bomb was not present in Ethereum at the</span>
     <span class="c1"># start of Frontier, but was added shortly after launch. However since the</span>
     <span class="c1"># bomb has no effect prior to block 200000 we pretend it existed from</span>
@@ -1118,7 +1087,7 @@ execution is instantiated.</p>
             <span class="nb">max</span><span class="p">(</span><span class="n">difficulty</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">num_bomb_periods</span><span class="p">,</span> <span class="n">GENESIS_DIFFICULTY</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Uint</span><span class="p">(</span><span class="n">difficulty</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Uint</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">difficulty</span><span class="p">,</span> <span class="n">GENESIS_DIFFICULTY</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
@@ -1170,7 +1139,7 @@ execution is instantiated.</p>
   <li><a href="../../../index.html">API Reference</a><ul>
   <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum</span></code></a><ul>
   <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.homestead</span></code></a><ul>
-      <li>Previous: <a href="../genesis/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.homestead.genesis</span></code></a></li>
+      <li>Previous: <a href="../eth_types/index.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.homestead.eth_types</span></code></a></li>
       <li>Next: <a href="../state/index.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ethereum.homestead.state</span></code></a></li>
   </ul></li>
   </ul></li>

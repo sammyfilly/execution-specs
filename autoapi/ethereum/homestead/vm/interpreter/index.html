@@ -219,8 +219,11 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
             <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">subtract_gas</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span><span class="p">,</span> <span class="n">contract_code_gas</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">OutOfGasError</span><span class="p">:</span>
             <span class="n">rollback_transaction</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
-            <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">=</span> <span class="p">()</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">refund_counter</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">has_erred</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">set_code</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">,</span> <span class="n">contract_code</span><span class="p">)</span>
             <span class="n">commit_transaction</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
