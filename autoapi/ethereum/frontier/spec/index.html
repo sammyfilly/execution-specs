@@ -303,7 +303,7 @@
 <h4>apply_fork<a class="headerlink" href="#apply-fork" title="Permalink to this headline">¶</a></h4>
 <dl class="py function">
 <dt class="sig sig-object py" id="ethereum.frontier.spec.apply_fork">
-<span class="sig-name descname"><span class="pre">apply_fork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a><a class="headerlink" href="#ethereum.frontier.spec.apply_fork" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_fork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ethereum.frontier.spec.BlockChain" title="ethereum.frontier.spec.BlockChain"><span class="pre">BlockChain</span></a><a class="headerlink" href="#ethereum.frontier.spec.apply_fork" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms the state from the previous hard fork (<cite>old</cite>) into the block
 chain object for this hard fork and returns it.</p>
 <dl class="field-list simple">
@@ -319,19 +319,17 @@ chain object for this hard fork and returns it.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
     <span class="n">genesis</span> <span class="o">=</span> <span class="n">genesis_configuration</span><span class="p">(</span><span class="s2">&quot;mainnet.json&quot;</span><span class="p">)</span>
 
-    <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
-
     <span class="k">for</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span> <span class="ow">in</span> <span class="n">genesis</span><span class="o">.</span><span class="n">initial_balances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">create_ether</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+        <span class="n">create_ether</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
 
     <span class="n">genesis_header</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span>
         <span class="n">parent_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span>
         <span class="n">ommers_hash</span><span class="o">=</span><span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(()),</span>
         <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">),</span>
-        <span class="n">state_root</span><span class="o">=</span><span class="n">state_root</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
+        <span class="n">state_root</span><span class="o">=</span><span class="n">state_root</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">),</span>
         <span class="n">transactions_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
         <span class="n">receipt_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
         <span class="n">bloom</span><span class="o">=</span><span class="n">Bloom</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">256</span><span class="p">),</span>
@@ -351,7 +349,9 @@ chain object for this hard fork and returns it.</p>
         <span class="n">ommers</span><span class="o">=</span><span class="p">(),</span>
     <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">BlockChain</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="n">genesis_block</span><span class="p">],</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">old</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">genesis_block</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">old</span>
 </pre></div>
 </div>
 </section>

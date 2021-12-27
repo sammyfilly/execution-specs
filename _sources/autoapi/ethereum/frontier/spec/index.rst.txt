@@ -169,7 +169,7 @@ apply_fork
 ~~~~~~~~~~
 
 
-.. function:: apply_fork(old: None) -> BlockChain
+.. function:: apply_fork(old: BlockChain) -> BlockChain
    :noindexentry:
 
    Transforms the state from the previous hard fork (`old`) into the block
