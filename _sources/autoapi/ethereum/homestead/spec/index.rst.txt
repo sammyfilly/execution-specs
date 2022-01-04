@@ -64,7 +64,7 @@ Attributes
    ethereum.homestead.spec.GAS_LIMIT_ADJUSTMENT_FACTOR
    ethereum.homestead.spec.GAS_LIMIT_MINIMUM
    ethereum.homestead.spec.GENESIS_DIFFICULTY
-   ethereum.homestead.spec.MAX_UNCLE_DEPTH
+   ethereum.homestead.spec.MAX_OMMER_DEPTH
 
 
 Module Details
@@ -126,12 +126,12 @@ GENESIS_DIFFICULTY
    :lines: 58-58
 
 
-MAX_UNCLE_DEPTH
+MAX_OMMER_DEPTH
 ~~~~~~~~~~~~~~~
 
 
 
-.. py:data:: MAX_UNCLE_DEPTH
+.. py:data:: MAX_OMMER_DEPTH
 
    
 

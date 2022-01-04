@@ -64,7 +64,7 @@ Attributes
    ethereum.frontier.spec.GAS_LIMIT_ADJUSTMENT_FACTOR
    ethereum.frontier.spec.GAS_LIMIT_MINIMUM
    ethereum.frontier.spec.GENESIS_DIFFICULTY
-   ethereum.frontier.spec.MAX_UNCLE_DEPTH
+   ethereum.frontier.spec.MAX_OMMER_DEPTH
 
 
 Module Details
@@ -126,12 +126,12 @@ GENESIS_DIFFICULTY
    :lines: 57-57
 
 
-MAX_UNCLE_DEPTH
+MAX_OMMER_DEPTH
 ~~~~~~~~~~~~~~~
 
 
 
-.. py:data:: MAX_UNCLE_DEPTH
+.. py:data:: MAX_OMMER_DEPTH
 
    
 

@@ -87,7 +87,7 @@
 <li><p><a class="reference internal" href="#gas-limit-adjustment-factor" id="id8">GAS_LIMIT_ADJUSTMENT_FACTOR</a></p></li>
 <li><p><a class="reference internal" href="#gas-limit-minimum" id="id9">GAS_LIMIT_MINIMUM</a></p></li>
 <li><p><a class="reference internal" href="#genesis-difficulty" id="id10">GENESIS_DIFFICULTY</a></p></li>
-<li><p><a class="reference internal" href="#max-uncle-depth" id="id11">MAX_UNCLE_DEPTH</a></p></li>
+<li><p><a class="reference internal" href="#max-ommer-depth" id="id11">MAX_OMMER_DEPTH</a></p></li>
 <li><p><a class="reference internal" href="#blockchain" id="id12">BlockChain</a></p></li>
 <li><p><a class="reference internal" href="#apply-fork" id="id13">apply_fork</a></p></li>
 <li><p><a class="reference internal" href="#get-last-256-block-hashes" id="id14">get_last_256_block_hashes</a></p></li>
@@ -216,7 +216,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.homestead.spec.GENESIS_DIFFICULTY" title="ethereum.homestead.spec.GENESIS_DIFFICULTY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GENESIS_DIFFICULTY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.homestead.spec.MAX_UNCLE_DEPTH" title="ethereum.homestead.spec.MAX_UNCLE_DEPTH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_UNCLE_DEPTH</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.homestead.spec.MAX_OMMER_DEPTH" title="ethereum.homestead.spec.MAX_OMMER_DEPTH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_OMMER_DEPTH</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -269,14 +269,14 @@
 </pre></div>
 </div>
 </section>
-<section id="max-uncle-depth">
-<h4>MAX_UNCLE_DEPTH<a class="headerlink" href="#max-uncle-depth" title="Permalink to this headline">¶</a></h4>
+<section id="max-ommer-depth">
+<h4>MAX_OMMER_DEPTH<a class="headerlink" href="#max-ommer-depth" title="Permalink to this headline">¶</a></h4>
 <dl class="py data">
-<dt class="sig sig-object py" id="ethereum.homestead.spec.MAX_UNCLE_DEPTH">
-<span class="sig-name descname"><span class="pre">MAX_UNCLE_DEPTH</span></span><a class="headerlink" href="#ethereum.homestead.spec.MAX_UNCLE_DEPTH" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ethereum.homestead.spec.MAX_OMMER_DEPTH">
+<span class="sig-name descname"><span class="pre">MAX_OMMER_DEPTH</span></span><a class="headerlink" href="#ethereum.homestead.spec.MAX_OMMER_DEPTH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_UNCLE_DEPTH</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_OMMER_DEPTH</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
 </section>
@@ -692,7 +692,7 @@ block.</p></li>
     <span class="c1"># Check that there are no duplicates in the ommers of current block</span>
     <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ommers_hashes</span><span class="p">)))</span>
 
-    <span class="n">recent_canonical_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">MAX_UNCLE_DEPTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
+    <span class="n">recent_canonical_blocks</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">MAX_OMMER_DEPTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
     <span class="n">recent_canonical_block_hashes</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">header</span><span class="p">)</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">recent_canonical_blocks</span>
     <span class="p">}</span>
@@ -717,7 +717,7 @@ block.</p></li>
         <span class="c1"># Ommer age with respect to the current block. For example, an age of</span>
         <span class="c1"># 1 indicates that the ommer is a sibling of previous block.</span>
         <span class="n">ommer_age</span> <span class="o">=</span> <span class="n">block_header</span><span class="o">.</span><span class="n">number</span> <span class="o">-</span> <span class="n">ommer</span><span class="o">.</span><span class="n">number</span>
-        <span class="n">ensure</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer_age</span> <span class="o">&lt;=</span> <span class="n">MAX_UNCLE_DEPTH</span><span class="p">)</span>
+        <span class="n">ensure</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">ommer_age</span> <span class="o">&lt;=</span> <span class="n">MAX_OMMER_DEPTH</span><span class="p">)</span>
 
         <span class="n">ensure</span><span class="p">(</span><span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="ow">in</span> <span class="n">recent_canonical_block_hashes</span><span class="p">)</span>
         <span class="n">ensure</span><span class="p">(</span><span class="n">ommer</span><span class="o">.</span><span class="n">parent_hash</span> <span class="o">!=</span> <span class="n">block_header</span><span class="o">.</span><span class="n">parent_hash</span><span class="p">)</span>
