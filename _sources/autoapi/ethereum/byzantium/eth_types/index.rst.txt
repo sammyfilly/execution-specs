@@ -489,8 +489,8 @@ Result of a transaction.
 
    
 
-   .. py:attribute:: post_state
-      :annotation: :ethereum.base_types.Bytes
+   .. py:attribute:: succeeded
+      :annotation: :bool
 
       
 
