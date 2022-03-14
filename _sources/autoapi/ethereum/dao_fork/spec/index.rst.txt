@@ -558,13 +558,13 @@ calculate_block_difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: calculate_block_difficulty(parent_block_number: ethereum.base_types.Uint, timestamp: ethereum.base_types.U256, parent_timestamp: ethereum.base_types.U256, parent_difficulty: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+.. function:: calculate_block_difficulty(block_number: ethereum.base_types.Uint, block_timestamp: ethereum.base_types.U256, parent_timestamp: ethereum.base_types.U256, parent_difficulty: ethereum.base_types.Uint) -> ethereum.base_types.Uint
    :noindexentry:
 
    Computes difficulty of a block using its header and parent header.
 
-   :param parent_block_number: Block number of the parent block.
-   :param timestamp: Timestamp of the block.
+   :param block_number: Block number of the block.
+   :param block_timestamp: Timestamp of the block.
    :param parent_timestamp: Timestamp of the parent block.
    :param parent_difficulty: difficulty of the parent block.
 

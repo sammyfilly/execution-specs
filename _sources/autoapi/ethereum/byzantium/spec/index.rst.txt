@@ -610,16 +610,16 @@ calculate_block_difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. function:: calculate_block_difficulty(parent_block_number: ethereum.base_types.Uint, timestamp: ethereum.base_types.U256, parent_timestamp: ethereum.base_types.U256, parent_difficulty: ethereum.base_types.Uint, parent_ommers_hash: ethereum.byzantium.eth_types.Hash32) -> ethereum.base_types.Uint
+.. function:: calculate_block_difficulty(block_number: ethereum.base_types.Uint, block_timestamp: ethereum.base_types.U256, parent_timestamp: ethereum.base_types.U256, parent_difficulty: ethereum.base_types.Uint, parent_has_ommers: bool) -> ethereum.base_types.Uint
    :noindexentry:
 
    Computes difficulty of a block using its header and parent header.
 
-   :param parent_block_number: Block number of the parent block.
-   :param timestamp: Timestamp of the block.
+   :param block_number: Block number of the block.
+   :param block_timestamp: Timestamp of the block.
    :param parent_timestamp: Timestamp of the parent block.
    :param parent_difficulty: difficulty of the parent block.
-   :param parent_ommers_hash: hash of parents ommers.
+   :param parent_has_ommers: does the parent have ommers.
 
    :returns: **difficulty** -- Computed difficulty for a block.
    :rtype: `ethereum.base_types.Uint`
