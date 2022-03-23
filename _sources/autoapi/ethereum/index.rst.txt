@@ -16,6 +16,7 @@ Subpackages
    :maxdepth: 3
 
    byzantium/index.rst
+   crypto/index.rst
    dao_fork/index.rst
    frontier/index.rst
    homestead/index.rst
@@ -31,7 +32,6 @@ Submodules
    :maxdepth: 1
 
    base_types/index.rst
-   crypto/index.rst
    ethash/index.rst
    rlp/index.rst
 
