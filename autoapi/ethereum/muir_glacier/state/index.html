@@ -376,7 +376,7 @@ non-existent account and <cite>EMPTY_ACCOUNT</cite>.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Account</span><span class="p">:</span>
-    <span class="n">account</span> <span class="o">=</span> <span class="n">trie_get</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">_main_trie</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+    <span class="n">account</span> <span class="o">=</span> <span class="n">get_account_optional</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">Account</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">account</span>
     <span class="k">else</span><span class="p">:</span>
