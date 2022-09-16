@@ -502,14 +502,7 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
 
     touch_account(env.state, message.current_target)
 
-    sender_balance = get_account(env.state, message.caller).balance
-
     if <span class="change-added">message.should_transfer_value and </span>message.value != 0:
-        if sender_balance &lt; message.value:
-            rollback_transaction(env.state)
-            raise InsufficientFunds(
-                f&quot;Insufficient funds: {sender_balance} &lt; {message.value}&quot;
-            )
         move_ether(
             env.state, message.caller, message.current_target, message.value
         )
