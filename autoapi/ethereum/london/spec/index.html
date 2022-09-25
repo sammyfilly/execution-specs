@@ -791,22 +791,28 @@ block’s number since it is the next block in the sequence.</p>
         <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span>
     <span class="k">elif</span> <span class="n">parent_gas_used</span> <span class="o">&gt;</span> <span class="n">parent_gas_target</span><span class="p">:</span>
         <span class="n">gas_used_delta</span> <span class="o">=</span> <span class="n">parent_gas_used</span> <span class="o">-</span> <span class="n">parent_gas_target</span>
-        <span class="c1"># fmt: off</span>
+
+        <span class="n">parent_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span>
+        <span class="n">target_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_fee_gas_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span>
+
         <span class="n">base_fee_per_gas_delta</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
-            <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span><span class="p">,</span>  <span class="c1"># noqa: E501</span>
+            <span class="n">target_fee_gas_delta</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span><span class="p">,</span>
             <span class="mi">1</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="c1"># fmt: on</span>
+
         <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">parent_base_fee_per_gas</span> <span class="o">+</span> <span class="n">base_fee_per_gas_delta</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">gas_used_delta</span> <span class="o">=</span> <span class="n">parent_gas_target</span> <span class="o">-</span> <span class="n">parent_gas_used</span>
-        <span class="c1"># fmt: off</span>
+
+        <span class="n">parent_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span>
+        <span class="n">target_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_fee_gas_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span>
+
         <span class="n">base_fee_per_gas_delta</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span>  <span class="c1"># noqa: E501</span>
+            <span class="n">target_fee_gas_delta</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span>
         <span class="p">)</span>
-        <span class="c1"># fmt: on</span>
+
         <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">parent_base_fee_per_gas</span> <span class="o">-</span> <span class="n">base_fee_per_gas_delta</span>
         <span class="p">)</span>
