@@ -262,23 +262,17 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/eth_types/index.html">Ethereum Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/index.html">Ethereum <span class="change-replaced">Berlin</span><span class="change-replacement">London</span> Hardfork</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/spec/index.html">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/state/index.html">State</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/exceptions/index.html">Ethereum Virtual Machine (EVM) Exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/gas/index.html">Ethereum Virtual Machine (EVM) Gas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/index.html">Ethereum Virtual Machine (EVM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/instructions/environment/index.html">Ethereum Virtual Machine (EVM) Environmental Instructions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/instructions/index.html">EVM Instruction Encoding (Opcodes)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/instructions/system/index.html">Ethereum Virtual Machine (EVM) System Instructions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/berlin_london/vm/interpreter/index.html">Ethereum Virtual Machine (EVM) Interpreter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier.html">London → Arrow Glacier</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/index.html">Ethereum <span class="change-replaced">London</span><span class="change-replacement">Arrow Glacier</span> Hardfork</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/spec/index.html">Ethereum Specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/state/index.html">State</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/vm/index.html">Ethereum Virtual Machine (EVM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/vm/instructions/system/index.html">Ethereum Virtual Machine (EVM) System Instructions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../diffs/london_arrow_glacier/vm/interpreter/index.html">Ethereum Virtual Machine (EVM) Interpreter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../diffs/arrow_glacier_gray_glacier.html">Arrow Glacier → Gray Glacier</a><ul>
@@ -475,15 +469,17 @@
         <span class="n">accessed_storage_keys</span><span class="o">=</span><span class="n">evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
     <span class="p">)</span>
     <span class="n">child_evm</span> <span class="o">=</span> <span class="n">process_create_message</span><span class="p">(</span><span class="n">child_message</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-
+    <span class="n">evm</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child_evm</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">has_erred</span><span class="p">:</span>
-        <span class="n">incorporate_child_on_error</span><span class="p">(</span><span class="n">evm</span><span class="p">,</span> <span class="n">child_evm</span><span class="p">)</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
         <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">incorporate_child_on_success</span><span class="p">(</span><span class="n">evm</span><span class="p">,</span> <span class="n">child_evm</span><span class="p">)</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">+=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">logs</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accessed_addresses</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">accessed_addresses</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span>
         <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="o">.</span><span class="n">from_be_bytes</span><span class="p">(</span><span class="n">child_evm</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">))</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">+=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">gas_left</span>
+    <span class="n">child_evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -653,15 +649,18 @@ depends on the init_code instead of the nonce of sender.</p>
         <span class="n">accessed_storage_keys</span><span class="o">=</span><span class="n">evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
     <span class="p">)</span>
     <span class="n">child_evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">child_message</span><span class="p">,</span> <span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child_evm</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">has_erred</span><span class="p">:</span>
-        <span class="n">incorporate_child_on_error</span><span class="p">(</span><span class="n">evm</span><span class="p">,</span> <span class="n">child_evm</span><span class="p">)</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
         <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child_evm</span><span class="o">.</span><span class="n">error</span><span class="p">,</span> <span class="n">Revert</span><span class="p">):</span>
+            <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">incorporate_child_on_success</span><span class="p">(</span><span class="n">evm</span><span class="p">,</span> <span class="n">child_evm</span><span class="p">)</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">logs</span> <span class="o">+=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">logs</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accessed_addresses</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">accessed_addresses</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">accessed_storage_keys</span>
         <span class="n">push</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">evm</span><span class="o">.</span><span class="n">return_data</span> <span class="o">=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span>
 
     <span class="n">actual_output_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">memory_output_size</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">child_evm</span><span class="o">.</span><span class="n">output</span><span class="p">)))</span>
     <span class="n">memory_write</span><span class="p">(</span>
@@ -669,6 +668,8 @@ depends on the init_code instead of the nonce of sender.</p>
         <span class="n">memory_output_start_position</span><span class="p">,</span>
         <span class="n">child_evm</span><span class="o">.</span><span class="n">output</span><span class="p">[:</span><span class="n">actual_output_size</span><span class="p">],</span>
     <span class="p">)</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">+=</span> <span class="n">child_evm</span><span class="o">.</span><span class="n">gas_left</span>
+    <span class="n">child_evm</span><span class="o">.</span><span class="n">gas_left</span> <span class="o">=</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -879,11 +880,7 @@ depends on the init_code instead of the nonce of sender.</p>
     <span class="n">set_account_balance</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">originator</span><span class="p">,</span> <span class="n">U256</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
     <span class="c1"># register account for deletion</span>
-    <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">originator</span><span class="p">)</span>
-
-    <span class="c1"># mark beneficiary as touched</span>
-    <span class="k">if</span> <span class="n">account_exists_and_is_empty</span><span class="p">(</span><span class="n">evm</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">beneficiary</span><span class="p">):</span>
-        <span class="n">evm</span><span class="o">.</span><span class="n">touched_accounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">beneficiary</span><span class="p">)</span>
+    <span class="n">evm</span><span class="o">.</span><span class="n">accounts_to_delete</span><span class="p">[</span><span class="n">originator</span><span class="p">]</span> <span class="o">=</span> <span class="n">beneficiary</span>
 
     <span class="c1"># HALT the execution</span>
     <span class="n">evm</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
