@@ -262,17 +262,23 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/eth_types/index.html">Ethereum Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/index.html">Ethereum <span class="change-replaced">Berlin</span><span class="change-replacement">London</span> Hardfork</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/spec/index.html">Ethereum Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/state/index.html">State</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/exceptions/index.html">Ethereum Virtual Machine (EVM) Exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/gas/index.html">Ethereum Virtual Machine (EVM) Gas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/index.html">Ethereum Virtual Machine (EVM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/instructions/environment/index.html">Ethereum Virtual Machine (EVM) Environmental Instructions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/instructions/index.html">EVM Instruction Encoding (Opcodes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/instructions/system/index.html">Ethereum Virtual Machine (EVM) System Instructions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/berlin_london/vm/interpreter/index.html">Ethereum Virtual Machine (EVM) Interpreter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../diffs/london_arrow_glacier.html">London → Arrow Glacier</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/index.html">Ethereum <span class="change-replaced">London</span><span class="change-replacement">Arrow Glacier</span> Hardfork</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/spec/index.html">Ethereum Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/state/index.html">State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/vm/index.html">Ethereum Virtual Machine (EVM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/vm/instructions/system/index.html">Ethereum Virtual Machine (EVM) System Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../diffs/london_arrow_glacier/vm/interpreter/index.html">Ethereum Virtual Machine (EVM) Interpreter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../diffs/arrow_glacier_gray_glacier.html">Arrow Glacier → Gray Glacier</a><ul>
@@ -627,17 +633,17 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.london.vm.Evm.accounts_to_delete">
-<span class="sig-name descname"><span class="pre">accounts_to_delete</span></span><em class="property"> <span class="pre">:Dict[ethereum.london.eth_types.Address,</span> <span class="pre">ethereum.london.eth_types.Address]</span></em><a class="headerlink" href="#ethereum.london.vm.Evm.accounts_to_delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">accounts_to_delete</span></span><em class="property"> <span class="pre">:Set[ethereum.london.eth_types.Address]</span></em><a class="headerlink" href="#ethereum.london.vm.Evm.accounts_to_delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ethereum.london.vm.Evm.touched_accounts">
+<span class="sig-name descname"><span class="pre">touched_accounts</span></span><em class="property"> <span class="pre">:Set[ethereum.london.eth_types.Address]</span></em><a class="headerlink" href="#ethereum.london.vm.Evm.touched_accounts" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ethereum.london.vm.Evm.has_erred">
 <span class="sig-name descname"><span class="pre">has_erred</span></span><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#ethereum.london.vm.Evm.has_erred" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ethereum.london.vm.Evm.children">
-<span class="sig-name descname"><span class="pre">children</span></span><em class="property"> <span class="pre">:List[Evm]</span></em><a class="headerlink" href="#ethereum.london.vm.Evm.children" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
