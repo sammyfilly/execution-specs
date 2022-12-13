@@ -333,7 +333,11 @@
 <li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
 <li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pre-compiled-contracts" id="id3">PRE_COMPILED_CONTRACTS</a></p></li>
+<li><p><a class="reference internal" href="#ecrecover-address" id="id3">ECRECOVER_ADDRESS</a></p></li>
+<li><p><a class="reference internal" href="#sha256-address" id="id4">SHA256_ADDRESS</a></p></li>
+<li><p><a class="reference internal" href="#ripemd160-address" id="id5">RIPEMD160_ADDRESS</a></p></li>
+<li><p><a class="reference internal" href="#identity-address" id="id6">IDENTITY_ADDRESS</a></p></li>
+<li><p><a class="reference internal" href="#pre-compiled-contracts" id="id7">PRE_COMPILED_CONTRACTS</a></p></li>
 </ul>
 </li>
 </ul>
@@ -344,6 +348,50 @@
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="ecrecover-address">
+<h3>ECRECOVER_ADDRESS<a class="headerlink" href="#ecrecover-address" title="Permalink to this headline"></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.spurious_dragon.vm.precompiled_contracts.mapping.ECRECOVER_ADDRESS">
+<span class="sig-name descname"><span class="pre">ECRECOVER_ADDRESS</span></span><a class="headerlink" href="#ethereum.spurious_dragon.vm.precompiled_contracts.mapping.ECRECOVER_ADDRESS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ECRECOVER_ADDRESS</span> <span class="o">=</span> <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sha256-address">
+<h3>SHA256_ADDRESS<a class="headerlink" href="#sha256-address" title="Permalink to this headline"></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.spurious_dragon.vm.precompiled_contracts.mapping.SHA256_ADDRESS">
+<span class="sig-name descname"><span class="pre">SHA256_ADDRESS</span></span><a class="headerlink" href="#ethereum.spurious_dragon.vm.precompiled_contracts.mapping.SHA256_ADDRESS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SHA256_ADDRESS</span> <span class="o">=</span> <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x02&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ripemd160-address">
+<h3>RIPEMD160_ADDRESS<a class="headerlink" href="#ripemd160-address" title="Permalink to this headline"></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.spurious_dragon.vm.precompiled_contracts.mapping.RIPEMD160_ADDRESS">
+<span class="sig-name descname"><span class="pre">RIPEMD160_ADDRESS</span></span><a class="headerlink" href="#ethereum.spurious_dragon.vm.precompiled_contracts.mapping.RIPEMD160_ADDRESS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RIPEMD160_ADDRESS</span> <span class="o">=</span> <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x03&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="identity-address">
+<h3>IDENTITY_ADDRESS<a class="headerlink" href="#identity-address" title="Permalink to this headline"></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="ethereum.spurious_dragon.vm.precompiled_contracts.mapping.IDENTITY_ADDRESS">
+<span class="sig-name descname"><span class="pre">IDENTITY_ADDRESS</span></span><a class="headerlink" href="#ethereum.spurious_dragon.vm.precompiled_contracts.mapping.IDENTITY_ADDRESS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">IDENTITY_ADDRESS</span> <span class="o">=</span> <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x04&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="pre-compiled-contracts">
 <h3>PRE_COMPILED_CONTRACTS<a class="headerlink" href="#pre-compiled-contracts" title="Permalink to this headline"></a></h3>
 <dl class="py data">
@@ -352,10 +400,10 @@
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PRE_COMPILED_CONTRACTS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Address</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x01&quot;</span><span class="p">):</span> <span class="n">ecrecover</span><span class="p">,</span>
-    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x02&quot;</span><span class="p">):</span> <span class="n">sha256</span><span class="p">,</span>
-    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x03&quot;</span><span class="p">):</span> <span class="n">ripemd160</span><span class="p">,</span>
-    <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0x04&quot;</span><span class="p">):</span> <span class="n">identity</span><span class="p">,</span>
+    <span class="n">ECRECOVER_ADDRESS</span><span class="p">:</span> <span class="n">ecrecover</span><span class="p">,</span>
+    <span class="n">SHA256_ADDRESS</span><span class="p">:</span> <span class="n">sha256</span><span class="p">,</span>
+    <span class="n">RIPEMD160_ADDRESS</span><span class="p">:</span> <span class="n">ripemd160</span><span class="p">,</span>
+    <span class="n">IDENTITY_ADDRESS</span><span class="p">:</span> <span class="n">identity</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
