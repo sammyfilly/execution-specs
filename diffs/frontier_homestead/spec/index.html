@@ -84,6 +84,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../autoapi/ethereum/base_types/index.html">Numeric &amp; Array Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../autoapi/ethereum/ethash/index.html">Ethash Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../autoapi/ethereum/exceptions/index.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../autoapi/ethereum/genesis/index.html">Genesis Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../autoapi/ethereum/rlp/index.html">Recursive Length Prefix (RLP) Encoding</a></li>
 </ul>
 </li>
@@ -95,7 +96,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Comparisons</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../frontier_homestead.html">Frontier → Homestead</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../eth_types/index.html">Ethereum Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../genesis/index.html">Genesis Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html">Ethereum <span class="change-replaced">Frontier</span><span class="change-replacement">Homestead</span> Hardfork</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Ethereum Specification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../trie/index.html">State Trie</a></li>
@@ -546,38 +546,6 @@ an example.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
-    <span class="n">genesis</span> <span class="o">=</span> <span class="n">genesis_configuration</span><span class="p">(</span><span class="s2">&quot;mainnet.json&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span> <span class="ow">in</span> <span class="n">genesis</span><span class="o">.</span><span class="n">initial_balances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">create_ether</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
-
-    <span class="n">genesis_header</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span>
-        <span class="n">parent_hash</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="n">ommers_hash</span><span class="o">=</span><span class="n">rlp</span><span class="o">.</span><span class="n">rlp_hash</span><span class="p">(()),</span>
-        <span class="n">coinbase</span><span class="o">=</span><span class="n">Address</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">),</span>
-        <span class="n">state_root</span><span class="o">=</span><span class="n">state_root</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">),</span>
-        <span class="n">transactions_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
-        <span class="n">receipt_root</span><span class="o">=</span><span class="n">root</span><span class="p">(</span><span class="n">Trie</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
-        <span class="n">bloom</span><span class="o">=</span><span class="n">Bloom</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">256</span><span class="p">),</span>
-        <span class="n">difficulty</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
-        <span class="n">number</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="n">gas_limit</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
-        <span class="n">gas_used</span><span class="o">=</span><span class="n">Uint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="n">timestamp</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-        <span class="n">extra_data</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">extra_data</span><span class="p">,</span>
-        <span class="n">mix_digest</span><span class="o">=</span><span class="n">Hash32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="n">nonce</span><span class="o">=</span><span class="n">genesis</span><span class="o">.</span><span class="n">nonce</span><span class="p">,</span>
-    <span class="p">)</span>
-
-    <span class="n">genesis_block</span> <span class="o">=</span> <span class="n">Block</span><span class="p">(</span>
-        <span class="n">header</span><span class="o">=</span><span class="n">genesis_header</span><span class="p">,</span>
-        <span class="n">transactions</span><span class="o">=</span><span class="p">(),</span>
-        <span class="n">ommers</span><span class="o">=</span><span class="p">(),</span>
-    <span class="p">)</span>
-
-    <span class="n">old</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">genesis_block</span><span class="p">)</span>
-    <span class="n">old</span><span class="o">.</span><span class="n">chain_id</span> <span class="o">=</span> <span class="n">genesis</span><span class="o">.</span><span class="n">chain_id</span>
-
     <span class="k">return</span> <span class="n">old</span>
 </pre></div>
 </div>
