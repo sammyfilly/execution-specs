@@ -1198,12 +1198,12 @@ block.</p></li>
 
     <span class="n">pay_rewards</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">block_number</span><span class="p">,</span> <span class="n">coinbase</span><span class="p">,</span> <span class="n">ommers</span><span class="p">)</span>
 
-    <span class="n">gas_remaining</span> <span class="o">=</span> <span class="n">block_gas_limit</span> <span class="o">-</span> <span class="n">gas_available</span>
+    <span class="n">block_gas_used</span> <span class="o">=</span> <span class="n">block_gas_limit</span> <span class="o">-</span> <span class="n">gas_available</span>
 
     <span class="n">block_logs_bloom</span> <span class="o">=</span> <span class="n">logs_bloom</span><span class="p">(</span><span class="n">block_logs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="p">(</span>
-        <span class="n">gas_remaining</span><span class="p">,</span>
+        <span class="n">block_gas_used</span><span class="p">,</span>
         <span class="n">root</span><span class="p">(</span><span class="n">transactions_trie</span><span class="p">),</span>
         <span class="n">root</span><span class="p">(</span><span class="n">receipts_trie</span><span class="p">),</span>
         <span class="n">block_logs_bloom</span><span class="p">,</span>

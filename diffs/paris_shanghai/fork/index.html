@@ -942,7 +942,7 @@ block.</p></li>
 
         block_logs += logs
 
-    gas_remaining = block_gas_limit - gas_available
+    block_gas_used = block_gas_limit - gas_available
 
     block_logs_bloom = logs_bloom(block_logs)
 
@@ -955,7 +955,7 @@ block.</p></li>
             destroy_account(state, wd.address)
 
     </span>return (
-        gas_remaining,
+        block_gas_used,
         root(transactions_trie),
         root(receipts_trie),
         block_logs_bloom,
