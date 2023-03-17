@@ -387,7 +387,8 @@
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak256</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash32</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">sha3</span><span class="o">.</span><span class="n">keccak_256</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">keccak</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">digest_bits</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Hash32</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
@@ -411,7 +412,8 @@
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">keccak512</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hash64</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">sha3</span><span class="o">.</span><span class="n">keccak_512</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">keccak</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">digest_bits</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Hash64</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
