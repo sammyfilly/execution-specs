@@ -1,3 +1,5 @@
+64th
+authcall
 AnnAssign
 AsyncFunctionDef
 ClassDef
@@ -60,6 +62,7 @@ U32
 U8
 secp256k1
 secp256k1n
+subcall
 subclasses
 iadd
 ispkg

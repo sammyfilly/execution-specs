@@ -253,6 +253,7 @@ def execute_code(message: Message, env: Environment) -> Evm:
         error=None,
         accessed_addresses=message.accessed_addresses,
         accessed_storage_keys=message.accessed_storage_keys,
+        authorized=None,
     )
     try:
 

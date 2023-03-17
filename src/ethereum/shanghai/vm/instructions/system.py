@@ -11,7 +11,10 @@ Introduction
 
 Implementations of the EVM system related instructions.
 """
-from ethereum.base_types import U256, Bytes0, Uint
+from ethereum.base_types import U256, Bytes0, Bytes20, Uint
+from ethereum.crypto.elliptic_curve import SECP256K1N, secp256k1_recover
+from ethereum.crypto.hash import keccak256
+from ethereum.utils.byte import left_pad_zero_bytes
 from ethereum.utils.ensure import ensure
 from ethereum.utils.numeric import ceil32
 
@@ -35,8 +38,16 @@ from .. import (
     incorporate_child_on_error,
     incorporate_child_on_success,
 )
-from ..exceptions import OutOfGasError, Revert, WriteInStaticContext
+from ..exceptions import (
+    InsufficientValueForAuthcall,
+    NotAuthorized,
+    OutOfGasError,
+    Revert,
+    WriteInStaticContext,
+)
 from ..gas import (
+    GAS_AUTH,
+    GAS_AUTHCALL_VALUE,
     GAS_CALL_VALUE,
     GAS_COLD_ACCOUNT_ACCESS,
     GAS_CREATE,
@@ -52,7 +63,7 @@ from ..gas import (
     init_code_cost,
     max_message_call_gas,
 )
-from ..memory import memory_read_bytes, memory_write
+from ..memory import buffer_read, memory_read_bytes, memory_write
 from ..stack import pop, push
 
 
@@ -681,3 +692,156 @@ def revert(evm: Evm) -> None:
 
     # PROGRAM COUNTER
     pass
+
+
+def auth(evm: Evm) -> None:
+    """
+    Sets the `authorized` context variable for later use with `AUTHCALL`.
+    """
+    # STACK
+    authority = pop(evm.stack)
+    offset = pop(evm.stack)
+    length = pop(evm.stack)
+
+    # GAS
+    extend_memory = calculate_gas_extend_memory(
+        evm.memory,
+        [
+            (offset, length),
+        ],
+    )
+
+    charge_gas(evm, extend_memory.cost + GAS_AUTH)
+
+    # OPERATION
+    evm.memory += b"\x00" * extend_memory.expand_by
+
+    evm.authorized = None
+
+    # Don't read directly from memory because length can be < 128.
+    buffer = memory_read_bytes(evm.memory, offset, length)
+
+    y_parity = U256.from_be_bytes(buffer_read(buffer, offset, U256(32)))
+    r = U256.from_be_bytes(buffer_read(buffer, offset + 32, U256(32)))
+    s = U256.from_be_bytes(buffer_read(buffer, offset + 64, U256(32)))
+    commit = buffer_read(buffer, offset + 96, U256(32))
+
+    output = U256(0)
+
+    if 0 >= r or 0 >= s:
+        pass
+    elif SECP256K1N <= r or SECP256K1N // 2 < s:
+        pass
+    elif 0 != y_parity and 1 != y_parity:
+        pass
+    else:
+        chain_id = U256(evm.env.chain_id).to_be_bytes32()
+        current_target = left_pad_zero_bytes(evm.message.current_target, 32)
+
+        message = b"\x03" + chain_id + current_target + commit
+
+        message_hash = keccak256(message)
+        public_key = secp256k1_recover(r, s, y_parity, message_hash)
+
+        recovered = Bytes20(keccak256(public_key)[12:32])
+        recovered_32 = left_pad_zero_bytes(recovered, Uint(32))
+        if recovered_32 == authority:
+            evm.authorized = recovered
+            output = U256(1)
+
+    push(evm.stack, output)
+
+    # PROGRAM COUNTER
+    evm.pc += 1
+
+
+def authcall(evm: Evm) -> None:
+    """
+    Message-call into an account, changing the caller based on `authorized`.
+
+    Parameters
+    ----------
+    evm :
+        The current EVM frame.
+    """
+    # STACK
+    gas = Uint(pop(evm.stack))
+    to = to_address(pop(evm.stack))
+    value = pop(evm.stack)
+    value_ext = pop(evm.stack)
+    memory_input_start_position = pop(evm.stack)
+    memory_input_size = pop(evm.stack)
+    memory_output_start_position = pop(evm.stack)
+    memory_output_size = pop(evm.stack)
+
+    authorized = evm.authorized
+    if authorized is None:
+        raise NotAuthorized
+
+    # GAS
+    extend_memory = calculate_gas_extend_memory(
+        evm.memory,
+        [
+            (memory_input_start_position, memory_input_size),
+            (memory_output_start_position, memory_output_size),
+        ],
+    )
+
+    dynamic_gas = 0
+
+    if to not in evm.accessed_addresses:
+        evm.accessed_addresses.add(to)
+        dynamic_gas += GAS_COLD_ACCOUNT_ACCESS - GAS_WARM_ACCESS
+
+    if value > 0:
+        dynamic_gas += GAS_AUTHCALL_VALUE
+
+        if not is_account_alive(evm.env.state, to):
+            dynamic_gas += GAS_NEW_ACCOUNT
+
+    parent_gas = GAS_WARM_ACCESS + extend_memory.cost + dynamic_gas
+    remaining_gas = evm.gas_left - parent_gas
+    all_but_one_64th = max_message_call_gas(Uint(remaining_gas))
+
+    # Unlike other call opcodes, AUTHCALL reverts the frame if there is
+    # insufficient gas.
+    if gas == 0:
+        subcall_gas = all_but_one_64th
+    elif all_but_one_64th < gas:
+        raise OutOfGasError
+    else:
+        subcall_gas = gas
+
+    charge_gas(evm, parent_gas + subcall_gas)
+
+    # OPERATION
+    ensure(not evm.message.is_static or value == U256(0), WriteInStaticContext)
+    evm.memory += b"\x00" * extend_memory.expand_by
+
+    sender_balance = get_account(
+        evm.env.state, evm.message.current_target
+    ).balance
+    if sender_balance < value:
+        raise InsufficientValueForAuthcall
+
+    if 0 == value_ext:
+        generic_call(
+            evm,
+            subcall_gas,
+            value,
+            authorized,
+            to,
+            to,
+            True,
+            False,
+            memory_input_start_position,
+            memory_input_size,
+            memory_output_start_position,
+            memory_output_size,
+        )
+    else:
+        evm.gas_left += subcall_gas
+        push(evm.stack, U256(0))
+
+    # PROGRAM COUNTER
+    evm.pc += 1

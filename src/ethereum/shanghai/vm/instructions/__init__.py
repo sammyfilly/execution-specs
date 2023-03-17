@@ -203,6 +203,10 @@ class Ops(enum.Enum):
     CALL = 0xF1
     CALLCODE = 0xF2
     DELEGATECALL = 0xF4
+
+    AUTH = 0xF6
+    AUTHCALL = 0xF7
+
     STATICCALL = 0xFA
     REVERT = 0xFD
     SELFDESTRUCT = 0xFF
@@ -349,6 +353,8 @@ op_implementation: Dict[Ops, Callable] = {
     Ops.CALL: system_instructions.call,
     Ops.CALLCODE: system_instructions.callcode,
     Ops.DELEGATECALL: system_instructions.delegatecall,
+    Ops.AUTH: system_instructions.auth,
+    Ops.AUTHCALL: system_instructions.authcall,
     Ops.SELFDESTRUCT: system_instructions.selfdestruct,
     Ops.STATICCALL: system_instructions.staticcall,
     Ops.REVERT: system_instructions.revert,

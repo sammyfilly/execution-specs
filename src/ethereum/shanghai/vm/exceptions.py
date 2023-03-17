@@ -118,3 +118,19 @@ class InvalidContractPrefix(ExceptionalHalt):
     """
 
     pass
+
+
+class NotAuthorized(ExceptionalHalt):
+    """
+    Raised if `AUTHCALL` is invoked without an `authorized` address.
+    """
+
+    pass
+
+
+class InsufficientValueForAuthcall(ExceptionalHalt):
+    """
+    Raised if `AUTHCALL` is invoked without sufficient balance.
+    """
+
+    pass
