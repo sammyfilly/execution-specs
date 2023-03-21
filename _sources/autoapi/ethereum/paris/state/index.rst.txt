@@ -62,7 +62,6 @@ Functions
    ethereum.paris.state.touch_account
    ethereum.paris.state.increment_nonce
    ethereum.paris.state.set_code
-   ethereum.paris.state.create_ether
    ethereum.paris.state.get_storage_original
 
 
@@ -622,26 +621,6 @@ set_code
 .. undocinclude:: /../src/ethereum/paris/state.py
    :language: python
    :pyobject: set_code
-
-create_ether
-~~~~~~~~~~~~
-
-
-.. function:: create_ether(state: State, address: ethereum.paris.fork_types.Address, amount: ethereum.base_types.U256) -> None
-   :noindexentry:
-
-   Add newly created ether to an account.
-
-   :param state: The current state.
-   :param address: Address of the account to which ether is added.
-   :param amount: The amount of ether to be added to the account of interest.
-
-
-
-
-.. undocinclude:: /../src/ethereum/paris/state.py
-   :language: python
-   :pyobject: create_ether
 
 get_storage_original
 ~~~~~~~~~~~~~~~~~~~~
