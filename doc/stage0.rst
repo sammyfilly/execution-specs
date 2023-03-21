@@ -6,6 +6,7 @@ Ethereum Specification
    :maxdepth: 2
    :caption: Contents:
 
+   forks/index
    autoapi/index
 
 Indices and tables
