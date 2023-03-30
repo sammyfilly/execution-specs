@@ -554,9 +554,7 @@ Ethereum network.</p>
 </dd></dl>
 
 <pre class="literal-block">def apply_fork(old: BlockChain) -&gt; BlockChain:
-    <span class="change-added">for address in DAO_ACCOUNTS:
-        balance = get_account(old.state, address).balance
-        move_ether(old.state, address, DAO_RECOVERY, balance)
+    <span class="change-added">apply_dao(old.state)
     </span>return old
 </pre>
 </section>

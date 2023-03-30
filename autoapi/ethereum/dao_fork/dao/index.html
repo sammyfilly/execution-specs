@@ -304,8 +304,15 @@
 <li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
 <li><p><a class="reference internal" href="#module-contents" id="id2">Module Contents</a></p>
 <ul>
-<li><p><a class="reference internal" href="#dao-accounts" id="id3">DAO_ACCOUNTS</a></p></li>
-<li><p><a class="reference internal" href="#dao-recovery" id="id4">DAO_RECOVERY</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#attributes" id="id4">Attributes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#module-details" id="id5">Module Details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dao-accounts" id="id6">DAO_ACCOUNTS</a></p></li>
+<li><p><a class="reference internal" href="#dao-recovery" id="id7">DAO_RECOVERY</a></p></li>
+<li><p><a class="reference internal" href="#apply-dao" id="id8">apply_dao</a></p></li>
 </ul>
 </li>
 </ul>
@@ -318,6 +325,40 @@ collection of accounts (The Dao and all its children) to a recovery contract.</p
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.dao_fork.dao.apply_dao" title="ethereum.dao_fork.dao.apply_dao"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_dao</span></code></a></p></td>
+<td><p>Apply the dao fork to the state.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.dao_fork.dao.DAO_ACCOUNTS" title="ethereum.dao_fork.dao.DAO_ACCOUNTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DAO_ACCOUNTS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.dao_fork.dao.DAO_RECOVERY" title="ethereum.dao_fork.dao.DAO_RECOVERY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DAO_RECOVERY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module-details">
+<h2>Module Details<a class="headerlink" href="#module-details" title="Permalink to this headline"></a></h2>
 <section id="dao-accounts">
 <h3>DAO_ACCOUNTS<a class="headerlink" href="#dao-accounts" title="Permalink to this headline"></a></h3>
 <dl class="py data">
@@ -457,6 +498,26 @@ collection of accounts (The Dao and all its children) to a recovery contract.</p
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DAO_RECOVERY</span> <span class="o">=</span> <span class="n">hex_to_address</span><span class="p">(</span><span class="s2">&quot;0xbf4ed7b27f1d666546e30d74d50d173d20bca754&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="apply-dao">
+<h3>apply_dao<a class="headerlink" href="#apply-dao" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.dao_fork.dao.apply_dao">
+<span class="sig-name descname"><span class="pre">apply_dao</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../state/index.html#ethereum.dao_fork.state.State" title="ethereum.dao_fork.state.State"><span class="pre">ethereum.dao_fork.state.State</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.dao_fork.dao.apply_dao" title="Permalink to this definition"></a></dt>
+<dd><p>Apply the dao fork to the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> – State before applying the DAO Fork.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_dao</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">DAO_ACCOUNTS</span><span class="p">:</span>
+        <span class="n">balance</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">balance</span>
+        <span class="n">move_ether</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">DAO_RECOVERY</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

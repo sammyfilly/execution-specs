@@ -554,9 +554,7 @@ Ethereum network.</p>
 </dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply_fork</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="n">BlockChain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockChain</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">DAO_ACCOUNTS</span><span class="p">:</span>
-        <span class="n">balance</span> <span class="o">=</span> <span class="n">get_account</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">balance</span>
-        <span class="n">move_ether</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">DAO_RECOVERY</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+    <span class="n">apply_dao</span><span class="p">(</span><span class="n">old</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">old</span>
 </pre></div>
 </div>
