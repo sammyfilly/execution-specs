@@ -36,6 +36,7 @@ Functions
    ethereum.london.fork.apply_fork
    ethereum.london.fork.get_last_256_block_hashes
    ethereum.london.fork.state_transition
+   ethereum.london.fork.calculate_base_fee_per_gas
    ethereum.london.fork.validate_header
    ethereum.london.fork.generate_header_hash_for_pow
    ethereum.london.fork.validate_proof_of_work
@@ -332,6 +333,31 @@ state_transition
 .. undocinclude:: /../src/ethereum/london/fork.py
    :language: python
    :pyobject: state_transition
+
+calculate_base_fee_per_gas
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: calculate_base_fee_per_gas(block_gas_limit: ethereum.base_types.Uint, parent_gas_limit: ethereum.base_types.Uint, parent_gas_used: ethereum.base_types.Uint, parent_base_fee_per_gas: ethereum.base_types.Uint, is_fork_block: bool) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculates the base fee per gas for the block.
+
+   :param block_gas_limit: Gas limit of the block for which the base fee is being calculated.
+   :param parent_gas_limit: Gas limit of the parent block.
+   :param parent_gas_used: Gas used in the parent block.
+   :param parent_base_fee_per_gas: Base fee per gas of the parent block.
+   :param is_fork_block: Whether the block is the fork block.
+
+   :returns: **base_fee_per_gas** -- Base fee per gas for the block.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/london/fork.py
+   :language: python
+   :pyobject: calculate_base_fee_per_gas
 
 validate_header
 ~~~~~~~~~~~~~~~

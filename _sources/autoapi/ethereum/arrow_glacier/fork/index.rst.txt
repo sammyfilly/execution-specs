@@ -36,6 +36,7 @@ Functions
    ethereum.arrow_glacier.fork.apply_fork
    ethereum.arrow_glacier.fork.get_last_256_block_hashes
    ethereum.arrow_glacier.fork.state_transition
+   ethereum.arrow_glacier.fork.calculate_base_fee_per_gas
    ethereum.arrow_glacier.fork.validate_header
    ethereum.arrow_glacier.fork.generate_header_hash_for_pow
    ethereum.arrow_glacier.fork.validate_proof_of_work
@@ -69,7 +70,6 @@ Attributes
    ethereum.arrow_glacier.fork.GAS_LIMIT_ADJUSTMENT_FACTOR
    ethereum.arrow_glacier.fork.GAS_LIMIT_MINIMUM
    ethereum.arrow_glacier.fork.MINIMUM_DIFFICULTY
-   ethereum.arrow_glacier.fork.INITIAL_BASE_FEE
    ethereum.arrow_glacier.fork.MAX_OMMER_DEPTH
    ethereum.arrow_glacier.fork.BOMB_DELAY_BLOCKS
    ethereum.arrow_glacier.fork.EMPTY_OMMER_HASH
@@ -162,20 +162,6 @@ MINIMUM_DIFFICULTY
    :lines: 69-69
 
 
-INITIAL_BASE_FEE
-~~~~~~~~~~~~~~~~
-
-
-
-.. py:data:: INITIAL_BASE_FEE
-   
-   
-
-.. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
-   :language: python
-   :lines: 70-70
-
-
 MAX_OMMER_DEPTH
 ~~~~~~~~~~~~~~~
 
@@ -187,7 +173,7 @@ MAX_OMMER_DEPTH
 
 .. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
    :language: python
-   :lines: 71-71
+   :lines: 70-70
 
 
 BOMB_DELAY_BLOCKS
@@ -201,7 +187,7 @@ BOMB_DELAY_BLOCKS
 
 .. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
    :language: python
-   :lines: 72-72
+   :lines: 71-71
 
 
 EMPTY_OMMER_HASH
@@ -215,7 +201,7 @@ EMPTY_OMMER_HASH
 
 .. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
    :language: python
-   :lines: 73-73
+   :lines: 72-72
 
 
 BlockChain
@@ -332,6 +318,30 @@ state_transition
 .. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
    :language: python
    :pyobject: state_transition
+
+calculate_base_fee_per_gas
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. function:: calculate_base_fee_per_gas(block_gas_limit: ethereum.base_types.Uint, parent_gas_limit: ethereum.base_types.Uint, parent_gas_used: ethereum.base_types.Uint, parent_base_fee_per_gas: ethereum.base_types.Uint) -> ethereum.base_types.Uint
+   :noindexentry:
+
+   Calculates the base fee per gas for the block.
+
+   :param block_gas_limit: Gas limit of the block for which the base fee is being calculated.
+   :param parent_gas_limit: Gas limit of the parent block.
+   :param parent_gas_used: Gas used in the parent block.
+   :param parent_base_fee_per_gas: Base fee per gas of the parent block.
+
+   :returns: **base_fee_per_gas** -- Base fee per gas for the block.
+   :rtype: `Uint`
+
+
+
+
+.. undocinclude:: /../src/ethereum/arrow_glacier/fork.py
+   :language: python
+   :pyobject: calculate_base_fee_per_gas
 
 validate_header
 ~~~~~~~~~~~~~~~

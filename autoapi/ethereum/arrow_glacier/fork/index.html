@@ -373,14 +373,14 @@
 <li><p><a class="reference internal" href="#gas-limit-adjustment-factor" id="id10">GAS_LIMIT_ADJUSTMENT_FACTOR</a></p></li>
 <li><p><a class="reference internal" href="#gas-limit-minimum" id="id11">GAS_LIMIT_MINIMUM</a></p></li>
 <li><p><a class="reference internal" href="#minimum-difficulty" id="id12">MINIMUM_DIFFICULTY</a></p></li>
-<li><p><a class="reference internal" href="#initial-base-fee" id="id13">INITIAL_BASE_FEE</a></p></li>
-<li><p><a class="reference internal" href="#max-ommer-depth" id="id14">MAX_OMMER_DEPTH</a></p></li>
-<li><p><a class="reference internal" href="#bomb-delay-blocks" id="id15">BOMB_DELAY_BLOCKS</a></p></li>
-<li><p><a class="reference internal" href="#empty-ommer-hash" id="id16">EMPTY_OMMER_HASH</a></p></li>
-<li><p><a class="reference internal" href="#blockchain" id="id17">BlockChain</a></p></li>
-<li><p><a class="reference internal" href="#apply-fork" id="id18">apply_fork</a></p></li>
-<li><p><a class="reference internal" href="#get-last-256-block-hashes" id="id19">get_last_256_block_hashes</a></p></li>
-<li><p><a class="reference internal" href="#state-transition" id="id20">state_transition</a></p></li>
+<li><p><a class="reference internal" href="#max-ommer-depth" id="id13">MAX_OMMER_DEPTH</a></p></li>
+<li><p><a class="reference internal" href="#bomb-delay-blocks" id="id14">BOMB_DELAY_BLOCKS</a></p></li>
+<li><p><a class="reference internal" href="#empty-ommer-hash" id="id15">EMPTY_OMMER_HASH</a></p></li>
+<li><p><a class="reference internal" href="#blockchain" id="id16">BlockChain</a></p></li>
+<li><p><a class="reference internal" href="#apply-fork" id="id17">apply_fork</a></p></li>
+<li><p><a class="reference internal" href="#get-last-256-block-hashes" id="id18">get_last_256_block_hashes</a></p></li>
+<li><p><a class="reference internal" href="#state-transition" id="id19">state_transition</a></p></li>
+<li><p><a class="reference internal" href="#calculate-base-fee-per-gas" id="id20">calculate_base_fee_per_gas</a></p></li>
 <li><p><a class="reference internal" href="#validate-header" id="id21">validate_header</a></p></li>
 <li><p><a class="reference internal" href="#generate-header-hash-for-pow" id="id22">generate_header_hash_for_pow</a></p></li>
 <li><p><a class="reference internal" href="#validate-proof-of-work" id="id23">validate_proof_of_work</a></p></li>
@@ -441,61 +441,64 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.state_transition" title="ethereum.arrow_glacier.fork.state_transition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_transition</span></code></a></p></td>
 <td><p>Attempts to apply a block to an existing block chain.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_header" title="ethereum.arrow_glacier.fork.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.calculate_base_fee_per_gas" title="ethereum.arrow_glacier.fork.calculate_base_fee_per_gas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_base_fee_per_gas</span></code></a></p></td>
+<td><p>Calculates the base fee per gas for the block.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_header" title="ethereum.arrow_glacier.fork.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
 <td><p>Verifies a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.generate_header_hash_for_pow" title="ethereum.arrow_glacier.fork.generate_header_hash_for_pow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_header_hash_for_pow</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.generate_header_hash_for_pow" title="ethereum.arrow_glacier.fork.generate_header_hash_for_pow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_header_hash_for_pow</span></code></a></p></td>
 <td><p>Generate rlp hash of the header which is to be used for Proof-of-Work</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_proof_of_work" title="ethereum.arrow_glacier.fork.validate_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_proof_of_work</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_proof_of_work" title="ethereum.arrow_glacier.fork.validate_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_proof_of_work</span></code></a></p></td>
 <td><p>Validates the Proof of Work constraints.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.check_transaction" title="ethereum.arrow_glacier.fork.check_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.check_transaction" title="ethereum.arrow_glacier.fork.check_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_transaction</span></code></a></p></td>
 <td><p>Check if the transaction is includable in the block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.make_receipt" title="ethereum.arrow_glacier.fork.make_receipt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_receipt</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.make_receipt" title="ethereum.arrow_glacier.fork.make_receipt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_receipt</span></code></a></p></td>
 <td><p>Make the receipt for a transaction that was executed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.apply_body" title="ethereum.arrow_glacier.fork.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.apply_body" title="ethereum.arrow_glacier.fork.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
 <td><p>Executes a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_ommers" title="ethereum.arrow_glacier.fork.validate_ommers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_ommers</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_ommers" title="ethereum.arrow_glacier.fork.validate_ommers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_ommers</span></code></a></p></td>
 <td><p>Validates the ommers mentioned in the block.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.pay_rewards" title="ethereum.arrow_glacier.fork.pay_rewards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pay_rewards</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.pay_rewards" title="ethereum.arrow_glacier.fork.pay_rewards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pay_rewards</span></code></a></p></td>
 <td><p>Pay rewards to the block miner as well as the ommers miners.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.process_transaction" title="ethereum.arrow_glacier.fork.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.process_transaction" title="ethereum.arrow_glacier.fork.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
 <td><p>Execute a transaction against the provided environment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_transaction" title="ethereum.arrow_glacier.fork.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.validate_transaction" title="ethereum.arrow_glacier.fork.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
 <td><p>Verifies a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.calculate_intrinsic_cost" title="ethereum.arrow_glacier.fork.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.calculate_intrinsic_cost" title="ethereum.arrow_glacier.fork.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
 <td><p>Calculates the gas that is charged before execution is started.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.recover_sender" title="ethereum.arrow_glacier.fork.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.recover_sender" title="ethereum.arrow_glacier.fork.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
 <td><p>Extracts the sender address from a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_pre155" title="ethereum.arrow_glacier.fork.signing_hash_pre155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_pre155</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_pre155" title="ethereum.arrow_glacier.fork.signing_hash_pre155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_pre155</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a legacy (pre EIP 155) signature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_155" title="ethereum.arrow_glacier.fork.signing_hash_155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_155</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_155" title="ethereum.arrow_glacier.fork.signing_hash_155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_155</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 155 signature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_2930" title="ethereum.arrow_glacier.fork.signing_hash_2930"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_2930</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_2930" title="ethereum.arrow_glacier.fork.signing_hash_2930"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_2930</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 2930 signature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_1559" title="ethereum.arrow_glacier.fork.signing_hash_1559"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_1559</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.signing_hash_1559" title="ethereum.arrow_glacier.fork.signing_hash_1559"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_1559</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 1559 signature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.compute_header_hash" title="ethereum.arrow_glacier.fork.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.compute_header_hash" title="ethereum.arrow_glacier.fork.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
 <td><p>Computes the hash of a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.check_gas_limit" title="ethereum.arrow_glacier.fork.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.check_gas_limit" title="ethereum.arrow_glacier.fork.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
 <td><p>Validates the gas limit for a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.calculate_block_difficulty" title="ethereum.arrow_glacier.fork.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.calculate_block_difficulty" title="ethereum.arrow_glacier.fork.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
 <td><p>Computes difficulty of a block using its header and parent header.</p></td>
 </tr>
 </tbody>
@@ -527,16 +530,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.MINIMUM_DIFFICULTY" title="ethereum.arrow_glacier.fork.MINIMUM_DIFFICULTY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MINIMUM_DIFFICULTY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.INITIAL_BASE_FEE" title="ethereum.arrow_glacier.fork.INITIAL_BASE_FEE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INITIAL_BASE_FEE</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.MAX_OMMER_DEPTH" title="ethereum.arrow_glacier.fork.MAX_OMMER_DEPTH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_OMMER_DEPTH</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.MAX_OMMER_DEPTH" title="ethereum.arrow_glacier.fork.MAX_OMMER_DEPTH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_OMMER_DEPTH</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.BOMB_DELAY_BLOCKS" title="ethereum.arrow_glacier.fork.BOMB_DELAY_BLOCKS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOMB_DELAY_BLOCKS</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.BOMB_DELAY_BLOCKS" title="ethereum.arrow_glacier.fork.BOMB_DELAY_BLOCKS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BOMB_DELAY_BLOCKS</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.EMPTY_OMMER_HASH" title="ethereum.arrow_glacier.fork.EMPTY_OMMER_HASH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EMPTY_OMMER_HASH</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.arrow_glacier.fork.EMPTY_OMMER_HASH" title="ethereum.arrow_glacier.fork.EMPTY_OMMER_HASH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EMPTY_OMMER_HASH</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -608,17 +608,6 @@
 <dd></dd></dl>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MINIMUM_DIFFICULTY</span> <span class="o">=</span> <span class="n">Uint</span><span class="p">(</span><span class="mi">131072</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="initial-base-fee">
-<h3>INITIAL_BASE_FEE<a class="headerlink" href="#initial-base-fee" title="Permalink to this headline"></a></h3>
-<dl class="py data">
-<dt class="sig sig-object py" id="ethereum.arrow_glacier.fork.INITIAL_BASE_FEE">
-<span class="sig-name descname"><span class="pre">INITIAL_BASE_FEE</span></span><a class="headerlink" href="#ethereum.arrow_glacier.fork.INITIAL_BASE_FEE" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INITIAL_BASE_FEE</span> <span class="o">=</span> <span class="mi">1000000000</span>
 </pre></div>
 </div>
 </section>
@@ -814,49 +803,44 @@ should store more blocks to handle reorgs.</p>
 </pre></div>
 </div>
 </section>
-<section id="validate-header">
-<h3>validate_header<a class="headerlink" href="#validate-header" title="Permalink to this headline"></a></h3>
+<section id="calculate-base-fee-per-gas">
+<h3>calculate_base_fee_per_gas<a class="headerlink" href="#calculate-base-fee-per-gas" title="Permalink to this headline"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="ethereum.arrow_glacier.fork.validate_header">
-<span class="sig-name descname"><span class="pre">validate_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../fork_types/index.html#ethereum.arrow_glacier.fork_types.Header" title="ethereum.arrow_glacier.fork_types.Header"><span class="pre">ethereum.arrow_glacier.fork_types.Header</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../fork_types/index.html#ethereum.arrow_glacier.fork_types.Header" title="ethereum.arrow_glacier.fork_types.Header"><span class="pre">ethereum.arrow_glacier.fork_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.arrow_glacier.fork.validate_header" title="Permalink to this definition"></a></dt>
-<dd><p>Verifies a block header.</p>
-<p>In order to consider a block’s header valid, the logic for the
-quantities in the header should match the logic for the block itself.
-For example the header timestamp should be greater than the block’s parent
-timestamp because the block was created <em>after</em> the parent block.
-Additionally, the block’s number should be directly folowing the parent
-block’s number since it is the next block in the sequence.</p>
+<dt class="sig sig-object py" id="ethereum.arrow_glacier.fork.calculate_base_fee_per_gas">
+<span class="sig-name descname"><span class="pre">calculate_base_fee_per_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_gas_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_gas_used</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_base_fee_per_gas</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../../base_types/index.html#ethereum.base_types.Uint" title="ethereum.base_types.Uint"><span class="pre">ethereum.base_types.Uint</span></a><a class="headerlink" href="#ethereum.arrow_glacier.fork.calculate_base_fee_per_gas" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the base fee per gas for the block.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>header</strong> – Header to check for correctness.</p></li>
-<li><p><strong>parent_header</strong> – Parent Header of the header to check for correctness</p></li>
+<li><p><strong>block_gas_limit</strong> – Gas limit of the block for which the base fee is being calculated.</p></li>
+<li><p><strong>parent_gas_limit</strong> – Gas limit of the parent block.</p></li>
+<li><p><strong>parent_gas_used</strong> – Gas used in the parent block.</p></li>
+<li><p><strong>parent_base_fee_per_gas</strong> – Base fee per gas of the parent block.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>base_fee_per_gas</strong> – Base fee per gas for the block.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Uint</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">MAINNET_FORK_BLOCK</span><span class="p">:</span>
-        <span class="n">parent_gas_limit</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span> <span class="o">*</span> <span class="n">ELASTICITY_MULTIPLIER</span>
-        <span class="n">parent_gas_target</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">parent_gas_limit</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span>
-        <span class="n">parent_gas_target</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span> <span class="o">//</span> <span class="n">ELASTICITY_MULTIPLIER</span>
-        <span class="n">parent_base_fee_per_gas</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">base_fee_per_gas</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_base_fee_per_gas</span><span class="p">(</span>
+    <span class="n">block_gas_limit</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+    <span class="n">parent_gas_limit</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+    <span class="n">parent_gas_used</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+    <span class="n">parent_base_fee_per_gas</span><span class="p">:</span> <span class="n">Uint</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Uint</span><span class="p">:</span>
+    <span class="n">parent_gas_target</span> <span class="o">=</span> <span class="n">parent_gas_limit</span> <span class="o">//</span> <span class="n">ELASTICITY_MULTIPLIER</span>
 
-    <span class="n">parent_gas_used</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_used</span>
-
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span> <span class="o">&lt;=</span> <span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
     <span class="n">ensure</span><span class="p">(</span>
-        <span class="n">check_gas_limit</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">parent_gas_limit</span><span class="p">),</span>
+        <span class="n">check_gas_limit</span><span class="p">(</span><span class="n">block_gas_limit</span><span class="p">,</span> <span class="n">parent_gas_limit</span><span class="p">),</span>
         <span class="n">InvalidBlock</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="c1"># check if the base fee is correct</span>
-    <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">MAINNET_FORK_BLOCK</span><span class="p">:</span>
-        <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">INITIAL_BASE_FEE</span>
-    <span class="k">elif</span> <span class="n">parent_gas_used</span> <span class="o">==</span> <span class="n">parent_gas_target</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">parent_gas_used</span> <span class="o">==</span> <span class="n">parent_gas_target</span><span class="p">:</span>
         <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span>
     <span class="k">elif</span> <span class="n">parent_gas_used</span> <span class="o">&gt;</span> <span class="n">parent_gas_target</span><span class="p">:</span>
         <span class="n">gas_used_delta</span> <span class="o">=</span> <span class="n">parent_gas_used</span> <span class="o">-</span> <span class="n">parent_gas_target</span>
@@ -885,6 +869,42 @@ block’s number since it is the next block in the sequence.</p>
         <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">parent_base_fee_per_gas</span> <span class="o">-</span> <span class="n">base_fee_per_gas_delta</span>
         <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Uint</span><span class="p">(</span><span class="n">expected_base_fee_per_gas</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validate-header">
+<h3>validate_header<a class="headerlink" href="#validate-header" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.arrow_glacier.fork.validate_header">
+<span class="sig-name descname"><span class="pre">validate_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../fork_types/index.html#ethereum.arrow_glacier.fork_types.Header" title="ethereum.arrow_glacier.fork_types.Header"><span class="pre">ethereum.arrow_glacier.fork_types.Header</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../fork_types/index.html#ethereum.arrow_glacier.fork_types.Header" title="ethereum.arrow_glacier.fork_types.Header"><span class="pre">ethereum.arrow_glacier.fork_types.Header</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#ethereum.arrow_glacier.fork.validate_header" title="Permalink to this definition"></a></dt>
+<dd><p>Verifies a block header.</p>
+<p>In order to consider a block’s header valid, the logic for the
+quantities in the header should match the logic for the block itself.
+For example the header timestamp should be greater than the block’s parent
+timestamp because the block was created <em>after</em> the parent block.
+Additionally, the block’s number should be directly folowing the parent
+block’s number since it is the next block in the sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>header</strong> – Header to check for correctness.</p></li>
+<li><p><strong>parent_header</strong> – Parent Header of the header to check for correctness</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span> <span class="o">&lt;=</span> <span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
+
+    <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">calculate_base_fee_per_gas</span><span class="p">(</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
+        <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span>
+        <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_used</span><span class="p">,</span>
+        <span class="n">parent_header</span><span class="o">.</span><span class="n">base_fee_per_gas</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">ensure</span><span class="p">(</span><span class="n">expected_base_fee_per_gas</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">base_fee_per_gas</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
 

@@ -305,7 +305,7 @@
 <li><p><a class="reference internal" href="#gas-limit-adjustment-factor" id="id10">GAS_LIMIT_ADJUSTMENT_FACTOR</a></p></li>
 <li><p><a class="reference internal" href="#gas-limit-minimum" id="id11">GAS_LIMIT_MINIMUM</a></p></li>
 <li><p><a class="reference internal" href="#minimum-difficulty" id="id12">MINIMUM_DIFFICULTY</a></p></li>
-<li><p><a class="reference internal" href="#initial-base-fee" id="id13">INITIAL_BASE_FEE</a></p></li>
+<li class="change-removed"><p><a class="reference internal" href="#initial-base-fee" id="id13">INITIAL_BASE_FEE</a></p></li>
 <li><p><a class="reference internal" href="#max-ommer-depth" id="id14">MAX_OMMER_DEPTH</a></p></li>
 <li><p><a class="reference internal" href="#bomb-delay-blocks" id="id15">BOMB_DELAY_BLOCKS</a></p></li>
 <li><p><a class="reference internal" href="#empty-ommer-hash" id="id16">EMPTY_OMMER_HASH</a></p></li>
@@ -313,25 +313,26 @@
 <li><p><a class="reference internal" href="#apply-fork" id="id18">apply_fork</a></p></li>
 <li><p><a class="reference internal" href="#get-last-256-block-hashes" id="id19">get_last_256_block_hashes</a></p></li>
 <li><p><a class="reference internal" href="#state-transition" id="id20">state_transition</a></p></li>
-<li><p><a class="reference internal" href="#validate-header" id="id21">validate_header</a></p></li>
-<li><p><a class="reference internal" href="#generate-header-hash-for-pow" id="id22">generate_header_hash_for_pow</a></p></li>
-<li><p><a class="reference internal" href="#validate-proof-of-work" id="id23">validate_proof_of_work</a></p></li>
-<li><p><a class="reference internal" href="#check-transaction" id="id24">check_transaction</a></p></li>
-<li><p><a class="reference internal" href="#make-receipt" id="id25">make_receipt</a></p></li>
-<li><p><a class="reference internal" href="#apply-body" id="id26">apply_body</a></p></li>
-<li><p><a class="reference internal" href="#validate-ommers" id="id27">validate_ommers</a></p></li>
-<li><p><a class="reference internal" href="#pay-rewards" id="id28">pay_rewards</a></p></li>
-<li><p><a class="reference internal" href="#process-transaction" id="id29">process_transaction</a></p></li>
-<li><p><a class="reference internal" href="#validate-transaction" id="id30">validate_transaction</a></p></li>
-<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id31">calculate_intrinsic_cost</a></p></li>
-<li><p><a class="reference internal" href="#recover-sender" id="id32">recover_sender</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash-pre155" id="id33">signing_hash_pre155</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash-155" id="id34">signing_hash_155</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash-2930" id="id35">signing_hash_2930</a></p></li>
-<li><p><a class="reference internal" href="#signing-hash-1559" id="id36">signing_hash_1559</a></p></li>
-<li><p><a class="reference internal" href="#compute-header-hash" id="id37">compute_header_hash</a></p></li>
-<li><p><a class="reference internal" href="#check-gas-limit" id="id38">check_gas_limit</a></p></li>
-<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id39">calculate_block_difficulty</a></p></li>
+<li><p><a class="reference internal" href="#calculate-base-fee-per-gas" id="id21">calculate_base_fee_per_gas</a></p></li>
+<li><p><a class="reference internal" href="#validate-header" id="id22">validate_header</a></p></li>
+<li><p><a class="reference internal" href="#generate-header-hash-for-pow" id="id23">generate_header_hash_for_pow</a></p></li>
+<li><p><a class="reference internal" href="#validate-proof-of-work" id="id24">validate_proof_of_work</a></p></li>
+<li><p><a class="reference internal" href="#check-transaction" id="id25">check_transaction</a></p></li>
+<li><p><a class="reference internal" href="#make-receipt" id="id26">make_receipt</a></p></li>
+<li><p><a class="reference internal" href="#apply-body" id="id27">apply_body</a></p></li>
+<li><p><a class="reference internal" href="#validate-ommers" id="id28">validate_ommers</a></p></li>
+<li><p><a class="reference internal" href="#pay-rewards" id="id29">pay_rewards</a></p></li>
+<li><p><a class="reference internal" href="#process-transaction" id="id30">process_transaction</a></p></li>
+<li><p><a class="reference internal" href="#validate-transaction" id="id31">validate_transaction</a></p></li>
+<li><p><a class="reference internal" href="#calculate-intrinsic-cost" id="id32">calculate_intrinsic_cost</a></p></li>
+<li><p><a class="reference internal" href="#recover-sender" id="id33">recover_sender</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash-pre155" id="id34">signing_hash_pre155</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash-155" id="id35">signing_hash_155</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash-2930" id="id36">signing_hash_2930</a></p></li>
+<li><p><a class="reference internal" href="#signing-hash-1559" id="id37">signing_hash_1559</a></p></li>
+<li><p><a class="reference internal" href="#compute-header-hash" id="id38">compute_header_hash</a></p></li>
+<li><p><a class="reference internal" href="#check-gas-limit" id="id39">check_gas_limit</a></p></li>
+<li><p><a class="reference internal" href="#calculate-block-difficulty" id="id40">calculate_block_difficulty</a></p></li>
 </ul>
 </li>
 </ul>
@@ -373,61 +374,64 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.state_transition" title="ethereum.london.fork.state_transition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state_transition</span></code></a></p></td>
 <td><p>Attempts to apply a block to an existing block chain.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_header" title="ethereum.london.fork.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.calculate_base_fee_per_gas" title="ethereum.london.fork.calculate_base_fee_per_gas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_base_fee_per_gas</span></code></a></p></td>
+<td><p>Calculates the base fee per gas for the block.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_header" title="ethereum.london.fork.validate_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_header</span></code></a></p></td>
 <td><p>Verifies a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.generate_header_hash_for_pow" title="ethereum.london.fork.generate_header_hash_for_pow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_header_hash_for_pow</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.generate_header_hash_for_pow" title="ethereum.london.fork.generate_header_hash_for_pow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_header_hash_for_pow</span></code></a></p></td>
 <td><p>Generate rlp hash of the header which is to be used for Proof-of-Work</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_proof_of_work" title="ethereum.london.fork.validate_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_proof_of_work</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_proof_of_work" title="ethereum.london.fork.validate_proof_of_work"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_proof_of_work</span></code></a></p></td>
 <td><p>Validates the Proof of Work constraints.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.check_transaction" title="ethereum.london.fork.check_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.check_transaction" title="ethereum.london.fork.check_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_transaction</span></code></a></p></td>
 <td><p>Check if the transaction is includable in the block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.make_receipt" title="ethereum.london.fork.make_receipt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_receipt</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.make_receipt" title="ethereum.london.fork.make_receipt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_receipt</span></code></a></p></td>
 <td><p>Make the receipt for a transaction that was executed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.apply_body" title="ethereum.london.fork.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.apply_body" title="ethereum.london.fork.apply_body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_body</span></code></a></p></td>
 <td><p>Executes a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_ommers" title="ethereum.london.fork.validate_ommers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_ommers</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_ommers" title="ethereum.london.fork.validate_ommers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_ommers</span></code></a></p></td>
 <td><p>Validates the ommers mentioned in the block.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.pay_rewards" title="ethereum.london.fork.pay_rewards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pay_rewards</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.pay_rewards" title="ethereum.london.fork.pay_rewards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pay_rewards</span></code></a></p></td>
 <td><p>Pay rewards to the block miner as well as the ommers miners.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.process_transaction" title="ethereum.london.fork.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.process_transaction" title="ethereum.london.fork.process_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_transaction</span></code></a></p></td>
 <td><p>Execute a transaction against the provided environment.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_transaction" title="ethereum.london.fork.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.validate_transaction" title="ethereum.london.fork.validate_transaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transaction</span></code></a></p></td>
 <td><p>Verifies a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.calculate_intrinsic_cost" title="ethereum.london.fork.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.calculate_intrinsic_cost" title="ethereum.london.fork.calculate_intrinsic_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_intrinsic_cost</span></code></a></p></td>
 <td><p>Calculates the gas that is charged before execution is started.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.recover_sender" title="ethereum.london.fork.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.recover_sender" title="ethereum.london.fork.recover_sender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recover_sender</span></code></a></p></td>
 <td><p>Extracts the sender address from a transaction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_pre155" title="ethereum.london.fork.signing_hash_pre155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_pre155</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_pre155" title="ethereum.london.fork.signing_hash_pre155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_pre155</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a legacy (pre EIP 155) signature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_155" title="ethereum.london.fork.signing_hash_155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_155</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_155" title="ethereum.london.fork.signing_hash_155"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_155</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 155 signature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_2930" title="ethereum.london.fork.signing_hash_2930"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_2930</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_2930" title="ethereum.london.fork.signing_hash_2930"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_2930</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 2930 signature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_1559" title="ethereum.london.fork.signing_hash_1559"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_1559</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.signing_hash_1559" title="ethereum.london.fork.signing_hash_1559"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signing_hash_1559</span></code></a></p></td>
 <td><p>Compute the hash of a transaction used in a EIP 1559 signature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.compute_header_hash" title="ethereum.london.fork.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.compute_header_hash" title="ethereum.london.fork.compute_header_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_header_hash</span></code></a></p></td>
 <td><p>Computes the hash of a block header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.check_gas_limit" title="ethereum.london.fork.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.check_gas_limit" title="ethereum.london.fork.check_gas_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_gas_limit</span></code></a></p></td>
 <td><p>Validates the gas limit for a block.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.calculate_block_difficulty" title="ethereum.london.fork.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.calculate_block_difficulty" title="ethereum.london.fork.calculate_block_difficulty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_block_difficulty</span></code></a></p></td>
 <td><p>Computes difficulty of a block using its header and parent header.</p></td>
 </tr>
 </tbody>
@@ -459,7 +463,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.MINIMUM_DIFFICULTY" title="ethereum.london.fork.MINIMUM_DIFFICULTY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MINIMUM_DIFFICULTY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.INITIAL_BASE_FEE" title="ethereum.london.fork.INITIAL_BASE_FEE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INITIAL_BASE_FEE</span></code></a></p></td>
+<tr class="change-removed row-odd"><td><p><a class="reference internal" href="#ethereum.london.fork.INITIAL_BASE_FEE" title="ethereum.london.fork.INITIAL_BASE_FEE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INITIAL_BASE_FEE</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ethereum.london.fork.MAX_OMMER_DEPTH" title="ethereum.london.fork.MAX_OMMER_DEPTH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_OMMER_DEPTH</span></code></a></p></td>
@@ -543,7 +547,7 @@
 </pre></div>
 </div>
 </section>
-<section id="initial-base-fee">
+<section class="change-removed" id="initial-base-fee">
 <h3>INITIAL_BASE_FEE<a class="headerlink" href="#initial-base-fee" title="Permalink to this headline"></a></h3>
 <dl class="py data">
 <dt class="sig sig-object py" id="ethereum.london.fork.INITIAL_BASE_FEE">
@@ -745,6 +749,115 @@ should store more blocks to handle reorgs.</p>
 </pre></div>
 </div>
 </section>
+<section id="calculate-base-fee-per-gas">
+<h3>calculate_base_fee_per_gas<a class="headerlink" href="#calculate-base-fee-per-gas" title="Permalink to this headline"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="ethereum.london.fork.calculate_base_fee_per_gas">
+<span class="sig-name descname"><span class="pre">calculate_base_fee_per_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_gas_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_gas_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_gas_used</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_base_fee_per_gas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_fork_block</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ethereum.london.fork.calculate_base_fee_per_gas" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the base fee per gas for the block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_gas_limit</strong> – Gas limit of the block for which the base fee is being calculated.</p></li>
+<li><p><strong>parent_gas_limit</strong> – Gas limit of the parent block.</p></li>
+<li><p><strong>parent_gas_used</strong> – Gas used in the parent block.</p></li>
+<li><p><strong>parent_base_fee_per_gas</strong> – Base fee per gas of the parent block.</p></li>
+<li class="change-removed"><p><strong>is_fork_block</strong> – Whether the block is the fork block.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>base_fee_per_gas</strong> – Base fee per gas for the block.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>Uint</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<pre class="literal-block">def calculate_base_fee_per_gas(
+    block_gas_limit: Uint,
+    parent_gas_limit: Uint,
+    parent_gas_used: Uint,
+    parent_base_fee_per_gas: Uint,
+    <span class="change-removed">is_fork_block: bool,
+</span>) -&gt; Uint:
+    <span class="change-added">parent_gas_target = parent_gas_limit // ELASTICITY_MULTIPLIER
+
+    ensure(
+        check_gas_limit(block_gas_limit, parent_gas_limit),
+        InvalidBlock,
+    )
+
+    </span>if <span class="change-replaced">is_fork_block:</span><span class="change-replacement">parent_gas_used == parent_gas_target:
+        expected_base_fee_per_gas = parent_base_fee_per_gas
+    elif parent_gas_used &gt; parent_gas_target:
+        gas_used_delta = parent_gas_used - parent_gas_target
+
+        parent_fee_gas_delta = parent_base_fee_per_gas * gas_used_delta
+        target_fee_gas_delta = parent_fee_gas_delta // parent_gas_target
+
+        base_fee_per_gas_delta = max(
+            target_fee_gas_delta // BASE_FEE_MAX_CHANGE_DENOMINATOR,
+            1,
+        )
+
+        expected_base_fee_per_gas = (
+            parent_base_fee_per_gas + base_fee_per_gas_delta
+        )
+    else:
+        gas_used_delta = parent_gas_target - parent_gas_used
+
+        parent_fee_gas_delta = parent_base_fee_per_gas * gas_used_delta
+        target_fee_gas_delta = parent_fee_gas_delta // parent_gas_target
+
+        base_fee_per_gas_delta = (
+            target_fee_gas_delta // BASE_FEE_MAX_CHANGE_DENOMINATOR
+        )
+
+        expected_base_fee_per_gas = (
+            parent_base_fee_per_gas - base_fee_per_gas_delta
+        )</span>
+        return <span class="change-removed">Uint(INITIAL_BASE_FEE)
+    parent_gas_target = parent_gas_limit // ELASTICITY_MULTIPLIER
+
+    ensure(
+        check_gas_limit(block_gas_limit, parent_gas_limit),
+        InvalidBlock,
+    )
+
+    if parent_gas_used == parent_gas_target:
+        expected_base_fee_per_gas = parent_base_fee_per_gas
+    elif parent_gas_used &gt; parent_gas_target:
+        gas_used_delta = parent_gas_used - parent_gas_target
+
+        parent_fee_gas_delta = parent_base_fee_per_gas * gas_used_delta
+        target_fee_gas_delta = parent_fee_gas_delta // parent_gas_target
+
+        base_fee_per_gas_delta = max(
+            target_fee_gas_delta // BASE_FEE_MAX_CHANGE_DENOMINATOR,
+            1,
+        )
+
+        expected_base_fee_per_gas = (
+            parent_base_fee_per_gas + base_fee_per_gas_delta
+        )
+    else:
+        gas_used_delta = parent_gas_target - parent_gas_used
+
+        parent_fee_gas_delta = parent_base_fee_per_gas * gas_used_delta
+        target_fee_gas_delta = parent_fee_gas_delta // parent_gas_target
+
+        base_fee_per_gas_delta = (
+            target_fee_gas_delta // BASE_FEE_MAX_CHANGE_DENOMINATOR
+        )
+
+        expected_base_fee_per_gas = (
+            parent_base_fee_per_gas - base_fee_per_gas_delta
+        )
+
+    return </span>Uint(expected_base_fee_per_gas)
+</pre>
+</section>
 <section id="validate-header">
 <h3>validate_header<a class="headerlink" href="#validate-header" title="Permalink to this headline"></a></h3>
 <dl class="py function">
@@ -767,78 +880,59 @@ block’s number since it is the next block in the sequence.</p>
 </dl>
 </dd></dl>
 
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_header</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">Header</span><span class="p">,</span> <span class="n">parent_header</span><span class="p">:</span> <span class="n">Header</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">MAINNET_FORK_BLOCK</span><span class="p">:</span>
-        <span class="n">parent_gas_limit</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span> <span class="o">*</span> <span class="n">ELASTICITY_MULTIPLIER</span>
-        <span class="n">parent_gas_target</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">parent_gas_limit</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span>
-        <span class="n">parent_gas_target</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_limit</span> <span class="o">//</span> <span class="n">ELASTICITY_MULTIPLIER</span>
-        <span class="n">parent_base_fee_per_gas</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">base_fee_per_gas</span>
+<pre class="literal-block">def validate_header(header: Header, parent_header: Header) -&gt; None:
+    ensure(header.gas_used &lt;= header.gas_limit, InvalidBlock)
 
-    <span class="n">parent_gas_used</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">gas_used</span>
+    <span class="change-replaced">is_fork_block</span><span class="change-replacement">expected_base_fee_per_gas</span> = <span class="change-replaced">header.number</span><span class="change-replacement">calculate_base_fee_per_gas(
+        header.gas_limit,
+        parent_header.gas_limit,
+        parent_header.gas_used,
+        parent_header.base_fee_per_gas,
+    )
 
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_used</span> <span class="o">&lt;=</span> <span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-    <span class="n">ensure</span><span class="p">(</span>
-        <span class="n">check_gas_limit</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">gas_limit</span><span class="p">,</span> <span class="n">parent_gas_limit</span><span class="p">),</span>
-        <span class="n">InvalidBlock</span><span class="p">,</span>
-    <span class="p">)</span>
+    ensure(expected_base_fee_per_gas</span> == <span class="change-replaced">MAINNET_FORK_BLOCK
+    expected_base_fee_per_gas</span><span class="change-replacement">header.base_fee_per_gas, InvalidBlock)
 
-    <span class="c1"># check if the base fee is correct</span>
-    <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">MAINNET_FORK_BLOCK</span><span class="p">:</span>
-        <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">INITIAL_BASE_FEE</span>
-    <span class="k">elif</span> <span class="n">parent_gas_used</span> <span class="o">==</span> <span class="n">parent_gas_target</span><span class="p">:</span>
-        <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span>
-    <span class="k">elif</span> <span class="n">parent_gas_used</span> <span class="o">&gt;</span> <span class="n">parent_gas_target</span><span class="p">:</span>
-        <span class="n">gas_used_delta</span> <span class="o">=</span> <span class="n">parent_gas_used</span> <span class="o">-</span> <span class="n">parent_gas_target</span>
+    parent_has_ommers</span> = <span class="change-replaced">calculate_base_fee_per_gas(
+        header.gas_limit,
+        parent_header.gas_limit,
+        parent_header.gas_used,
+        parent_header.base_fee_per_gas,
+        is_fork_block,</span><span class="change-replacement">parent_header.ommers_hash != EMPTY_OMMER_HASH
+    ensure(header.timestamp &gt; parent_header.timestamp, InvalidBlock)
+    ensure(header.number == parent_header.number + 1, InvalidBlock)
+    ensure(len(header.extra_data) &lt;= 32, InvalidBlock)
 
-        <span class="n">parent_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span>
-        <span class="n">target_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_fee_gas_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span>
+    block_difficulty = calculate_block_difficulty(
+        header.number,
+        header.timestamp,
+        parent_header.timestamp,
+        parent_header.difficulty,
+        parent_has_ommers,</span>
+    )
 
-        <span class="n">base_fee_per_gas_delta</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
-            <span class="n">target_fee_gas_delta</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span><span class="p">,</span>
-            <span class="mi">1</span><span class="p">,</span>
-        <span class="p">)</span>
+    <span class="change-replaced">ensure(expected_base_fee_per_gas</span><span class="change-replacement">ensure(header.difficulty</span> == <span class="change-replaced">header.base_fee_per_gas,</span><span class="change-replacement">block_difficulty,</span> InvalidBlock)
 
-        <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">parent_base_fee_per_gas</span> <span class="o">+</span> <span class="n">base_fee_per_gas_delta</span>
-        <span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">gas_used_delta</span> <span class="o">=</span> <span class="n">parent_gas_target</span> <span class="o">-</span> <span class="n">parent_gas_used</span>
+    <span class="change-replaced">parent_has_ommers</span><span class="change-replacement">block_parent_hash</span> = <span class="change-replaced">parent_header.ommers_hash != EMPTY_OMMER_HASH
+    ensure(header.timestamp &gt; parent_header.timestamp,</span><span class="change-replacement">keccak256(rlp.encode(parent_header))
+    ensure(header.parent_hash == block_parent_hash,</span> InvalidBlock)
+    <span class="change-removed">ensure(header.number == parent_header.number + 1, InvalidBlock)
+    ensure(len(header.extra_data) &lt;= 32, InvalidBlock)
 
-        <span class="n">parent_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_base_fee_per_gas</span> <span class="o">*</span> <span class="n">gas_used_delta</span>
-        <span class="n">target_fee_gas_delta</span> <span class="o">=</span> <span class="n">parent_fee_gas_delta</span> <span class="o">//</span> <span class="n">parent_gas_target</span>
+    block_difficulty = calculate_block_difficulty(
+        header.number,
+        header.timestamp,
+        parent_header.timestamp,
+        parent_header.difficulty,
+        parent_has_ommers,
+    )
+    ensure(header.difficulty == block_difficulty, InvalidBlock)
 
-        <span class="n">base_fee_per_gas_delta</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">target_fee_gas_delta</span> <span class="o">//</span> <span class="n">BASE_FEE_MAX_CHANGE_DENOMINATOR</span>
-        <span class="p">)</span>
+    block_parent_hash = keccak256(rlp.encode(parent_header))
+    ensure(header.parent_hash == block_parent_hash, InvalidBlock)
 
-        <span class="n">expected_base_fee_per_gas</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">parent_base_fee_per_gas</span> <span class="o">-</span> <span class="n">base_fee_per_gas_delta</span>
-        <span class="p">)</span>
-
-    <span class="n">ensure</span><span class="p">(</span><span class="n">expected_base_fee_per_gas</span> <span class="o">==</span> <span class="n">header</span><span class="o">.</span><span class="n">base_fee_per_gas</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-
-    <span class="n">parent_has_ommers</span> <span class="o">=</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">ommers_hash</span> <span class="o">!=</span> <span class="n">EMPTY_OMMER_HASH</span>
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="n">parent_header</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-    <span class="n">ensure</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">extra_data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-
-    <span class="n">block_difficulty</span> <span class="o">=</span> <span class="n">calculate_block_difficulty</span><span class="p">(</span>
-        <span class="n">header</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
-        <span class="n">header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-        <span class="n">parent_header</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-        <span class="n">parent_header</span><span class="o">.</span><span class="n">difficulty</span><span class="p">,</span>
-        <span class="n">parent_has_ommers</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">difficulty</span> <span class="o">==</span> <span class="n">block_difficulty</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-
-    <span class="n">block_parent_hash</span> <span class="o">=</span> <span class="n">keccak256</span><span class="p">(</span><span class="n">rlp</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">parent_header</span><span class="p">))</span>
-    <span class="n">ensure</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">parent_hash</span> <span class="o">==</span> <span class="n">block_parent_hash</span><span class="p">,</span> <span class="n">InvalidBlock</span><span class="p">)</span>
-
-    <span class="n">validate_proof_of_work</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-</pre></div>
-</div>
+    </span>validate_proof_of_work(header)
+</pre>
 </section>
 <section id="generate-header-hash-for-pow">
 <h3>generate_header_hash_for_pow<a class="headerlink" href="#generate-header-hash-for-pow" title="Permalink to this headline"></a></h3>
