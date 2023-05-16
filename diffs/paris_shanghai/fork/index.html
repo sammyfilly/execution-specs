@@ -1063,9 +1063,9 @@ execution.</p>
 
     preaccessed_addresses = set()
     preaccessed_storage_keys = set()
-    if isinstance(tx, (AccessListTransaction, FeeMarketTransaction)):
-        <span class="change-added">preaccessed_addresses.add(env.coinbase)
-        </span>for (address, keys) in tx.access_list:
+    <span class="change-added">preaccessed_addresses.add(env.coinbase)
+    </span>if isinstance(tx, (AccessListTransaction, FeeMarketTransaction)):
+        for (address, keys) in tx.access_list:
             preaccessed_addresses.add(address)
             for key in keys:
                 preaccessed_storage_keys.add((address, key))

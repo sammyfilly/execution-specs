@@ -1132,8 +1132,8 @@ execution.</p>
 
     <span class="n">preaccessed_addresses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">preaccessed_storage_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">preaccessed_addresses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">coinbase</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="p">(</span><span class="n">AccessListTransaction</span><span class="p">,</span> <span class="n">FeeMarketTransaction</span><span class="p">)):</span>
-        <span class="n">preaccessed_addresses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">coinbase</span><span class="p">)</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">access_list</span><span class="p">:</span>
             <span class="n">preaccessed_addresses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
