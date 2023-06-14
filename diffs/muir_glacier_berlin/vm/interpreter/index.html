@@ -536,10 +536,19 @@ else it executes a call from the <cite>message.caller</cite> to the <cite>messag
     <span class="c1"># take snapshot of state before processing the message</span>
     <span class="n">begin_transaction</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
 
-    <span class="c1"># It&#39;s expected that the creation operation works on empty storage. Hence</span>
-    <span class="c1"># we delete the storage and restore the account&#39;s state if there is an</span>
-    <span class="c1"># error in the initialization code execution.</span>
+    <span class="c1"># If the address where the account is being created has storage, it is</span>
+    <span class="c1"># destroyed. This can only happen in the following highly unlikely</span>
+    <span class="c1"># circumstances:</span>
+    <span class="c1"># * The address created by a `CREATE` call collides with a subsequent</span>
+    <span class="c1">#   `CREATE` or `CREATE2` call.</span>
+    <span class="c1"># * The first `CREATE` happened before Spurious Dragon and left empty</span>
+    <span class="c1">#   code.</span>
     <span class="n">destroy_storage</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
+
+    <span class="c1"># In the previously mentioned edge case the preexisting storage is ignored</span>
+    <span class="c1"># for gas refund purposes. In order to do this we must track created</span>
+    <span class="c1"># accounts.</span>
+    <span class="n">mark_account_created</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
 
     <span class="n">increment_nonce</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">current_target</span><span class="p">)</span>
     <span class="n">evm</span> <span class="o">=</span> <span class="n">process_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>

@@ -63,7 +63,7 @@ STACK_DEPTH_LIMIT
 
 .. undocinclude:: /../src/ethereum/berlin/vm/interpreter.py
    :language: python
-   :lines: 48-48
+   :lines: 49-49
 
 
 MAX_CODE_SIZE
@@ -77,7 +77,7 @@ MAX_CODE_SIZE
 
 .. undocinclude:: /../src/ethereum/berlin/vm/interpreter.py
    :language: python
-   :lines: 49-49
+   :lines: 50-50
 
 
 MessageCallOutput

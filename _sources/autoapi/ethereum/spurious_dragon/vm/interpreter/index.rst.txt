@@ -63,7 +63,7 @@ STACK_DEPTH_LIMIT
 
 .. undocinclude:: /../src/ethereum/spurious_dragon/vm/interpreter.py
    :language: python
-   :lines: 46-46
+   :lines: 47-47
 
 
 MAX_CODE_SIZE
@@ -77,7 +77,7 @@ MAX_CODE_SIZE
 
 .. undocinclude:: /../src/ethereum/spurious_dragon/vm/interpreter.py
    :language: python
-   :lines: 47-47
+   :lines: 48-48
 
 
 MessageCallOutput
