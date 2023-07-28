@@ -71,12 +71,14 @@ def run_blockchain_st_test(test_case: Dict, load: Load) -> None:
     )
 
     for json_block in json_data["blocks"]:
-        block_exception = None
-        for key, value in json_block.items():
-            if key.startswith("expectException"):
-                block_exception = value
-                break
-
+        block_exception = next(
+            (
+                value
+                for key, value in json_block.items()
+                if key.startswith("expectException")
+            ),
+            None,
+        )
         if block_exception in RLP_DECODING_EXCEPTIONS:
             with pytest.raises(RLPDecodingError):
                 load.json_to_block(json_block)
@@ -174,8 +176,9 @@ def fetch_state_test_files(
     files_to_iterate = []
     if len(only_in):
         # Get file list from custom list, if one is specified
-        for test_path in only_in:
-            files_to_iterate.append(os.path.join(test_dir, test_path))
+        files_to_iterate.extend(
+            os.path.join(test_dir, test_path) for test_path in only_in
+        )
     else:
         # If there isnt a custom list, iterate over the test_dir
         all_jsons = [
@@ -184,12 +187,11 @@ def fetch_state_test_files(
             for y in glob(os.path.join(x[0], "*.json"))
         ]
 
-        for full_path in all_jsons:
-            if not any(x.search(full_path) for x in all_ignore):
-                # If a file or folder is marked for ignore,
-                # it can already be dropped at this stage
-                files_to_iterate.append(full_path)
-
+        files_to_iterate.extend(
+            full_path
+            for full_path in all_jsons
+            if not any(x.search(full_path) for x in all_ignore)
+        )
     # Start yielding individual test cases from the file list
     for _test_file in files_to_iterate:
         try:
@@ -221,4 +223,4 @@ def idfn(test_case: Dict) -> str:
     if isinstance(test_case, dict):
         folder_name = test_case["test_file"].split("/")[-2]
         # Assign Folder name and test_key to identify tests in output
-        return folder_name + " - " + test_case["test_key"]
+        return f"{folder_name} - " + test_case["test_key"]

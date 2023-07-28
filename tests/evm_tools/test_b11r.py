@@ -30,9 +30,9 @@ def find_test_fixtures() -> Any:
 
     for key, value in data.items():
 
-        final_args = []
-        for arg in value["args"]:
-            final_args.append(arg.replace("__BASEDIR__", B11R_TEST_PATH))
+        final_args = [
+            arg.replace("__BASEDIR__", B11R_TEST_PATH) for arg in value["args"]
+        ]
         yield {
             "name": key,
             "args": final_args,
@@ -46,10 +46,7 @@ def idfn(test_case: Dict) -> str:
 
 
 def get_rejected_indices(rejected: Dict) -> List[int]:
-    rejected_indices = []
-    for item in rejected:
-        rejected_indices.append(item["index"])
-    return rejected_indices
+    return [item["index"] for item in rejected]
 
 
 def b11r_tool_test(test_case: Dict) -> None:

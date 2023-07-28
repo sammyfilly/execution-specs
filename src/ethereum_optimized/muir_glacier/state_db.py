@@ -222,12 +222,10 @@ def rollback_transaction(state: State) -> None:
             # Restore storage that was destroyed by `destroy_storage()`
             state.destroyed_accounts.remove(item[0])
             state.dirty_storage[item[0]] = item[1]
+        elif item[1] is Unmodified:
+            del state.dirty_accounts[item[0]]
         else:
-            # Revert a change to an account
-            if item[1] is Unmodified:
-                del state.dirty_accounts[item[0]]
-            else:
-                state.dirty_accounts[item[0]] = item[1]
+            state.dirty_accounts[item[0]] = item[1]
 
     if not state.tx_restore_points:
         state.created_accounts.clear()

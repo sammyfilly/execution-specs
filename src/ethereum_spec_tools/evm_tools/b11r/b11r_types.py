@@ -82,15 +82,15 @@ class Body:
                 withdrawals_data = json.load(f)
 
         self.withdrawals = []
-        for wd in withdrawals_data:
-            self.withdrawals.append(
-                (
-                    parse_hex_or_int(wd["index"], U64),
-                    parse_hex_or_int(wd["validatorIndex"], U64),
-                    Bytes20(hex_to_bytes(wd["address"])),
-                    parse_hex_or_int(wd["amount"], Uint),
-                )
+        self.withdrawals.extend(
+            (
+                parse_hex_or_int(wd["index"], U64),
+                parse_hex_or_int(wd["validatorIndex"], U64),
+                Bytes20(hex_to_bytes(wd["address"])),
+                parse_hex_or_int(wd["amount"], Uint),
             )
+            for wd in withdrawals_data
+        )
 
 
 class Header:

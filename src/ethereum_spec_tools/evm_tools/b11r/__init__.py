@@ -120,8 +120,8 @@ class B11R:
             )
 
         result = {
-            "rlp": "0x" + self.block_rlp.hex(),
-            "hash": "0x" + self.block_hash.hex(),
+            "rlp": f"0x{self.block_rlp.hex()}",
+            "hash": f"0x{self.block_hash.hex()}",
         }
 
         self.logger.info("Writing the result...")
