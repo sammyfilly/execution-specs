@@ -57,7 +57,7 @@ def get_uncle_rlps(uncles: List[Dict[str, Any]]) -> List[str]:
         except KeyError:
             pass
 
-        uncles_rlp.append("0x" + rlp.encode(uncle_block).hex())
+        uncles_rlp.append(f"0x{rlp.encode(uncle_block).hex()}")
 
     return uncles_rlp
 
@@ -171,10 +171,10 @@ def load_evm_tools_test(
         header = {
             "parentHash": block["blockHeader"]["parentHash"],
             "miner": block["blockHeader"]["coinbase"],
-            "stateRoot": "0x" + t8n.result.state_root.hex(),
-            "transactionsRoot": "0x" + t8n.result.tx_root.hex(),
-            "receiptsRoot": "0x" + t8n.result.receipt_root.hex(),
-            "logsBloom": "0x" + t8n.result.bloom.hex(),
+            "stateRoot": f"0x{t8n.result.state_root.hex()}",
+            "transactionsRoot": f"0x{t8n.result.tx_root.hex()}",
+            "receiptsRoot": f"0x{t8n.result.receipt_root.hex()}",
+            "logsBloom": f"0x{t8n.result.bloom.hex()}",
             "difficulty": block["blockHeader"]["difficulty"],
             "number": block["blockHeader"]["number"],
             "gasLimit": block["blockHeader"]["gasLimit"],
@@ -191,17 +191,11 @@ def load_evm_tools_test(
             pass
 
         if t8n.result.withdrawals_root:
-            header["withdrawalsRoot"] = (
-                "0x" + t8n.result.withdrawals_root.hex()
-            )
+            header["withdrawalsRoot"] = f"0x{t8n.result.withdrawals_root.hex()}"
 
         ommers: List[Any] = get_uncle_rlps(block["uncleHeaders"])
 
-        stdin_data = {
-            "header": header,
-            "ommers": ommers,
-            "txs": "0x" + txs_rlp.hex(),
-        }
+        stdin_data = {"header": header, "ommers": ommers, "txs": f"0x{txs_rlp.hex()}"}
 
         b11r_args = [
             "b11r",
@@ -233,4 +227,4 @@ def idfn(test_case: Dict) -> str:
     if isinstance(test_case, dict):
         folder_name = test_case["test_file"].split("/")[-2]
         # Assign Folder name and test_key to identify tests in output
-        return folder_name + " - " + test_case["test_key"] + " - evm_tools"
+        return f"{folder_name} - " + test_case["test_key"] + " - evm_tools"

@@ -128,7 +128,7 @@ class Linter:
         if path is None:
             return []
 
-        modules = pkgutil.iter_modules(path, lints.__name__ + ".")
+        modules = pkgutil.iter_modules(path, f"{lints.__name__}.")
         for _, name, _ in modules:
             try:
                 importlib.import_module(name)

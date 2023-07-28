@@ -38,7 +38,7 @@ class Alloc:
                 if key == "storage":
                     continue
                 elif not value.startswith("0x"):
-                    data[address][key] = "0x" + hex(int(value))
+                    data[address][key] = f"0x{hex(int(value))}"
 
         state = t8n.json_to_state(data)
         if t8n.fork_module == "dao_fork":
@@ -59,17 +59,15 @@ class Alloc:
                 account_data["nonce"] = hex(account.nonce)
 
             if account.code:
-                account_data["code"] = "0x" + account.code.hex()
+                account_data["code"] = f"0x{account.code.hex()}"
 
             if address in self.state._storage_tries:
                 account_data["storage"] = {
-                    "0x" + k.hex(): hex(v)
-                    for k, v in self.state._storage_tries[
-                        address
-                    ]._data.items()
+                    f"0x{k.hex()}": hex(v)
+                    for k, v in self.state._storage_tries[address]._data.items()
                 }
 
-            data["0x" + address.hex()] = account_data
+            data[f"0x{address.hex()}"] = account_data
 
         return data
 
@@ -113,10 +111,7 @@ class Txs:
         Read the transactions file and return a list of transactions.
         Can read from JSON or RLP.
         """
-        if self.rlp_input:
-            return self.parse_rlp_tx()
-        else:
-            return self.parse_json_tx()
+        return self.parse_rlp_tx() if self.rlp_input else self.parse_json_tx()
 
     def parse_rlp_tx(self) -> Iterator[Tuple[int, Any]]:
         """
@@ -223,10 +218,7 @@ class Txs:
         else:
             tx_hash = keccak256(rlp.encode(tx))
 
-        data = {
-            "transactionHash": "0x" + tx_hash.hex(),
-            "gasUsed": hex(gas_consumed),
-        }
+        data = {"transactionHash": f"0x{tx_hash.hex()}", "gasUsed": hex(gas_consumed)}
         self.successful_receipts.append(data)
 
     def sign_transaction(self, json_tx: Any) -> None:
@@ -296,26 +288,17 @@ class Result:
 
     def to_json(self) -> Any:
         """Encode the result to JSON"""
-        data = {}
+        data = {"stateRoot": f"0x{self.state_root.hex()}"}
 
-        data["stateRoot"] = "0x" + self.state_root.hex()
-        data["txRoot"] = "0x" + self.tx_root.hex()
-        data["receiptsRoot"] = "0x" + self.receipt_root.hex()
+        data["txRoot"] = f"0x{self.tx_root.hex()}"
+        data["receiptsRoot"] = f"0x{self.receipt_root.hex()}"
         if self.withdrawals_root:
-            data["withdrawalsRoot"] = "0x" + self.withdrawals_root.hex()
-        data["logsHash"] = "0x" + self.logs_hash.hex()
-        data["logsBloom"] = "0x" + self.bloom.hex()
+            data["withdrawalsRoot"] = f"0x{self.withdrawals_root.hex()}"
+        data["logsHash"] = f"0x{self.logs_hash.hex()}"
+        data["logsBloom"] = f"0x{self.bloom.hex()}"
         data["gasUsed"] = hex(self.gas_used)
-        if self.difficulty:
-            data["currentDifficulty"] = hex(self.difficulty)
-        else:
-            data["currentDifficulty"] = None
-
-        if self.base_fee:
-            data["currentBaseFee"] = hex(self.base_fee)
-        else:
-            data["currentBaseFee"] = None
-
+        data["currentDifficulty"] = hex(self.difficulty) if self.difficulty else None
+        data["currentBaseFee"] = hex(self.base_fee) if self.base_fee else None
         data["rejected"] = [
             {"index": idx, "error": error}
             for idx, error in self.rejected.items()

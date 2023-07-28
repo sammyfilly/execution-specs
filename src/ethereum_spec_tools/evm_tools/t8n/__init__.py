@@ -166,7 +166,7 @@ class T8N(Load):
         for fork in self.forks:
             if fork.name == target_fork_name:
                 return_value = True
-            if fork.name == "ethereum." + self._fork_module:
+            if fork.name == f"ethereum.{self._fork_module}":
                 break
         return return_value
 
@@ -411,7 +411,7 @@ class T8N(Load):
                 self.options.output_basedir,
                 self.options.output_body,
             )
-            txs_rlp = "0x" + rlp.encode(self.txs.all_txs).hex()
+            txs_rlp = f"0x{rlp.encode(self.txs.all_txs).hex()}"
             with open(txs_rlp_path, "w") as f:
                 json.dump(txs_rlp, f)
             self.logger.info(f"Wrote transaction rlp to {txs_rlp_path}")

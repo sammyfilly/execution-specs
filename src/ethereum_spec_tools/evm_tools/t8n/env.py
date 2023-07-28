@@ -120,7 +120,7 @@ class Env:
                 current_random = current_random[2:]
 
             if len(current_random) % 2 == 1:
-                current_random = "0" + current_random
+                current_random = f"0{current_random}"
 
             self.prev_randao = Bytes32(
                 left_pad_zero_bytes(hex_to_bytes(current_random), 32)
@@ -206,11 +206,11 @@ class Env:
         """
         ommers = []
         if "ommers" in data:
-            for ommer in data["ommers"]:
-                ommers.append(
-                    Ommer(
-                        ommer["delta"],
-                        t8n.hex_to_address(ommer["address"]),
-                    )
+            ommers.extend(
+                Ommer(
+                    ommer["delta"],
+                    t8n.hex_to_address(ommer["address"]),
                 )
+                for ommer in data["ommers"]
+            )
         self.ommers = ommers
